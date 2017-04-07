@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="pdp_image_pager_default_height">400dp</dimen>
+    <dimen name="pdp_image_pager_default_height_expanded">600dp</dimen>
+</resources>

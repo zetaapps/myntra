@@ -1,0 +1,99 @@
+apply plugin: 'com.android.library'
+apply plugin: 'com.neenbedankt.android-apt'
+apply plugin: 'me.tatarka.retrolambda'
+apply plugin: 'com.fernandocejas.frodo'
+
+android {
+    compileSdkVersion versions.compileSdk
+    buildToolsVersion versions.buildTools
+
+    // NOTE: you must uncomment this to use Frodo on myntra engine, but DO NOT commit the change!
+    // This flag forces myntra engine to build as debug *regardless of the build selected for the app
+    // module!*
+    // defaultPublishConfig "debug"
+
+    //defaultPublishConfig "automation"
+
+    dexOptions {
+        javaMaxHeapSize "4g"
+    }
+
+    defaultConfig {
+        minSdkVersion versions.minSdk
+        targetSdkVersion versions.targetSdk
+        versionCode 1
+        versionName "0.1"
+
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    }
+
+    lintOptions {
+        abortOnError false
+        lintConfig file("../config/lint/lint.xml")
+    }
+
+    publishNonDefault true
+
+    buildTypes {
+
+        automation.initWith(buildTypes.debug)
+        automation {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+
+        debug {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+}
+
+dependencies {
+    compile libraries.dagger
+    apt libraries.daggerCompiler
+
+    compile libraries.timber
+
+    compile libraries.zetaUtils
+    compile libraries.zetaEither
+
+    compile libraries.retrofit
+    compile libraries.retrofitRxAdapter
+    compile libraries.retrofitGsonConverter
+
+    automationCompile libraries.retrofitMock
+
+    compile libraries.rxJava
+    compile libraries.rxAndroid
+    compile libraries.persistentCookieJar
+
+    provided libraries.autoValue
+    provided libraries.autoValueParcelAdapter
+    apt libraries.autoValueParcel
+
+    compile libraries.jsr305
+    compile libraries.javaxAnnotationApi
+
+    testCompile libraries.junit
+    testCompile libraries.retrofitMock
+    testCompile libraries.orgDotJson
+    testCompile libraries.mockitoCore
+
+    androidTestCompile libraries.supportTestRunner
+    androidTestCompile libraries.supportTestRules
+}
+
+frodo {
+    enabled = false
+}

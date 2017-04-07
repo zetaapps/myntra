@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/zeta_white"
+    android:scrollbars="none">
+
+    <ProgressBar
+        android:id="@+id/zeta_progress_bar"
+        style="?android:attr/progressBarStyleInverse"
+        android:layout_width="@dimen/zeta_progress_bar_width_height"
+        android:layout_height="@dimen/zeta_progress_bar_width_height"
+        android:layout_gravity="center"
+        android:layout_marginBottom="@dimen/default_4x_padding_margin"
+        android:layout_marginTop="@dimen/default_4x_padding_margin"
+        android:theme="@style/AppTheme.Indigo"
+        android:visibility="gone" />
+
+    <com.amar.library.ui.StickyScrollView
+        android:id="@+id/zeta_pdp_scroll_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true"
+        android:scrollbars="none"
+        app:stickyFooter="@+id/zeta_pdp_purchase_layout">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <com.github.metagalactic2.views.ExpandableImageView
+                android:id="@+id/zeta_pdp_image_view"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/pdp_image_pager_default_height" />
+
+            <TextView
+                android:id="@+id/zeta_pdp_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:maxLines="1"
+                android:paddingLeft="@dimen/default_4x_padding_margin"
+                android:paddingRight="@dimen/default_4x_padding_margin"
+                android:textColor="@color/zeta_md_black_1000"
+                android:textSize="@dimen/titleTextSize"
+                tools:text="product title" />
+
+            <TextView
+                android:id="@+id/zeta_pdp_price"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingLeft="@dimen/default_4x_padding_margin"
+                android:paddingRight="@dimen/default_4x_padding_margin"
+                android:textColor="@color/zeta_md_black_1000"
+                android:textSize="@dimen/titleTextSize"
+                tools:text="product price" />
+
+            <TextView
+                android:id="@+id/zeta_pdp_description"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingLeft="@dimen/default_4x_padding_margin"
+                android:paddingRight="@dimen/default_4x_padding_margin"
+                android:textColor="@color/zeta_md_grey_500"
+                android:textSize="@dimen/mediumTextSize"
+                tools:text="product description" />
+
+
+            <include
+                android:id="@+id/zeta_pdp_purchase_layout"
+                layout="@layout/view_pdp_purchase_bar" />
+
+
+        </LinearLayout>
+
+    </com.amar.library.ui.StickyScrollView>
+
+</FrameLayout>

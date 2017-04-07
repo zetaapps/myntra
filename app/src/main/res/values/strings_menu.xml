@@ -1,0 +1,14 @@
+<resources>
+
+    <string name="zeta_menu_cart">add to cart</string>
+    <string name="zeta_menu_search">search fashion</string>
+    <string name="zeta_menu_list">search list view</string>
+    <string name="zeta_menu_grid">search grid view</string>
+
+    <!-- Temp -->
+    <string name="action_button_toast_text">Action Button Clicked with URL: %s</string>
+    <string name="menu_item_toast_text">Menu Item Clicked with URL: %s</string>
+    <string name="toolbar_toast_text">Toolbar Clicked with URL: %s</string>
+    <string name="unknown_toast_text">Unknown Action Clicked with URL: %s</string>
+
+</resources>

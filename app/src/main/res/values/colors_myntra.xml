@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <color name="pdp_toolbar_gradient_start">#73000000</color>
+    <color name="pdp_toolbar_gradient_end">#00000000</color>
+
+    <color name="divider_color">@color/zeta_stroke_grey</color>
+
+    <color name="blueberry_80">#535766</color>
+
+    <color name="btn_pressed_color">#08B491</color>
+    <color name="btn_color">#0BC6A0</color>
+    <color name="btn_disabled_color">#500BC6A0</color>
+
+</resources>

@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="zeta.android.myntra">
+
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+
+    <application
+        android:name="zeta.android.myntra.ZetaApplication"
+        android:allowBackup="true"
+        android:fullBackupContent="true"
+        android:icon="@mipmap/ic_zeta_app_icon"
+        android:label="@string/app_name"
+        android:largeHeap="@bool/use_large_heap"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme.Launcher"
+        tools:replace="allowBackup">
+
+        <activity
+            android:name="zeta.android.myntra.ui.activity.NavigationActivity"
+            android:label="@string/app_name"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <activity android:name="zeta.android.myntra.ui.activity.WebViewActivity" />
+
+        <!--
+        <meta-data
+            android:name="com.google.android.gms.version"
+            android:value="@integer/google_play_services_version" />
+        -->
+
+        <!-- Glide -->
+        <meta-data
+            android:name="zeta.android.myntra.appconfig.GlideConfigModule"
+            android:value="GlideModule" />
+
+        <!-- Crashlytics -->
+        <meta-data
+            android:name="io.fabric.ApiKey"
+            android:value="bf870fc34e41b3ab5d047fe3a5a03e7a03025af9" />
+
+    </application>
+
+</manifest>

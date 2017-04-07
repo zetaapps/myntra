@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/search_grid_item_background"
+    android:orientation="vertical"
+    android:showDividers="middle">
+
+    <ImageView
+        android:id="@+id/zeta_product_grid_image"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_gravity="center"
+        android:layout_weight="1.0"
+        android:contentDescription="@null"
+        android:padding="0.5dp"
+        android:scaleType="centerCrop" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.25"
+        android:orientation="vertical">
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/zeta_product_grid_image_subtitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="start"
+                android:paddingLeft="@dimen/default_2x_padding_margin"
+                android:paddingRight="@dimen/default_2x_padding_margin" />
+
+            <ImageView
+                android:id="@+id/zeta_product_grid_save"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="end"
+                android:layout_marginLeft="@dimen/default_4x_padding_margin"
+                android:layout_marginRight="@dimen/default_4x_padding_margin"
+                android:layout_marginTop="@dimen/default_2x_padding_margin"
+                android:contentDescription="@null"
+                android:src="@drawable/ic_wishlist" />
+
+        </FrameLayout>
+
+        <TextView
+            android:id="@+id/zeta_product_grid_image_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingLeft="@dimen/default_2x_padding_margin"
+            android:paddingRight="@dimen/default_2x_padding_margin"
+            android:singleLine="true"
+            android:textSize="@dimen/x_microTextSize" />
+
+    </LinearLayout>
+</LinearLayout>
+
