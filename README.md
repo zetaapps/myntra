@@ -11,7 +11,7 @@ LICENCE
 
 Zeta by [Manjunath Chandrashekar](https://www.linkedin.com/in/manjunath-chandrashekar) is licensed under a [Apache License 2.0](http://www.apache.org/licenses/LICENSE-2.0).
 
-    Copyright 2016 Manjunath Chandrashekar, Manij Shrestha, Collin Flynn.
+    Copyright 2016 Manjunath Chandrashekar
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
