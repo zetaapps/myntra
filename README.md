@@ -3,8 +3,7 @@
 [![Platform](https://img.shields.io/badge/platform-android-green.svg)](http://developer.android.com/index.html)
 ![SDK](https://img.shields.io/badge/SDK-16%2B-green.svg)
 ![Release](https://img.shields.io/badge/release-v1.0-green.svg)
-[![Build Status](https://travis-ci.org/zetaapps/zeta.svg?branch=master)](https://travis-ci.org/zetaapps/zeta)
-[![codecov](https://codecov.io/gh/zetaapps/zeta/branch/master/graph/badge.svg)](https://codecov.io/gh/zetaapps/zeta)
+[![Build Status](https://travis-ci.org/zetaapps/myntra.svg?branch=master)](https://travis-ci.org/zetaapps/myntra)
 
 LICENCE
 -----
