@@ -1,4 +1,4 @@
-package zeta.android.thunderbird.api.apify;
+package zeta.android.thunderbird.api.apify.response;
 
 
 import android.support.v4.util.Pair;
