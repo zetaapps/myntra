@@ -20,6 +20,7 @@ import android.util.TypedValue;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -64,6 +65,9 @@ public class NavigationActivity extends BaseNavigationActivity implements Naviga
 
         @BindView(R.id.zeta_toolbar)
         Toolbar toolbar;
+
+        @BindView(R.id.zeta_toolbar_edit_text)
+        EditText toolbarEditText;
 
         @BindView(R.id.zeta_nav_view)
         NavigationView navigationView;

@@ -39,7 +39,41 @@
                 android:layout_height="?attr/actionBarSize"
                 android:background="?attr/colorPrimary"
                 app:layout_collapseMode="pin"
-                app:popupTheme="@style/AppTheme.PopupOverlay" />
+                app:popupTheme="@style/AppTheme.PopupOverlay">
+
+                <TextView
+                    android:id="@+id/zeta_toolbar_custom_title"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:ellipsize="end"
+                    android:paddingBottom="@dimen/default_padding_margin"
+                    android:paddingEnd="@dimen/no_padding_margin"
+                    android:paddingLeft="@dimen/default_4x_padding_margin"
+                    android:paddingRight="@dimen/no_padding_margin"
+                    android:paddingStart="@dimen/default_4x_padding_margin"
+                    android:paddingTop="@dimen/default_padding_margin"
+                    android:textColor="@color/zeta_md_black_1000"
+                    android:textSize="@dimen/x_largeTextSize"
+                    android:visibility="gone" />
+
+                <EditText
+                    android:id="@+id/zeta_toolbar_edit_text"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:ellipsize="end"
+                    android:hint="@string/zeta_search_editor_hint"
+                    android:inputType="text"
+                    android:paddingBottom="@dimen/no_padding_margin"
+                    android:paddingEnd="@dimen/no_padding_margin"
+                    android:paddingLeft="@dimen/no_padding_margin"
+                    android:paddingRight="@dimen/no_padding_margin"
+                    android:paddingStart="@dimen/no_padding_margin"
+                    android:paddingTop="@dimen/default_padding_margin"
+                    android:textColor="@color/zeta_md_grey_400"
+                    android:textSize="@dimen/x_microTextSize"
+                    android:visibility="gone" />
+
+            </android.support.v7.widget.Toolbar>
 
         </android.support.design.widget.CollapsingToolbarLayout>
 
