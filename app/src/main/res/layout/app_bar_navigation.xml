@@ -70,7 +70,7 @@
                     android:paddingStart="@dimen/no_padding_margin"
                     android:paddingTop="@dimen/default_padding_margin"
                     android:textColor="@color/zeta_md_grey_400"
-                    android:textSize="@dimen/x_microTextSize"
+                    android:textSize="@dimen/microTextSize"
                     android:visibility="gone" />
 
             </android.support.v7.widget.Toolbar>
