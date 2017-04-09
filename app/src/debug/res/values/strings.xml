@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Zeta (D)</string>
+    <string name="app_name">Myntra (D)</string>
 
     <string name="enable_stetho">Enable Stetho</string>
     <string name="enable_tiny_dancer">Enable Tiny Dancer</string>

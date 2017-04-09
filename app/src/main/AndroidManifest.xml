@@ -12,7 +12,7 @@
         android:name="zeta.android.myntra.ZetaApplication"
         android:allowBackup="true"
         android:fullBackupContent="true"
-        android:icon="@mipmap/ic_zeta_app_icon"
+        android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:largeHeap="@bool/use_large_heap"
         android:supportsRtl="true"
