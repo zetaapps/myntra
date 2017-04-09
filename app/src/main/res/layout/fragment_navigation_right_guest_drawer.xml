@@ -33,7 +33,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="6dp"
-            android:text="EXPRESS YOUR STYLE!"
+            android:text="@string/zeta_navigation_right_guest_express_your_style"
             android:textAllCaps="true"
             android:textColor="@color/black"
             android:textSize="@dimen/microTextSize" />
@@ -46,7 +46,7 @@
             android:layout_marginBottom="0dp"
             android:layout_marginTop="6dp"
             android:gravity="center_horizontal"
-            android:text="Log In or Sign Up to like, collect and manage orders"
+            android:text="@string/zeta_navigation_right_guest_express_your_style_sub_title"
             android:textColor="@color/black"
             android:textSize="@dimen/x_microTextSize" />
     </LinearLayout>
