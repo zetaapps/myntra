@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<zeta.android.myntra.ui.views.navigation.ScrimInsetsFrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/zeta_white"
+    android:fitsSystemWindows="true"
+    android:scrollbars="none"
+    app:insetForegroundCompat="@color/colorPrimaryDark">
+
+    <LinearLayout
+        android:id="@+id/top_description"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:background="@color/zeta_md_grey_200"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <ImageView
+            android:id="@+id/nav_right_guest_image_view"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/right_navigation_guest_image"
+            android:layout_marginBottom="@dimen/default_4x_padding_margin"
+            android:layout_marginLeft="@dimen/default_4x_padding_margin"
+            android:layout_marginRight="@dimen/default_4x_padding_margin"
+            android:layout_marginTop="@dimen/default_8x_padding_margin"
+            android:contentDescription="@null"
+            android:src="@drawable/ill_profile_drawer_login" />
+
+        <TextView
+            android:id="@+id/login_title_txt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:text="EXPRESS YOUR STYLE!"
+            android:textAllCaps="true"
+            android:textColor="@color/black"
+            android:textSize="@dimen/microTextSize" />
+
+        <TextView
+            android:id="@+id/login_subtitle_txt"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:layout_marginBottom="0dp"
+            android:layout_marginTop="6dp"
+            android:gravity="center_horizontal"
+            android:text="Log In or Sign Up to like, collect and manage orders"
+            android:textColor="@color/black"
+            android:textSize="@dimen/x_microTextSize" />
+    </LinearLayout>
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/nav_right_guest_recycle_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:overScrollMode="never" />
+
+    <FrameLayout
+        android:id="@+id/nav_right_guest_login_fragment"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom" />
+
+</zeta.android.myntra.ui.views.navigation.ScrimInsetsFrameLayout>

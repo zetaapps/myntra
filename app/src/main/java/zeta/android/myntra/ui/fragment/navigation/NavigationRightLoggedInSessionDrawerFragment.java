@@ -13,7 +13,12 @@ import zeta.android.myntra.di.component.ZetaAppComponent;
 import zeta.android.myntra.ui.fragment.common.BaseNavigationFragment;
 
 @ParametersAreNonnullByDefault
-public class NavigationRightDrawerFragment extends BaseNavigationFragment {
+public class NavigationRightLoggedInSessionDrawerFragment extends BaseNavigationFragment {
+
+
+    public static NavigationRightLoggedInSessionDrawerFragment newInstance() {
+        return new NavigationRightLoggedInSessionDrawerFragment();
+    }
 
     @Override
     public void configureDependencies(ZetaAppComponent component) {
@@ -28,9 +33,7 @@ public class NavigationRightDrawerFragment extends BaseNavigationFragment {
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View rootView = inflater.inflate(R.layout.fragment_navigation_drawer_right, container, false);
-//        mViews = new Views(rootView);
-//        mPresenter.onCreateView(this);
+        View rootView = inflater.inflate(R.layout.fragment_navigation_right_logged_in_drawer, container, false);
         return rootView;
     }
 

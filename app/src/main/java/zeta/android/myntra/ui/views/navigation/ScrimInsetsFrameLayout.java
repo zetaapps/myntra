@@ -1,4 +1,4 @@
-package zeta.android.myntra.ui.fragment.navigation;
+package zeta.android.myntra.ui.views.navigation;
 
 /*
 * Copyright 2014 Google Inc.

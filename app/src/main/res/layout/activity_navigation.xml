@@ -27,8 +27,8 @@
 
     <fragment
         android:id="@+id/navigation_right_drawer"
-        android:name="zeta.android.myntra.ui.fragment.navigation.NavigationRightDrawerFragment"
-        android:layout_width="@dimen/navigation_drawer_width"
+        android:name="zeta.android.myntra.ui.fragment.navigation.NavigationRightGuestSessionDrawerFragment"
+        android:layout_width="@dimen/navigation_right_drawer_width"
         android:layout_height="match_parent"
         android:layout_gravity="end"
         android:fitsSystemWindows="true" />
