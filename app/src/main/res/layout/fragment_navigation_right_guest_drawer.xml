@@ -13,7 +13,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
-        android:background="@color/zeta_md_grey_200"
+        android:background="@color/zeta_md_grey_100"
         android:gravity="center"
         android:orientation="vertical">
 
@@ -35,7 +35,7 @@
             android:layout_marginTop="6dp"
             android:text="@string/zeta_navigation_right_guest_express_your_style"
             android:textAllCaps="true"
-            android:textColor="@color/black"
+            android:textColor="@color/zeta_md_black_1000"
             android:textSize="@dimen/microTextSize" />
 
         <TextView
@@ -47,7 +47,7 @@
             android:layout_marginTop="6dp"
             android:gravity="center_horizontal"
             android:text="@string/zeta_navigation_right_guest_express_your_style_sub_title"
-            android:textColor="@color/black"
+            android:textColor="@color/zeta_md_black_1000"
             android:textSize="@dimen/x_microTextSize" />
     </LinearLayout>
 
