@@ -14,6 +14,9 @@ import retrofit2.mock.BehaviorDelegate;
 import rx.Observable;
 import rx.observers.TestSubscriber;
 import zeta.android.thunderbird.ApiTestBase;
+import zeta.android.thunderbird.api.devapi.response.feed.FeedHeaderResponse;
+import zeta.android.thunderbird.api.devapi.response.feed.FeedResponse;
+import zeta.android.thunderbird.api.devapi.response.feed.FeedSideShowResponse;
 import zeta.android.thunderbird.api.devapi.response.pdp.PdpDataResponse;
 import zeta.android.thunderbird.api.devapi.response.pdp.PdpMetaResponse;
 import zeta.android.thunderbird.api.devapi.response.pdp.PdpNotificationResponse;
@@ -37,6 +40,28 @@ public class MyntraDevApiTest extends ApiTestBase {
         //Mock the response form the test json file
         final BehaviorDelegate<MyntraDevApi> myntraDevApiBehaviorDelegate = mMockRetrofit.create(MyntraDevApi.class);
         myntraDevApi = new MyntraDevApi() {
+
+            @Override
+            public Observable<Response<FeedResponse>> getFeedResponse() {
+                return myntraDevApiBehaviorDelegate.returning(
+                        buildResponse("feed_stream.json", FeedResponse.class))
+                        .getFeedResponse();
+            }
+
+            @Override
+            public Observable<Response<FeedHeaderResponse>> getFeedHeaderResponse() {
+                return myntraDevApiBehaviorDelegate.returning(
+                        buildResponse("feed_header.json", FeedHeaderResponse.class))
+                        .getFeedHeaderResponse();
+            }
+
+            @Override
+            public Observable<Response<FeedSideShowResponse>> getFeedSlideShowResponse() {
+                return myntraDevApiBehaviorDelegate.returning(
+                        buildResponse("feed_slide_show.json", FeedSideShowResponse.class))
+                        .getFeedSlideShowResponse();
+            }
+
             @Override
             public Observable<Response<SearchResponse>> getSearchResultResponse(@Path("query") String query,
                                                                                 @Query("p") int pageNumber,
@@ -53,6 +78,38 @@ public class MyntraDevApiTest extends ApiTestBase {
                         .getProductDetailsResponse(styleId);
             }
         };
+    }
+
+    @Test
+    public void getFeedResponse() throws Exception {
+        TestSubscriber<Response<FeedResponse>> testSubscriber = new TestSubscriber<>();
+        myntraDevApi.getFeedResponse().subscribe(testSubscriber);
+        testSubscriber.assertNoErrors();
+
+        List<Response<FeedResponse>> onNextEvents = testSubscriber.getOnNextEvents();
+        FeedResponse feedResponse = onNextEvents.get(0).body();
+
+    }
+
+    @Test
+    public void getFeedHeaderResponse() throws Exception {
+        TestSubscriber<Response<FeedHeaderResponse>> testSubscriber = new TestSubscriber<>();
+        myntraDevApi.getFeedHeaderResponse().subscribe(testSubscriber);
+        testSubscriber.assertNoErrors();
+
+        List<Response<FeedHeaderResponse>> onNextEvents = testSubscriber.getOnNextEvents();
+        FeedHeaderResponse feedHeaderResponse = onNextEvents.get(0).body();
+
+    }
+
+    @Test
+    public void getFeedSlideShowResponse() throws Exception {
+        TestSubscriber<Response<FeedSideShowResponse>> testSubscriber = new TestSubscriber<>();
+        myntraDevApi.getFeedSlideShowResponse().subscribe(testSubscriber);
+        testSubscriber.assertNoErrors();
+
+        List<Response<FeedSideShowResponse>> onNextEvents = testSubscriber.getOnNextEvents();
+        FeedSideShowResponse feedSlideShowResponse = onNextEvents.get(0).body();
     }
 
     @Test

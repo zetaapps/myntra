@@ -16,6 +16,9 @@ import retrofit2.mock.MockRetrofit;
 import retrofit2.mock.NetworkBehavior;
 import rx.Observable;
 import zeta.android.thunderbird.api.devapi.MyntraDevApi;
+import zeta.android.thunderbird.api.devapi.response.feed.FeedHeaderResponse;
+import zeta.android.thunderbird.api.devapi.response.feed.FeedResponse;
+import zeta.android.thunderbird.api.devapi.response.feed.FeedSideShowResponse;
 import zeta.android.thunderbird.api.devapi.response.pdp.PdpResponse;
 import zeta.android.thunderbird.api.devapi.response.search.SearchResponse;
 import zeta.android.thunderbird.managers.SearchManager;
@@ -33,6 +36,28 @@ public class SearchModule {
         //Mock the response form the test json file
         final BehaviorDelegate<MyntraDevApi> myntraDevApiBehaviorDelegate = retrofit.create(MyntraDevApi.class);
         return new MyntraDevApi() {
+
+            @Override
+            public Observable<Response<FeedResponse>> getFeedResponse() {
+                return myntraDevApiBehaviorDelegate.returning(
+                        buildResponse("feed_stream.json", FeedResponse.class))
+                        .getFeedResponse();
+            }
+
+            @Override
+            public Observable<Response<FeedHeaderResponse>> getFeedHeaderResponse() {
+                return myntraDevApiBehaviorDelegate.returning(
+                        buildResponse("feed_header.json", FeedHeaderResponse.class))
+                        .getFeedHeaderResponse();
+            }
+
+            @Override
+            public Observable<Response<FeedSideShowResponse>> getFeedSlideShowResponse() {
+                return myntraDevApiBehaviorDelegate.returning(
+                        buildResponse("feed_slide_show.json", FeedSideShowResponse.class))
+                        .getFeedSlideShowResponse();
+            }
+
             @Override
             public Observable<Response<SearchResponse>> getSearchResultResponse(@Path("query") String query,
                                                                                 @Query("p") int pageNumber,

@@ -16,11 +16,11 @@ import zeta.android.thunderbird.api.devapi.response.search.SearchResponse;
 @ParametersAreNonnullByDefault
 public interface MyntraDevApi {
 
-    @GET("/lgp/v2.8/stream/header")
-    Observable<Response<FeedHeaderResponse>> getFeedHeaderResponse();
-
     @GET("/lgp/v2.8/stream")
     Observable<Response<FeedResponse>> getFeedResponse();
+
+    @GET("/lgp/v2.8/stream/header")
+    Observable<Response<FeedHeaderResponse>> getFeedHeaderResponse();
 
     @GET("/lgp/v2.8/stream/slideshow")
     Observable<Response<FeedSideShowResponse>> getFeedSlideShowResponse();
