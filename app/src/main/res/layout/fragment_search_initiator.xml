@@ -15,13 +15,14 @@
         android:theme="@style/AppTheme.Indigo"
         android:visibility="gone" />
 
-    <android.support.v7.widget.AppCompatButton
-        android:id="@+id/search_view_button"
-        style="@style/IndigoButton"
+    <!-- list view -->
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/zeta_search_list_view"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="bottom"
-        android:layout_margin="@dimen/default_4x_padding_margin"
-        android:text="search nike" />
+        android:layout_height="match_parent"
+        android:clipToPadding="false"
+        android:padding="@dimen/no_padding_margin"
+        android:scrollbars="none"
+        android:visibility="gone" />
 
 </FrameLayout>

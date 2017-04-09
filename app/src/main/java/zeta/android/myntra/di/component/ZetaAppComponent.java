@@ -14,6 +14,7 @@ import zeta.android.myntra.di.module.SessionTokenModule;
 import zeta.android.myntra.di.module.ZetaAppModule;
 import zeta.android.myntra.ui.fragment.subcomponents.ZetaAccountsSubComponent;
 import zeta.android.myntra.ui.fragment.subcomponents.ZetaHomeSubComponent;
+import zeta.android.myntra.ui.fragment.subcomponents.ZetaSearchInitiatorSubComponent;
 import zeta.android.myntra.ui.fragment.subcomponents.ZetaLoginSubComponent;
 import zeta.android.myntra.ui.fragment.subcomponents.ZetaMyOrdersSubComponent;
 import zeta.android.myntra.ui.fragment.subcomponents.ZetaProductsSubComponent;
@@ -49,11 +50,13 @@ public interface ZetaAppComponent {
 
     ZetaSearchSubComponent zetaSearchComponent(SearchModule searchModule);
 
+    ZetaSearchInitiatorSubComponent zetaSearchInitiatorComponent();
+
     ZetaProductsSubComponent zetaProductsComponent(ProductsModule productModule);
 
     NavigationActivityComponent navigationActivity();
 
-    DebugComponent debugComponent();
+    zeta.android.myntra.di.component.DebugComponent debugComponent();
 
     void inject(ZetaApplication targetApplication);
 

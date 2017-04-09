@@ -9,11 +9,11 @@ import zeta.android.thunderbird.managers.SearchManager;
 
 @Module
 @FragmentScope
-public class SearchPresenterModule {
+public class SearchResultPresenterModule {
 
     @Provides
-    SearchResultPresenter providesHomePresenter(RxSchedulerProvider schedulerProvider,
-                                                SearchManager searchManager) {
+    SearchResultPresenter providesSearchResultPresenter(RxSchedulerProvider schedulerProvider,
+                                                        SearchManager searchManager) {
         return new SearchResultPresenter(schedulerProvider, searchManager);
     }
 

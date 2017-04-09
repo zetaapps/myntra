@@ -14,4 +14,10 @@
         android:title="@string/zeta_menu_cart"
         app:showAsAction="always" />
 
+    <item
+        android:id="@+id/action_profile"
+        android:icon="@drawable/ic_person_white_24dp"
+        android:title="@string/zeta_menu_navigation_right"
+        app:showAsAction="always" />
+
 </menu>

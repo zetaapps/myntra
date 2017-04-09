@@ -45,7 +45,7 @@ import static zeta.android.myntra.ui.adapters.SearchResultAdapter.GRID_SPAN_COUN
 @ParametersAreNonnullByDefault
 public class SearchResultFragment extends BaseNavigationFragment implements SearchResultPresentation {
 
-    private static final String ARG_HOME_SAVED_STATE_PRESENTER = "ARG_HOME_SAVED_STATE_PRESENTER";
+    private static final String ARG_SEARCH_RESULT_SAVED_STATE_PRESENTER = "ARG_SEARCH_RESULT_SAVED_STATE_PRESENTER";
 
     private static final int ITEM_PREFETCH = 4;
 
@@ -85,7 +85,7 @@ public class SearchResultFragment extends BaseNavigationFragment implements Sear
     public void onCreate(@Nullable Bundle savedInstance) {
         super.onCreate(savedInstance);
         if (savedInstance != null) {
-            mSavedState = savedInstance.getParcelable(ARG_HOME_SAVED_STATE_PRESENTER);
+            mSavedState = savedInstance.getParcelable(ARG_SEARCH_RESULT_SAVED_STATE_PRESENTER);
         }
         mPresenter.onCreate(getPresenterParams());
     }
@@ -128,7 +128,7 @@ public class SearchResultFragment extends BaseNavigationFragment implements Sear
     @Override
     public void onSaveInstanceState(Bundle outState) {
         if (!DeviceUtils.hasNougat()) {
-            outState.putParcelable(ARG_HOME_SAVED_STATE_PRESENTER, mPresenter.getSavedState());
+            outState.putParcelable(ARG_SEARCH_RESULT_SAVED_STATE_PRESENTER, mPresenter.getSavedState());
         }
         super.onSaveInstanceState(outState);
     }

@@ -4,6 +4,7 @@
     <string name="zeta_menu_search">search fashion</string>
     <string name="zeta_menu_list">search list view</string>
     <string name="zeta_menu_grid">search grid view</string>
+    <string name="zeta_menu_navigation_right">open profile</string>
 
     <!-- Temp -->
     <string name="action_button_toast_text">Action Button Clicked with URL: %s</string>

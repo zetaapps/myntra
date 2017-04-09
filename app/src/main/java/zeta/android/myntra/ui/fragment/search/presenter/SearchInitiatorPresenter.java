@@ -1,4 +1,4 @@
-package zeta.android.myntra.ui.fragment.home.presenter;
+package zeta.android.myntra.ui.fragment.search.presenter;
 
 import android.os.Parcelable;
 import android.view.Menu;
@@ -12,25 +12,22 @@ import javax.annotation.ParametersAreNonnullByDefault;
 import zeta.android.myntra.R;
 import zeta.android.myntra.rx.providers.RxSchedulerProvider;
 import zeta.android.myntra.ui.common.ZetaRxFragmentLifeCyclePresenter;
-import zeta.android.myntra.ui.fragment.home.presentation.HomePresentation;
+import zeta.android.myntra.ui.fragment.search.presentation.SearchInitiatorPresentation;
 import zeta.android.utils.lang.StringUtils;
 
 @ParametersAreNonnullByDefault
-public class HomePresenter extends ZetaRxFragmentLifeCyclePresenter<HomePresentation> {
+public class SearchInitiatorPresenter extends ZetaRxFragmentLifeCyclePresenter<SearchInitiatorPresentation> {
 
-    private HomePresentation mPresentation;
-    private HomePresenterParam mPresenterParam;
+    private SearchInitiatorPresentation mPresentation;
+    private SearchPresenterParam mPresenterParam;
 
-    //Saved data
-
-    public HomePresenter(RxSchedulerProvider schedulerProvider) {
+    public SearchInitiatorPresenter(RxSchedulerProvider schedulerProvider) {
         super(schedulerProvider);
-
     }
 
     @Override
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
-        mPresentation.inflateMenu(menu, inflater, R.menu.product_home_menu);
+        mPresentation.inflateMenu(menu, inflater, R.menu.product_search_initiator_menu);
         mPresentation.showActionBarText(StringUtils.EMPTY_STRING);
     }
 
@@ -41,21 +38,10 @@ public class HomePresenter extends ZetaRxFragmentLifeCyclePresenter<HomePresenta
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()) {
-            case R.id.action_cart:
-                mPresentation.navigateToCartPage();
-                return true;
-            case R.id.action_search:
-                mPresentation.navigateToSearchPage();
-                return true;
-            case R.id.action_profile:
-                mPresentation.openRightDrawerNavigation();
-                return true;
-        }
         return false;
     }
 
-    public void onCreate(HomePresenterParam presenterParam) {
+    public void onCreate(SearchPresenterParam presenterParam) {
         mPresenterParam = presenterParam;
         final Parcelable savedState = mPresenterParam.getSavedState();
         if (savedState != null) {
@@ -64,13 +50,13 @@ public class HomePresenter extends ZetaRxFragmentLifeCyclePresenter<HomePresenta
     }
 
     @Override
-    public void onCreateView(HomePresentation homePresentation) {
-        mPresentation = homePresentation;
+    public void onCreateView(SearchInitiatorPresentation searchInitiatorPresentation) {
+        mPresentation = searchInitiatorPresentation;
     }
 
     @Override
     public void onViewCreated() {
-        //TODO::
+
     }
 
     @Override
@@ -93,7 +79,6 @@ public class HomePresenter extends ZetaRxFragmentLifeCyclePresenter<HomePresenta
 
     public void setSavedState(Parcelable savedState) {
         SavedState state = (SavedState) savedState;
-        //TODO::
     }
     //endregion
 
@@ -102,7 +87,7 @@ public class HomePresenter extends ZetaRxFragmentLifeCyclePresenter<HomePresenta
     static abstract class SavedState implements Parcelable {
 
         public static Builder create() {
-            return new AutoValue_HomePresenter_SavedState.Builder();
+            return new AutoValue_SearchInitiatorPresenter_SavedState.Builder();
         }
 
         @AutoValue.Builder

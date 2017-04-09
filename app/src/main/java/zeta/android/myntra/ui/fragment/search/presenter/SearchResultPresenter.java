@@ -87,8 +87,8 @@ public class SearchResultPresenter extends ZetaRxFragmentLifeCyclePresenter<Sear
     }
 
     @Override
-    public void onCreateView(SearchResultPresentation homePresentation) {
-        mPresentation = homePresentation;
+    public void onCreateView(SearchResultPresentation searchResultPresentation) {
+        mPresentation = searchResultPresentation;
     }
 
     @Override
