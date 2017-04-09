@@ -33,7 +33,7 @@ import zeta.android.utils.view.ViewUtils;
 @ParametersAreNonnullByDefault
 public class HomeFragment extends BaseNavigationFragment implements HomePresentation {
 
-    private static final String ARG_HOME_SAVED_STATE_PRESENTER = "ARG_ACCOUNTS_SAVED_STATE_PRESENTER";
+    private static final String ARG_HOME_SAVED_STATE_PRESENTER = "ARG_HOME_SAVED_STATE_PRESENTER";
 
     private Views mViews;
 

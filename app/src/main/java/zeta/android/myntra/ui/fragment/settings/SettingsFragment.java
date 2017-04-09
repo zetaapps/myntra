@@ -28,7 +28,7 @@ import zeta.android.utils.view.ViewUtils;
 @ParametersAreNonnullByDefault
 public class SettingsFragment extends BaseNavigationFragment implements SettingsPresentation {
 
-    private static final String ARG_HOME_SAVED_STATE_PRESENTER = "ARG_SETTINGS_SAVED_STATE_PRESENTER";
+    private static final String ARG_SETTINGS_SAVED_STATE_PRESENTER = "ARG_SETTINGS_SAVED_STATE_PRESENTER";
 
     private Views mViews;
 
@@ -64,7 +64,7 @@ public class SettingsFragment extends BaseNavigationFragment implements Settings
     public void onCreate(@Nullable Bundle savedInstance) {
         super.onCreate(savedInstance);
         if (savedInstance != null) {
-            mSavedState = savedInstance.getParcelable(ARG_HOME_SAVED_STATE_PRESENTER);
+            mSavedState = savedInstance.getParcelable(ARG_SETTINGS_SAVED_STATE_PRESENTER);
         }
         mPresenter.onCreate(getPresenterParams());
     }
@@ -87,7 +87,7 @@ public class SettingsFragment extends BaseNavigationFragment implements Settings
 
     @Override
     public void onSaveInstanceState(Bundle outState) {
-        outState.putParcelable(ARG_HOME_SAVED_STATE_PRESENTER, mPresenter.getSavedState());
+        outState.putParcelable(ARG_SETTINGS_SAVED_STATE_PRESENTER, mPresenter.getSavedState());
         super.onSaveInstanceState(outState);
     }
 

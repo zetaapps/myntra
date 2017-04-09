@@ -3,9 +3,15 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <item
-        android:id="@+id/action_cart"
-        android:icon="@drawable/ic_local_grocery_store_white_24dp"
-        android:title="@string/zeta_menu_cart"
+        android:id="@+id/action_camera"
+        android:icon="@drawable/ic_photo_camera_white_24dp"
+        android:title="@string/zeta_menu_camera"
+        app:showAsAction="always" />
+
+    <item
+        android:id="@+id/action_mic"
+        android:icon="@drawable/ic_mic_white_24dp"
+        android:title="@string/zeta_menu_mic"
         app:showAsAction="always" />
 
 </menu>
