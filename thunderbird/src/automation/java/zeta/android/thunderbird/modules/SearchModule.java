@@ -1,5 +1,7 @@
 package zeta.android.thunderbird.modules;
 
+import android.support.annotation.NonNull;
+
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
@@ -59,7 +61,7 @@ public class SearchModule {
             }
 
             @Override
-            public Observable<Response<SearchResponse>> getSearchResultResponse(@Path("query") String query,
+            public Observable<Response<SearchResponse>> getSearchResultResponse(@NonNull @Path("query") String query,
                                                                                 @Query("p") int pageNumber,
                                                                                 @Query("row") int pageSize) {
                 return myntraDevApiBehaviorDelegate.returning(

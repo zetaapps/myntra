@@ -1,4 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
+    <!-- Needed for ScrimInsetsFrameLayout to declare custom scrim color -->
+    <declare-styleable name="ScrimInsetsView">
+        <attr name="insetForegroundCompat" format="reference|color" />
+    </declare-styleable>
+
 </resources>

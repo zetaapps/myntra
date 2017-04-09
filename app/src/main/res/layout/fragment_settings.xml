@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:scrollbars="none">
@@ -15,14 +16,13 @@
         android:theme="@style/AppTheme.Indigo"
         android:visibility="gone" />
 
-    <!-- list view -->
-    <android.support.v7.widget.RecyclerView
-        android:id="@+id/zeta_list_view"
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/animation_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:clipToPadding="false"
-        android:padding="@dimen/no_padding_margin"
-        android:scrollbars="none"
-        android:visibility="gone" />
+        app:lottie_autoPlay="true"
+        app:lottie_cacheStrategy="strong"
+        app:lottie_fileName="notification_request.json"
+        app:lottie_loop="true" />
 
 </FrameLayout>

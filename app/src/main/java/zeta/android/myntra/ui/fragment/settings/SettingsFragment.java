@@ -5,11 +5,12 @@ import android.os.Parcelable;
 import android.support.annotation.Nullable;
 import android.support.annotation.StringRes;
 import android.support.design.widget.Snackbar;
-import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ProgressBar;
+
+import com.airbnb.lottie.LottieAnimationView;
 
 import javax.annotation.ParametersAreNonnullByDefault;
 import javax.inject.Inject;
@@ -42,8 +43,8 @@ public class SettingsFragment extends BaseNavigationFragment implements Settings
         @BindView(R.id.zeta_progress_bar)
         ProgressBar progressBar;
 
-        @BindView(R.id.zeta_list_view)
-        RecyclerView listView;
+        @BindView(R.id.animation_view)
+        LottieAnimationView animationView;
 
         Views(View root) {
             super(root);

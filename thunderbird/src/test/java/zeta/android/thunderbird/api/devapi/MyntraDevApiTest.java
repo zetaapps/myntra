@@ -1,5 +1,7 @@
 package zeta.android.thunderbird.api.devapi;
 
+import android.support.annotation.NonNull;
+
 import org.junit.Before;
 import org.junit.Test;
 
@@ -63,7 +65,7 @@ public class MyntraDevApiTest extends ApiTestBase {
             }
 
             @Override
-            public Observable<Response<SearchResponse>> getSearchResultResponse(@Path("query") String query,
+            public Observable<Response<SearchResponse>> getSearchResultResponse(@NonNull @Path("query") String query,
                                                                                 @Query("p") int pageNumber,
                                                                                 @Query("row") int pageSize) {
                 return myntraDevApiBehaviorDelegate.returning(

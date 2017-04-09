@@ -1,5 +1,7 @@
 package zeta.android.thunderbird.managers;
 
+import android.support.annotation.NonNull;
+
 import com.github.zetaapps.either.Either;
 
 import org.junit.Before;
@@ -66,7 +68,7 @@ public class MyntraEngineManagerFunctionalTest extends ApiTestBase {
             }
 
             @Override
-            public Observable<Response<SearchResponse>> getSearchResultResponse(@Path("query") String query,
+            public Observable<Response<SearchResponse>> getSearchResultResponse(@NonNull @Path("query") String query,
                                                                                 @Query("p") int pageNumber,
                                                                                 @Query("row") int pageSize) {
                 return myntraDevApiBehaviorDelegate.returning(
