@@ -10,8 +10,8 @@ android {
     // NOTE: you must uncomment this to use Frodo on myntra engine, but DO NOT commit the change!
     // This flag forces myntra engine to build as debug *regardless of the build selected for the app
     // module!*
-    // defaultPublishConfig "debug"
 
+    //defaultPublishConfig "debug"
     //defaultPublishConfig "automation"
 
     dexOptions {
@@ -66,8 +66,6 @@ android {
     }
 
 }
-
-
 
 dependencies {
     compile libraries.dagger
