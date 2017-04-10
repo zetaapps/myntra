@@ -235,7 +235,7 @@ public class MyntraApifyTest extends ApiTestBase {
     //TODO add mopre asserts for components
 
     @Test
-    public void ggetProductDetailsResponseStyleTest() {
+    public void getProductDetailsResponseStyleTest() {
         TestSubscriber<Response<PdpResponse>> testSubscriber = new TestSubscriber<>();
         myntraApify.getProductDetailsResponse(1675810).subscribe(testSubscriber);
         testSubscriber.assertNoErrors();
@@ -245,6 +245,20 @@ public class MyntraApifyTest extends ApiTestBase {
         assert response != null;
 
         assertEquals("Soch Outlet Women Pink Solid Straight Kurta", response.style.name);
+        assertEquals(1675810, response.style.id.intValue());
+
+    }
+
+    @Test
+    public void getProductDetailsResponsePriceTest() {
+        TestSubscriber<Response<PdpResponse>> testSubscriber = new TestSubscriber<>();
+        myntraApify.getProductDetailsResponse(1675810).subscribe(testSubscriber);
+        testSubscriber.assertNoErrors();
+
+        List<Response<PdpResponse>> onNextEvents = testSubscriber.getOnNextEvents();
+        PdpResponse response = onNextEvents.get(0).body();
+        assert response != null;
+
         assertEquals(998.0, response.style.price.mrp.doubleValue());
         assertEquals(698.0, response.style.price.discounted.doubleValue());
         assertEquals(null, response.style.price.discount.coupon);
@@ -253,6 +267,46 @@ public class MyntraApifyTest extends ApiTestBase {
         assertEquals(null, response.style.price.discount.myntCash);
 
     }
+
+    @Test
+    public void getProductDetailsResponseAnalyticsTest() {
+        TestSubscriber<Response<PdpResponse>> testSubscriber = new TestSubscriber<>();
+        myntraApify.getProductDetailsResponse(1675810).subscribe(testSubscriber);
+        testSubscriber.assertNoErrors();
+
+        List<Response<PdpResponse>> onNextEvents = testSubscriber.getOnNextEvents();
+        PdpResponse response = onNextEvents.get(0).body();
+        assert response != null;
+
+        assertEquals("Kurtis", response.style.analytics.articleType);
+        assertEquals("Topwear", response.style.analytics.subCategory);
+        assertEquals("Apparel", response.style.analytics.masterCategory);
+        assertEquals("Women", response.style.analytics.gender);
+        assertEquals("Soch Outlet", response.style.analytics.brand);
+
+    }
+
+
+    @Test
+    public void getProductDetailsResponseBrandTest() {
+        TestSubscriber<Response<PdpResponse>> testSubscriber = new TestSubscriber<>();
+        myntraApify.getProductDetailsResponse(1675810).subscribe(testSubscriber);
+        testSubscriber.assertNoErrors();
+
+        List<Response<PdpResponse>> onNextEvents = testSubscriber.getOnNextEvents();
+        PdpResponse response = onNextEvents.get(0).body();
+        assert response != null;
+
+        assertEquals(null, response.style.brand.uidx);
+        assertEquals(null, response.style.brand.image);
+        assertEquals(null, response.style.brand.bio);
+        assertEquals(null, response.style.brand.social);
+        assertEquals("Soch Outlet", response.style.brand.name);
+
+    }
+
+
+
 
     //TODO add mopre asserts for general response
 
