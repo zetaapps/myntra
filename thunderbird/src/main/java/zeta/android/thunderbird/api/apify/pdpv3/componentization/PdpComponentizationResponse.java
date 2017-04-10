@@ -4,8 +4,8 @@ import com.google.gson.annotations.SerializedName;
 
 import java.util.List;
 
-
 public class PdpComponentizationResponse {
+
     public final PdpComponentizationInfoResponse info;
     @SerializedName("cards")
     public final List<PdpComponentizationCardsResponse> cardsList;

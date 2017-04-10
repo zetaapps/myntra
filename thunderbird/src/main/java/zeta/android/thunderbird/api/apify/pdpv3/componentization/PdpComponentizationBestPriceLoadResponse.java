@@ -1,7 +1,13 @@
 package zeta.android.thunderbird.api.apify.pdpv3.componentization;
 
-
 public class PdpComponentizationBestPriceLoadResponse {
-    public String action;
-    public String actionType;
+
+    public final String action;
+    public final String actionType;
+
+    public PdpComponentizationBestPriceLoadResponse(String action,
+                                                    String actionType) {
+        this.action = action;
+        this.actionType = actionType;
+    }
 }
