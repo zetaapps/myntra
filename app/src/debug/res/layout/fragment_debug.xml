@@ -58,7 +58,7 @@
 
             <android.support.v7.widget.AppCompatButton
                 android:id="@+id/debug_inspection_tools_apply"
-                pdpStyleResponse="@style/IndigoButton"
+                style="@style/IndigoButton"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/default_2x_padding_margin"
@@ -109,7 +109,7 @@
 
             <android.support.v7.widget.AppCompatButton
                 android:id="@+id/debug_logging_apply"
-                pdpStyleResponse="@style/IndigoButton"
+                style="@style/IndigoButton"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/default_2x_padding_margin"
@@ -134,7 +134,7 @@
 
             <android.support.v7.widget.AppCompatButton
                 android:id="@+id/debug_capture_logs"
-                pdpStyleResponse="@style/IndigoButton"
+                style="@style/IndigoButton"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/debug_capture_logs" />
