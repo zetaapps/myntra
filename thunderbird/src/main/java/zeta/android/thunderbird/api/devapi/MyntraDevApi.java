@@ -30,7 +30,7 @@ public interface MyntraDevApi {
                                                                  @Query("p") int pageNumber,
                                                                  @Query("row") int pageSize);
 
-    @GET("style/{styleId}")
+    @GET("pdpStyleResponse/{styleId}")
     Observable<Response<PdpResponse>> getProductDetailsResponse(@Path("styleId") int styleId);
 
 }

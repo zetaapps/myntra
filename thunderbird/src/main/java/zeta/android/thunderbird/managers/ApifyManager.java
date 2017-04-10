@@ -8,7 +8,7 @@ import javax.inject.Inject;
 
 import rx.Observable;
 import zeta.android.thunderbird.api.apify.MyntraApify;
-import zeta.android.thunderbird.api.apify.pdpv3.componentization.ComponentizationResponse;
+import zeta.android.thunderbird.api.apify.pdpv3.componentization.PdpComponentizationResponse;
 import zeta.android.thunderbird.managers.params.ProductDetailsParams;
 import zeta.android.thunderbird.models.common.ITransformer;
 import zeta.android.thunderbird.models.common.Managers;
@@ -19,10 +19,10 @@ import zeta.android.thunderbird.models.pdp.errors.PdpException;
 public class ApifyManager {
 
     private final MyntraApify apify;
-    private final ITransformer<ComponentizationResponse, PdpModel> mProductsTransformer;
+    private final ITransformer<PdpComponentizationResponse, PdpModel> mProductsTransformer;
 
     @Inject
-    public ApifyManager(MyntraApify myntraApify, ITransformer<ComponentizationResponse, PdpModel> transformer) {
+    public ApifyManager(MyntraApify myntraApify, ITransformer<PdpComponentizationResponse, PdpModel> transformer) {
         apify = myntraApify;
         mProductsTransformer = transformer;
     }

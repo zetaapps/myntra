@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <zeta.android.myntra.ui.views.search.SearchGridViewComponent xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/zeta_search_grid_view_component"
-    style="@style/ZetaRecyclerListItem.Selectable"
+    pdpStyleResponse="@style/ZetaRecyclerListItem.Selectable"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_gravity="center" />
