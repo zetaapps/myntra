@@ -3,8 +3,11 @@ package zeta.android.thunderbird.api.apify.pdpv3.common;
 public class PdpDiscountResponse {
 
     public final String label;
+
     public final String description;
+
     public final Object myntCash;
+
     public final Object coupon;
 
     public PdpDiscountResponse(String label,

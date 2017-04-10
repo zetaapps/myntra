@@ -7,10 +7,13 @@ import com.google.gson.annotations.SerializedName;
 import java.util.List;
 
 public class PdpComponentizationServiceabilityResponse {
+
     public final String action;
+
     @Nullable
     @SerializedName("descriptors")
     public final List<String> descriptorList;
+
     public final PdpComponentizationPayloadResponse payload;
 
     public PdpComponentizationServiceabilityResponse(String action,

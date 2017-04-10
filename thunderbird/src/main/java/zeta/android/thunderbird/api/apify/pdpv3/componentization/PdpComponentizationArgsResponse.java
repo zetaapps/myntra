@@ -7,24 +7,42 @@ import java.util.List;
 public class PdpComponentizationArgsResponse {
 
     public final boolean collapse;
+
     public final String oosDesc;
+
     public final String oosTitle;
+
     public final String personalizedDesc;
+
     public final String personalizedLabel;
+
     public final String personalizedTitle;
+
     public final String recoIconInfoDesc;
+
     public final String recoIconInfoText;
+
     public final String sizechartTitle;
+
     public final String bankOffer;
+
     public final int maxDuration;
+
     public final int minInterest;
+
     public final String primaryOffer;
+
     public final String placehoder;
+
     public final String title;
+
     @Nullable
     public final List<String> description;
+
     public final PdpComponentizationTextResponse text;
+
     public final PdpComponentizationInfoTextResponse infoText;
+
     @Nullable
     public final List<PdpComponentizationDisplayDataResponse> displayData;
 

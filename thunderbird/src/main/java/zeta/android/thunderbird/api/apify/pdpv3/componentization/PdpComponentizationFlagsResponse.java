@@ -3,13 +3,21 @@ package zeta.android.thunderbird.api.apify.pdpv3.componentization;
 public class PdpComponentizationFlagsResponse {
 
     public final boolean isHazmat;
+
     public final boolean isFragile;
+
     public final boolean isJewellery;
+
     public final boolean isExchangeable;
+
     public final boolean pickupEnabled;
+
     public final boolean isTryable;
+
     public final boolean isLarge;
+
     public final boolean isReturnable;
+
     public final boolean codEnabled;
 
     public PdpComponentizationFlagsResponse(boolean isHazmat, boolean isFragile,

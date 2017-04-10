@@ -8,8 +8,10 @@ import java.util.List;
 
 public class PdpComponentizationCardsResponse {
 
-    public final PdpComponentizationArgsResponse args;
     public final String type;
+
+    public final PdpComponentizationArgsResponse args;
+
     @Nullable
     @SerializedName("components")
     public final List<PdpComponentizationComponentsResponse> componentsList;

@@ -10,7 +10,9 @@ import javax.annotation.ParametersAreNonnullByDefault;
 public class SearchResultsResponse {
 
     public final long totalProductsCount;
+
     public final List<SearchFiltersResponse> filters;
+    
     @Nullable
     public final List<SearchProductsResponse> products;
 

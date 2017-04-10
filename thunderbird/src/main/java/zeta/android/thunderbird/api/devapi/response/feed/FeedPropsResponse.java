@@ -6,6 +6,7 @@ import javax.annotation.ParametersAreNonnullByDefault;
 public class FeedPropsResponse {
 
     public final String id;
+
     public final String storyId;
 
     public FeedPropsResponse(String id, String storyId) {

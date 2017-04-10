@@ -5,11 +5,16 @@ import com.google.gson.annotations.SerializedName;
 public class PdpComponentizationDisplayDataResponse {
 
     public final String firstButtonActionText;
+
     public final String firstButtonText;
+
     public final String secondButtonActionText;
+
     public final String secondButtonText;
+
     @SerializedName("state")
     public final int buyButtonState;
+
     public final String buyDisableMessage;
 
     public PdpComponentizationDisplayDataResponse(String firstButtonActionText,

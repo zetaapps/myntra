@@ -6,6 +6,7 @@ import javax.annotation.ParametersAreNonnullByDefault;
 public class SearchResponse {
 
     public final SearchDataResponse data;
+
     public final SearchMetaResponse meta;
 
     public SearchResponse(SearchDataResponse data,

@@ -9,12 +9,17 @@ import java.util.List;
 public class PdpComponentizationOptionsResponse {
 
     public final double price;
+
     public final double mrp;
+
     @Nullable
     @SerializedName("warehouses")
     public final List<String> warehouseList;
+
     public final int leadTime;
+
     public final int returnPeriod;
+
     public final PdpComponentizationFlagsResponse flags;
 
     public PdpComponentizationOptionsResponse(double price,

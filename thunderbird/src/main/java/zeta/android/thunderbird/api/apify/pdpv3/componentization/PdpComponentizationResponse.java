@@ -7,6 +7,7 @@ import java.util.List;
 public class PdpComponentizationResponse {
 
     public final PdpComponentizationInfoResponse info;
+
     @SerializedName("cards")
     public final List<PdpComponentizationCardsResponse> cardsList;
 
