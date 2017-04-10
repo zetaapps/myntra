@@ -57,7 +57,7 @@ public class MyntraApifyTest extends ApiTestBase {
         };
     }
 
-    //region Componentized Response Test
+    //region Componentized Response Tests
     @Test
     public void getProductDetailsComponentizedResponseInfoTest() {
         TestSubscriber<Response<PdpComponentizationResponse>> testSubscriber = new TestSubscriber<>();
@@ -234,9 +234,9 @@ public class MyntraApifyTest extends ApiTestBase {
     }
 
     //TODO add more tests for components
-    //endregion
+    //endregions
 
-    //region generalResponse Tests
+    //region General Response Tests
     @Test
     public void getProductDetailsResponseStyleTest() {
         TestSubscriber<Response<PdpResponse>> testSubscriber = new TestSubscriber<>();
