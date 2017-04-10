@@ -1,5 +1,7 @@
 package zeta.android.thunderbird.api.apify.pdpv3.pdp;
 
+import android.support.annotation.Nullable;
+
 import com.google.gson.annotations.SerializedName;
 
 import java.util.List;
@@ -9,16 +11,42 @@ import zeta.android.thunderbird.api.apify.pdpv3.common.PdpPriceResponse;
 import zeta.android.thunderbird.api.apify.pdpv3.common.PdpSizeResponse;
 
 public class PdpStyleResponse {
-    public int id;
-    public String name;
-    public Object colours;
-    public PdpPriceResponse price;
-    public PdpMediaResponse media;
+
+    public final int id;
+    public final String name;
+    public final Object colours;
+    public final PdpPriceResponse price;
+    public final PdpMediaResponse media;
+
+    @Nullable
     @SerializedName("sizes")
-    public List<PdpSizeResponse> sizeList = null;
-    public PdpBrandResponse brand;
+    public final List<PdpSizeResponse> sizeList;
+    public final PdpBrandResponse brand;
+
+    @Nullable
     @SerializedName("descriptors")
-    public List<PdpDescriptorResponse> descriptorList = null;
-    public PdpFlagsResponse flags;
-    public PdpAnalyticsResponse analytics;
+    public final List<PdpDescriptorResponse> descriptorList;
+    public final PdpFlagsResponse flags;
+    public final PdpAnalyticsResponse analytics;
+
+    public PdpStyleResponse(int id, String name,
+                            Object colours,
+                            PdpPriceResponse price,
+                            PdpMediaResponse media,
+                            @Nullable List<PdpSizeResponse> sizeList,
+                            PdpBrandResponse brand,
+                            @Nullable List<PdpDescriptorResponse> descriptorList,
+                            PdpFlagsResponse flags,
+                            PdpAnalyticsResponse analytics) {
+        this.id = id;
+        this.name = name;
+        this.colours = colours;
+        this.price = price;
+        this.media = media;
+        this.sizeList = sizeList;
+        this.brand = brand;
+        this.descriptorList = descriptorList;
+        this.flags = flags;
+        this.analytics = analytics;
+    }
 }
