@@ -36,8 +36,9 @@ public class PdpComponentizationPropsResponse {
 
     public final boolean sbpEnabled;
 
+    @Nullable
     @SerializedName("sizes")
-    public final List<PdpSizeResponse> sizeList = null;
+    public final List<PdpSizeResponse> sizeList;
 
     public final PdpComponentizationSizeChartResponse sizechart;
 
@@ -67,16 +68,13 @@ public class PdpComponentizationPropsResponse {
     @SerializedName("moreInfo")
     public final List<PdpComponentizationMoreInfoResponse> moreInfoList;
 
-    public PdpComponentizationPropsResponse(int id, String name,
-                                            List<PdpComponentizationMediumResponse> mediumList,
-                                            int count,
-                                            PdpComponentizationRelatedResponse related,
-                                            PdpComponentizationLikesResponse likes,
-                                            String baseColour,
-                                            PdpPriceResponse price,
-                                            List<PdpDescriptorResponse> descriptorList,
+    public PdpComponentizationPropsResponse(int id, String name, List<PdpComponentizationMediumResponse> mediumList,
+                                            int count, PdpComponentizationRelatedResponse related,
+                                            PdpComponentizationLikesResponse likes, String baseColour,
+                                            PdpPriceResponse price, List<PdpDescriptorResponse> descriptorList,
                                             PdpComponentizationBestPriceLoadResponse bestPriceOnDemand,
                                             boolean sbpEnabled,
+                                            @Nullable List<PdpSizeResponse> sizeList,
                                             PdpComponentizationSizeChartResponse sizechart,
                                             PdpComponentizationSizeRecoLazyResponse sizeRecoLazy,
                                             @Nullable List<PdpComponentizationProductDetailResponse> productDetailList,
@@ -97,6 +95,7 @@ public class PdpComponentizationPropsResponse {
         this.descriptorList = descriptorList;
         this.bestPriceOnDemand = bestPriceOnDemand;
         this.sbpEnabled = sbpEnabled;
+        this.sizeList = sizeList;
         this.sizechart = sizechart;
         this.sizeRecoLazy = sizeRecoLazy;
         this.productDetailList = productDetailList;
