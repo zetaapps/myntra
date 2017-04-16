@@ -41,6 +41,7 @@ import zeta.android.myntra.ui.fragment.DebugFragment;
 import zeta.android.myntra.ui.fragment.accounts.AccountsFragment;
 import zeta.android.myntra.ui.fragment.home.HomeFragment;
 import zeta.android.myntra.ui.fragment.myorders.MyOrderFragment;
+import zeta.android.myntra.ui.fragment.navigation.NavigationRightGuestSessionDrawerFragment;
 import zeta.android.myntra.ui.fragment.settings.SettingsFragment;
 import zeta.android.utils.view.ViewUtils;
 
@@ -81,6 +82,8 @@ public class NavigationActivity extends BaseNavigationActivity implements Naviga
 
         TextView headerEmail;
 
+        NavigationRightGuestSessionDrawerFragment rightDrawerFragment;
+
         @SuppressWarnings("ConstantConditions")
         Views(AppCompatActivity root) {
             super(root.findViewById(R.id.zeta_drawer_layout));
@@ -88,6 +91,9 @@ public class NavigationActivity extends BaseNavigationActivity implements Naviga
             headerImageView = (ImageView) headerView.findViewById(R.id.header_image_view);
             headerTitle = (TextView) headerView.findViewById(R.id.header_title);
             headerEmail = (TextView) headerView.findViewById(R.id.header_email);
+
+            rightDrawerFragment = (NavigationRightGuestSessionDrawerFragment)
+                    root.getSupportFragmentManager().findFragmentById(R.id.navigation_right_drawer);
         }
     }
 
@@ -253,6 +259,14 @@ public class NavigationActivity extends BaseNavigationActivity implements Naviga
         supportActionBar.setTitle(title);
         mViews.toolbar.setTitle(title);
     }
+    //endregion
+
+    //region DrawerToggleManager
+    @Override
+    public void setDrawerIndicatorEnabled(boolean enable) {
+        //TODO::
+    }
+    //endregion
 
     @Override
     public void setColorToToolbar(@ColorInt int toolbarIconsColor) {
@@ -297,7 +311,6 @@ public class NavigationActivity extends BaseNavigationActivity implements Naviga
 //            }
 //        }
     }
-    //endregion
 
     private void setOverflowButtonColor(@ColorInt int overflowButtonColor) {
         final Toolbar toolbar = mViews.toolbar;

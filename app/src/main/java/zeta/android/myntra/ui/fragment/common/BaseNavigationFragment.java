@@ -25,15 +25,17 @@ import zeta.android.myntra.ui.activity.WebViewActivity;
 import zeta.android.myntra.ui.activity.helpers.CustomTabActivityHelper;
 import zeta.android.myntra.ui.activity.helpers.WebViewFallback;
 import zeta.android.myntra.ui.activity.navigation.NavigationFragmentManager;
+import zeta.android.myntra.ui.activity.navigation.interfaces.DrawerToggleManager;
 import zeta.android.myntra.ui.activity.navigation.interfaces.INavigationFragmentManager;
 import zeta.android.myntra.ui.activity.navigation.interfaces.IToolBarManipulation;
 
 @ParametersAreNonnullByDefault
 public abstract class BaseNavigationFragment extends DaggerAwareFragment implements
-        INavigationFragmentManager, IToolBarManipulation {
+        INavigationFragmentManager, IToolBarManipulation, DrawerToggleManager {
 
     private boolean mOnSaveInstanceStateCalled;
-
+    private boolean mDrawerIndicatorEnabled = false;
+    private DrawerToggleManager mDrawerToggleManager;
     private IToolBarManipulation mToolBarManipulation;
     private INavigationFragmentManager mNavigationFragmentManager;
 
@@ -84,7 +86,8 @@ public abstract class BaseNavigationFragment extends DaggerAwareFragment impleme
 
     @Nullable
     @Override
-    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container,
+    public View onCreateView(LayoutInflater inflater,
+                             @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
         return super.onCreateView(inflater, container, savedInstanceState);
     }
@@ -111,6 +114,14 @@ public abstract class BaseNavigationFragment extends DaggerAwareFragment impleme
             throw new ClassCastException(getActivity().toString()
                     + " must implement IToolBarManipulation");
         }
+
+        try {
+            mDrawerToggleManager = (DrawerToggleManager) getActivity();
+        } catch (ClassCastException e) {
+            throw new ClassCastException(getActivity().toString()
+                    + " must implement DrawerToggleManager");
+        }
+
     }
 
     @Override
@@ -139,6 +150,17 @@ public abstract class BaseNavigationFragment extends DaggerAwareFragment impleme
     public void onDestroy() {
         super.onDestroy();
     }
+
+    //region DrawerToggleManager
+    @Override
+    public void setDrawerIndicatorEnabled(boolean enable) {
+        if (mDrawerToggleManager == null) {
+            return;
+        }
+        mDrawerToggleManager.setDrawerIndicatorEnabled(enable);
+        mDrawerIndicatorEnabled = enable;
+    }
+    //endregion
 
     //region INavigationFragmentManager
     @Override

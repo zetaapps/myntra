@@ -7,6 +7,7 @@ import javax.inject.Inject;
 
 import zeta.android.myntra.ui.activity.helpers.CustomTabActivityHelper;
 import zeta.android.myntra.ui.activity.navigation.NavigationFragmentManager;
+import zeta.android.myntra.ui.activity.navigation.interfaces.DrawerToggleManager;
 import zeta.android.myntra.ui.activity.navigation.interfaces.INavigationFragmentManager;
 import zeta.android.myntra.ui.activity.navigation.interfaces.IToolBarManipulation;
 
@@ -14,6 +15,7 @@ import zeta.android.myntra.ui.activity.navigation.interfaces.IToolBarManipulatio
 public abstract class BaseNavigationActivity extends DaggerAwareActivity implements
         INavigationFragmentManager,
         IToolBarManipulation,
+        DrawerToggleManager,
         NavigationView.OnNavigationItemSelectedListener {
 
     @Inject
