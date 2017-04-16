@@ -1,7 +1,11 @@
 package zeta.android.myntra.ui.activity;
 
 import android.app.ActivityManager;
+import android.app.SearchManager;
+import android.content.Context;
+import android.content.Intent;
 import android.graphics.drawable.Drawable;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.ColorInt;
 import android.support.annotation.Nullable;
@@ -26,10 +30,15 @@ import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 
+import org.json.JSONException;
+
 import javax.annotation.ParametersAreNonnullByDefault;
 import javax.inject.Inject;
 
 import butterknife.BindView;
+import io.branch.referral.Branch;
+import io.branch.referral.BranchError;
+import timber.log.Timber;
 import zeta.android.myntra.R;
 import zeta.android.myntra.ZetaApplication;
 import zeta.android.myntra.appconfig.GlideConfigModule;
@@ -43,10 +52,13 @@ import zeta.android.myntra.ui.fragment.home.HomeFragment;
 import zeta.android.myntra.ui.fragment.myorders.MyOrderFragment;
 import zeta.android.myntra.ui.fragment.navigation.NavigationRightGuestSessionDrawerFragment;
 import zeta.android.myntra.ui.fragment.settings.SettingsFragment;
+import zeta.android.myntra.util.deeplink.BranchDeepLinkUtil;
 import zeta.android.utils.view.ViewUtils;
 
 @ParametersAreNonnullByDefault
 public class NavigationActivity extends BaseNavigationActivity implements NavigationPresentation {
+
+    private static final String ACTION_SEARCH_OK_GOOGLE = "com.google.android.gms.actions.SEARCH_ACTION";
 
     private Views mViews;
     private ActionBarDrawerToggle mDrawerToggle;
@@ -177,6 +189,13 @@ public class NavigationActivity extends BaseNavigationActivity implements Naviga
     public boolean onOptionsItemSelected(MenuItem item) {
         //Handle click events from option menus
         return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    protected void onNewIntent(Intent intent) {
+        super.onNewIntent(intent);
+        setIntent(intent);
+        handleIncomingIntent(intent);
     }
 
     @Override
@@ -346,6 +365,73 @@ public class NavigationActivity extends BaseNavigationActivity implements Naviga
                     new ActivityManager.TaskDescription(null, null, topBarColor);
             setTaskDescription(taskDescription);
         }
+    }
+
+    private void handleIncomingIntent(Intent intent) {
+        handleDeepLinkIfPresent(intent, true);
+        handleVoiceSearchIfPresent(intent);
+    }
+
+    private void handleVoiceSearchIfPresent(@Nullable Intent intent) {
+        if (intent == null) {
+            // No voice search to handle
+            return;
+        }
+        final Context appContext = getApplicationContext();
+        if (Intent.ACTION_SEARCH.equals(intent.getAction())) {
+            String query = intent.getStringExtra(SearchManager.QUERY);
+            //SearchBroadcast.sendVoiceSearchBroadcast(appContext, query);
+            //Handle voice search
+        }
+        if (ACTION_SEARCH_OK_GOOGLE.equals(intent.getAction())) {
+            final String query = intent.getStringExtra(SearchManager.QUERY);
+            //Handle voice search
+        }
+    }
+
+    private void handleDeepLinkIfPresent(final Intent intent, boolean shouldCheckBranch) {
+        final Uri intentDataUri = intent.getData();
+        boolean willBeHandledByBranch = false;
+        final Context appContext = getApplicationContext();
+
+        if (shouldCheckBranch && intentDataUri != null) {
+            willBeHandledByBranch = BranchDeepLinkUtil.processDeepLink(this,
+                    Branch.getInstance(), intentDataUri,
+                    new BranchDeepLinkUtil.BranchDeepLinkHandler() {
+                        @Override
+                        public void onBranchDeepLinkFound(Uri uri) {
+                            Intent clonedIntent = new Intent(intent);
+                            clonedIntent.setData(uri);
+                            handleDeepLinkIfPresent(clonedIntent, false);
+                        }
+
+                        @Override
+                        public void onBranchDeepLinkSDKError(BranchError error) {
+                            Timber.e("Error from Branch SDK: " + error.getMessage());
+                        }
+
+                        @Override
+                        public void onBranchDeepLinkPayloadParsingError(JSONException exception) {
+                            Timber.e("Error parsing Branch payload: ", exception);
+                        }
+                    });
+        }
+
+        if (willBeHandledByBranch || intentDataUri == null) {
+            //Deep-link is for Branch, or there's nothing to handle; Let's Bail!
+            return;
+        }
+
+        handleDeepLink(appContext, intentDataUri);
+
+        // Clear the deep link intentDataUri from the intent so it is not reused if the process is
+        // recreated (we should just use the current app state at that point)
+        intent.setData(null);
+        setIntent(intent);
+    }
+
+    private void handleDeepLink(Context applicationContext, Uri data) {
+        //TODO:: Handle deep link
     }
 
 }
