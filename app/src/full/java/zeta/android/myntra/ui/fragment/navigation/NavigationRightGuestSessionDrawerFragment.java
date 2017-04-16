@@ -47,13 +47,11 @@ public class NavigationRightGuestSessionDrawerFragment extends BaseNavigationFra
 
     @Nullable
     @Override
-    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+    public View onCreateView(LayoutInflater inflater,
+                             @Nullable ViewGroup container,
+                             @Nullable Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_navigation_right_guest_drawer, container, false);
         mViews = new Views(rootView);
-        getChildFragmentManager()
-                .beginTransaction()
-                .replace(R.id.nav_right_guest_login_fragment, LoginRegisterHalfCardFragment.newInstance())
-                .commit();
         return rootView;
     }
 

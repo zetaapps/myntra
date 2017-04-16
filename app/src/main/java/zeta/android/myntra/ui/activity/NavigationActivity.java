@@ -49,6 +49,7 @@ import zeta.android.utils.view.ViewUtils;
 public class NavigationActivity extends BaseNavigationActivity implements NavigationPresentation {
 
     private Views mViews;
+    private ActionBarDrawerToggle mDrawerToggle;
 
     @Inject
     NavigationPresenter mPresenter;
@@ -118,12 +119,12 @@ public class NavigationActivity extends BaseNavigationActivity implements Naviga
         mNavigationFragmentManager.setDrawerLayout(mViews.drawerLayout);
         mNavigationFragmentManager.setDrawer(mViews.navigationView);
 
-        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
+        mDrawerToggle = new ActionBarDrawerToggle(
                 this, mViews.drawerLayout, mViews.toolbar,
                 R.string.navigation_drawer_open,
                 R.string.navigation_drawer_close);
-        mViews.drawerLayout.addDrawerListener(toggle);
-        toggle.syncState();
+        mViews.drawerLayout.addDrawerListener(mDrawerToggle);
+        mDrawerToggle.syncState();
 
         mPresenter.onCreate(this);
 
@@ -154,6 +155,7 @@ public class NavigationActivity extends BaseNavigationActivity implements Naviga
         mPresenter = null;
         mViews.clear();
         mViews = null;
+        mDrawerToggle = null;
     }
 
     @Override
@@ -264,7 +266,10 @@ public class NavigationActivity extends BaseNavigationActivity implements Naviga
     //region DrawerToggleManager
     @Override
     public void setDrawerIndicatorEnabled(boolean enable) {
-        //TODO::
+        if (mDrawerToggle == null) {
+            return;
+        }
+        mDrawerToggle.setDrawerIndicatorEnabled(enable);
     }
     //endregion
 
