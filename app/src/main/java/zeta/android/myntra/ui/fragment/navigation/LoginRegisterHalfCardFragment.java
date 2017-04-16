@@ -8,6 +8,7 @@ import android.view.ViewGroup;
 
 import javax.annotation.ParametersAreNonnullByDefault;
 
+import zeta.android.myntra.R;
 import zeta.android.myntra.di.component.ZetaAppComponent;
 import zeta.android.myntra.ui.fragment.common.BaseNavigationFragment;
 
@@ -31,7 +32,8 @@ public class LoginRegisterHalfCardFragment extends BaseNavigationFragment {
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        return super.onCreateView(inflater, container, savedInstanceState);
+        View rootView = inflater.inflate(R.layout.fragment_login_register_half_card, container, false);
+        return rootView;
     }
 
     @Override

@@ -69,6 +69,8 @@
 
             <zeta.android.myntra.views.common.ZetaButton
                 android:id="@+id/btn_login_google"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_marginLeft="7dp"
                 android:text="Google"
                 android:textSize="@dimen/microTextSize" />
@@ -132,12 +134,12 @@
                 android:textSize="@dimen/mediumTextSize" />
 
             <View
+                android:layout_width="match_parent"
                 android:layout_height="16dp"
                 android:layout_marginTop="12dp" />
 
             <zeta.android.myntra.views.common.ZetaButton
                 android:id="@+id/btn_register"
-
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"

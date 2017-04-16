@@ -2,6 +2,7 @@ package zeta.android.myntra.tools;
 
 import javax.annotation.ParametersAreNonnullByDefault;
 
+import timber.log.Timber;
 import zeta.android.myntra.ZetaApplication;
 import zeta.android.myntra.sharedPref.DebugSharedPreferences;
 
@@ -14,7 +15,7 @@ public class DeveloperToolsImpl implements DeveloperTools {
 
     @Override
     public void initialize(ZetaApplication application) {
-        //No ops
+        Timber.plant(new CrashlyticsTree());
     }
 
     @Override

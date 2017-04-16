@@ -14,11 +14,15 @@ import rx.plugins.RxJavaHooks;
 import zeta.android.myntra.di.component.DaggerZetaAppComponent;
 import zeta.android.myntra.di.component.ZetaAppComponent;
 import zeta.android.myntra.di.module.ZetaAppModule;
+import zeta.android.myntra.externallibs.ExternalLibs;
 import zeta.android.myntra.rx.handlers.NetworkConnectivityErrorHandler;
 import zeta.android.myntra.tools.DeveloperTools;
 
 @ParametersAreNonnullByDefault
 public class ZetaApplication extends Application {
+
+    @Inject
+    public Lazy<ExternalLibs> mExternalLibs;
 
     @Inject
     public Lazy<DeveloperTools> mDeveloperTools;
@@ -39,6 +43,7 @@ public class ZetaApplication extends Application {
                 .build();
         mZetaAppComponent.inject(this);
         mDeveloperTools.get().initialize(this);
+        mExternalLibs.get().initialize(applicationContext);
 
         //Crashlytics
         Fabric.with(applicationContext, new Crashlytics());
