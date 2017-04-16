@@ -1,5 +1,7 @@
 package zeta.android.thunderbird.api.devapi.response.feed;
 
+import android.support.annotation.Nullable;
+
 import javax.annotation.ParametersAreNonnullByDefault;
 
 @ParametersAreNonnullByDefault
@@ -7,6 +9,7 @@ public class FeedForumUserResponse {
 
     public final String firstname;
 
+    @Nullable
     public final String lastname;
 
     public final String gender;
@@ -29,12 +32,10 @@ public class FeedForumUserResponse {
 
     public final Object bio;
 
-    public final String tagsMap;
-
     public final String name;
 
     public FeedForumUserResponse(String firstname,
-                                 String lastname,
+                                 @Nullable String lastname,
                                  String gender,
                                  String image,
                                  String imageType,
@@ -45,7 +46,6 @@ public class FeedForumUserResponse {
                                  int pLevel,
                                  FeedForumCountResponse counts,
                                  Object bio,
-                                 String tagsMap,
                                  String name) {
         this.firstname = firstname;
         this.lastname = lastname;
@@ -59,7 +59,6 @@ public class FeedForumUserResponse {
         this.pLevel = pLevel;
         this.counts = counts;
         this.bio = bio;
-        this.tagsMap = tagsMap;
         this.name = name;
     }
 }

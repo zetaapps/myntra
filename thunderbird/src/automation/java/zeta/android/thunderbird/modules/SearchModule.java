@@ -18,6 +18,7 @@ import retrofit2.mock.MockRetrofit;
 import retrofit2.mock.NetworkBehavior;
 import rx.Observable;
 import zeta.android.thunderbird.api.devapi.MyntraDevApi;
+import zeta.android.thunderbird.api.devapi.response.feed.FeedForumResponse;
 import zeta.android.thunderbird.api.devapi.response.feed.FeedHeaderResponse;
 import zeta.android.thunderbird.api.devapi.response.feed.FeedResponse;
 import zeta.android.thunderbird.api.devapi.response.feed.FeedSideShowResponse;
@@ -58,6 +59,13 @@ public class SearchModule {
                 return myntraDevApiBehaviorDelegate.returning(
                         buildResponse("feed_slide_show.json", FeedSideShowResponse.class))
                         .getFeedSlideShowResponse();
+            }
+
+            @Override
+            public Observable<Response<FeedForumResponse>> getFeedForumResponse() {
+                return myntraDevApiBehaviorDelegate.returning(
+                        buildResponse("feed_forum.json", FeedForumResponse.class))
+                        .getFeedForumResponse();
             }
 
             @Override

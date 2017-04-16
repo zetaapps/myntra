@@ -1,0 +1,203 @@
+{
+  "style": {
+    "id": 1675810,
+    "name": "Soch Outlet Women Pink Solid Straight Kurta",
+    "colours": null,
+    "price": {
+      "mrp": 998,
+      "discounted": 698,
+      "discount": {
+        "label": "(30% OFF)",
+        "description": "Buy this item and get <em>30% </em> off",
+        "myntCash": null,
+        "coupon": null
+      }
+    },
+    "media": {
+      "videos": [
+        {
+          "id": "NT8fDo8EWzU"
+        }
+      ],
+      "axials": [
+        null
+      ],
+      "albums": [
+        {
+          "name": "default",
+          "images": [
+            {
+              "src": "http://assets.myntassets.com/h_($height),q_($qualityPercentage),w_($width)/v1/assets/images/1675810/2016/12/14/11481705566095-Soch-Women-Pink-Solid-Straight-Kurta-9641481705565846-1.jpg",
+              "secureSrc": "https://assets.myntassets.com/h_($height),q_($qualityPercentage),w_($width)/v1/assets/images/1675810/2016/12/14/11481705566095-Soch-Women-Pink-Solid-Straight-Kurta-9641481705565846-1.jpg"
+            },
+            {
+              "src": "http://assets.myntassets.com/h_($height),q_($qualityPercentage),w_($width)/v1/assets/images/1675810/2016/12/14/11481705566043-Soch-Women-Pink-Solid-Straight-Kurta-9641481705565846-2.jpg",
+              "secureSrc": "https://assets.myntassets.com/h_($height),q_($qualityPercentage),w_($width)/v1/assets/images/1675810/2016/12/14/11481705566043-Soch-Women-Pink-Solid-Straight-Kurta-9641481705565846-2.jpg"
+            },
+            {
+              "src": "http://assets.myntassets.com/h_($height),q_($qualityPercentage),w_($width)/v1/assets/images/1675810/2016/12/14/11481705566005-Soch-Women-Pink-Solid-Straight-Kurta-9641481705565846-3.jpg",
+              "secureSrc": "https://assets.myntassets.com/h_($height),q_($qualityPercentage),w_($width)/v1/assets/images/1675810/2016/12/14/11481705566005-Soch-Women-Pink-Solid-Straight-Kurta-9641481705565846-3.jpg"
+            },
+            {
+              "src": "http://assets.myntassets.com/h_($height),q_($qualityPercentage),w_($width)/v1/assets/images/1675810/2016/12/14/11481705565963-Soch-Women-Pink-Solid-Straight-Kurta-9641481705565846-4.jpg",
+              "secureSrc": "https://assets.myntassets.com/h_($height),q_($qualityPercentage),w_($width)/v1/assets/images/1675810/2016/12/14/11481705565963-Soch-Women-Pink-Solid-Straight-Kurta-9641481705565846-4.jpg"
+            }
+          ]
+        }
+      ],
+      "cinemagraphs": []
+    },
+    "sizes": [
+      {
+        "skuId": 12595445,
+        "styleId": 1675810,
+        "inventory": 0,
+        "action": "/product/1675810/related/XS?co=1",
+        "label": "XS",
+        "available": false,
+        "seller": "Proleague",
+        "supplyType": "ON_HAND",
+        "warehouses": [],
+        "sizeType": null,
+        "price": null,
+        "originalStyle": null
+      },
+      {
+        "skuId": 12595443,
+        "styleId": 1675810,
+        "inventory": 3,
+        "action": "/product/1675810/related/S?co=1",
+        "label": "S",
+        "available": true,
+        "seller": "Proleague",
+        "supplyType": "ON_HAND",
+        "warehouses": [
+          "28",
+          "36"
+        ],
+        "sizeType": null,
+        "price": null,
+        "originalStyle": null
+      },
+      {
+        "skuId": 12595442,
+        "styleId": 1675810,
+        "inventory": 8,
+        "action": "/product/1675810/related/M?co=1",
+        "label": "M",
+        "available": true,
+        "seller": "Proleague",
+        "supplyType": "ON_HAND",
+        "warehouses": [
+          "28",
+          "36",
+          "81"
+        ],
+        "sizeType": null,
+        "price": null,
+        "originalStyle": null
+      },
+      {
+        "skuId": 12595441,
+        "styleId": 1675810,
+        "inventory": 0,
+        "action": "/product/1675810/related/L?co=1",
+        "label": "L",
+        "available": false,
+        "seller": "Proleague",
+        "supplyType": "ON_HAND",
+        "warehouses": [],
+        "sizeType": null,
+        "price": null,
+        "originalStyle": null
+      },
+      {
+        "skuId": 12595444,
+        "styleId": 1675810,
+        "inventory": 0,
+        "action": "/product/1675810/related/XL?co=1",
+        "label": "XL",
+        "available": false,
+        "seller": "Proleague",
+        "supplyType": "ON_HAND",
+        "warehouses": [],
+        "sizeType": null,
+        "price": null,
+        "originalStyle": null
+      },
+      {
+        "skuId": 12595440,
+        "styleId": 1675810,
+        "inventory": 0,
+        "action": "/product/1675810/related/3XL?co=1",
+        "label": "3XL",
+        "available": false,
+        "seller": "Proleague",
+        "supplyType": "ON_HAND",
+        "warehouses": [],
+        "sizeType": null,
+        "price": null,
+        "originalStyle": null
+      },
+      {
+        "skuId": 12595439,
+        "styleId": 1675810,
+        "inventory": 2,
+        "action": "/product/1675810/related/2XL?co=1",
+        "label": "2XL",
+        "available": true,
+        "seller": "Proleague",
+        "supplyType": "ON_HAND",
+        "warehouses": [
+          "28"
+        ],
+        "sizeType": null,
+        "price": null,
+        "originalStyle": null
+      }
+    ],
+    "brand": {
+      "uidx": null,
+      "name": "Soch Outlet",
+      "image": null,
+      "bio": null,
+      "social": null
+    },
+    "descriptors": [
+      {
+        "title": "style_note",
+        "description": "<p>This breathable and stylish kurta from Soch Outlet is a must-have item for any wardrobe.  This pink piece is a stylish option for a nice family function or event when teamed with churidar leggings and classic flats.</p>"
+      },
+      {
+        "title": "materials_care_desc",
+        "description": "<p>Polyester <br> Dry Clean</p>"
+      },
+      {
+        "title": "description",
+        "description": "Pink solid straight kurta, has a mandarin collar, three quarter sleeve with roll-up tab detail, straight hem"
+      },
+      {
+        "title": "size_fit_desc",
+        "description": "<p>The model (height 5'8\", chest 33'' and waist 28'') is wearing a size S</p>"
+      }
+    ],
+    "flags": {
+      "exchangeable": true,
+      "returnable": true,
+      "pickupEnabled": true,
+      "tryable": true,
+      "large": false,
+      "hazmat": false,
+      "fragile": false,
+      "jewellery": false,
+      "outOfStock": false
+    },
+    "analytics": {
+      "articleType": "Kurtis",
+      "subCategory": "Topwear",
+      "masterCategory": "Apparel",
+      "gender": "Women",
+      "brand": "Soch Outlet"
+    }
+  }
+}

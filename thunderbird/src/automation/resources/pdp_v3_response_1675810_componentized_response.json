@@ -1,0 +1,636 @@
+{
+  "info": {
+    "id": 1675810,
+    "name": "Soch Outlet Women Pink Solid Straight Kurta",
+    "brand": "Soch Outlet",
+    "gender": "Women",
+    "subCategory": "Topwear",
+    "masterCategory": "Apparel",
+    "articleType": "Kurtis"
+  },
+  "cards": [
+    {
+      "args": {
+        "collapse": false
+      },
+      "type": "PRODUCT",
+      "components": [
+        {
+          "type": "IMAGE_SWIPE",
+          "viewType": "IMAGE_SWIPE",
+          "props": {
+            "media": [
+              {
+                "type": "image",
+                "src": "http://assets.myntassets.com/assets/images/1675810/2016/12/14/11481705566095-Soch-Women-Pink-Solid-Straight-Kurta-9641481705565846-1.jpg"
+              },
+              {
+                "type": "image",
+                "src": "http://assets.myntassets.com/assets/images/1675810/2016/12/14/11481705566043-Soch-Women-Pink-Solid-Straight-Kurta-9641481705565846-2.jpg"
+              },
+              {
+                "type": "image",
+                "src": "http://assets.myntassets.com/assets/images/1675810/2016/12/14/11481705566005-Soch-Women-Pink-Solid-Straight-Kurta-9641481705565846-3.jpg"
+              },
+              {
+                "type": "image",
+                "src": "http://assets.myntassets.com/assets/images/1675810/2016/12/14/11481705565963-Soch-Women-Pink-Solid-Straight-Kurta-9641481705565846-4.jpg"
+              },
+              {
+                "type": "video",
+                "src": "NT8fDo8EWzU"
+              }
+            ],
+            "related": {
+              "hasColors": false,
+              "action": "/product/1675810/related?co=1&colors=false",
+              "actionType": "ondemand"
+            },
+            "likes": {
+              "likeCount": "link",
+              "isLiked": "link",
+              "action": "link"
+            },
+            "baseColour": "Pink"
+          }
+        },
+        {
+          "type": "INFO",
+          "viewType": "INFO",
+          "props": {
+            "id": 1675810,
+            "name": "Soch Outlet Women Pink Solid Straight Kurta",
+            "price": {
+              "mrp": 998,
+              "discounted": 698,
+              "discount": {
+                "label": "(30% OFF)",
+                "description": "Buy this item and get <em>30% </em> off",
+                "myntCash": null,
+                "coupon": null
+              }
+            },
+            "descriptors": [
+              {
+                "title": "MATERIAL & CARE",
+                "description": "<p>Polyester <br> Dry Clean</p>"
+              },
+              {
+                "title": "SIZE & FIT",
+                "description": "<p>The model (height 5'8\", chest 33'' and waist 28'') is wearing a size S</p>"
+              }
+            ]
+          },
+          "args": {
+            "infoText": {
+              "collapsed": "+INFO",
+              "expanded": "-INFO"
+            }
+          }
+        },
+        {
+          "type": "VAT_INFO",
+          "viewType": "VAT_INFO",
+          "props": {
+            "vatInfo": "Additional VAT may apply; charged at checkout"
+          }
+        },
+        {},
+        {
+          "type": "BEST_PRICE_ONDEMAND",
+          "viewType": "BEST_PRICE_ONDEMAND",
+          "props": {
+            "bestPriceOnDemand": {
+              "action": "/product/1675810/offers?co=1",
+              "actionType": "ondemand"
+            }
+          },
+          "args": {
+            "text": {
+              "initial": "Tap for best price"
+            }
+          }
+        },
+        {
+          "type": "SIZE_SELECTOR",
+          "viewType": "SIZE_SELECTOR",
+          "props": {
+            "sbpEnabled": false,
+            "sizes": [
+              {
+                "skuId": 12595445,
+                "styleId": 1675810,
+                "inventory": 1,
+                "action": "/product/1675810/related/XS?co=1",
+                "label": "XS",
+                "available": true,
+                "seller": "Proleague",
+                "supplyType": "ON_HAND",
+                "warehouses": [
+                  "28"
+                ],
+                "sizeType": null,
+                "price": null,
+                "originalStyle": null
+              },
+              {
+                "skuId": 12595443,
+                "styleId": 1675810,
+                "inventory": 3,
+                "action": "/product/1675810/related/S?co=1",
+                "label": "S",
+                "available": true,
+                "seller": "Proleague",
+                "supplyType": "ON_HAND",
+                "warehouses": [
+                  "28",
+                  "36"
+                ],
+                "sizeType": null,
+                "price": null,
+                "originalStyle": null
+              },
+              {
+                "skuId": 12595442,
+                "styleId": 1675810,
+                "inventory": 8,
+                "action": "/product/1675810/related/M?co=1",
+                "label": "M",
+                "available": true,
+                "seller": "Proleague",
+                "supplyType": "ON_HAND",
+                "warehouses": [
+                  "28",
+                  "36",
+                  "81"
+                ],
+                "sizeType": null,
+                "price": null,
+                "originalStyle": null
+              },
+              {
+                "skuId": 12595441,
+                "styleId": 1675810,
+                "inventory": 0,
+                "action": "/product/1675810/related/L?co=1",
+                "label": "L",
+                "available": false,
+                "seller": "Proleague",
+                "supplyType": "ON_HAND",
+                "warehouses": [],
+                "sizeType": null,
+                "price": null,
+                "originalStyle": null
+              },
+              {
+                "skuId": 12595444,
+                "styleId": 1675810,
+                "inventory": 0,
+                "action": "/product/1675810/related/XL?co=1",
+                "label": "XL",
+                "available": false,
+                "seller": "Proleague",
+                "supplyType": "ON_HAND",
+                "warehouses": [],
+                "sizeType": null,
+                "price": null,
+                "originalStyle": null
+              },
+              {
+                "skuId": 12595440,
+                "styleId": 1675810,
+                "inventory": 0,
+                "action": "/product/1675810/related/3XL?co=1",
+                "label": "3XL",
+                "available": false,
+                "seller": "Proleague",
+                "supplyType": "ON_HAND",
+                "warehouses": [],
+                "sizeType": null,
+                "price": null,
+                "originalStyle": null
+              },
+              {
+                "skuId": 12595439,
+                "styleId": 1675810,
+                "inventory": 2,
+                "action": "/product/1675810/related/2XL?co=1",
+                "label": "2XL",
+                "available": true,
+                "seller": "Proleague",
+                "supplyType": "ON_HAND",
+                "warehouses": [
+                  "28"
+                ],
+                "sizeType": null,
+                "price": null,
+                "originalStyle": null
+              }
+            ],
+            "sizechart": {
+              "action": "/product/1675810/sizechart/"
+            },
+            "sizeRecoLazy": {
+              "actionType": "lazy",
+              "action": "/product/1675810/size/recommendation"
+            }
+          },
+          "args": {
+            "oosDesc": "SEE SIMILAR",
+            "oosTitle": "Size out of stock?",
+            "personalizedDesc": " based on your past purchases",
+            "personalizedLabel": " @@ ",
+            "personalizedTitle": "We recommend ",
+            "recoIconInfoDesc": "This recommendation is based on your past purchases & returns. If you are purchasing for someone else please use the size chart to find the right size.",
+            "recoIconInfoText": "i",
+            "sizechartTitle": "Size chart"
+          }
+        },
+        {
+          "type": "PRODUCT_DETAILS",
+          "viewType": "PRODUCT_DETAILS",
+          "props": {
+            "productDetails": [
+              {
+                "type": null,
+                "content": null,
+                "title": "Product Details",
+                "description": "Pink solid straight kurta, has a mandarin collar, three quarter sleeve with roll-up tab detail, straight hem"
+              },
+              {
+                "type": null,
+                "content": null,
+                "title": "MATERIAL & CARE",
+                "description": "<p>Polyester <br> Dry Clean</p>"
+              },
+              {
+                "type": null,
+                "content": null,
+                "title": "SIZE & FIT",
+                "description": "<p>The model (height 5'8\", chest 33'' and waist 28'') is wearing a size S</p>"
+              }
+            ]
+          }
+        },
+        {
+          "type": "PRIMARY_OFFER",
+          "viewType": "PRIMARY_OFFER",
+          "props": {
+            "offer": {
+              "bestPriceLazyLoaded": {
+                "action": "/product/1675810/offers?co=1",
+                "actionType": "lazyLoaded"
+              },
+              "count": 0,
+              "action": "/alloffers"
+            }
+          },
+          "args": {
+            "bankOffer": "none",
+            "maxDuration": 24,
+            "minInterest": 15,
+            "primaryOffer": "SPECIAL"
+          }
+        },
+        {
+          "type": "ADD_BUTTONS_PDP",
+          "viewType": "ADD_BUTTONS_PDP",
+          "props": {
+            "sbpEnabled": false,
+            "sizes": [
+              {
+                "skuId": 12595445,
+                "styleId": 1675810,
+                "inventory": 1,
+                "action": "/product/1675810/related/XS?co=1",
+                "label": "XS",
+                "available": true,
+                "seller": "Proleague",
+                "supplyType": "ON_HAND",
+                "warehouses": [
+                  "28"
+                ],
+                "sizeType": null,
+                "price": null,
+                "originalStyle": null
+              },
+              {
+                "skuId": 12595443,
+                "styleId": 1675810,
+                "inventory": 3,
+                "action": "/product/1675810/related/S?co=1",
+                "label": "S",
+                "available": true,
+                "seller": "Proleague",
+                "supplyType": "ON_HAND",
+                "warehouses": [
+                  "28",
+                  "36"
+                ],
+                "sizeType": null,
+                "price": null,
+                "originalStyle": null
+              },
+              {
+                "skuId": 12595442,
+                "styleId": 1675810,
+                "inventory": 8,
+                "action": "/product/1675810/related/M?co=1",
+                "label": "M",
+                "available": true,
+                "seller": "Proleague",
+                "supplyType": "ON_HAND",
+                "warehouses": [
+                  "28",
+                  "36",
+                  "81"
+                ],
+                "sizeType": null,
+                "price": null,
+                "originalStyle": null
+              },
+              {
+                "skuId": 12595441,
+                "styleId": 1675810,
+                "inventory": 0,
+                "action": "/product/1675810/related/L?co=1",
+                "label": "L",
+                "available": false,
+                "seller": "Proleague",
+                "supplyType": "ON_HAND",
+                "warehouses": [],
+                "sizeType": null,
+                "price": null,
+                "originalStyle": null
+              },
+              {
+                "skuId": 12595444,
+                "styleId": 1675810,
+                "inventory": 0,
+                "action": "/product/1675810/related/XL?co=1",
+                "label": "XL",
+                "available": false,
+                "seller": "Proleague",
+                "supplyType": "ON_HAND",
+                "warehouses": [],
+                "sizeType": null,
+                "price": null,
+                "originalStyle": null
+              },
+              {
+                "skuId": 12595440,
+                "styleId": 1675810,
+                "inventory": 0,
+                "action": "/product/1675810/related/3XL?co=1",
+                "label": "3XL",
+                "available": false,
+                "seller": "Proleague",
+                "supplyType": "ON_HAND",
+                "warehouses": [],
+                "sizeType": null,
+                "price": null,
+                "originalStyle": null
+              },
+              {
+                "skuId": 12595439,
+                "styleId": 1675810,
+                "inventory": 2,
+                "action": "/product/1675810/related/2XL?co=1",
+                "label": "2XL",
+                "available": true,
+                "seller": "Proleague",
+                "supplyType": "ON_HAND",
+                "warehouses": [
+                  "28"
+                ],
+                "sizeType": null,
+                "price": null,
+                "originalStyle": null
+              }
+            ],
+            "buttonStates": [
+              {
+                "state": 0,
+                "buttons": [
+                  {
+                    "type": "collection",
+                    "action": "/wishlist",
+                    "longAction": "/collection"
+                  },
+                  {
+                    "type": "bag",
+                    "action": "/cart/add",
+                    "longAction": ""
+                  }
+                ]
+              },
+              {
+                "state": 1,
+                "buttons": [
+                  {
+                    "type": "collection",
+                    "action": "/wishlist",
+                    "longAction": "/collection"
+                  },
+                  {
+                    "type": "buy_disabled",
+                    "action": "/cart/add",
+                    "longAction": ""
+                  }
+                ]
+              },
+              {
+                "state": 2,
+                "buttons": [
+                  {
+                    "type": "bag",
+                    "action": "/cart/add",
+                    "longAction": ""
+                  }
+                ]
+              },
+              {
+                "state": 3,
+                "buttons": [
+                  {
+                    "type": "buy_disabled",
+                    "action": "/cart/add",
+                    "longAction": ""
+                  }
+                ]
+              }
+            ]
+          },
+          "args": {
+            "displayData": [
+              {
+                "firstButtonActionText": "SAVED",
+                "firstButtonText": "SAVE",
+                "secondButtonActionText": "GO TO BAG",
+                "secondButtonText": "ADD TO BAG",
+                "state": 0
+              },
+              {
+                "buyDisableMessage": "",
+                "firstButtonActionText": "SAVED",
+                "firstButtonText": "SAVE",
+                "secondButtonActionText": "GO TO BAG",
+                "secondButtonText": "ADD TO BAG",
+                "state": 1
+              },
+              {
+                "firstButtonActionText": "SAVED",
+                "firstButtonText": "SAVE",
+                "state": 2
+              },
+              {
+                "buyDisableMessage": "",
+                "firstButtonActionText": "GO TO BAG",
+                "firstButtonText": "ADD TO BAG",
+                "state": 3
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "type": "SERVICEABILITY",
+      "components": [
+        {
+          "type": "SERVICEABILITY",
+          "viewType": "SERVICEABILITY",
+          "props": {
+            "serviceability": {
+              "action": "/serviceability/check",
+              "descriptors": [
+                "Cash on delivery might be available",
+                "Easy 30 days returns & exchange",
+                "Try & Buy might be available"
+              ],
+              "payload": {
+                "pincode": "",
+                "options": {
+                  "price": 698,
+                  "mrp": 998,
+                  "warehouses": [
+                    "28",
+                    "36",
+                    "81"
+                  ],
+                  "leadTime": 0,
+                  "returnPeriod": 30,
+                  "flags": {
+                    "isHazmat": false,
+                    "isFragile": false,
+                    "isJewellery": false,
+                    "isExchangeable": true,
+                    "pickupEnabled": true,
+                    "isTryable": true,
+                    "isLarge": false,
+                    "isReturnable": true,
+                    "codEnabled": true
+                  }
+                }
+              }
+            }
+          },
+          "args": {
+            "description": [
+              "Cash on Delivery might be available",
+              "Easy 30 days returns & exchange",
+              "Try and Buy might be available"
+            ],
+            "placehoder": "Enter PIN Code",
+            "title": "Check Delivery"
+          }
+        }
+      ]
+    },
+    {
+      "type": "SOCIAL",
+      "components": [
+        {},
+        {
+          "type": "LIKERS_LAZY",
+          "viewType": "LIKERS_LAZY",
+          "props": {
+            "actionType": "lazy",
+            "action": "/product/1675810/likes/summary?co=1"
+          },
+          "args": {
+            "title": "Liked by"
+          }
+        },
+        {
+          "type": "COMPLETE_LOOK",
+          "viewType": "COMPLETE_LOOK",
+          "props": {
+            "styleNote": "<p>This breathable and stylish kurta from Soch Outlet is a must-have item for any wardrobe.  This pink piece is a stylish option for a nice family function or event when teamed with churidar leggings and classic flats.</p>"
+          },
+          "args": {
+            "title": "COMPLETE THE LOOK"
+          }
+        }
+      ]
+    },
+    {
+      "type": "RELATED",
+      "components": [
+        {
+          "type": "RELATED_PDP_LAZY",
+          "viewType": "RELATED_PDP_LAZY",
+          "props": {
+            "actionType": "lazy",
+            "action": "/product/1675810/related?co=1&colors=false"
+          }
+        },
+        {
+          "type": "CROSS_LINKS",
+          "viewType": "CROSS_LINKS",
+          "props": {
+            "crossLinks": [
+              {
+                "title": "More Kurtis by Soch Outlet",
+                "url": "kurtis?f=brand:Soch Outlet::gender:women"
+              },
+              {
+                "title": "More Pink Kurtis",
+                "url": "kurtis?f=colour:Pink::gender:women"
+              },
+              {
+                "title": "More Kurtis",
+                "url": "kurtis?f=gender:women"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "type": "MORE_INFO_CARD",
+      "components": [
+        {
+          "type": "MORE_INFO",
+          "viewType": "MORE_INFO",
+          "props": {
+            "moreInfo": [
+              {
+                "title": "Product Code",
+                "description": "1675810"
+              },
+              {
+                "title": "Sold by",
+                "description": "Proleague"
+              },
+              {
+                "title": "Tax",
+                "description": "Applicable VAT on the basis of exact location & discount will be charged at the time of checkout"
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

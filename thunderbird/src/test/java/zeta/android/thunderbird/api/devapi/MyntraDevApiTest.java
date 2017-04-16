@@ -16,6 +16,7 @@ import retrofit2.mock.BehaviorDelegate;
 import rx.Observable;
 import rx.observers.TestSubscriber;
 import zeta.android.thunderbird.ApiTestBase;
+import zeta.android.thunderbird.api.devapi.response.feed.FeedForumResponse;
 import zeta.android.thunderbird.api.devapi.response.feed.FeedHeaderResponse;
 import zeta.android.thunderbird.api.devapi.response.feed.FeedResponse;
 import zeta.android.thunderbird.api.devapi.response.feed.FeedSideShowResponse;
@@ -62,6 +63,13 @@ public class MyntraDevApiTest extends ApiTestBase {
                 return myntraDevApiBehaviorDelegate.returning(
                         buildResponse("feed_slide_show.json", FeedSideShowResponse.class))
                         .getFeedSlideShowResponse();
+            }
+
+            @Override
+            public Observable<Response<FeedForumResponse>> getFeedForumResponse() {
+                return myntraDevApiBehaviorDelegate.returning(
+                        buildResponse("feed_forum.json", FeedForumResponse.class))
+                        .getFeedForumResponse();
             }
 
             @Override
@@ -112,6 +120,16 @@ public class MyntraDevApiTest extends ApiTestBase {
 
         List<Response<FeedSideShowResponse>> onNextEvents = testSubscriber.getOnNextEvents();
         FeedSideShowResponse feedSlideShowResponse = onNextEvents.get(0).body();
+    }
+
+    @Test
+    public void getFeedForumResponse() throws Exception {
+        TestSubscriber<Response<FeedForumResponse>> testSubscriber = new TestSubscriber<>();
+        myntraDevApi.getFeedForumResponse().subscribe(testSubscriber);
+        testSubscriber.assertNoErrors();
+
+        List<Response<FeedForumResponse>> onNextEvents = testSubscriber.getOnNextEvents();
+        FeedForumResponse feedForumResponse = onNextEvents.get(0).body();
     }
 
     @Test

@@ -13,7 +13,7 @@ public class FeedForumPostEntriesResponse {
 
     public final int id;
 
-    public final int createdAt;
+    public final String createdAt;
 
     public final int since;
 
@@ -58,7 +58,7 @@ public class FeedForumPostEntriesResponse {
 
     public final FeedForumUserResponse user;
 
-    public FeedForumPostEntriesResponse(String type, int id, int createdAt, int since,
+    public FeedForumPostEntriesResponse(String type, int id, String createdAt, int since,
                                         int commentCount, int answerCount, boolean isFeatured,
                                         boolean isSpammed, boolean isOwner, boolean isLiked,
                                         boolean isFollowed, boolean hasAnswered, int followersCount,

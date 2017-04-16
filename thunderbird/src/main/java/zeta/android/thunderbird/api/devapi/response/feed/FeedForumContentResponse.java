@@ -10,7 +10,7 @@ public class FeedForumContentResponse {
     public final int cardId;
     public final String cardType;
     public final int postId;
-    public final int postOwnerId;
+    public final String postOwnerId;
     public final boolean isHidden;
     public final boolean isDeleted;
     public final String createdOn;
@@ -20,7 +20,7 @@ public class FeedForumContentResponse {
     public FeedForumContentResponse(int cardId,
                                     String cardType,
                                     int postId,
-                                    int postOwnerId,
+                                    String postOwnerId,
                                     boolean isHidden,
                                     boolean isDeleted,
                                     String createdOn,

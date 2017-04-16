@@ -1,10 +1,12 @@
 package zeta.android.thunderbird.api.devapi.response.feed;
 
+import java.util.List;
+
 public class FeedForumDataResponse {
 
-    public final FeedForumContentResponse feed;
+    public final List<FeedForumContentResponse> feed;
 
-    public FeedForumDataResponse(FeedForumContentResponse feed) {
+    public FeedForumDataResponse(List<FeedForumContentResponse> feed) {
         this.feed = feed;
     }
 }
