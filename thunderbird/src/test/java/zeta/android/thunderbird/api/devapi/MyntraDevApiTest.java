@@ -98,7 +98,8 @@ public class MyntraDevApiTest extends ApiTestBase {
 
         List<Response<FeedResponse>> onNextEvents = testSubscriber.getOnNextEvents();
         FeedResponse feedResponse = onNextEvents.get(0).body();
-
+        assert feedResponse != null;
+        assertEquals(13, feedResponse.count);
     }
 
     @Test
@@ -109,7 +110,8 @@ public class MyntraDevApiTest extends ApiTestBase {
 
         List<Response<FeedHeaderResponse>> onNextEvents = testSubscriber.getOnNextEvents();
         FeedHeaderResponse feedHeaderResponse = onNextEvents.get(0).body();
-
+        assert feedHeaderResponse != null;
+        assertEquals(1, feedHeaderResponse.count);
     }
 
     @Test
@@ -120,6 +122,8 @@ public class MyntraDevApiTest extends ApiTestBase {
 
         List<Response<FeedSideShowResponse>> onNextEvents = testSubscriber.getOnNextEvents();
         FeedSideShowResponse feedSlideShowResponse = onNextEvents.get(0).body();
+        assert feedSlideShowResponse != null;
+        assertEquals(1, feedSlideShowResponse.count);
     }
 
     @Test
@@ -130,6 +134,7 @@ public class MyntraDevApiTest extends ApiTestBase {
 
         List<Response<FeedForumResponse>> onNextEvents = testSubscriber.getOnNextEvents();
         FeedForumResponse feedForumResponse = onNextEvents.get(0).body();
+        assertEquals(200, feedForumResponse.meta.status);
     }
 
     @Test
@@ -157,8 +162,6 @@ public class MyntraDevApiTest extends ApiTestBase {
         assertEquals("http://myntra.myntassets.com/assets/images/1601830/2016/11/21/11479707823353-Nike-Men-Blue-Solid-Pullover-Sweatshirt-5921479707822951-1.jpg",
                 searchProductsResponse.searchImage.toString());
         assertEquals("Nike", searchProductsResponse.brandsFilterFacets);
-
-        //TODO :: Add more asserts here.
     }
 
     @Test
@@ -202,8 +205,6 @@ public class MyntraDevApiTest extends ApiTestBase {
         assertEquals(0, pdpDataResponse.navigationId);
         assertEquals("Tops/Jaipur-Kurti/Jaipur-Kurti-Black-Printed-Top/1291342/buy",
                 pdpDataResponse.landingPageUrl);
-
-        //TODO :: Add more asserts here.
     }
 
 }
