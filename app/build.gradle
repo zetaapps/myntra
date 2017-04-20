@@ -118,6 +118,9 @@ android {
         exclude 'META-INF/MANIFEST.MF'
         exclude 'META-INF/rxjava.properties'
         exclude 'META-INF/services/javax.annotation.processing.Processor'
+
+        exclude 'build-data.properties'
+
         exclude 'com/sun/jna/aix-ppc/libjnidispatch.a'
         exclude 'com/sun/jna/darwin/libjnidispatch.jnilib'
         exclude 'com/sun/jna/win32-x86-64/jnidispatch.dll'
@@ -125,6 +128,13 @@ android {
         exclude 'com/sun/jna/win32ce-arm/jnidispatch.dll'
         exclude 'com/sun/jna/w32ce-arm/jnidispatch.dll'
         exclude 'jsr305_annotations/Jsr305_annotations.gwt.xml'
+
+        exclude 'fabric/io.fabric.sdk.android.fabric.properties'
+        exclude 'fabric/com.crashlytics.sdk.android.crashlytics-core.properties'
+        exclude 'fabric/com.crashlytics.sdk.android.crashlytics.properties'
+        exclude 'fabric/com.crashlytics.sdk.android.answers.properties'
+        exclude 'fabric/com.crashlytics.sdk.android.beta.properties'
+        exclude 'fabric/io.branch.sdk.android.library.properties'
     }
 
     // This allows us see tests execution progress in the output on the CI.
