@@ -14,10 +14,6 @@ public abstract class ProductsDetailsFragmentParam implements Parcelable {
                 .setProductId(productId);
     }
 
-    public Builder newBuilder() {
-        return new AutoValue_ProductsDetailsFragmentParam.Builder(this);
-    }
-
     public abstract ProductId getProductId();
 
     @AutoValue.Builder

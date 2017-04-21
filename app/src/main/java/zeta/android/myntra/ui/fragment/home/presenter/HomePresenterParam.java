@@ -12,10 +12,6 @@ public abstract class HomePresenterParam implements Parcelable {
         return new AutoValue_HomePresenterParam.Builder();
     }
 
-    public Builder newBuilder() {
-        return new AutoValue_HomePresenterParam.Builder(this);
-    }
-
     @Nullable
     public abstract Parcelable getSavedState();
 

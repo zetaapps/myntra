@@ -12,10 +12,6 @@ public abstract class SearchPresenterParam implements Parcelable {
         return new AutoValue_SearchPresenterParam.Builder();
     }
 
-    public Builder newBuilder() {
-        return new AutoValue_SearchPresenterParam.Builder(this);
-    }
-
     @Nullable
     public abstract Parcelable getSavedState();
 

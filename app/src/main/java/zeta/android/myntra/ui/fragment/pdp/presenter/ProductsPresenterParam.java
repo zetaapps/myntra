@@ -14,10 +14,6 @@ public abstract class ProductsPresenterParam implements Parcelable {
         return new AutoValue_ProductsPresenterParam.Builder();
     }
 
-    public Builder newBuilder() {
-        return new AutoValue_ProductsPresenterParam.Builder(this);
-    }
-
     @Nullable
     public abstract Parcelable getSavedState();
 

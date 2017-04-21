@@ -12,10 +12,6 @@ public abstract class SettingsPresenterParam implements Parcelable {
         return new AutoValue_SettingsPresenterParam.Builder();
     }
 
-    public Builder newBuilder() {
-        return new AutoValue_SettingsPresenterParam.Builder(this);
-    }
-
     @Nullable
     public abstract Parcelable getSavedState();
 

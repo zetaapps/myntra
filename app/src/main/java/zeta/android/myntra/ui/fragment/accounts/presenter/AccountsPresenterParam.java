@@ -12,10 +12,6 @@ public abstract class AccountsPresenterParam implements Parcelable {
         return new AutoValue_AccountsPresenterParam.Builder();
     }
 
-    public Builder newBuilder() {
-        return new AutoValue_AccountsPresenterParam.Builder(this);
-    }
-
     @Nullable
     public abstract Parcelable getSavedState();
 

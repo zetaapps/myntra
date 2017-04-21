@@ -12,10 +12,6 @@ public abstract class MyOrderPresenterParam implements Parcelable {
         return new AutoValue_MyOrderPresenterParam.Builder();
     }
 
-    public Builder newBuilder() {
-        return new AutoValue_MyOrderPresenterParam.Builder(this);
-    }
-
     @Nullable
     public abstract Parcelable getSavedState();
 

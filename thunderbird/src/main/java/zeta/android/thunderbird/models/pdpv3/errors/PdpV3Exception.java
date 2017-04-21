@@ -1,4 +1,4 @@
-package zeta.android.thunderbird.models.pdp.errors;
+package zeta.android.thunderbird.models.pdpv3.errors;
 
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -13,31 +13,31 @@ import javax.annotation.ParametersAreNonnullByDefault;
 import zeta.android.thunderbird.models.common.errors.BaseException;
 
 @ParametersAreNonnullByDefault
-public class PdpException extends BaseException {
+public class PdpV3Exception extends BaseException {
 
-    public PdpException(@Nullable Pair<String, String> errorCodeAndParam) {
+    public PdpV3Exception(@Nullable Pair<String, String> errorCodeAndParam) {
         super(errorCodeAndParam);
     }
 
-    @PdpError
+    @PdpV3Error
     @NonNull
     @Override
     public String getErrorCode() {
         if (errorCode == null) {
-            return PdpError.UNKNOWN;
+            return PdpV3Error.UNKNOWN;
         }
         switch (errorCode) {
-            case PdpError.NO_PDP_RESULT_FOUND:
-                return PdpError.NO_PDP_RESULT_FOUND;
+            case PdpV3Error.NO_PDP_V3_RESULT_FOUND:
+                return PdpV3Error.NO_PDP_V3_RESULT_FOUND;
             default:
-                return PdpError.UNKNOWN;
+                return PdpV3Error.UNKNOWN;
         }
     }
 
     @Retention(RetentionPolicy.SOURCE)
-    @StringDef({PdpError.NO_PDP_RESULT_FOUND, PdpError.UNKNOWN})
-    public @interface PdpError {
-        String NO_PDP_RESULT_FOUND = "no pdp result found";
+    @StringDef({PdpV3Error.NO_PDP_V3_RESULT_FOUND, PdpV3Error.UNKNOWN})
+    public @interface PdpV3Error {
+        String NO_PDP_V3_RESULT_FOUND = "no pdp result found";
         String UNKNOWN = "UNKNOWN";
     }
 }
