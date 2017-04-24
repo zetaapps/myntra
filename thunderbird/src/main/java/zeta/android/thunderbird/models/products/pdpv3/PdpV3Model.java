@@ -8,8 +8,11 @@ import com.google.auto.value.AutoValue;
 import java.util.List;
 
 import zeta.android.thunderbird.models.common.GenderType;
+import zeta.android.thunderbird.models.products.common.ProductArticleType;
 import zeta.android.thunderbird.models.products.common.ProductBrand;
 import zeta.android.thunderbird.models.products.common.ProductId;
+import zeta.android.thunderbird.models.products.common.ProductMasterCategory;
+import zeta.android.thunderbird.models.products.common.ProductSubCategory;
 
 @AutoValue
 public abstract class PdpV3Model implements Parcelable {
@@ -31,6 +34,15 @@ public abstract class PdpV3Model implements Parcelable {
     @GenderType
     public abstract String getGender();
 
+    @Nullable
+    public abstract ProductSubCategory getSubCategory();
+
+    @Nullable
+    public abstract ProductMasterCategory getMasterCategory();
+
+    @Nullable
+    public abstract ProductArticleType getArticleType();
+
     public abstract List<PdpV3Card> getListOfCards();
 
     @AutoValue.Builder
@@ -41,6 +53,12 @@ public abstract class PdpV3Model implements Parcelable {
         public abstract Builder setProductTitle(String productTitle);
 
         public abstract Builder setGender(@GenderType String gender);
+
+        public abstract Builder getSubCategory(@Nullable ProductSubCategory subCategory);
+
+        public abstract Builder getMasterCategory(@Nullable ProductMasterCategory masterCategory);
+
+        public abstract Builder getArticleType(@Nullable ProductArticleType articleType);
 
         public abstract Builder setProductBrand(@Nullable ProductBrand productBrand);
 
