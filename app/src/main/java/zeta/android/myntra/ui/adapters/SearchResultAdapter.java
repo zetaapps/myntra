@@ -14,7 +14,7 @@ import javax.annotation.ParametersAreNonnullByDefault;
 import zeta.android.adapter.BaseHeaderAndFooterAdapter;
 import zeta.android.myntra.R;
 import zeta.android.myntra.ui.views.search.SearchGridViewComponent;
-import zeta.android.thunderbird.models.products.ProductGist;
+import zeta.android.thunderbird.models.products.common.ProductGist;
 
 @ParametersAreNonnullByDefault
 public class SearchResultAdapter extends BaseHeaderAndFooterAdapter {

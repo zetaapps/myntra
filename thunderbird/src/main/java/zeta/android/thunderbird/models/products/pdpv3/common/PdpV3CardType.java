@@ -1,4 +1,4 @@
-package zeta.android.thunderbird.models.pdpv3.common;
+package zeta.android.thunderbird.models.products.pdpv3.common;
 
 import android.support.annotation.StringDef;
 

@@ -7,7 +7,7 @@ import com.google.auto.value.AutoValue;
 
 import java.util.List;
 
-import zeta.android.thunderbird.models.products.ProductGist;
+import zeta.android.thunderbird.models.products.common.ProductGist;
 
 @AutoValue
 public abstract class SearchModel implements Parcelable {

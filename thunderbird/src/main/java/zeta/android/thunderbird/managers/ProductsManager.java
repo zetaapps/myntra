@@ -12,8 +12,8 @@ import zeta.android.thunderbird.api.devapi.response.pdp.PdpResponse;
 import zeta.android.thunderbird.managers.params.ProductDetailsParams;
 import zeta.android.thunderbird.models.common.ITransformer;
 import zeta.android.thunderbird.models.common.Managers;
-import zeta.android.thunderbird.models.pdp.PdpModel;
-import zeta.android.thunderbird.models.pdp.errors.PdpException;
+import zeta.android.thunderbird.models.products.pdp.PdpModel;
+import zeta.android.thunderbird.models.products.pdp.errors.PdpException;
 
 @ParametersAreNonnullByDefault
 public class ProductsManager {

@@ -21,7 +21,7 @@ import zeta.android.myntra.ui.fragment.pdp.ProductsDetailsFragmentParam;
 import zeta.android.myntra.ui.fragment.search.presentation.SearchResultPresentation;
 import zeta.android.thunderbird.managers.SearchManager;
 import zeta.android.thunderbird.managers.params.SearchParams;
-import zeta.android.thunderbird.models.products.ProductGist;
+import zeta.android.thunderbird.models.products.common.ProductGist;
 import zeta.android.thunderbird.models.search.SearchModel;
 import zeta.android.thunderbird.models.search.errors.SearchException;
 import zeta.android.utils.lang.StringUtils;

@@ -35,7 +35,7 @@ import zeta.android.myntra.ui.fragment.pdp.ProductsDetailsFragmentParam;
 import zeta.android.myntra.ui.fragment.search.presentation.SearchResultPresentation;
 import zeta.android.myntra.ui.fragment.search.presenter.SearchPresenterParam;
 import zeta.android.myntra.ui.fragment.search.presenter.SearchResultPresenter;
-import zeta.android.thunderbird.models.products.ProductGist;
+import zeta.android.thunderbird.models.products.common.ProductGist;
 import zeta.android.thunderbird.modules.SearchModule;
 import zeta.android.utils.device.DeviceUtils;
 import zeta.android.utils.view.ViewUtils;

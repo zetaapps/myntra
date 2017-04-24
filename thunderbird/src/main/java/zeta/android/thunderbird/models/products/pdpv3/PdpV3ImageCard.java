@@ -1,8 +1,8 @@
-package zeta.android.thunderbird.models.pdpv3;
+package zeta.android.thunderbird.models.products.pdpv3;
 
 import android.os.Parcel;
 
-import zeta.android.thunderbird.models.pdpv3.common.PdpV3CardType;
+import zeta.android.thunderbird.models.products.pdpv3.common.PdpV3CardType;
 
 public class PdpV3ImageCard extends PdpV3Card {
 

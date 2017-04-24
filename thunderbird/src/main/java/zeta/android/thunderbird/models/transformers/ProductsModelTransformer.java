@@ -5,8 +5,8 @@ import javax.annotation.ParametersAreNonnullByDefault;
 import zeta.android.thunderbird.api.devapi.response.pdp.PdpDataResponse;
 import zeta.android.thunderbird.api.devapi.response.pdp.PdpResponse;
 import zeta.android.thunderbird.models.common.ITransformer;
-import zeta.android.thunderbird.models.pdp.PdpModel;
-import zeta.android.thunderbird.models.products.ProductId;
+import zeta.android.thunderbird.models.products.pdp.PdpModel;
+import zeta.android.thunderbird.models.products.common.ProductId;
 
 @ParametersAreNonnullByDefault
 public class ProductsModelTransformer implements ITransformer<PdpResponse, PdpModel> {

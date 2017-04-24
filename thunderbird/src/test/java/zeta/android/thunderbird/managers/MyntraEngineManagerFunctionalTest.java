@@ -26,9 +26,9 @@ import zeta.android.thunderbird.api.devapi.response.feed.FeedSideShowResponse;
 import zeta.android.thunderbird.api.devapi.response.pdp.PdpResponse;
 import zeta.android.thunderbird.api.devapi.response.search.SearchResponse;
 import zeta.android.thunderbird.managers.params.ProductDetailsParams;
-import zeta.android.thunderbird.models.pdp.PdpModel;
-import zeta.android.thunderbird.models.pdp.errors.PdpException;
-import zeta.android.thunderbird.models.products.ProductId;
+import zeta.android.thunderbird.models.products.pdp.PdpModel;
+import zeta.android.thunderbird.models.products.pdp.errors.PdpException;
+import zeta.android.thunderbird.models.products.common.ProductId;
 import zeta.android.thunderbird.models.transformers.ProductsModelTransformer;
 
 import static org.junit.Assert.assertEquals;

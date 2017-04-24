@@ -1,4 +1,4 @@
-package zeta.android.thunderbird.models.session;
+package zeta.android.thunderbird.models.common;
 
 import android.support.annotation.StringDef;
 

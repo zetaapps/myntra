@@ -1,4 +1,4 @@
-package zeta.android.thunderbird.models.pdp;
+package zeta.android.thunderbird.models.products.pdp;
 
 import android.os.Parcelable;
 import android.support.annotation.Nullable;
@@ -7,7 +7,7 @@ import com.google.auto.value.AutoValue;
 
 import java.net.URL;
 
-import zeta.android.thunderbird.models.products.ProductId;
+import zeta.android.thunderbird.models.products.common.ProductId;
 
 @AutoValue
 public abstract class PdpModel implements Parcelable {

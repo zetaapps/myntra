@@ -11,8 +11,8 @@ import zeta.android.thunderbird.api.devapi.response.search.SearchProductsRespons
 import zeta.android.thunderbird.api.devapi.response.search.SearchResponse;
 import zeta.android.thunderbird.api.devapi.response.search.SearchResultsResponse;
 import zeta.android.thunderbird.models.common.ITransformer;
-import zeta.android.thunderbird.models.products.ProductGist;
-import zeta.android.thunderbird.models.products.ProductId;
+import zeta.android.thunderbird.models.products.common.ProductGist;
+import zeta.android.thunderbird.models.products.common.ProductId;
 import zeta.android.thunderbird.models.search.SearchModel;
 import zeta.android.thunderbird.utils.ImageUtils;
 

@@ -8,7 +8,7 @@ import zeta.android.thunderbird.api.devapi.MyntraDevApi;
 import zeta.android.thunderbird.api.devapi.response.pdp.PdpResponse;
 import zeta.android.thunderbird.managers.ProductsManager;
 import zeta.android.thunderbird.models.common.ITransformer;
-import zeta.android.thunderbird.models.pdp.PdpModel;
+import zeta.android.thunderbird.models.products.pdp.PdpModel;
 import zeta.android.thunderbird.models.transformers.ProductsModelTransformer;
 import zeta.android.thunderbird.qualifiers.retrofit.RetrofitApify;
 import zeta.android.thunderbird.qualifiers.retrofit.RetrofitDevApi;

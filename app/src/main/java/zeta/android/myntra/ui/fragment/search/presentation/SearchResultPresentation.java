@@ -9,7 +9,7 @@ import java.util.List;
 
 import zeta.android.myntra.ui.fragment.common.presentation.BasePresentation;
 import zeta.android.myntra.ui.fragment.pdp.ProductsDetailsFragmentParam;
-import zeta.android.thunderbird.models.products.ProductGist;
+import zeta.android.thunderbird.models.products.common.ProductGist;
 
 public interface SearchResultPresentation extends BasePresentation {
 

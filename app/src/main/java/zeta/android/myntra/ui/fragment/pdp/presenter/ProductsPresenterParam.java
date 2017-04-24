@@ -5,7 +5,7 @@ import android.support.annotation.Nullable;
 
 import com.google.auto.value.AutoValue;
 
-import zeta.android.thunderbird.models.products.ProductId;
+import zeta.android.thunderbird.models.products.common.ProductId;
 
 @AutoValue
 public abstract class ProductsPresenterParam implements Parcelable {

@@ -1,4 +1,4 @@
-package zeta.android.thunderbird.models.pdpv3.errors;
+package zeta.android.thunderbird.models.products.pdpv3.errors;
 
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;

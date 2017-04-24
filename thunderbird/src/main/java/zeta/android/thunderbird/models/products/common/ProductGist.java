@@ -1,4 +1,4 @@
-package zeta.android.thunderbird.models.products;
+package zeta.android.thunderbird.models.products.common;
 
 import android.os.Parcelable;
 import android.support.annotation.Nullable;
@@ -9,7 +9,7 @@ import com.google.auto.value.AutoValue;
 public abstract class ProductGist implements Parcelable {
 
     public static Builder create() {
-        return new AutoValue_ProductGist.Builder();
+        return new $AutoValue_ProductGist.Builder();
     }
 
     public abstract int getDiscountedPrice();

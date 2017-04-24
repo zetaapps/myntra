@@ -4,7 +4,7 @@ import android.os.Parcelable;
 
 import com.google.auto.value.AutoValue;
 
-import zeta.android.thunderbird.models.session.GenderType;
+import zeta.android.thunderbird.models.common.GenderType;
 import zeta.android.thunderbird.models.session.UserFirstName;
 import zeta.android.thunderbird.models.session.UserLastName;
 import zeta.android.thunderbird.models.session.UserType;

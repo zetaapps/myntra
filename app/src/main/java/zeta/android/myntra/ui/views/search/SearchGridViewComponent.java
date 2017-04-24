@@ -19,7 +19,7 @@ import zeta.android.myntra.R;
 import zeta.android.myntra.appconfig.GlideConfigModule;
 import zeta.android.myntra.ui.common.BaseViews;
 import zeta.android.myntra.ui.views.helper.ViewAspectRatioMeasurer;
-import zeta.android.thunderbird.models.products.ProductGist;
+import zeta.android.thunderbird.models.products.common.ProductGist;
 import zeta.android.utils.view.ViewUtils;
 
 @ParametersAreNonnullByDefault

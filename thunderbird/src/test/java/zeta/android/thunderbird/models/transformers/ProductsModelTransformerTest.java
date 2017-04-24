@@ -6,7 +6,7 @@ import org.junit.Test;
 import javax.annotation.ParametersAreNonnullByDefault;
 
 import zeta.android.thunderbird.api.devapi.response.pdp.PdpResponse;
-import zeta.android.thunderbird.models.pdp.PdpModel;
+import zeta.android.thunderbird.models.products.pdp.PdpModel;
 import zeta.android.thunderbird.utils.TestUtils;
 
 import static org.junit.Assert.assertEquals;

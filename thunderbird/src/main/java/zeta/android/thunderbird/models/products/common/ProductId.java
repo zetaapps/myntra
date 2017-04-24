@@ -1,4 +1,4 @@
-package zeta.android.thunderbird.models.products;
+package zeta.android.thunderbird.models.products.common;
 
 import android.os.Parcelable;
 
@@ -8,7 +8,7 @@ import com.google.auto.value.AutoValue;
 public abstract class ProductId implements Parcelable {
 
     public static Builder create(int productId) {
-        return new AutoValue_ProductId.Builder()
+        return new $AutoValue_ProductId.Builder()
                 .setRawProductId(productId);
     }
 
