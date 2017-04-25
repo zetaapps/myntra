@@ -30,6 +30,8 @@ public class ProductsModelTransformerTest {
         assertEquals(1291342, pdpResponse.getProductId().getRawId());
         assertEquals("Jaipur Kurti Black Printed Top", pdpResponse.getProductTitle());
         assertNull(pdpResponse.getProductDescription());
+        assertEquals("http://assets.myntassets.com/assets/images/1291342/2016/4/4/11459766198814-Jaipur-Kurti-White-Printed-Top-4911459766197997-1.jpg",
+                pdpResponse.getDefaultImageUrl().toString());
 
         //TODO :: Add more asserts here.
     }

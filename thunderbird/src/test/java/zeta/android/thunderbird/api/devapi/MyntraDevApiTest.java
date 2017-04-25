@@ -16,6 +16,9 @@ import retrofit2.mock.BehaviorDelegate;
 import rx.Observable;
 import rx.observers.TestSubscriber;
 import zeta.android.thunderbird.ApiTestBase;
+import zeta.android.thunderbird.api.devapi.response.feed.FeedCardsResponse;
+import zeta.android.thunderbird.api.devapi.response.feed.FeedChildrenPropResponse;
+import zeta.android.thunderbird.api.devapi.response.feed.FeedChildrenResponse;
 import zeta.android.thunderbird.api.devapi.response.feed.FeedForumResponse;
 import zeta.android.thunderbird.api.devapi.response.feed.FeedHeaderResponse;
 import zeta.android.thunderbird.api.devapi.response.feed.FeedResponse;
@@ -30,6 +33,7 @@ import zeta.android.thunderbird.api.devapi.response.search.SearchProductsRespons
 import zeta.android.thunderbird.api.devapi.response.search.SearchResponse;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 
 @ParametersAreNonnullByDefault
 public class MyntraDevApiTest extends ApiTestBase {
@@ -124,6 +128,18 @@ public class MyntraDevApiTest extends ApiTestBase {
         FeedSideShowResponse feedSlideShowResponse = onNextEvents.get(0).body();
         assert feedSlideShowResponse != null;
         assertEquals(1, feedSlideShowResponse.count);
+        assert feedSlideShowResponse.cards != null;
+        FeedCardsResponse feedCardsResponse = feedSlideShowResponse.cards.get(0);
+        assertEquals("COMPONENT_CARD", feedCardsResponse.cardType);
+        assert feedCardsResponse.feedPropsResponse != null;
+        assertEquals("2:ddb1fcb8-97e1-41d1-a183-1d6f872c26b3", feedCardsResponse.feedPropsResponse.id);
+        assertEquals("f5e7b529-7b6d-4d53-8c6f-1e3206f00183", feedCardsResponse.feedPropsResponse.storyId);
+
+        assert feedCardsResponse.feedContent != null;
+        assertTrue(feedCardsResponse.feedContent.size() > 0);
+        FeedChildrenResponse feedChildrenResponse = feedCardsResponse.feedContent.get(0);
+        assertEquals("SLIDESHOW", feedChildrenResponse.feedCardType);
+        assert feedChildrenResponse.feedChildProp != null;
     }
 
     @Test
