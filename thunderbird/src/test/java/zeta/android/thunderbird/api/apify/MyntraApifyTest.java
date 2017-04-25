@@ -14,14 +14,14 @@ import retrofit2.mock.BehaviorDelegate;
 import rx.Observable;
 import rx.observers.TestSubscriber;
 import zeta.android.thunderbird.ApiTestBase;
-import zeta.android.thunderbird.api.apify.pdpv3.common.PdpSizeResponse;
+import zeta.android.thunderbird.api.apify.pdpv3.common.PdpV3SizeResponse;
 import zeta.android.thunderbird.api.apify.pdpv3.componentization.PdpComponentizationCardsResponse;
 import zeta.android.thunderbird.api.apify.pdpv3.componentization.PdpComponentizationComponentsResponse;
 import zeta.android.thunderbird.api.apify.pdpv3.componentization.PdpComponentizationInfoResponse;
 import zeta.android.thunderbird.api.apify.pdpv3.componentization.PdpComponentizationMediumResponse;
 import zeta.android.thunderbird.api.apify.pdpv3.componentization.PdpComponentizationResponse;
 import zeta.android.thunderbird.api.apify.pdpv3.componentization.PdpComponentizationServiceabilityResponse;
-import zeta.android.thunderbird.api.apify.pdpv3.pdp.PdpResponse;
+import zeta.android.thunderbird.api.apify.pdpv3.pdp.PdpV3Response;
 
 import static junit.framework.Assert.assertEquals;
 
@@ -48,10 +48,10 @@ public class MyntraApifyTest extends ApiTestBase {
             }
 
             @Override
-            public Observable<Response<PdpResponse>> getProductDetailsResponse(
+            public Observable<Response<PdpV3Response>> getProductDetailsResponse(
                     @Path("styleId") int styleId) {
                 return myntraDevApiBehaviorDelegate.returning(
-                        buildResponse("pdp_v3_response_1675810_general.json", PdpResponse.class))
+                        buildResponse("pdp_v3_response_1675810_general.json", PdpV3Response.class))
                         .getProductDetailsResponse(styleId);
             }
         };
@@ -180,7 +180,7 @@ public class MyntraApifyTest extends ApiTestBase {
         assertEquals(9, pdpV3ComponentsList.size());
         PdpComponentizationComponentsResponse pdpV3Component;
         pdpV3Component = pdpV3ComponentsList.get(8);
-        List<PdpSizeResponse> sizeList = pdpV3Component.props.sizeList;
+        List<PdpV3SizeResponse> sizeList = pdpV3Component.props.sizeList;
         assert sizeList != null;
         List<String> warehouseList = sizeList.get(0).warehouseList;
         assertEquals(12595445, sizeList.get(0).skuId);
@@ -239,12 +239,12 @@ public class MyntraApifyTest extends ApiTestBase {
     //region General Response Tests
     @Test
     public void getProductDetailsResponseStyleTest() {
-        TestSubscriber<Response<PdpResponse>> testSubscriber = new TestSubscriber<>();
+        TestSubscriber<Response<PdpV3Response>> testSubscriber = new TestSubscriber<>();
         myntraApify.getProductDetailsResponse(1675810).subscribe(testSubscriber);
         testSubscriber.assertNoErrors();
 
-        List<Response<PdpResponse>> onNextEvents = testSubscriber.getOnNextEvents();
-        PdpResponse response = onNextEvents.get(0).body();
+        List<Response<PdpV3Response>> onNextEvents = testSubscriber.getOnNextEvents();
+        PdpV3Response response = onNextEvents.get(0).body();
         assert response != null;
 
         assertEquals("Soch Outlet Women Pink Solid Straight Kurta", response.style.name);
@@ -253,12 +253,12 @@ public class MyntraApifyTest extends ApiTestBase {
 
     @Test
     public void getProductDetailsResponsePriceTest() {
-        TestSubscriber<Response<PdpResponse>> testSubscriber = new TestSubscriber<>();
+        TestSubscriber<Response<PdpV3Response>> testSubscriber = new TestSubscriber<>();
         myntraApify.getProductDetailsResponse(1675810).subscribe(testSubscriber);
         testSubscriber.assertNoErrors();
 
-        List<Response<PdpResponse>> onNextEvents = testSubscriber.getOnNextEvents();
-        PdpResponse response = onNextEvents.get(0).body();
+        List<Response<PdpV3Response>> onNextEvents = testSubscriber.getOnNextEvents();
+        PdpV3Response response = onNextEvents.get(0).body();
         assert response != null;
 
         assertEquals(998.0, response.style.price.mrp);
@@ -271,12 +271,12 @@ public class MyntraApifyTest extends ApiTestBase {
 
     @Test
     public void getProductDetailsResponseAnalyticsTest() {
-        TestSubscriber<Response<PdpResponse>> testSubscriber = new TestSubscriber<>();
+        TestSubscriber<Response<PdpV3Response>> testSubscriber = new TestSubscriber<>();
         myntraApify.getProductDetailsResponse(1675810).subscribe(testSubscriber);
         testSubscriber.assertNoErrors();
 
-        List<Response<PdpResponse>> onNextEvents = testSubscriber.getOnNextEvents();
-        PdpResponse response = onNextEvents.get(0).body();
+        List<Response<PdpV3Response>> onNextEvents = testSubscriber.getOnNextEvents();
+        PdpV3Response response = onNextEvents.get(0).body();
         assert response != null;
 
         assertEquals("Kurtis", response.style.analytics.articleType);
@@ -288,12 +288,12 @@ public class MyntraApifyTest extends ApiTestBase {
 
     @Test
     public void getProductDetailsResponseBrandTest() {
-        TestSubscriber<Response<PdpResponse>> testSubscriber = new TestSubscriber<>();
+        TestSubscriber<Response<PdpV3Response>> testSubscriber = new TestSubscriber<>();
         myntraApify.getProductDetailsResponse(1675810).subscribe(testSubscriber);
         testSubscriber.assertNoErrors();
 
-        List<Response<PdpResponse>> onNextEvents = testSubscriber.getOnNextEvents();
-        PdpResponse response = onNextEvents.get(0).body();
+        List<Response<PdpV3Response>> onNextEvents = testSubscriber.getOnNextEvents();
+        PdpV3Response response = onNextEvents.get(0).body();
         assert response != null;
 
         assertEquals(null, response.style.brand.uidx);

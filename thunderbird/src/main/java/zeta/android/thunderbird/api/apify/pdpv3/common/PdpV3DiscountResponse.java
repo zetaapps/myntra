@@ -1,6 +1,6 @@
 package zeta.android.thunderbird.api.apify.pdpv3.common;
 
-public class PdpDiscountResponse {
+public class PdpV3DiscountResponse {
 
     public final String label;
 
@@ -10,10 +10,10 @@ public class PdpDiscountResponse {
 
     public final Object coupon;
 
-    public PdpDiscountResponse(String label,
-                               String description,
-                               Object myntCash,
-                               Object coupon) {
+    public PdpV3DiscountResponse(String label,
+                                 String description,
+                                 Object myntCash,
+                                 Object coupon) {
         this.label = label;
         this.description = description;
         this.myntCash = myntCash;

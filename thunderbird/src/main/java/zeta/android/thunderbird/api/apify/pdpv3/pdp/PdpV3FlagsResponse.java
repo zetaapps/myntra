@@ -1,6 +1,6 @@
 package zeta.android.thunderbird.api.apify.pdpv3.pdp;
 
-public class PdpFlagsResponse {
+public class PdpV3FlagsResponse {
 
     public final boolean exchangeable;
     public final boolean returnable;
@@ -12,15 +12,15 @@ public class PdpFlagsResponse {
     public final boolean jewellery;
     public final boolean outOfStock;
 
-    public PdpFlagsResponse(boolean exchangeable,
-                            boolean returnable,
-                            boolean pickupEnabled,
-                            boolean tryable,
-                            boolean large,
-                            boolean hazmat,
-                            boolean fragile,
-                            boolean jewellery,
-                            boolean outOfStock) {
+    public PdpV3FlagsResponse(boolean exchangeable,
+                              boolean returnable,
+                              boolean pickupEnabled,
+                              boolean tryable,
+                              boolean large,
+                              boolean hazmat,
+                              boolean fragile,
+                              boolean jewellery,
+                              boolean outOfStock) {
         this.exchangeable = exchangeable;
         this.returnable = returnable;
         this.pickupEnabled = pickupEnabled;

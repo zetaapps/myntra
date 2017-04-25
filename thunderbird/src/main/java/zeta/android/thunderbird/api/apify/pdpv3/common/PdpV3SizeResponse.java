@@ -6,7 +6,7 @@ import com.google.gson.annotations.SerializedName;
 
 import java.util.List;
 
-public class PdpSizeResponse {
+public class PdpV3SizeResponse {
 
     public final int skuId;
 
@@ -34,10 +34,10 @@ public class PdpSizeResponse {
 
     public final Object originalStyle;
 
-    public PdpSizeResponse(int skuId, int styleId, int inventory, String action,
-                           String label, boolean available, String seller,
-                           String supplyType, @Nullable List<String> warehouseList,
-                           Object sizeType, Object price, Object originalStyle) {
+    public PdpV3SizeResponse(int skuId, int styleId, int inventory, String action,
+                             String label, boolean available, String seller,
+                             String supplyType, @Nullable List<String> warehouseList,
+                             Object sizeType, Object price, Object originalStyle) {
         this.skuId = skuId;
         this.styleId = styleId;
         this.inventory = inventory;

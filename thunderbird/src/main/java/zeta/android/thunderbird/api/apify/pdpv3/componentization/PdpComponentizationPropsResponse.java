@@ -6,9 +6,9 @@ import com.google.gson.annotations.SerializedName;
 
 import java.util.List;
 
-import zeta.android.thunderbird.api.apify.pdpv3.common.PdpDescriptorResponse;
-import zeta.android.thunderbird.api.apify.pdpv3.common.PdpPriceResponse;
-import zeta.android.thunderbird.api.apify.pdpv3.common.PdpSizeResponse;
+import zeta.android.thunderbird.api.apify.pdpv3.common.PdpV3DescriptorResponse;
+import zeta.android.thunderbird.api.apify.pdpv3.common.PdpV3PriceResponse;
+import zeta.android.thunderbird.api.apify.pdpv3.common.PdpV3SizeResponse;
 
 public class PdpComponentizationPropsResponse {
 
@@ -27,10 +27,10 @@ public class PdpComponentizationPropsResponse {
 
     public final String baseColour;
 
-    public final PdpPriceResponse price;
+    public final PdpV3PriceResponse price;
 
     @SerializedName("descriptors")
-    public final List<PdpDescriptorResponse> descriptorList;
+    public final List<PdpV3DescriptorResponse> descriptorList;
 
     public final PdpComponentizationBestPriceLoadResponse bestPriceOnDemand;
 
@@ -38,7 +38,7 @@ public class PdpComponentizationPropsResponse {
 
     @Nullable
     @SerializedName("sizes")
-    public final List<PdpSizeResponse> sizeList;
+    public final List<PdpV3SizeResponse> sizeList;
 
     public final PdpComponentizationSizeChartResponse sizechart;
 
@@ -71,10 +71,10 @@ public class PdpComponentizationPropsResponse {
     public PdpComponentizationPropsResponse(int id, String name, List<PdpComponentizationMediumResponse> mediumList,
                                             int count, PdpComponentizationRelatedResponse related,
                                             PdpComponentizationLikesResponse likes, String baseColour,
-                                            PdpPriceResponse price, List<PdpDescriptorResponse> descriptorList,
+                                            PdpV3PriceResponse price, List<PdpV3DescriptorResponse> descriptorList,
                                             PdpComponentizationBestPriceLoadResponse bestPriceOnDemand,
                                             boolean sbpEnabled,
-                                            @Nullable List<PdpSizeResponse> sizeList,
+                                            @Nullable List<PdpV3SizeResponse> sizeList,
                                             PdpComponentizationSizeChartResponse sizechart,
                                             PdpComponentizationSizeRecoLazyResponse sizeRecoLazy,
                                             @Nullable List<PdpComponentizationProductDetailResponse> productDetailList,

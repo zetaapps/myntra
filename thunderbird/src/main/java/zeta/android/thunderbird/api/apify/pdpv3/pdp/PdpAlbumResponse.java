@@ -12,10 +12,10 @@ public class PdpAlbumResponse {
 
     @Nullable
     @SerializedName("images")
-    public final List<PdpImageResponse> pdpImageResponseList;
+    public final List<PdpV3ImageResponse> pdpImageResponseList;
 
     public PdpAlbumResponse(String name,
-                            @Nullable List<PdpImageResponse> pdpImageResponseList) {
+                            @Nullable List<PdpV3ImageResponse> pdpImageResponseList) {
         this.name = name;
         this.pdpImageResponseList = pdpImageResponseList;
     }

@@ -6,11 +6,11 @@ import com.google.gson.annotations.SerializedName;
 
 import java.util.List;
 
-public class PdpMediaResponse {
+public class PdpV3MediaResponse {
 
     @SerializedName("videos")
     @Nullable
-    public final List<PdpVideoResponse> pdpVideoResponseList;
+    public final List<PdpV3VideoResponse> pdpVideoResponseList;
 
     @Nullable
     @SerializedName("axials")
@@ -23,9 +23,9 @@ public class PdpMediaResponse {
     @SerializedName("cinemagraphs")
     public final List<Object> cinemagraphList;
 
-    public PdpMediaResponse(@Nullable List<PdpVideoResponse> pdpVideoResponseList,
-                            @Nullable List<PdpAlbumResponse> pdpAlbumResponseList,
-                            List<Object> cinemagraphList) {
+    public PdpV3MediaResponse(@Nullable List<PdpV3VideoResponse> pdpVideoResponseList,
+                              @Nullable List<PdpAlbumResponse> pdpAlbumResponseList,
+                              List<Object> cinemagraphList) {
         this.pdpVideoResponseList = pdpVideoResponseList;
         this.pdpAlbumResponseList = pdpAlbumResponseList;
         this.cinemagraphList = cinemagraphList;
