@@ -13,6 +13,7 @@ import zeta.android.thunderbird.models.products.common.ProductBrand;
 import zeta.android.thunderbird.models.products.common.ProductId;
 import zeta.android.thunderbird.models.products.common.ProductMasterCategory;
 import zeta.android.thunderbird.models.products.common.ProductSubCategory;
+import zeta.android.thunderbird.models.products.pdpv3.cards.PdpV3Card;
 
 @AutoValue
 public abstract class PdpV3Model implements Parcelable {

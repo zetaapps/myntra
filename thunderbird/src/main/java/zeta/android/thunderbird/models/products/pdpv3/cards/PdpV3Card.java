@@ -1,4 +1,4 @@
-package zeta.android.thunderbird.models.products.pdpv3;
+package zeta.android.thunderbird.models.products.pdpv3.cards;
 
 import android.os.Parcelable;
 

@@ -1,4 +1,4 @@
-package zeta.android.thunderbird.models.products.pdpv3;
+package zeta.android.thunderbird.models.products.pdpv3.component;
 
 import android.os.Parcelable;
 import android.support.annotation.Nullable;
@@ -10,10 +10,10 @@ import java.net.URL;
 import zeta.android.thunderbird.models.products.pdpv3.common.PdpV3MediaType;
 
 @AutoValue
-public abstract class PdpV3Media implements Parcelable {
+public abstract class PdpV3MediaComponent implements Parcelable {
 
     public static Builder create(@PdpV3MediaType String mediaType) {
-        return new AutoValue_PdpV3Media.Builder()
+        return new $AutoValue_PdpV3MediaComponent.Builder()
                 .setMediaType(mediaType);
     }
 
@@ -30,6 +30,6 @@ public abstract class PdpV3Media implements Parcelable {
 
         public abstract Builder setSource(URL source);
 
-        public abstract PdpV3Media build();
+        public abstract PdpV3MediaComponent build();
     }
 }
