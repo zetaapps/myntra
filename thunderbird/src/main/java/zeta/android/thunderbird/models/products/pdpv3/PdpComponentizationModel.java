@@ -5,8 +5,6 @@ import android.support.annotation.Nullable;
 
 import com.google.auto.value.AutoValue;
 
-import java.util.List;
-
 import zeta.android.thunderbird.models.common.GenderType;
 import zeta.android.thunderbird.models.products.common.ProductArticleType;
 import zeta.android.thunderbird.models.products.common.ProductBrand;
@@ -45,7 +43,7 @@ public abstract class PdpComponentizationModel implements Parcelable {
     @Nullable
     public abstract ProductArticleType getArticleType();
 
-    public abstract List<PdpProductCard> getListOfCards();
+    public abstract PdpProductCard getProductCard();
 
     @AutoValue.Builder
     public static abstract class Builder {
@@ -66,7 +64,7 @@ public abstract class PdpComponentizationModel implements Parcelable {
 
         public abstract Builder setProductDescription(@Nullable String productDescription);
 
-        public abstract Builder setListOfCards(List<PdpProductCard> cards);
+        public abstract Builder setProductCard(PdpProductCard pdpProductCard);
 
         public abstract PdpComponentizationModel build();
     }
