@@ -15,11 +15,11 @@ import static org.junit.Assert.assertNull;
 @ParametersAreNonnullByDefault
 public class ProductsModelTransformerTest {
 
-    private ProductsModelTransformer mProductsModelTransformer;
+    private PdpModelTransformer mProductsModelTransformer;
 
     @Before
     public void setUp() throws Exception {
-        mProductsModelTransformer = new ProductsModelTransformer();
+        mProductsModelTransformer = new PdpModelTransformer();
     }
 
     @Test

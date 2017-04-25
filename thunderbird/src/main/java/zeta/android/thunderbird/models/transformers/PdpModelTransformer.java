@@ -9,7 +9,7 @@ import zeta.android.thunderbird.models.products.pdp.PdpModel;
 import zeta.android.thunderbird.models.products.common.ProductId;
 
 @ParametersAreNonnullByDefault
-public class ProductsModelTransformer implements ITransformer<PdpResponse, PdpModel> {
+public class PdpModelTransformer implements ITransformer<PdpResponse, PdpModel> {
 
     @Override
     public PdpModel transform(PdpResponse pdpResponse) {

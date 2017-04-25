@@ -29,7 +29,7 @@ import zeta.android.thunderbird.managers.params.ProductDetailsParams;
 import zeta.android.thunderbird.models.products.pdp.PdpModel;
 import zeta.android.thunderbird.models.products.pdp.errors.PdpException;
 import zeta.android.thunderbird.models.products.common.ProductId;
-import zeta.android.thunderbird.models.transformers.ProductsModelTransformer;
+import zeta.android.thunderbird.models.transformers.PdpModelTransformer;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNull;
@@ -92,7 +92,7 @@ public class MyntraEngineManagerFunctionalTest extends ApiTestBase {
             }
         };
 
-        ProductsModelTransformer mProductsModelTransformer = new ProductsModelTransformer();
+        PdpModelTransformer mProductsModelTransformer = new PdpModelTransformer();
         mProductsManager = new ProductsManager(mMyntraDevApi, mProductsModelTransformer);
     }
 

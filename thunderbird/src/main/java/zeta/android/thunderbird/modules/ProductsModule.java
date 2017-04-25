@@ -9,7 +9,7 @@ import zeta.android.thunderbird.api.devapi.response.pdp.PdpResponse;
 import zeta.android.thunderbird.managers.ProductsManager;
 import zeta.android.thunderbird.models.common.ITransformer;
 import zeta.android.thunderbird.models.products.pdp.PdpModel;
-import zeta.android.thunderbird.models.transformers.ProductsModelTransformer;
+import zeta.android.thunderbird.models.transformers.PdpModelTransformer;
 import zeta.android.thunderbird.qualifiers.retrofit.RetrofitApify;
 import zeta.android.thunderbird.qualifiers.retrofit.RetrofitDevApi;
 
@@ -28,7 +28,7 @@ public class ProductsModule {
 
     @Provides
     ITransformer<PdpResponse, PdpModel> providesProductsTransformer() {
-        return new ProductsModelTransformer();
+        return new PdpModelTransformer();
     }
 
     @Provides
