@@ -5,6 +5,8 @@ import android.support.annotation.Nullable;
 
 import com.google.auto.value.AutoValue;
 
+import java.util.LinkedHashMap;
+
 import zeta.android.thunderbird.models.common.GenderType;
 import zeta.android.thunderbird.models.products.common.ProductArticleType;
 import zeta.android.thunderbird.models.products.common.ProductBrand;
@@ -13,6 +15,7 @@ import zeta.android.thunderbird.models.products.common.ProductMasterCategory;
 import zeta.android.thunderbird.models.products.common.ProductSubCategory;
 import zeta.android.thunderbird.models.products.common.ProductTitle;
 import zeta.android.thunderbird.models.products.pdpv3.cards.PdpProductCard;
+import zeta.android.thunderbird.models.products.pdpv3.common.PdpV3CardType;
 
 @AutoValue
 public abstract class PdpComponentizationModel implements Parcelable {
@@ -43,6 +46,8 @@ public abstract class PdpComponentizationModel implements Parcelable {
     @Nullable
     public abstract ProductArticleType getArticleType();
 
+    public abstract LinkedHashMap<PdpV3CardType, Integer> getCardPositionIndex();
+
     public abstract PdpProductCard getProductCard();
 
     @AutoValue.Builder
@@ -63,6 +68,8 @@ public abstract class PdpComponentizationModel implements Parcelable {
         public abstract Builder setProductBrand(@Nullable ProductBrand productBrand);
 
         public abstract Builder setProductDescription(@Nullable String productDescription);
+
+        public abstract Builder setCardPositionIndex(LinkedHashMap<PdpV3CardType, Integer> cardPositionIndex);
 
         public abstract Builder setProductCard(PdpProductCard pdpProductCard);
 
