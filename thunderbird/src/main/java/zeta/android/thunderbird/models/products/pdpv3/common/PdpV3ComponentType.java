@@ -9,7 +9,8 @@ import java.lang.annotation.RetentionPolicy;
 @StringDef({
         PdpV3ComponentType.IMAGE_SWIPE,
         PdpV3ComponentType.PRODUCT_DETAILS,
-        PdpV3ComponentType.SERVICEABILITY
+        PdpV3ComponentType.SERVICEABILITY,
+        PdpV3ComponentType.MORE_INFO
 })
 public @interface PdpV3ComponentType {
 
