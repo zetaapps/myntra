@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<zeta.android.myntra.ui.views.navigation.HackyDrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/zeta_drawer_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    tools:context=".ui.activity.NavigationActivity"
+    tools:openDrawer="start">
+
+    <include
+        layout="@layout/app_bar_navigation"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+    <android.support.design.widget.NavigationView
+        android:id="@+id/zeta_nav_view"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_gravity="start"
+        android:fitsSystemWindows="true"
+        app:headerLayout="@layout/nav_header_navigation"
+        app:itemIconTint="@color/zeta_md_black_1000"
+        app:itemTextColor="@color/zeta_md_black_1000"
+        app:menu="@menu/activity_navigation_drawer" />
+
+    <fragment
+        android:id="@+id/navigation_right_drawer"
+        android:name="zeta.android.myntra.ui.fragment.navigation.NavigationRightGuestSessionDrawerFragment"
+        android:layout_width="@dimen/navigation_right_drawer_width"
+        android:layout_height="match_parent"
+        android:layout_gravity="end"
+        android:fitsSystemWindows="true" />
+
+</zeta.android.myntra.ui.views.navigation.HackyDrawerLayout>

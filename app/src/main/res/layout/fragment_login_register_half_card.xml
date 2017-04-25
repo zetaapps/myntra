@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/rl_login_dialog_cnt"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <View
+        android:id="@+id/top_shadow"
+        android:layout_width="match_parent"
+        android:layout_height="8dp" />
+
+    <LinearLayout
+        android:id="@+id/halfcard_main_container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:id="@+id/ll_login_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:padding="@dimen/activity_horizontal_margin"
+            android:visibility="gone">
+
+            <zeta.android.myntra.views.common.ZetaTextView
+                android:id="@+id/tv_login_type"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/default_4x_padding_margin"
+                android:gravity="center"
+                android:text="Continue with"
+                android:textColor="@color/zeta_md_black_1000"
+                android:textSize="@dimen/microTextSize" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/activity_horizontal_margin"
+            android:gravity="center_horizontal"
+            android:orientation="horizontal">
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent">
+
+                <com.facebook.login.widget.LoginButton
+                    android:id="@+id/btn_login_facebook"
+                    android:layout_width="30dp"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:layout_marginRight="7dp"
+                    android:enabled="true" />
+
+                <zeta.android.myntra.views.common.ZetaButton
+                    android:id="@+id/btn_login_facebook_dummy"
+                    android:layout_width="30dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="7dp"
+                    android:enabled="true"
+                    android:text="Facebook"
+                    android:textSize="@dimen/microTextSize" />
+            </RelativeLayout>
+
+            <zeta.android.myntra.views.common.ZetaButton
+                android:id="@+id/btn_login_google"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="7dp"
+                android:text="Google"
+                android:textSize="@dimen/microTextSize" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="18dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:weightSum=".8">
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:layout_gravity="center_vertical"
+                android:layout_marginTop="2dp"
+                android:layout_weight=".4" />
+
+            <zeta.android.myntra.views.common.ZetaTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@color/zeta_white"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:text="or use email address"
+                android:textAllCaps="false"
+                android:textColor="@color/zeta_md_grey_700"
+                android:textSize="@dimen/microTextSize" />
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:layout_gravity="center_vertical"
+                android:layout_marginTop="2dp"
+                android:layout_weight=".4" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="4dp"
+            android:layout_marginRight="4dp"
+            android:gravity="center_horizontal"
+            android:orientation="horizontal"
+            android:paddingLeft="8dp"
+            android:paddingRight="8dp">
+
+            <zeta.android.myntra.views.common.ZetaButton
+                android:id="@+id/btn_login"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                android:minHeight="20dp"
+                android:paddingBottom="12dp"
+                android:paddingTop="16dp"
+                android:text="log in"
+                android:textSize="@dimen/mediumTextSize" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="16dp"
+                android:layout_marginTop="12dp" />
+
+            <zeta.android.myntra.views.common.ZetaButton
+                android:id="@+id/btn_register"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                android:minHeight="20dp"
+                android:paddingBottom="12dp"
+                android:paddingTop="16dp"
+                android:text="sign up"
+                android:textSize="@dimen/microTextSize" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:padding="5dp"
+            android:paddingBottom="8dp"
+            android:paddingTop="8dp">
+
+            <zeta.android.myntra.views.common.ZetaCheckBox
+                android:id="@+id/cb_referral_registration"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="referal registration code"
+                android:textColor="@color/zeta_md_grey_800" />
+
+        </LinearLayout>
+    </LinearLayout>
+</FrameLayout>

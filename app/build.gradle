@@ -1,0 +1,296 @@
+apply plugin: 'me.tatarka.retrolambda'
+apply plugin: 'com.android.application'
+apply plugin: 'com.fernandocejas.frodo'
+apply plugin: 'com.neenbedankt.android-apt'
+apply plugin: 'android-apt'
+apply plugin: 'io.fabric'
+
+android {
+    compileSdkVersion versions.compileSdk
+    buildToolsVersion versions.buildTools
+
+    dexOptions {
+        javaMaxHeapSize "4g"
+    }
+
+    defaultConfig {
+        applicationId "zeta.android.myntra"
+        minSdkVersion versions.minSdk
+        targetSdkVersion versions.targetSdk
+        vectorDrawables.useSupportLibrary = true
+        versionCode 3
+        versionName "1.0.3"
+        multiDexEnabled false
+    }
+
+    splits {
+        abi {
+            enable project.hasProperty('splitApks')
+            reset()
+            include 'x86', 'armeabi', 'armeabi-v7a'
+            universalApk = true
+        }
+    }
+
+    buildTypes {
+
+        automation.initWith(buildTypes.debug)
+        automation {
+            applicationIdSuffix ".automation"
+            minifyEnabled true
+            useProguard false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+
+        debug {
+            applicationIdSuffix ".debug"
+            minifyEnabled true
+            debuggable true
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+
+        release {
+            minifyEnabled true
+            zipAlignEnabled
+            shrinkResources true
+            debuggable false
+            useProguard true
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    productFlavors {
+
+        full {
+            applicationIdSuffix ".full"
+            versionNameSuffix "-full"
+            versionCode 3
+            versionName "1.0.3.1"
+        }
+
+        lite {
+            applicationIdSuffix ".lite"
+            versionNameSuffix "-lite"
+            versionCode 3
+            versionName "1.0.3.2"
+        }
+
+    }
+
+    aaptOptions {
+        //Note: If you did not apply PNG optimization on your own, you may want this to be true
+        cruncherEnabled = true
+    }
+
+    testBuildType "automation"
+
+    lintOptions {
+        warningsAsErrors false
+        abortOnError false
+
+        //App does not have deep linking.
+        disable 'GoogleAppIndexingWarning'
+        //Okio references java.nio that does not presented in Android SDK.
+        disable 'InvalidPackage'
+
+        xmlReport false
+        htmlReport true
+        lintConfig file("${project.rootDir}/config/lint/lint.xml")
+        htmlOutput file("$project.buildDir/reports/lint/lint-result.html")
+        xmlOutput file("$project.buildDir/reports/lint/lint-result.xml")
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    sourceSets {
+        // Unit tests for debug build type specific code live in src/debugTest.
+        testDebug.java.srcDir 'src/debugTest/java'
+    }
+
+    packagingOptions {
+        exclude 'META-INF/NOTICE'
+        exclude 'META-INF/NOTICE.txt'
+        exclude 'META-INF/LICENSE'
+        exclude 'META-INF/LICENSE.txt'
+        exclude 'META-INF/MANIFEST.MF'
+        exclude 'META-INF/rxjava.properties'
+        exclude 'META-INF/services/javax.annotation.processing.Processor'
+
+        exclude 'build-data.properties'
+
+        exclude 'com/sun/jna/aix-ppc/libjnidispatch.a'
+        exclude 'com/sun/jna/darwin/libjnidispatch.jnilib'
+        exclude 'com/sun/jna/win32-x86-64/jnidispatch.dll'
+        exclude 'com/sun/jna/win32-x86/jnidispatch.dll'
+        exclude 'com/sun/jna/win32ce-arm/jnidispatch.dll'
+        exclude 'com/sun/jna/w32ce-arm/jnidispatch.dll'
+        exclude 'jsr305_annotations/Jsr305_annotations.gwt.xml'
+
+        exclude 'fabric/io.fabric.sdk.android.fabric.properties'
+        exclude 'fabric/com.crashlytics.sdk.android.crashlytics-core.properties'
+        exclude 'fabric/com.crashlytics.sdk.android.crashlytics.properties'
+        exclude 'fabric/com.crashlytics.sdk.android.answers.properties'
+        exclude 'fabric/com.crashlytics.sdk.android.beta.properties'
+        exclude 'fabric/io.branch.sdk.android.library.properties'
+    }
+
+    // This allows us see tests execution progress in the output on the CI.
+    testOptions.unitTests.all {
+        testLogging {
+            events 'passed', 'skipped', 'failed', 'standardOut', 'standardError'
+            exceptionFormat 'full'
+        }
+    }
+
+}
+
+dependencies {
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+
+    debugCompile project(path: ':thunderbird', configuration: 'debug')
+    releaseCompile project(path: ':thunderbird', configuration: 'release')
+    automationCompile project(path: ':thunderbird', configuration: 'automation')
+
+    //SUPPORT LIBS
+    compile libraries.supportV13
+    compile libraries.supportDesign
+    compile libraries.supportAppCompat
+    compile libraries.supportRecyclerView
+
+    //Chrome
+    compile libraries.chromeCustomTab
+
+    compile libraries.eventBus
+    compile libraries.butterKnife
+    apt libraries.butterKnifeCompiler
+
+    //IMAGE PROCESSING
+    compile libraries.glide
+    compile(libraries.glideOkHttp) {
+        exclude group: 'glide-parent'
+    }
+
+    compile(libraries.bundler) {
+        // exclude this because bundler refers to an old version of the support lib
+        exclude group: 'com.google.android'
+    }
+
+    //ANIMATION
+    compile libraries.lottieAnimation
+
+    //ANNOTATION
+    compile libraries.jsr305
+    compile libraries.javaxAnnotationApi
+
+    //NETWORK
+    compile libraries.okHttp3
+    compile libraries.okHttp3LogInterceptor
+    compile libraries.retrofit
+    compile libraries.retrofitGsonConverter
+    compile libraries.networkSampler
+
+    //PROGRAMMING
+    compile libraries.rxJava
+    compile libraries.rxAndroid
+    compile libraries.dagger
+    apt libraries.daggerCompiler
+    provided libraries.autoValue
+    apt libraries.autoValueParcel
+
+    //Zeta
+    compile libraries.zetaUtils
+    compile libraries.zetaEither
+    compile libraries.zetaListItemDivider
+    compile libraries.zetaHeaderAndFooterAdapters
+
+    //Metagalataic
+    compile libraries.metagalacticExpandableImageView
+
+    //Sticky scroll view
+    compile libraries.stickyScrollView
+
+    //Facebook
+    fullCompile libraries.facebookSdk
+
+    //Google Authentication
+    fullCompile libraries.playServicesAuthentication
+
+    //CRASH REPORTING TOOLS
+    compile libraries.crashlytics
+
+    //Deeplink
+    compile libraries.branchIO
+
+    //DEVELOPER TOOLS
+    compile libraries.timber
+    debugCompile libraries.lynx
+    debugCompile libraries.stetho
+    debugCompile libraries.tinyDancer
+    debugCompile libraries.leakcanary
+    releaseCompile libraries.leakcanaryNoOp
+    automationCompile libraries.leakcanaryNoOp
+
+    //TESTING
+    testCompile libraries.junit
+    testCompile libraries.assertJ
+    testCompile libraries.mockitoCore
+    testCompile libraries.robolectric
+    testCompile libraries.equalsVerifier
+    testCompile libraries.okHttpMockWebServer
+
+    androidTestCompile libraries.dexmaker
+    androidTestCompile libraries.mockitoCore
+    androidTestCompile libraries.espressoCore
+    androidTestCompile libraries.dexmakerMockito
+    androidTestCompile libraries.supportTestRules
+    androidTestCompile libraries.supportTestRunner
+    androidTestCompile(libraries.espressoContrib) {
+        // Causes IncompatibleClassChangeError. As always…
+        exclude module: 'support-annotations'
+        exclude module: 'recyclerview-v7'
+        exclude module: 'support-v4'
+    }
+}
+
+configurations.all {
+    resolutionStrategy {
+        // Force our version of support-annotations, we have a conflict between app and androidTest dependency resolution.
+        force libraries.supportAnnotations
+    }
+}
+
+retrolambda {
+    jvmArgs '-noverify'
+}
+
+// Map for the version code that gives each ABI a value.
+ext.abiCodes = ['armeabi-v7a': 1, 'armeabi': 2, mips: 3, x86: 4]
+
+import com.android.build.OutputFile
+
+// For each APK output variant, override versionCode with a combination of
+// ext.abiCodes * 1000 + variant.versionCode. In this example, variant.versionCode
+// is equal to defaultConfig.versionCode. If you configure product flavors that
+// define their own versionCode, variant.versionCode uses that value instead.
+android.applicationVariants.all { variant ->
+    // Assigns a different version code for each output APK
+    // other than the universal APK.
+    variant.outputs.each { output ->
+        def baseAbiVersionCode = project.ext.abiCodes.get(output.getFilter(OutputFile.ABI))
+        // Because abiCodes.get() returns null for ABIs that are not mapped by ext.abiCodes,
+        // the following code does not override the version code for universal APKs.
+        // However, because we want universal APKs to have the lowest version code,
+        // this outcome is desirable.
+        if (baseAbiVersionCode != null) {
+            // Assigns the new version code to versionCodeOverride, which changes the version code
+            // for only the output APK, not for the variant itself. Skipping this step simply
+            // causes Gradle to use the value of variant.versionCode for the APK.
+            output.versionCodeOverride =
+                    baseAbiVersionCode * 1000 + variant.versionCode
+        }
+    }
+}
+

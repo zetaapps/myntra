@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/action_camera"
+        android:icon="@drawable/ic_photo_camera_white_24dp"
+        android:title="@string/zeta_menu_camera"
+        app:showAsAction="always" />
+
+    <item
+        android:id="@+id/action_mic"
+        android:icon="@drawable/ic_mic_white_24dp"
+        android:title="@string/zeta_menu_mic"
+        app:showAsAction="always" />
+
+</menu>
