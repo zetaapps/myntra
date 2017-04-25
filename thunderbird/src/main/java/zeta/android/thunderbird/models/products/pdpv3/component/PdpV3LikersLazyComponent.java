@@ -27,7 +27,7 @@ public abstract class PdpV3LikersLazyComponent implements Parcelable {
 
         public abstract Builder setPdpV3ActionProperty(@Nullable PdpV3ActionProperty pdpV3ActionProperty);
 
-        public abstract Builder setLikersTitle(@Nullable PdpV3SocialTitle title);
+        public abstract Builder setLikersTitle(@Nullable PdpV3SocialTitle likersTitle);
 
         public abstract PdpV3LikersLazyComponent build();
     }
