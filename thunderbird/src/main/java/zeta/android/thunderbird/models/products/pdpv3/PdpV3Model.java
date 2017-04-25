@@ -54,11 +54,11 @@ public abstract class PdpV3Model implements Parcelable {
 
         public abstract Builder setGender(@GenderType String gender);
 
-        public abstract Builder getSubCategory(@Nullable ProductSubCategory subCategory);
+        public abstract Builder setSubCategory(@Nullable ProductSubCategory subCategory);
 
-        public abstract Builder getMasterCategory(@Nullable ProductMasterCategory masterCategory);
+        public abstract Builder setMasterCategory(@Nullable ProductMasterCategory masterCategory);
 
-        public abstract Builder getArticleType(@Nullable ProductArticleType articleType);
+        public abstract Builder setArticleType(@Nullable ProductArticleType articleType);
 
         public abstract Builder setProductBrand(@Nullable ProductBrand productBrand);
 
