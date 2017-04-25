@@ -1,14 +1,14 @@
-package zeta.android.thunderbird.models.products.pdpv3.component;
+package zeta.android.thunderbird.models.products.pdpv3.property;
 
 import android.os.Parcelable;
 
 import com.google.auto.value.AutoValue;
 
 @AutoValue
-public abstract class PdpV3LikeComponent implements Parcelable {
+public abstract class PdpV3LikeProperty implements Parcelable {
 
     public static Builder create() {
-        return new $AutoValue_PdpV3LikeComponent.Builder();
+        return new $AutoValue_PdpV3LikeProperty.Builder();
     }
 
     public abstract boolean getIsLiked();
@@ -26,6 +26,6 @@ public abstract class PdpV3LikeComponent implements Parcelable {
 
         public abstract Builder setLikeAction(String action);
 
-        public abstract PdpV3LikeComponent build();
+        public abstract PdpV3LikeProperty build();
     }
 }
