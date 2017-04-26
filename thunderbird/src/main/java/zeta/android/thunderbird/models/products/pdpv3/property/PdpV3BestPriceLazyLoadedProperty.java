@@ -7,13 +7,11 @@ import com.google.auto.value.AutoValue;
 import zeta.android.thunderbird.models.products.pdpv3.common.constants.PdpV3ActionType;
 
 @AutoValue
-public abstract class PdpV3RelatedProperty implements Parcelable {
+public abstract class PdpV3BestPriceLazyLoadedProperty implements Parcelable {
 
     public static Builder create() {
-        return new $AutoValue_PdpV3RelatedProperty.Builder();
+        return new $AutoValue_PdpV3BestPriceLazyLoadedProperty.Builder();
     }
-
-    public abstract boolean getHasColors();
 
     public abstract String getAction();
 
@@ -23,12 +21,11 @@ public abstract class PdpV3RelatedProperty implements Parcelable {
     @AutoValue.Builder
     public static abstract class Builder {
 
-        public abstract Builder setHasColors(boolean hasColors);
-
         public abstract Builder setAction(String action);
 
         public abstract Builder setActionType(@PdpV3ActionType String actionType);
 
-        public abstract PdpV3RelatedProperty build();
+        public abstract PdpV3BestPriceLazyLoadedProperty build();
     }
+
 }

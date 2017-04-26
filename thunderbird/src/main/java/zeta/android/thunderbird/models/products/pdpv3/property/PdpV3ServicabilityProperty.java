@@ -10,7 +10,6 @@ import java.util.List;
 import zeta.android.thunderbird.models.products.pdpv3.common.PdpV3Pincode;
 import zeta.android.thunderbird.models.products.pdpv3.common.PdpV3ServicabilityDescription;
 import zeta.android.thunderbird.models.products.pdpv3.common.PdpV3WareHouse;
-import zeta.android.thunderbird.models.products.pdpv3.component.PdpV3ServicabilityComponent;
 
 @AutoValue
 public abstract class PdpV3ServicabilityProperty implements Parcelable {

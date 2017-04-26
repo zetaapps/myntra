@@ -5,7 +5,7 @@ import android.support.annotation.Nullable;
 
 import com.google.auto.value.AutoValue;
 
-import zeta.android.thunderbird.models.products.pdpv3.common.PdpV3ActionType;
+import zeta.android.thunderbird.models.products.pdpv3.common.constants.PdpV3ActionType;
 
 @AutoValue
 public abstract class PdpV3ActionProperty implements Parcelable {

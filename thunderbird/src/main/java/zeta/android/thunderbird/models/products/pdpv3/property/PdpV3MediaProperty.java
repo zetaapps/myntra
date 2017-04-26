@@ -7,7 +7,7 @@ import com.google.auto.value.AutoValue;
 
 import java.net.URL;
 
-import zeta.android.thunderbird.models.products.pdpv3.common.PdpV3MediaType;
+import zeta.android.thunderbird.models.products.pdpv3.common.constants.PdpV3MediaType;
 
 @AutoValue
 public abstract class PdpV3MediaProperty implements Parcelable {
