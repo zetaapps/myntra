@@ -86,7 +86,6 @@ public class MyntraApifyTest extends ApiTestBase {
         assertEquals("Apparel", pdpV3Info.masterCategory);
         assertEquals("Women", pdpV3Info.gender);
         assertEquals("Topwear", pdpV3Info.subCategory);
-
     }
 
     @Test
@@ -190,10 +189,12 @@ public class MyntraApifyTest extends ApiTestBase {
         List<PdpComponentizationComponentsResponse> pdpV3ComponentsList = pdpV3Card.componentsList;
         assert pdpV3ComponentsList != null;
         assertEquals(9, pdpV3ComponentsList.size());
+
         PdpComponentizationComponentsResponse pdpV3Component;
         pdpV3Component = pdpV3ComponentsList.get(8);
         List<PdpV3SizeResponse> sizeList = pdpV3Component.props.sizeList;
         assert sizeList != null;
+
         List<String> warehouseList = sizeList.get(0).warehouseList;
         assertEquals(12595445, sizeList.get(0).skuId);
         assertEquals(1675810, sizeList.get(0).styleId);
@@ -202,7 +203,9 @@ public class MyntraApifyTest extends ApiTestBase {
         assertEquals(true, sizeList.get(0).available);
         assertEquals("Proleague", sizeList.get(0).seller);
         assertEquals("ON_HAND", sizeList.get(0).supplyType);
+
         assert warehouseList != null;
+
         assertEquals("28", warehouseList.get(0));
         assertNull("size list is not null", sizeList.get(0).sizeType);
         assertNull("size list's price is not null", sizeList.get(0).price);
@@ -241,7 +244,6 @@ public class MyntraApifyTest extends ApiTestBase {
         assertEquals("collection", buttonStateResponse.buttonList.get(0).type);
         assertEquals("/wishlist", buttonStateResponse.buttonList.get(0).action);
         assertEquals("/collection", buttonStateResponse.buttonList.get(0).longAction);
-
     }
 
     @Test
@@ -635,7 +637,6 @@ public class MyntraApifyTest extends ApiTestBase {
         PdpV3DescriptorResponse descriptorResponse = descriptorResponseList.get(0);
         assertEquals("style_note", descriptorResponse.title);
         assertEquals("<p>This breathable and stylish kurta from Soch Outlet is a must-have item for any wardrobe.  This pink piece is a stylish option for a nice family function or event when teamed with churidar leggings and classic flats.</p>", descriptorResponse.description);
-
     }
 
     @Test
