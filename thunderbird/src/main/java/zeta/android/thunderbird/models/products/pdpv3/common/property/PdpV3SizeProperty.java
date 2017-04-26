@@ -20,7 +20,6 @@ public abstract class PdpV3SizeProperty implements Parcelable {
         return new $AutoValue_PdpV3SizeProperty.Builder();
     }
 
-
     public abstract ProductSizeVariantId getProductSizeVariantId();
 
     public abstract ProductSizeSkuId getProductSizeSkuId();
