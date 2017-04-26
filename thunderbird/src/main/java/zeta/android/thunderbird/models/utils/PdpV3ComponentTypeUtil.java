@@ -8,7 +8,7 @@ import zeta.android.thunderbird.models.products.pdpv3.common.constants.PdpV3Card
 import zeta.android.utils.lang.StringUtils;
 
 @ParametersAreNonnullByDefault
-public class PdpV3CardTypeUtil {
+public class PdpV3ComponentTypeUtil {
 
     private static final String PRODUCT = "PRODUCT";
     private static final String BRAND = "BRAND";

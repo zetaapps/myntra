@@ -19,17 +19,17 @@ import zeta.android.thunderbird.models.products.pdpv3.cards.PdpV3ProductCard;
 import zeta.android.thunderbird.models.products.pdpv3.cards.PdpV3RelatedCard;
 import zeta.android.thunderbird.models.products.pdpv3.cards.PdpV3ServiceabilityCard;
 import zeta.android.thunderbird.models.products.pdpv3.cards.PdpV3SocialCard;
-import zeta.android.thunderbird.models.products.pdpv3.common.PdpV3CardType;
-import zeta.android.thunderbird.models.products.pdpv3.common.PdpV3ComponentType;
+import zeta.android.thunderbird.models.products.pdpv3.common.constants.PdpV3CardType;
+import zeta.android.thunderbird.models.products.pdpv3.common.constants.PdpV3ComponentType;
 import zeta.android.thunderbird.models.utils.PdpV3CardTypeUtil;
 import zeta.android.thunderbird.models.utils.PdpV3ProductComponentTypeUtil;
 
-import static zeta.android.thunderbird.models.products.pdpv3.common.PdpV3CardType.BRAND;
-import static zeta.android.thunderbird.models.products.pdpv3.common.PdpV3CardType.MORE_INFO_CARD;
-import static zeta.android.thunderbird.models.products.pdpv3.common.PdpV3CardType.PRODUCT;
-import static zeta.android.thunderbird.models.products.pdpv3.common.PdpV3CardType.RELATED;
-import static zeta.android.thunderbird.models.products.pdpv3.common.PdpV3CardType.SERVICEABILITY;
-import static zeta.android.thunderbird.models.products.pdpv3.common.PdpV3CardType.SOCIAL;
+import static zeta.android.thunderbird.models.products.pdpv3.common.constants.PdpV3CardType.BRAND;
+import static zeta.android.thunderbird.models.products.pdpv3.common.constants.PdpV3CardType.MORE_INFO_CARD;
+import static zeta.android.thunderbird.models.products.pdpv3.common.constants.PdpV3CardType.PRODUCT;
+import static zeta.android.thunderbird.models.products.pdpv3.common.constants.PdpV3CardType.RELATED;
+import static zeta.android.thunderbird.models.products.pdpv3.common.constants.PdpV3CardType.SERVICEABILITY;
+import static zeta.android.thunderbird.models.products.pdpv3.common.constants.PdpV3CardType.SOCIAL;
 
 @ParametersAreNonnullByDefault
 public class PdpComponentizedModelTransformer implements ITransformer<PdpComponentizationResponse, PdpComponentizationModel> {

@@ -8,7 +8,7 @@ import com.google.auto.value.AutoValue;
 import java.util.List;
 
 import zeta.android.thunderbird.models.products.common.ProductId;
-import zeta.android.thunderbird.models.products.common.ProductSizeSkuId;
+import zeta.android.thunderbird.models.products.common.ProductSizeVariantId;
 import zeta.android.thunderbird.models.products.pdpv3.common.PdpV3WareHouse;
 import zeta.android.thunderbird.models.products.pdpv3.common.constants.PdpV3ProductSupplyType;
 
@@ -19,7 +19,7 @@ public abstract class PdpV3SizeProperty implements Parcelable {
         return new $AutoValue_PdpV3SizeProperty.Builder();
     }
 
-    public abstract ProductSizeSkuId getProductSizeSkuId();
+    public abstract ProductSizeVariantId getProductSizeVariantId();
 
     public abstract ProductId getProductId();
 
@@ -59,7 +59,7 @@ public abstract class PdpV3SizeProperty implements Parcelable {
     @AutoValue.Builder
     public static abstract class Builder {
 
-        public abstract Builder setProductSizeSkuId(ProductSizeSkuId productSizeSkuId);
+        public abstract Builder setProductSizeVariantId(ProductSizeVariantId productSizeVariantId);
 
         public abstract Builder setProductId(ProductId productId);
 
