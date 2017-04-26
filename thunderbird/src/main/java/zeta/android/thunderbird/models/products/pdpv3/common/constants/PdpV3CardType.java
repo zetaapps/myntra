@@ -20,6 +20,5 @@ public @interface PdpV3CardType {
     String SOCIAL = "SOCIAL";
     String RELATED = "RELATED";
     String MORE_INFO_CARD = "MORE_INFO_CARD";
-
     String UNKNOWN = "UNKNOWN";
 }
