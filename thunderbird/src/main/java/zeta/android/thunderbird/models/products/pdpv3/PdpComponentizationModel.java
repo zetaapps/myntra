@@ -14,7 +14,12 @@ import zeta.android.thunderbird.models.products.common.ProductId;
 import zeta.android.thunderbird.models.products.common.ProductMasterCategory;
 import zeta.android.thunderbird.models.products.common.ProductSubCategory;
 import zeta.android.thunderbird.models.products.common.ProductTitle;
+import zeta.android.thunderbird.models.products.pdpv3.cards.PdpV3BrandCard;
+import zeta.android.thunderbird.models.products.pdpv3.cards.PdpV3MoreInfoCard;
 import zeta.android.thunderbird.models.products.pdpv3.cards.PdpV3ProductCard;
+import zeta.android.thunderbird.models.products.pdpv3.cards.PdpV3RelatedCard;
+import zeta.android.thunderbird.models.products.pdpv3.cards.PdpV3ServiceabilityCard;
+import zeta.android.thunderbird.models.products.pdpv3.cards.PdpV3SocialCard;
 import zeta.android.thunderbird.models.products.pdpv3.common.PdpV3CardType;
 
 @AutoValue
@@ -51,6 +56,16 @@ public abstract class PdpComponentizationModel implements Parcelable {
 
     public abstract PdpV3ProductCard getProductCard();
 
+    public abstract PdpV3BrandCard getBrandCard();
+
+    public abstract PdpV3SocialCard getSocialCard();
+
+    public abstract PdpV3ServiceabilityCard getServiceabilityCard();
+
+    public abstract PdpV3RelatedCard getRelatedCard();
+
+    public abstract PdpV3MoreInfoCard getMoreInfoCard();
+
     @AutoValue.Builder
     public static abstract class Builder {
 
@@ -72,7 +87,17 @@ public abstract class PdpComponentizationModel implements Parcelable {
 
         public abstract Builder setCardPositionsIndex(@PdpV3CardType LinkedHashMap<String, Integer> cardPositionIndex);
 
-        public abstract Builder setProductCard(PdpV3ProductCard pdpProductCard);
+        public abstract Builder setProductCard(PdpV3ProductCard productCard);
+
+        public abstract Builder setBrandCard(PdpV3BrandCard brandCard);
+
+        public abstract Builder setSocialCard(PdpV3SocialCard socialCard);
+
+        public abstract Builder setServiceabilityCard(PdpV3ServiceabilityCard serviceabilityCard);
+
+        public abstract Builder setRelatedCard(PdpV3RelatedCard relatedCard);
+
+        public abstract Builder setMoreInfoCard(PdpV3MoreInfoCard moreInfoCard);
 
         public abstract PdpComponentizationModel build();
     }
