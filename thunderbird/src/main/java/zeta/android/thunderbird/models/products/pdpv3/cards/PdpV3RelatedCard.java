@@ -7,10 +7,11 @@ import com.google.auto.value.AutoValue;
 import zeta.android.thunderbird.models.products.pdpv3.common.PdpV3CardType;
 
 @AutoValue
-public abstract class PdpProductCard implements Parcelable {
+public abstract class PdpV3RelatedCard implements Parcelable {
 
     public static Builder create() {
-        return new AutoValue_PdpProductCard.Builder();
+        return new AutoValue_PdpV3RelatedCard.Builder()
+                .setPdpV3CardType(PdpV3CardType.RELATED);
     }
 
     @PdpV3CardType
@@ -21,7 +22,7 @@ public abstract class PdpProductCard implements Parcelable {
 
         public abstract Builder setPdpV3CardType(@PdpV3CardType String cardType);
 
-        public abstract PdpProductCard build();
+        public abstract PdpV3RelatedCard build();
     }
 
 }
