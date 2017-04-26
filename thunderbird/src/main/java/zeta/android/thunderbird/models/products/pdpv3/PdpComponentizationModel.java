@@ -22,6 +22,24 @@ import zeta.android.thunderbird.models.products.pdpv3.cards.PdpV3ServiceabilityC
 import zeta.android.thunderbird.models.products.pdpv3.cards.PdpV3SocialCard;
 import zeta.android.thunderbird.models.products.pdpv3.common.PdpV3CardType;
 
+/**
+ * Product Detail Page Model - AKA - PDP component model.
+ * This is the data model used to render the PDP UI.
+ * <p>
+ * We have cards and components concepts here.
+ * <p>
+ * Cards: Cards are the major UI elements
+ * Components: Components are minor UI elements within the cards.
+ * <p>
+ * Note:
+ * There is a little "gotcha's" here as we need to look out for the `getCardPositionsIndex`
+ * within cards and `getComponentPositionsIndex` within component to render the cards and components
+ * in certain order.
+ * <p>
+ * Client can choose to render the cards / components of there choice however if we would like to keep
+ * the PDP componentized model controlled by "Myntra's" configurations.
+ * we need to respect the index so that it can be configured by "Myntra's" servers based on some data science.
+ */
 @AutoValue
 public abstract class PdpComponentizationModel implements Parcelable {
 
