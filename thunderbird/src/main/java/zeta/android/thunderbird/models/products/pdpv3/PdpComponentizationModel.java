@@ -20,7 +20,7 @@ import zeta.android.thunderbird.models.products.pdpv3.cards.PdpV3ProductCard;
 import zeta.android.thunderbird.models.products.pdpv3.cards.PdpV3RelatedCard;
 import zeta.android.thunderbird.models.products.pdpv3.cards.PdpV3ServiceabilityCard;
 import zeta.android.thunderbird.models.products.pdpv3.cards.PdpV3SocialCard;
-import zeta.android.thunderbird.models.products.pdpv3.common.PdpV3CardType;
+import zeta.android.thunderbird.models.products.pdpv3.common.constants.PdpV3CardType;
 
 /**
  * Product Detail Page Model - AKA - PDP component model.
