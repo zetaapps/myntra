@@ -13,8 +13,8 @@ import zeta.android.thunderbird.models.products.pdpv3.property.PdpV3ProductDetai
 @AutoValue
 public abstract class PdpV3ProductDetailComponent implements Parcelable {
 
-    public static PdpV3ProductDetailComponent.Builder create() {
-        return new $AutoValue_PdpV3ProductDetailComponent.Builder();
+    public static PdpV3CrossLinksComponent.Builder create() {
+        return new $AutoValue_PdpV3CrossLinksComponent.Builder();
     }
 
     @Nullable

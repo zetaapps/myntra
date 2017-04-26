@@ -6,8 +6,7 @@ import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 
 @Retention(RetentionPolicy.SOURCE)
-@StringDef({PdpV3ProductSupplyType.ON_HAND,
-        PdpV3ProductSupplyType.UNKNOWN})
+@StringDef({PdpV3ProductSupplyType.ON_HAND})
 public @interface PdpV3ProductSupplyType {
     String ON_HAND = "ON_HAND";
     String UNKNOWN = "UNKNOWN";
