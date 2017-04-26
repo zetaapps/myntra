@@ -16,7 +16,6 @@ import zeta.android.thunderbird.models.products.pdpv3.component.PdpV3InfoCompone
 import zeta.android.thunderbird.models.products.pdpv3.component.PdpV3SizeSelectorComponent;
 import zeta.android.thunderbird.models.products.pdpv3.component.PdpV3VatInfoComponent;
 
-
 @AutoValue
 public abstract class PdpV3ProductCard implements Parcelable {
 
