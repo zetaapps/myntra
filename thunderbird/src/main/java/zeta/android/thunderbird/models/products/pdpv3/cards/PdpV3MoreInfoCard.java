@@ -20,6 +20,11 @@ public abstract class PdpV3MoreInfoCard implements Parcelable {
     @PdpV3CardType
     public abstract String getPdpV3CardType();
 
+    /**
+     * Component position order to render in the UI elements.
+     *
+     * @return : Given the PdpV3CardType this should return the position.
+     */
     @PdpV3ComponentType
     public abstract LinkedHashMap<String, Integer> getComponentPositionsIndex();
 

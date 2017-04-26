@@ -69,6 +69,11 @@ public abstract class PdpComponentizationModel implements Parcelable {
     @Nullable
     public abstract ProductArticleType getArticleType();
 
+    /**
+     * Card position order to render in the UI elements.
+     *
+     * @return : Given the PdpV3CardType this should return the position.
+     */
     @PdpV3CardType
     public abstract LinkedHashMap<String, Integer> getCardPositionsIndex();
 
