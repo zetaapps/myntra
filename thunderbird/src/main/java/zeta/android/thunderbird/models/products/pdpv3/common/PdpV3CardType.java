@@ -11,7 +11,8 @@ import java.lang.annotation.RetentionPolicy;
         PdpV3CardType.SERVICEABILITY,
         PdpV3CardType.SOCIAL,
         PdpV3CardType.RELATED,
-        PdpV3CardType.MORE_INFO_CARD})
+        PdpV3CardType.MORE_INFO_CARD,
+        PdpV3CardType.UNKNOWN})
 public @interface PdpV3CardType {
     String PRODUCT = "PRODUCT";
     String BRAND = "BRAND";
@@ -19,4 +20,6 @@ public @interface PdpV3CardType {
     String SOCIAL = "SOCIAL";
     String RELATED = "RELATED";
     String MORE_INFO_CARD = "MORE_INFO_CARD";
+
+    String UNKNOWN = "UNKNOWN";
 }
