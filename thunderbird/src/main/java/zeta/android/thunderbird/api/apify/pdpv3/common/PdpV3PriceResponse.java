@@ -2,14 +2,14 @@ package zeta.android.thunderbird.api.apify.pdpv3.common;
 
 public class PdpV3PriceResponse {
 
-    public final double mrp;
+    public final int mrp;
 
-    public final double discounted;
+    public final int discounted;
 
     public final PdpV3DiscountResponse discount;
 
-    public PdpV3PriceResponse(double mrp,
-                              double discounted,
+    public PdpV3PriceResponse(int mrp,
+                              int discounted,
                               PdpV3DiscountResponse discount) {
         this.mrp = mrp;
         this.discounted = discounted;

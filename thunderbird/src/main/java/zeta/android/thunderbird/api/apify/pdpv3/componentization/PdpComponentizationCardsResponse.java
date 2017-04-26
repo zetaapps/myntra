@@ -8,9 +8,9 @@ import java.util.List;
 
 public class PdpComponentizationCardsResponse {
 
-    public final String type;
-
     public final PdpComponentizationArgsResponse args;
+
+    public final String type;
 
     @Nullable
     @SerializedName("components")
