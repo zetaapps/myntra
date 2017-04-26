@@ -11,8 +11,21 @@ import zeta.android.thunderbird.models.common.ITransformer;
 import zeta.android.thunderbird.models.products.common.ProductId;
 import zeta.android.thunderbird.models.products.common.ProductTitle;
 import zeta.android.thunderbird.models.products.pdpv3.PdpComponentizationModel;
+import zeta.android.thunderbird.models.products.pdpv3.cards.PdpV3BrandCard;
+import zeta.android.thunderbird.models.products.pdpv3.cards.PdpV3MoreInfoCard;
+import zeta.android.thunderbird.models.products.pdpv3.cards.PdpV3ProductCard;
+import zeta.android.thunderbird.models.products.pdpv3.cards.PdpV3RelatedCard;
+import zeta.android.thunderbird.models.products.pdpv3.cards.PdpV3ServiceabilityCard;
+import zeta.android.thunderbird.models.products.pdpv3.cards.PdpV3SocialCard;
 import zeta.android.thunderbird.models.products.pdpv3.common.PdpV3CardType;
 import zeta.android.thunderbird.models.utils.PdpV3CardTypeUtil;
+
+import static zeta.android.thunderbird.models.products.pdpv3.common.PdpV3CardType.BRAND;
+import static zeta.android.thunderbird.models.products.pdpv3.common.PdpV3CardType.MORE_INFO_CARD;
+import static zeta.android.thunderbird.models.products.pdpv3.common.PdpV3CardType.PRODUCT;
+import static zeta.android.thunderbird.models.products.pdpv3.common.PdpV3CardType.RELATED;
+import static zeta.android.thunderbird.models.products.pdpv3.common.PdpV3CardType.SERVICEABILITY;
+import static zeta.android.thunderbird.models.products.pdpv3.common.PdpV3CardType.SOCIAL;
 
 @ParametersAreNonnullByDefault
 public class PdpComponentizedModelTransformer implements ITransformer<PdpComponentizationResponse, PdpComponentizationModel> {
@@ -27,32 +40,43 @@ public class PdpComponentizedModelTransformer implements ITransformer<PdpCompone
         ProductTitle title = ProductTitle.create(info.name);
         //endregion
 
+        PdpV3BrandCard brandCard = null;
+        PdpV3SocialCard socialCard = null;
+        PdpV3ProductCard productCard = null;
+        PdpV3RelatedCard relatedCard = null;
+        PdpV3MoreInfoCard moreInfoCard = null;
+        PdpV3ServiceabilityCard serviceabilityCard = null;
+
         //region card
-        for (int i = 0; i < cardsList.size(); i++) {
-            final PdpComponentizationCardsResponse cardsResponse = cardsList.get(i);
-            @PdpV3CardType
-            final String cardType = PdpV3CardTypeUtil.from(cardsResponse.type);
-            switch (cardType) {
-                case PdpV3CardType.PRODUCT:
-                    transformProductCard();
-                    break;
-                case PdpV3CardType.BRAND:
-                    transformBrandCard();
-                    break;
-                case PdpV3CardType.SERVICEABILITY:
-                    transformServiceabilityCard();
-                    break;
-                case PdpV3CardType.SOCIAL:
-                    transformSocialCard();
-                    break;
-                case PdpV3CardType.RELATED:
-                    transformRelatedCard();
-                    break;
-                case PdpV3CardType.MORE_INFO_CARD:
-                    transformMoreInfoCard();
-                    break;
-                default:
-                    break;
+        if (cardsList != null) {
+            final int size = cardsList.size();
+            for (int i = 0; i < size; i++) {
+                final PdpComponentizationCardsResponse cardsResponse = cardsList.get(i);
+                @PdpV3CardType
+                final String cardType = PdpV3CardTypeUtil.from(cardsResponse.type);
+
+                switch (cardType) {
+                    case PRODUCT:
+                        productCard = transformProductCard(cardsResponse);
+                        break;
+                    case BRAND:
+                        brandCard = transformBrandCard(cardsResponse);
+                        break;
+                    case SERVICEABILITY:
+                        serviceabilityCard = transformServiceabilityCard(cardsResponse);
+                        break;
+                    case SOCIAL:
+                        socialCard = transformSocialCard(cardsResponse);
+                        break;
+                    case RELATED:
+                        relatedCard = transformRelatedCard(cardsResponse);
+                        break;
+                    case MORE_INFO_CARD:
+                        moreInfoCard = transformMoreInfoCard(cardsResponse);
+                        break;
+                    default:
+                        break;
+                }
             }
         }
         //endregion
@@ -60,31 +84,43 @@ public class PdpComponentizedModelTransformer implements ITransformer<PdpCompone
         return PdpComponentizationModel.create()
                 .setProductId(productId)
                 .setProductTitle(title)
+                .setBrandCard(brandCard)
+                .setSocialCard(socialCard)
+                .setProductCard(productCard)
+                .setRelatedCard(relatedCard)
+                .setMoreInfoCard(moreInfoCard)
+                .setServiceabilityCard(serviceabilityCard)
                 .build();
     }
 
-    private void transformProductCard() {
-        //TODO::add argument and return type
+    private PdpV3ProductCard transformProductCard(PdpComponentizationCardsResponse productCard) {
+        return PdpV3ProductCard.create()
+                .build();
     }
 
-    private void transformBrandCard() {
-        //TODO::add argument and return type
+    private PdpV3BrandCard transformBrandCard(PdpComponentizationCardsResponse brandCard) {
+        return PdpV3BrandCard.create()
+                .build();
     }
 
-    private void transformServiceabilityCard() {
-        //TODO::add argument and return type
+    private PdpV3ServiceabilityCard transformServiceabilityCard(PdpComponentizationCardsResponse serviceabilityCard) {
+        return PdpV3ServiceabilityCard.create()
+                .build();
     }
 
-    private void transformSocialCard() {
-        //TODO::add argument and return type
+    private PdpV3SocialCard transformSocialCard(PdpComponentizationCardsResponse socialCard) {
+        return PdpV3SocialCard.create()
+                .build();
     }
 
-    private void transformRelatedCard() {
-        //TODO::add argument and return type
+    private PdpV3RelatedCard transformRelatedCard(PdpComponentizationCardsResponse relatedCard) {
+        return PdpV3RelatedCard.create()
+                .build();
     }
 
-    private void transformMoreInfoCard() {
-        //TODO::add argument and return type
+    private PdpV3MoreInfoCard transformMoreInfoCard(PdpComponentizationCardsResponse moreInfoCard) {
+        return PdpV3MoreInfoCard.create()
+                .build();
     }
 
 }

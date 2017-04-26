@@ -77,16 +77,22 @@ public abstract class PdpComponentizationModel implements Parcelable {
     @PdpV3CardType
     public abstract LinkedHashMap<String, Integer> getCardPositionsIndex();
 
+    @Nullable
     public abstract PdpV3ProductCard getProductCard();
 
+    @Nullable
     public abstract PdpV3BrandCard getBrandCard();
 
+    @Nullable
     public abstract PdpV3SocialCard getSocialCard();
 
+    @Nullable
     public abstract PdpV3ServiceabilityCard getServiceabilityCard();
 
+    @Nullable
     public abstract PdpV3RelatedCard getRelatedCard();
 
+    @Nullable
     public abstract PdpV3MoreInfoCard getMoreInfoCard();
 
     @AutoValue.Builder
@@ -110,17 +116,17 @@ public abstract class PdpComponentizationModel implements Parcelable {
 
         public abstract Builder setCardPositionsIndex(@PdpV3CardType LinkedHashMap<String, Integer> cardPositionIndex);
 
-        public abstract Builder setProductCard(PdpV3ProductCard productCard);
+        public abstract Builder setProductCard(@Nullable PdpV3ProductCard productCard);
 
-        public abstract Builder setBrandCard(PdpV3BrandCard brandCard);
+        public abstract Builder setBrandCard(@Nullable PdpV3BrandCard brandCard);
 
-        public abstract Builder setSocialCard(PdpV3SocialCard socialCard);
+        public abstract Builder setSocialCard(@Nullable PdpV3SocialCard socialCard);
 
-        public abstract Builder setServiceabilityCard(PdpV3ServiceabilityCard serviceabilityCard);
+        public abstract Builder setServiceabilityCard(@Nullable PdpV3ServiceabilityCard serviceabilityCard);
 
-        public abstract Builder setRelatedCard(PdpV3RelatedCard relatedCard);
+        public abstract Builder setRelatedCard(@Nullable PdpV3RelatedCard relatedCard);
 
-        public abstract Builder setMoreInfoCard(PdpV3MoreInfoCard moreInfoCard);
+        public abstract Builder setMoreInfoCard(@Nullable PdpV3MoreInfoCard moreInfoCard);
 
         public abstract PdpComponentizationModel build();
     }
