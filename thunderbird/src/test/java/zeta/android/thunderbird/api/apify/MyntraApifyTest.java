@@ -272,7 +272,6 @@ public class MyntraApifyTest extends ApiTestBase {
         assertEquals("SAVE", displayDataResponse.firstButtonText);
         assertEquals("GO TO BAG", displayDataResponse.secondButtonActionText);
         assertEquals("ADD TO BAG", displayDataResponse.secondButtonText);
-
     }
 
     @Test
@@ -595,7 +594,7 @@ public class MyntraApifyTest extends ApiTestBase {
         assertNull(response.style.brand.image);
         assertNull(response.style.brand.bio);
         assertNull(response.style.brand.social);
-        assertNull("Soch Outlet", response.style.brand.name);
+        assertEquals("Soch Outlet", response.style.brand.name);
     }
 
     @Test
