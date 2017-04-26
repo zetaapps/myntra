@@ -126,8 +126,8 @@ public class MyntraApifyTest extends ApiTestBase {
         assert pdpV3ComponentsList != null;
         assertEquals(9, pdpV3ComponentsList.size());
         PdpComponentizationComponentsResponse pdpV3Component = pdpV3ComponentsList.get(0);
-        assertEquals("PRODUCT_COMPONENT_IMAGE", pdpV3Component.type);
-        assertEquals("PRODUCT_COMPONENT_IMAGE", pdpV3Component.viewType);
+        assertEquals("IMAGE_SWIPE", pdpV3Component.type);
+        assertEquals("IMAGE_SWIPE", pdpV3Component.viewType);
         List<PdpComponentizationMediumResponse> pdpV3MediumList = pdpV3Component.props.mediumList;
         assertEquals(pdpV3MediumList.size(), 5);
         assertEquals("http://assets.myntassets.com/assets/images/1675810/2016/12/14/11481705566095-Soch-Women-Pink-Solid-Straight-Kurta-9641481705565846-1.jpg", pdpV3MediumList.get(0).src);
@@ -168,8 +168,8 @@ public class MyntraApifyTest extends ApiTestBase {
         assertNull(pdpV3Component.props.price.discount.myntCash);
         assertEquals("<p>Polyester <br> Dry Clean</p>", pdpV3Component.props.descriptorList.get(0).description);
         assertEquals("MATERIAL & CARE", pdpV3Component.props.descriptorList.get(0).title);
-        assertEquals("+PRODUCT_COMPONENT_INFO", pdpV3Component.args.infoText.collapsed);
-        assertEquals("-PRODUCT_COMPONENT_INFO", pdpV3Component.args.infoText.expanded);
+        assertEquals("+INFO", pdpV3Component.args.infoText.collapsed);
+        assertEquals("-INFO", pdpV3Component.args.infoText.expanded);
     }
 
     @Test
@@ -387,8 +387,8 @@ public class MyntraApifyTest extends ApiTestBase {
         assert pdpV3ComponentsList != null;
         assertEquals(9, pdpV3ComponentsList.size());
         PdpComponentizationComponentsResponse pdpV3Component = pdpV3ComponentsList.get(2);
-        assertEquals("PRODUCT_COMPONENT_VAT_INFO", pdpV3Component.type);
-        assertEquals("PRODUCT_COMPONENT_VAT_INFO", pdpV3Component.viewType);
+        assertEquals("VAT_INFO", pdpV3Component.type);
+        assertEquals("VAT_INFO", pdpV3Component.viewType);
         assertEquals("Additional VAT may apply; charged at checkout", pdpV3Component.props.vatInfo);
     }
 
@@ -436,8 +436,8 @@ public class MyntraApifyTest extends ApiTestBase {
         assert pdpV3ComponentsList != null;
         assertEquals(9, pdpV3ComponentsList.size());
         PdpComponentizationComponentsResponse pdpV3Component = pdpV3ComponentsList.get(5);
-        assertEquals("PRODUCT_COMPONENT_SIZE_SELECTOR", pdpV3Component.type);
-        assertEquals("PRODUCT_COMPONENT_SIZE_SELECTOR", pdpV3Component.viewType);
+        assertEquals("SIZE_SELECTOR", pdpV3Component.type);
+        assertEquals("SIZE_SELECTOR", pdpV3Component.viewType);
         assertEquals(false, pdpV3Component.props.sbpEnabled);
     }
 
@@ -495,8 +495,8 @@ public class MyntraApifyTest extends ApiTestBase {
 
         assertEquals(9, pdpV3ComponentsList.size());
         PdpComponentizationComponentsResponse pdpV3Component = pdpV3ComponentsList.get(8);
-        assertEquals("PRODUCT_COMPONENT_ADD_TO_CART_BUTTON", pdpV3Component.type);
-        assertEquals("PRODUCT_COMPONENT_ADD_TO_CART_BUTTON", pdpV3Component.viewType);
+        assertEquals("ADD_BUTTONS_PDP", pdpV3Component.type);
+        assertEquals("ADD_BUTTONS_PDP", pdpV3Component.viewType);
         assertEquals(false, pdpV3Component.props.sbpEnabled);
 
         assert pdpV3Component.props.sizeList != null;
@@ -521,8 +521,8 @@ public class MyntraApifyTest extends ApiTestBase {
         assert pdpV3ComponentsList != null;
         assertEquals(9, pdpV3ComponentsList.size());
         PdpComponentizationComponentsResponse pdpV3Component = pdpV3ComponentsList.get(7);
-        assertEquals("PRODUCT_COMPONENT_PRIMARY_OFFER", pdpV3Component.type);
-        assertEquals("PRODUCT_COMPONENT_PRIMARY_OFFER", pdpV3Component.viewType);
+        assertEquals("PRIMARY_OFFER", pdpV3Component.type);
+        assertEquals("PRIMARY_OFFER", pdpV3Component.viewType);
         assertEquals("/alloffers", pdpV3Component.props.offer.action);
         assertEquals("none", pdpV3Component.args.bankOffer);
         assertEquals(24, pdpV3Component.args.maxDuration);

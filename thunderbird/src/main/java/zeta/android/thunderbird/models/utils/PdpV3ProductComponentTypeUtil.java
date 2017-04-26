@@ -4,7 +4,7 @@ import android.support.annotation.Nullable;
 
 import javax.annotation.ParametersAreNonnullByDefault;
 
-import zeta.android.thunderbird.models.products.pdpv3.common.PdpV3ComponentType;
+import zeta.android.thunderbird.models.products.pdpv3.common.constants.PdpV3ComponentType;
 import zeta.android.utils.lang.StringUtils;
 
 /**
