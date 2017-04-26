@@ -14,6 +14,7 @@ import retrofit2.mock.BehaviorDelegate;
 import rx.Observable;
 import rx.observers.TestSubscriber;
 import zeta.android.thunderbird.ApiTestBase;
+import zeta.android.thunderbird.api.apify.pdpv3.common.PdpV3DescriptorResponse;
 import zeta.android.thunderbird.api.apify.pdpv3.common.PdpV3SizeResponse;
 import zeta.android.thunderbird.api.apify.pdpv3.componentization.PdpComponentizationButtonStateResponse;
 import zeta.android.thunderbird.api.apify.pdpv3.componentization.PdpComponentizationCardsResponse;
@@ -25,7 +26,11 @@ import zeta.android.thunderbird.api.apify.pdpv3.componentization.PdpComponentiza
 import zeta.android.thunderbird.api.apify.pdpv3.componentization.PdpComponentizationProductDetailResponse;
 import zeta.android.thunderbird.api.apify.pdpv3.componentization.PdpComponentizationResponse;
 import zeta.android.thunderbird.api.apify.pdpv3.componentization.PdpComponentizationServiceabilityResponse;
+import zeta.android.thunderbird.api.apify.pdpv3.pdp.PdpAlbumResponse;
+import zeta.android.thunderbird.api.apify.pdpv3.pdp.PdpV3ImageResponse;
+import zeta.android.thunderbird.api.apify.pdpv3.pdp.PdpV3MediaResponse;
 import zeta.android.thunderbird.api.apify.pdpv3.pdp.PdpV3Response;
+import zeta.android.thunderbird.api.apify.pdpv3.pdp.PdpV3VideoResponse;
 
 import static junit.framework.Assert.assertEquals;
 import static junit.framework.Assert.assertNull;
@@ -221,13 +226,18 @@ public class MyntraApifyTest extends ApiTestBase {
         List<PdpComponentizationComponentsResponse> pdpV3ComponentsList = pdpV3Card.componentsList;
         assert pdpV3ComponentsList != null;
         assertEquals(9, pdpV3ComponentsList.size());
+
         PdpComponentizationComponentsResponse pdpV3Component;
         pdpV3Component = pdpV3ComponentsList.get(8);
         List<PdpComponentizationButtonStateResponse> buttonList = pdpV3Component.props.buttonStateList;
         assert buttonList != null;
+
         assertEquals(4, buttonList.size());
         PdpComponentizationButtonStateResponse buttonStateResponse = buttonList.get(0);
         assertEquals(0, buttonStateResponse.state);
+
+        assert buttonStateResponse.buttonList != null;
+
         assertEquals("collection", buttonStateResponse.buttonList.get(0).type);
         assertEquals("/wishlist", buttonStateResponse.buttonList.get(0).action);
         assertEquals("/collection", buttonStateResponse.buttonList.get(0).longAction);
@@ -351,6 +361,8 @@ public class MyntraApifyTest extends ApiTestBase {
         assertEquals("CROSS_LINKS", pdpComponentizationComponentsResponse.type);
         assertEquals("CROSS_LINKS", pdpComponentizationComponentsResponse.viewType);
         List<PdpComponentizationCrossLinksResponse> crossLinksResponseList = pdpComponentizationComponentsResponse.props.crossLinksList;
+
+        assert crossLinksResponseList != null;
         PdpComponentizationCrossLinksResponse crossLinksResponse = crossLinksResponseList.get(0);
         assertEquals("More Kurtis by Soch Outlet", crossLinksResponse.title);
         assertEquals("kurtis?f=brand:Soch Outlet::gender:women", crossLinksResponse.url);
@@ -516,7 +528,6 @@ public class MyntraApifyTest extends ApiTestBase {
         assertEquals(15, pdpV3Component.args.minInterest);
         assertEquals("SPECIAL", pdpV3Component.args.primaryOffer);
     }
-
     //endregions
 
     //region General Response Tests
@@ -585,6 +596,109 @@ public class MyntraApifyTest extends ApiTestBase {
         assertNull(response.style.brand.bio);
         assertNull(response.style.brand.social);
         assertNull("Soch Outlet", response.style.brand.name);
+    }
+
+    @Test
+    public void getProductDetailsResponseFlagsTest() {
+        TestSubscriber<Response<PdpV3Response>> testSubscriber = new TestSubscriber<>();
+        myntraApify.getProductDetailsResponse(1675810).subscribe(testSubscriber);
+        testSubscriber.assertNoErrors();
+
+        List<Response<PdpV3Response>> onNextEvents = testSubscriber.getOnNextEvents();
+        PdpV3Response response = onNextEvents.get(0).body();
+        assert response != null;
+
+        assertEquals(true, response.style.flags.exchangeable);
+        assertEquals(true, response.style.flags.returnable);
+        assertEquals(true, response.style.flags.pickupEnabled);
+        assertEquals(true, response.style.flags.tryable);
+        assertEquals(false, response.style.flags.large);
+        assertEquals(false, response.style.flags.hazmat);
+        assertEquals(false, response.style.flags.fragile);
+        assertEquals(false, response.style.flags.jewellery);
+        assertEquals(false, response.style.flags.outOfStock);
+    }
+
+    @Test
+    public void getProductDetailsResponseDescriptorsTest() {
+        TestSubscriber<Response<PdpV3Response>> testSubscriber = new TestSubscriber<>();
+        myntraApify.getProductDetailsResponse(1675810).subscribe(testSubscriber);
+        testSubscriber.assertNoErrors();
+
+        List<Response<PdpV3Response>> onNextEvents = testSubscriber.getOnNextEvents();
+        PdpV3Response response = onNextEvents.get(0).body();
+        assert response != null;
+
+        List<PdpV3DescriptorResponse> descriptorResponseList = response.style.descriptorList;
+        assert descriptorResponseList != null;
+
+        assertEquals(4, descriptorResponseList.size());
+        PdpV3DescriptorResponse descriptorResponse = descriptorResponseList.get(0);
+        assertEquals("style_note", descriptorResponse.title);
+        assertEquals("<p>This breathable and stylish kurta from Soch Outlet is a must-have item for any wardrobe.  This pink piece is a stylish option for a nice family function or event when teamed with churidar leggings and classic flats.</p>", descriptorResponse.description);
+
+    }
+
+    @Test
+    public void getProductDetailsResponseMediaTest() {
+        TestSubscriber<Response<PdpV3Response>> testSubscriber = new TestSubscriber<>();
+        myntraApify.getProductDetailsResponse(1675810).subscribe(testSubscriber);
+        testSubscriber.assertNoErrors();
+
+        List<Response<PdpV3Response>> onNextEvents = testSubscriber.getOnNextEvents();
+        PdpV3Response response = onNextEvents.get(0).body();
+        assert response != null;
+
+        PdpV3MediaResponse mediaResponse = response.style.media;
+        List<PdpV3VideoResponse> videoResponseList = mediaResponse.pdpVideoResponseList;
+        assert videoResponseList != null;
+
+        assertEquals(1, videoResponseList.size());
+        PdpV3VideoResponse videoResponse = videoResponseList.get(0);
+        assertEquals("NT8fDo8EWzU", videoResponse.id);
+        List<PdpAlbumResponse> albumResponseList = mediaResponse.pdpAlbumResponseList;
+
+        assert albumResponseList != null;
+
+        assertEquals(1, albumResponseList.size());
+        PdpAlbumResponse albumResponse = albumResponseList.get(0);
+        assertEquals("default", albumResponse.name);
+        List<PdpV3ImageResponse> imageResponseList = albumResponse.pdpImageResponseList;
+
+        assert imageResponseList != null;
+
+        assertEquals(4, imageResponseList.size());
+        PdpV3ImageResponse imageResponse = imageResponseList.get(0);
+        assertEquals("http://assets.myntassets.com/h_($height),q_($qualityPercentage),w_($width)/v1/assets/images/1675810/2016/12/14/11481705566095-Soch-Women-Pink-Solid-Straight-Kurta-9641481705565846-1.jpg", imageResponse.src);
+        assertEquals("https://assets.myntassets.com/h_($height),q_($qualityPercentage),w_($width)/v1/assets/images/1675810/2016/12/14/11481705566095-Soch-Women-Pink-Solid-Straight-Kurta-9641481705565846-1.jpg", imageResponse.secureSrc);
+    }
+
+    @Test
+    public void getProductDetailsResponseSizeTest() {
+        TestSubscriber<Response<PdpV3Response>> testSubscriber = new TestSubscriber<>();
+        myntraApify.getProductDetailsResponse(1675810).subscribe(testSubscriber);
+        testSubscriber.assertNoErrors();
+
+        List<Response<PdpV3Response>> onNextEvents = testSubscriber.getOnNextEvents();
+        PdpV3Response response = onNextEvents.get(0).body();
+        assert response != null;
+
+        List<PdpV3SizeResponse> sizeList = response.style.sizeList;
+        assert sizeList != null;
+        assertEquals(7, sizeList.size());
+
+        PdpV3SizeResponse sizeResponse = sizeList.get(0);
+        assertEquals(12595445, sizeResponse.skuId);
+        assertEquals(1675810, sizeResponse.styleId);
+        assertEquals(0, sizeResponse.inventory);
+        assertEquals("/product/1675810/related/XS?co=1", sizeResponse.action);
+        assertEquals("XS", sizeResponse.label);
+        assertEquals(false, sizeResponse.available);
+        assertEquals("Proleague", sizeResponse.seller);
+        assertEquals("ON_HAND", sizeResponse.supplyType);
+        assertNull(sizeResponse.sizeType);
+        assertNull(sizeResponse.price);
+        assertNull(sizeResponse.originalStyle);
     }
     //endregion
 
