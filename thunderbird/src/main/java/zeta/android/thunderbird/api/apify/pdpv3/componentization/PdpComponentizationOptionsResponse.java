@@ -8,9 +8,9 @@ import java.util.List;
 
 public class PdpComponentizationOptionsResponse {
 
-    public final double price;
+    public final int price;
 
-    public final double mrp;
+    public final int mrp;
 
     @Nullable
     @SerializedName("warehouses")
@@ -22,8 +22,8 @@ public class PdpComponentizationOptionsResponse {
 
     public final PdpComponentizationFlagsResponse flags;
 
-    public PdpComponentizationOptionsResponse(double price,
-                                              double mrp,
+    public PdpComponentizationOptionsResponse(int price,
+                                              int mrp,
                                               @Nullable List<String> warehouseList,
                                               int leadTime,
                                               int returnPeriod,

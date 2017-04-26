@@ -32,12 +32,14 @@ public class PdpV3SizeResponse {
 
     public final Object price;
 
+    public final Object discountedPrice;
+
     public final Object originalStyle;
 
     public PdpV3SizeResponse(int skuId, int styleId, int inventory, String action,
                              String label, boolean available, String seller,
                              String supplyType, @Nullable List<String> warehouseList,
-                             Object sizeType, Object price, Object originalStyle) {
+                             Object sizeType, Object price, Object discountedPrice, Object originalStyle) {
         this.skuId = skuId;
         this.styleId = styleId;
         this.inventory = inventory;
@@ -49,6 +51,7 @@ public class PdpV3SizeResponse {
         this.warehouseList = warehouseList;
         this.sizeType = sizeType;
         this.price = price;
+        this.discountedPrice = discountedPrice;
         this.originalStyle = originalStyle;
     }
 }

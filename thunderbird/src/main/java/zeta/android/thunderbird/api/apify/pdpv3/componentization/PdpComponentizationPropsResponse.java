@@ -60,6 +60,10 @@ public class PdpComponentizationPropsResponse {
 
     public final String action;
 
+    public final String styleNote;
+
+    public final String vatInfo;
+
     @Nullable
     @SerializedName("crossLinks")
     public final List<PdpComponentizationCrossLinksResponse> crossLinksList;
@@ -82,6 +86,8 @@ public class PdpComponentizationPropsResponse {
                                             @Nullable List<PdpComponentizationButtonStateResponse> buttonStateList,
                                             PdpComponentizationServiceabilityResponse serviceability,
                                             String actionType, String action,
+                                            String styleNote,
+                                            String vatInfo,
                                             @Nullable List<PdpComponentizationCrossLinksResponse> crossLinksList,
                                             @Nullable List<PdpComponentizationMoreInfoResponse> moreInfoList) {
         this.id = id;
@@ -104,6 +110,8 @@ public class PdpComponentizationPropsResponse {
         this.serviceability = serviceability;
         this.actionType = actionType;
         this.action = action;
+        this.styleNote = styleNote;
+        this.vatInfo = vatInfo;
         this.crossLinksList = crossLinksList;
         this.moreInfoList = moreInfoList;
     }

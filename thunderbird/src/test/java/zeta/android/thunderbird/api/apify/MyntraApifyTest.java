@@ -15,10 +15,14 @@ import rx.Observable;
 import rx.observers.TestSubscriber;
 import zeta.android.thunderbird.ApiTestBase;
 import zeta.android.thunderbird.api.apify.pdpv3.common.PdpV3SizeResponse;
+import zeta.android.thunderbird.api.apify.pdpv3.componentization.PdpComponentizationButtonStateResponse;
 import zeta.android.thunderbird.api.apify.pdpv3.componentization.PdpComponentizationCardsResponse;
 import zeta.android.thunderbird.api.apify.pdpv3.componentization.PdpComponentizationComponentsResponse;
+import zeta.android.thunderbird.api.apify.pdpv3.componentization.PdpComponentizationCrossLinksResponse;
+import zeta.android.thunderbird.api.apify.pdpv3.componentization.PdpComponentizationDisplayDataResponse;
 import zeta.android.thunderbird.api.apify.pdpv3.componentization.PdpComponentizationInfoResponse;
 import zeta.android.thunderbird.api.apify.pdpv3.componentization.PdpComponentizationMediumResponse;
+import zeta.android.thunderbird.api.apify.pdpv3.componentization.PdpComponentizationProductDetailResponse;
 import zeta.android.thunderbird.api.apify.pdpv3.componentization.PdpComponentizationResponse;
 import zeta.android.thunderbird.api.apify.pdpv3.componentization.PdpComponentizationServiceabilityResponse;
 import zeta.android.thunderbird.api.apify.pdpv3.pdp.PdpV3Response;
@@ -76,6 +80,7 @@ public class MyntraApifyTest extends ApiTestBase {
         assertEquals("Apparel", pdpV3Info.masterCategory);
         assertEquals("Women", pdpV3Info.gender);
         assertEquals("Topwear", pdpV3Info.subCategory);
+
     }
 
     @Test
@@ -149,8 +154,8 @@ public class MyntraApifyTest extends ApiTestBase {
         assert pdpV3ComponentsList != null;
         assertEquals(9, pdpV3ComponentsList.size());
         PdpComponentizationComponentsResponse pdpV3Component = pdpV3ComponentsList.get(1);
-        assertEquals(998.0, pdpV3Component.props.price.mrp);
-        assertEquals(698.0, pdpV3Component.props.price.discounted);
+        assertEquals(998, pdpV3Component.props.price.mrp);
+        assertEquals(698, pdpV3Component.props.price.discounted);
         assertEquals(null, pdpV3Component.props.price.discount.coupon);
         assertEquals("Buy this item and get <em>30% </em> off", pdpV3Component.props.price.discount.description);
         assertEquals("(30% OFF)", pdpV3Component.props.price.discount.label);
@@ -198,6 +203,67 @@ public class MyntraApifyTest extends ApiTestBase {
     }
 
     @Test
+    public void getProductDetailsComponentizedResponseButtonStateResponseComponentTest() {
+        TestSubscriber<Response<PdpComponentizationResponse>> testSubscriber = new TestSubscriber<>();
+        myntraApify.getProductDetailsComponentizedResponse(1675810, 1).subscribe(testSubscriber);
+        testSubscriber.assertNoErrors();
+
+        List<Response<PdpComponentizationResponse>> onNextEvents = testSubscriber.getOnNextEvents();
+        PdpComponentizationResponse response = onNextEvents.get(0).body();
+        assert response != null;
+
+        List<PdpComponentizationCardsResponse> pdpV3CardsList = response.cardsList;
+        assertEquals(5, pdpV3CardsList.size());
+
+        PdpComponentizationCardsResponse pdpV3Card = pdpV3CardsList.get(0);
+        List<PdpComponentizationComponentsResponse> pdpV3ComponentsList = pdpV3Card.componentsList;
+        assert pdpV3ComponentsList != null;
+        assertEquals(9, pdpV3ComponentsList.size());
+        PdpComponentizationComponentsResponse pdpV3Component;
+        pdpV3Component = pdpV3ComponentsList.get(8);
+        List<PdpComponentizationButtonStateResponse> buttonList = pdpV3Component.props.buttonStateList;
+        assert buttonList != null;
+        assertEquals(4, buttonList.size());
+        PdpComponentizationButtonStateResponse buttonStateResponse = buttonList.get(0);
+        assertEquals(0, buttonStateResponse.state);
+        assertEquals("collection", buttonStateResponse.buttonList.get(0).type);
+        assertEquals("/wishlist", buttonStateResponse.buttonList.get(0).action);
+        assertEquals("/collection", buttonStateResponse.buttonList.get(0).longAction);
+
+    }
+
+    @Test
+    public void getProductDetailsComponentizedResponseDisplayDataComponentTest() {
+        TestSubscriber<Response<PdpComponentizationResponse>> testSubscriber = new TestSubscriber<>();
+        myntraApify.getProductDetailsComponentizedResponse(1675810, 1).subscribe(testSubscriber);
+        testSubscriber.assertNoErrors();
+
+        List<Response<PdpComponentizationResponse>> onNextEvents = testSubscriber.getOnNextEvents();
+        PdpComponentizationResponse response = onNextEvents.get(0).body();
+        assert response != null;
+
+        List<PdpComponentizationCardsResponse> pdpV3CardsList = response.cardsList;
+        assertEquals(5, pdpV3CardsList.size());
+
+        PdpComponentizationCardsResponse pdpV3Card = pdpV3CardsList.get(0);
+        List<PdpComponentizationComponentsResponse> pdpV3ComponentsList = pdpV3Card.componentsList;
+        assert pdpV3ComponentsList != null;
+        assertEquals(9, pdpV3ComponentsList.size());
+        PdpComponentizationComponentsResponse pdpV3Component;
+        pdpV3Component = pdpV3ComponentsList.get(8);
+        List<PdpComponentizationDisplayDataResponse> displayDataList = pdpV3Component.args.displayData;
+        assert displayDataList != null;
+        assertEquals(4, displayDataList.size());
+        PdpComponentizationDisplayDataResponse displayDataResponse = displayDataList.get(1);
+        assertEquals("", displayDataResponse.buyDisableMessage);
+        assertEquals("SAVED", displayDataResponse.firstButtonActionText);
+        assertEquals("SAVE", displayDataResponse.firstButtonText);
+        assertEquals("GO TO BAG", displayDataResponse.secondButtonActionText);
+        assertEquals("ADD TO BAG", displayDataResponse.secondButtonText);
+
+    }
+
+    @Test
     public void getProductDetailsComponentizedResponseServicabilityComponentTest() {
         TestSubscriber<Response<PdpComponentizationResponse>> testSubscriber = new TestSubscriber<>();
         myntraApify.getProductDetailsComponentizedResponse(1675810, 1).subscribe(testSubscriber);
@@ -216,8 +282,8 @@ public class MyntraApifyTest extends ApiTestBase {
         PdpComponentizationServiceabilityResponse serviceability = pdpV3Component.props.serviceability;
         List<String> warehouseList = serviceability.payload.options.warehouseList;
         assertEquals("", serviceability.payload.pincode);
-        assertEquals(698.0, serviceability.payload.options.price);
-        assertEquals(998.0, serviceability.payload.options.mrp);
+        assertEquals(698, serviceability.payload.options.price);
+        assertEquals(998, serviceability.payload.options.mrp);
         assert warehouseList != null;
         assertEquals("28", warehouseList.get(0));
         assertEquals(0, serviceability.payload.options.leadTime);
@@ -232,6 +298,217 @@ public class MyntraApifyTest extends ApiTestBase {
         assertEquals(true, serviceability.payload.options.flags.codEnabled);
         assertEquals(true, serviceability.payload.options.flags.pickupEnabled);
     }
+
+    @Test
+    public void getProductDetailsComponentizedResponseSocialComponentTest() {
+        TestSubscriber<Response<PdpComponentizationResponse>> testSubscriber = new TestSubscriber<>();
+        myntraApify.getProductDetailsComponentizedResponse(1675810, 1).subscribe(testSubscriber);
+        testSubscriber.assertNoErrors();
+
+        List<Response<PdpComponentizationResponse>> onNextEvents = testSubscriber.getOnNextEvents();
+        PdpComponentizationResponse response = onNextEvents.get(0).body();
+        assert response != null;
+
+        List<PdpComponentizationCardsResponse> pdpV3CardsList = response.cardsList;
+        assertEquals(5, pdpV3CardsList.size());
+
+        PdpComponentizationCardsResponse pdpV3Card = pdpV3CardsList.get(2);
+        assert pdpV3Card.componentsList != null;
+        assertEquals("SOCIAL", pdpV3Card.type);
+        List<PdpComponentizationComponentsResponse> pdpComponentizationComponentsResponseList = pdpV3Card.componentsList;
+        PdpComponentizationComponentsResponse pdpComponentizationComponentsResponse = pdpComponentizationComponentsResponseList.get(1);
+        assertEquals("LIKERS_LAZY", pdpComponentizationComponentsResponse.type);
+        assertEquals("LIKERS_LAZY", pdpComponentizationComponentsResponse.viewType);
+        assertEquals("lazy", pdpComponentizationComponentsResponse.props.actionType);
+        assertEquals("/product/1675810/likes/summary?co=1", pdpComponentizationComponentsResponse.props.action);
+        assertEquals("Liked by", pdpComponentizationComponentsResponse.args.title);
+        assertEquals("<p>This breathable and stylish kurta from Soch Outlet is a must-have item for any wardrobe.  This pink piece is a stylish option for a nice family function or event when teamed with churidar leggings and classic flats.</p>",pdpComponentizationComponentsResponseList.get(2).props.styleNote);
+    }
+
+    @Test
+    public void getProductDetailsComponentizedResponseRelatedComponentTest() {
+        TestSubscriber<Response<PdpComponentizationResponse>> testSubscriber = new TestSubscriber<>();
+        myntraApify.getProductDetailsComponentizedResponse(1675810, 1).subscribe(testSubscriber);
+        testSubscriber.assertNoErrors();
+
+        List<Response<PdpComponentizationResponse>> onNextEvents = testSubscriber.getOnNextEvents();
+        PdpComponentizationResponse response = onNextEvents.get(0).body();
+        assert response != null;
+
+        List<PdpComponentizationCardsResponse> pdpV3CardsList = response.cardsList;
+        assertEquals(5, pdpV3CardsList.size());
+
+        PdpComponentizationCardsResponse pdpV3Card = pdpV3CardsList.get(3);
+        assert pdpV3Card.componentsList != null;
+        assertEquals("RELATED", pdpV3Card.type);
+        List<PdpComponentizationComponentsResponse> pdpComponentizationComponentsResponseList = pdpV3Card.componentsList;
+        PdpComponentizationComponentsResponse pdpComponentizationComponentsResponse = pdpComponentizationComponentsResponseList.get(1);
+        assertEquals("CROSS_LINKS", pdpComponentizationComponentsResponse.type);
+        assertEquals("CROSS_LINKS", pdpComponentizationComponentsResponse.viewType);
+        List<PdpComponentizationCrossLinksResponse> crossLinksResponseList = pdpComponentizationComponentsResponse.props.crossLinksList;
+        PdpComponentizationCrossLinksResponse crossLinksResponse = crossLinksResponseList.get(0);
+        assertEquals("More Kurtis by Soch Outlet",crossLinksResponse.title);
+        assertEquals("kurtis?f=brand:Soch Outlet::gender:women",crossLinksResponse.url);
+
+    }
+
+
+
+    @Test
+    public void getProductDetailsComponentizedResponseVATComponentTest() {
+        TestSubscriber<Response<PdpComponentizationResponse>> testSubscriber = new TestSubscriber<>();
+        myntraApify.getProductDetailsComponentizedResponse(1675810, 1).subscribe(testSubscriber);
+        testSubscriber.assertNoErrors();
+
+        List<Response<PdpComponentizationResponse>> onNextEvents = testSubscriber.getOnNextEvents();
+        PdpComponentizationResponse response = onNextEvents.get(0).body();
+        assert response != null;
+
+        List<PdpComponentizationCardsResponse> pdpV3CardsList = response.cardsList;
+        assertEquals(5, pdpV3CardsList.size());
+
+        PdpComponentizationCardsResponse pdpV3Card = pdpV3CardsList.get(0);
+        List<PdpComponentizationComponentsResponse> pdpV3ComponentsList = pdpV3Card.componentsList;
+        assert pdpV3ComponentsList != null;
+        assertEquals(9, pdpV3ComponentsList.size());
+        PdpComponentizationComponentsResponse pdpV3Component = pdpV3ComponentsList.get(2);
+        assertEquals("VAT_INFO", pdpV3Component.type);
+        assertEquals("VAT_INFO", pdpV3Component.viewType);
+        assertEquals("Additional VAT may apply; charged at checkout", pdpV3Component.props.vatInfo);
+
+    }
+
+    @Test
+    public void getProductDetailsComponentizedResponseBestPriceOnDemandComponentTest() {
+        TestSubscriber<Response<PdpComponentizationResponse>> testSubscriber = new TestSubscriber<>();
+        myntraApify.getProductDetailsComponentizedResponse(1675810, 1).subscribe(testSubscriber);
+        testSubscriber.assertNoErrors();
+
+        List<Response<PdpComponentizationResponse>> onNextEvents = testSubscriber.getOnNextEvents();
+        PdpComponentizationResponse response = onNextEvents.get(0).body();
+        assert response != null;
+
+        List<PdpComponentizationCardsResponse> pdpV3CardsList = response.cardsList;
+        assertEquals(5, pdpV3CardsList.size());
+
+        PdpComponentizationCardsResponse pdpV3Card = pdpV3CardsList.get(0);
+        List<PdpComponentizationComponentsResponse> pdpV3ComponentsList = pdpV3Card.componentsList;
+        assert pdpV3ComponentsList != null;
+        assertEquals(9, pdpV3ComponentsList.size());
+        PdpComponentizationComponentsResponse pdpV3Component = pdpV3ComponentsList.get(4);
+        assertEquals("BEST_PRICE_ONDEMAND", pdpV3Component.type);
+        assertEquals("BEST_PRICE_ONDEMAND", pdpV3Component.viewType);
+        assertEquals("/product/1675810/offers?co=1", pdpV3Component.props.bestPriceOnDemand.action);
+        assertEquals("ondemand", pdpV3Component.props.bestPriceOnDemand.actionType);
+
+    }
+
+    @Test
+    public void getProductDetailsComponentizedResponseSizeSelectorComponentTest() {
+        TestSubscriber<Response<PdpComponentizationResponse>> testSubscriber = new TestSubscriber<>();
+        myntraApify.getProductDetailsComponentizedResponse(1675810, 1).subscribe(testSubscriber);
+        testSubscriber.assertNoErrors();
+
+        List<Response<PdpComponentizationResponse>> onNextEvents = testSubscriber.getOnNextEvents();
+        PdpComponentizationResponse response = onNextEvents.get(0).body();
+        assert response != null;
+
+        List<PdpComponentizationCardsResponse> pdpV3CardsList = response.cardsList;
+        assertEquals(5, pdpV3CardsList.size());
+
+        PdpComponentizationCardsResponse pdpV3Card = pdpV3CardsList.get(0);
+        List<PdpComponentizationComponentsResponse> pdpV3ComponentsList = pdpV3Card.componentsList;
+        assert pdpV3ComponentsList != null;
+        assertEquals(9, pdpV3ComponentsList.size());
+        PdpComponentizationComponentsResponse pdpV3Component = pdpV3ComponentsList.get(5);
+        assertEquals("SIZE_SELECTOR", pdpV3Component.type);
+        assertEquals("SIZE_SELECTOR", pdpV3Component.viewType);
+        assertEquals(false, pdpV3Component.props.sbpEnabled);
+
+    }
+
+    @Test
+    public void getProductDetailsComponentizedResponseProductDetailComponentTest() {
+        TestSubscriber<Response<PdpComponentizationResponse>> testSubscriber = new TestSubscriber<>();
+        myntraApify.getProductDetailsComponentizedResponse(1675810, 1).subscribe(testSubscriber);
+        testSubscriber.assertNoErrors();
+
+        List<Response<PdpComponentizationResponse>> onNextEvents = testSubscriber.getOnNextEvents();
+        PdpComponentizationResponse response = onNextEvents.get(0).body();
+        assert response != null;
+
+        List<PdpComponentizationCardsResponse> pdpV3CardsList = response.cardsList;
+        assertEquals(5, pdpV3CardsList.size());
+
+        PdpComponentizationCardsResponse pdpV3Card = pdpV3CardsList.get(0);
+        List<PdpComponentizationComponentsResponse> pdpV3ComponentsList = pdpV3Card.componentsList;
+        assert pdpV3ComponentsList != null;
+        assertEquals(9, pdpV3ComponentsList.size());
+        PdpComponentizationComponentsResponse pdpV3Component = pdpV3ComponentsList.get(6);
+        assertEquals("PRODUCT_DETAILS", pdpV3Component.type);
+        assertEquals("PRODUCT_DETAILS", pdpV3Component.viewType);
+        assertEquals(3, pdpV3Component.props.productDetailList.size());
+        PdpComponentizationProductDetailResponse productDetailResponse = pdpV3Component.props.productDetailList.get(0);
+        assertEquals("Product Details", productDetailResponse.title);
+        assertEquals(null, productDetailResponse.type);
+        assertEquals(null, productDetailResponse.content);
+        assertEquals("Pink solid straight kurta, has a mandarin collar, three quarter sleeve with roll-up tab detail, straight hem", productDetailResponse.description);
+    }
+
+    @Test
+    public void getProductDetailsComponentizedResponseAddButtonPDPComponentTest() {
+        TestSubscriber<Response<PdpComponentizationResponse>> testSubscriber = new TestSubscriber<>();
+        myntraApify.getProductDetailsComponentizedResponse(1675810, 1).subscribe(testSubscriber);
+        testSubscriber.assertNoErrors();
+
+        List<Response<PdpComponentizationResponse>> onNextEvents = testSubscriber.getOnNextEvents();
+        PdpComponentizationResponse response = onNextEvents.get(0).body();
+        assert response != null;
+
+        List<PdpComponentizationCardsResponse> pdpV3CardsList = response.cardsList;
+        assertEquals(5, pdpV3CardsList.size());
+
+        PdpComponentizationCardsResponse pdpV3Card = pdpV3CardsList.get(0);
+        List<PdpComponentizationComponentsResponse> pdpV3ComponentsList = pdpV3Card.componentsList;
+        assert pdpV3ComponentsList != null;
+        assertEquals(9, pdpV3ComponentsList.size());
+        PdpComponentizationComponentsResponse pdpV3Component = pdpV3ComponentsList.get(8);
+        assertEquals("ADD_BUTTONS_PDP", pdpV3Component.type);
+        assertEquals("ADD_BUTTONS_PDP", pdpV3Component.viewType);
+        assertEquals(false, pdpV3Component.props.sbpEnabled);
+        assertEquals(7, pdpV3Component.props.sizeList.size());
+
+    }
+
+    @Test
+    public void getProductDetailsComponentizedResponsePrimaryOfferComponentTest() {
+        TestSubscriber<Response<PdpComponentizationResponse>> testSubscriber = new TestSubscriber<>();
+        myntraApify.getProductDetailsComponentizedResponse(1675810, 1).subscribe(testSubscriber);
+        testSubscriber.assertNoErrors();
+
+        List<Response<PdpComponentizationResponse>> onNextEvents = testSubscriber.getOnNextEvents();
+        PdpComponentizationResponse response = onNextEvents.get(0).body();
+        assert response != null;
+
+        List<PdpComponentizationCardsResponse> pdpV3CardsList = response.cardsList;
+        assertEquals(5, pdpV3CardsList.size());
+
+        PdpComponentizationCardsResponse pdpV3Card = pdpV3CardsList.get(0);
+        List<PdpComponentizationComponentsResponse> pdpV3ComponentsList = pdpV3Card.componentsList;
+        assert pdpV3ComponentsList != null;
+        assertEquals(9, pdpV3ComponentsList.size());
+        PdpComponentizationComponentsResponse pdpV3Component = pdpV3ComponentsList.get(7);
+        assertEquals("PRIMARY_OFFER", pdpV3Component.type);
+        assertEquals("PRIMARY_OFFER", pdpV3Component.viewType);
+        assertEquals("/alloffers", pdpV3Component.props.offer.action);
+        assertEquals("none", pdpV3Component.args.bankOffer);
+        assertEquals(24, pdpV3Component.args.maxDuration);
+        assertEquals(15, pdpV3Component.args.minInterest);
+        assertEquals("SPECIAL", pdpV3Component.args.primaryOffer);
+    }
+
+
+
 
     //TODO add more tests for components
     //endregions
@@ -261,8 +538,8 @@ public class MyntraApifyTest extends ApiTestBase {
         PdpV3Response response = onNextEvents.get(0).body();
         assert response != null;
 
-        assertEquals(998.0, response.style.price.mrp);
-        assertEquals(698.0, response.style.price.discounted);
+        assertEquals(998, response.style.price.mrp);
+        assertEquals(698, response.style.price.discounted);
         assertEquals(null, response.style.price.discount.coupon);
         assertEquals("Buy this item and get <em>30% </em> off", response.style.price.discount.description);
         assertEquals("(30% OFF)", response.style.price.discount.label);
