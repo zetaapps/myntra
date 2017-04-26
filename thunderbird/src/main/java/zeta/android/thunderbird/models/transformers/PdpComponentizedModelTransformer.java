@@ -1,10 +1,12 @@
 package zeta.android.thunderbird.models.transformers;
 
+import java.util.LinkedHashMap;
 import java.util.List;
 
 import javax.annotation.ParametersAreNonnullByDefault;
 
 import zeta.android.thunderbird.api.apify.pdpv3.componentization.PdpComponentizationCardsResponse;
+import zeta.android.thunderbird.api.apify.pdpv3.componentization.PdpComponentizationComponentsResponse;
 import zeta.android.thunderbird.api.apify.pdpv3.componentization.PdpComponentizationInfoResponse;
 import zeta.android.thunderbird.api.apify.pdpv3.componentization.PdpComponentizationResponse;
 import zeta.android.thunderbird.models.common.ITransformer;
@@ -18,7 +20,9 @@ import zeta.android.thunderbird.models.products.pdpv3.cards.PdpV3RelatedCard;
 import zeta.android.thunderbird.models.products.pdpv3.cards.PdpV3ServiceabilityCard;
 import zeta.android.thunderbird.models.products.pdpv3.cards.PdpV3SocialCard;
 import zeta.android.thunderbird.models.products.pdpv3.common.PdpV3CardType;
+import zeta.android.thunderbird.models.products.pdpv3.common.PdpV3ComponentType;
 import zeta.android.thunderbird.models.utils.PdpV3CardTypeUtil;
+import zeta.android.thunderbird.models.utils.PdpV3ProductComponentTypeUtil;
 
 import static zeta.android.thunderbird.models.products.pdpv3.common.PdpV3CardType.BRAND;
 import static zeta.android.thunderbird.models.products.pdpv3.common.PdpV3CardType.MORE_INFO_CARD;
@@ -42,18 +46,23 @@ public class PdpComponentizedModelTransformer implements ITransformer<PdpCompone
 
         PdpV3BrandCard brandCard = null;
         PdpV3SocialCard socialCard = null;
-        PdpV3ProductCard productCard = null;
         PdpV3RelatedCard relatedCard = null;
+        PdpV3ProductCard productCard = null;
         PdpV3MoreInfoCard moreInfoCard = null;
         PdpV3ServiceabilityCard serviceabilityCard = null;
+        @PdpV3CardType
+        LinkedHashMap<String, Integer> cardPositionIndex = new LinkedHashMap<>(0);
 
         //region card
         if (cardsList != null) {
             final int size = cardsList.size();
-            for (int i = 0; i < size; i++) {
-                final PdpComponentizationCardsResponse cardsResponse = cardsList.get(i);
+            for (int indexPos = 0; indexPos < size; indexPos++) {
+                final PdpComponentizationCardsResponse cardsResponse = cardsList.get(indexPos);
+
                 @PdpV3CardType
                 final String cardType = PdpV3CardTypeUtil.from(cardsResponse.type);
+                //Maintain the index of the card
+                cardPositionIndex.put(cardType, indexPos);
 
                 switch (cardType) {
                     case PRODUCT:
@@ -80,7 +89,6 @@ public class PdpComponentizedModelTransformer implements ITransformer<PdpCompone
             }
         }
         //endregion
-
         return PdpComponentizationModel.create()
                 .setProductId(productId)
                 .setProductTitle(title)
@@ -89,12 +97,30 @@ public class PdpComponentizedModelTransformer implements ITransformer<PdpCompone
                 .setProductCard(productCard)
                 .setRelatedCard(relatedCard)
                 .setMoreInfoCard(moreInfoCard)
+                .setCardPositionsIndex(cardPositionIndex)
                 .setServiceabilityCard(serviceabilityCard)
                 .build();
     }
 
     private PdpV3ProductCard transformProductCard(PdpComponentizationCardsResponse productCard) {
+        @PdpV3ComponentType
+        LinkedHashMap<String, Integer> componentIndex = new LinkedHashMap<>(0);
+        List<PdpComponentizationComponentsResponse> componentsList = productCard.componentsList;
+        if (componentsList != null) {
+            final int size = componentsList.size();
+            for (int indexPos = 0; indexPos < size; indexPos++) {
+                PdpComponentizationComponentsResponse componentsResponse = componentsList.get(indexPos);
+
+                //Maintain the index of the component
+                @PdpV3ComponentType
+                String componentType = PdpV3ProductComponentTypeUtil.from(componentsResponse.type);
+                componentIndex.put(componentType, indexPos);
+            }
+        }
+
         return PdpV3ProductCard.create()
+                .setPdpV3CardType(PdpV3CardType.PRODUCT)
+                .setComponentPositionsIndex(componentIndex)
                 .build();
     }
 
