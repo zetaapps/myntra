@@ -143,6 +143,12 @@ android {
             events 'passed', 'skipped', 'failed', 'standardOut', 'standardError'
             exceptionFormat 'full'
         }
+        //Print the test result summary
+        afterSuite { desc, result ->
+            if (!desc.parent) { // will match the outermost suite
+                println "Myntra Test Results: ${result.resultType} (${result.testCount} tests, ${result.successfulTestCount} successes, ${result.failedTestCount} failures, ${result.skippedTestCount} skipped)"
+            }
+        }
     }
 
 }
