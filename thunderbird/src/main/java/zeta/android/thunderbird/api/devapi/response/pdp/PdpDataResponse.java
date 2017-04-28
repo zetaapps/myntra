@@ -2,6 +2,9 @@ package zeta.android.thunderbird.api.devapi.response.pdp;
 
 import com.google.gson.annotations.SerializedName;
 
+import java.util.List;
+
+
 public class PdpDataResponse {
 
     @SerializedName("id")
@@ -70,7 +73,37 @@ public class PdpDataResponse {
     @SerializedName("landingPageUrl")
     public String landingPageUrl;
 
+    @SerializedName("articleAttributes")
+    public PdpArticleAttributesResponse articleAttributesResponse;
+
+    @SerializedName("crossLinks")
+    public List<PdpCrossLinksResponse> crossLinksResponseList = null;
+
+    public boolean codEnabled;
+
     @SerializedName("styleImages")
-    public PdpStyleImages styleImages;
+    public PdpStyleImagesResponse styleImages;
+
+    public PdpLookGoodAlbumResponse lookGoodAlbum;
+
+    public PdpStyle360ImagesResponse style360Images;
+
+    public PdpMasterCategoryResponse masterCategory;
+
+    public PdpSubCategoryResponse subCategory;
+
+    public PdpArticleTypeResponse articleType;
+
+    public boolean isEMIEnabled;
+
+    public List<PdpOtherFlagResponse> otherFlags = null;
+
+    public PdpArticleDisplayAttrResponse articleDisplayAttr;
+
+    public PdpProductDescriptorsResponse productDescriptors;
+
+    public List<PdpStyleOptionsResponse> styleOptions = null;
+
+    public PdpDiscountDataResponse discountData;
 
 }

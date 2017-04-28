@@ -17,7 +17,6 @@ import rx.Observable;
 import rx.observers.TestSubscriber;
 import zeta.android.thunderbird.ApiTestBase;
 import zeta.android.thunderbird.api.devapi.response.feed.FeedCardsResponse;
-import zeta.android.thunderbird.api.devapi.response.feed.FeedChildrenPropResponse;
 import zeta.android.thunderbird.api.devapi.response.feed.FeedChildrenResponse;
 import zeta.android.thunderbird.api.devapi.response.feed.FeedForumResponse;
 import zeta.android.thunderbird.api.devapi.response.feed.FeedHeaderResponse;
@@ -222,5 +221,6 @@ public class MyntraDevApiTest extends ApiTestBase {
         assertEquals("Tops/Jaipur-Kurti/Jaipur-Kurti-Black-Printed-Top/1291342/buy",
                 pdpDataResponse.landingPageUrl);
     }
+
 
 }
