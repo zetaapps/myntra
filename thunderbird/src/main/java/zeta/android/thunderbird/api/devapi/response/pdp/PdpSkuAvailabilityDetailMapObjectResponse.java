@@ -1,32 +1,30 @@
 package zeta.android.thunderbird.api.devapi.response.pdp;
 
-
-
 public class PdpSkuAvailabilityDetailMapObjectResponse {
 
-    public int sellerid;
+    public final int sellerid;
 
-    public int storeid;
+    public final int storeid;
 
-    public String sellername;
+    public final String sellername;
 
-    public int availableCount;
+    public final int availableCount;
 
-    public int sellableInventoryCount;
+    public final int sellableInventoryCount;
 
-    public String availableInWarehouses;
+    public final String availableInWarehouses;
 
-    public int leadTime;
+    public final int leadTime;
 
-    public String supplyType;
+    public final String supplyType;
 
     public PdpSkuAvailabilityDetailMapObjectResponse(int sellerid,
-                                                    int storeid,
-                                                    String sellername,
-                                                    int availableCount,
-                                                    int sellableInventoryCount,
-                                                    String availableInWarehouses,
-                                                    int leadTime, String supplyType) {
+                                                     int storeid,
+                                                     String sellername,
+                                                     int availableCount,
+                                                     int sellableInventoryCount,
+                                                     String availableInWarehouses,
+                                                     int leadTime, String supplyType) {
         this.sellerid = sellerid;
         this.storeid = storeid;
         this.sellername = sellername;
