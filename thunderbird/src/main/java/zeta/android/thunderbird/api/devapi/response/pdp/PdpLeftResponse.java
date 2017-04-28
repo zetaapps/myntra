@@ -2,11 +2,11 @@ package zeta.android.thunderbird.api.devapi.response.pdp;
 
 public class PdpLeftResponse {
 
-    public String imageURL;
+    public final String imageURL;
 
-    public PdpResolutionsResponse resolutions;
+    public final PdpResolutionsResponse resolutions;
 
-    public String imageType;
+    public final String imageType;
 
     public PdpLeftResponse(String imageURL,
                            PdpResolutionsResponse resolutions,

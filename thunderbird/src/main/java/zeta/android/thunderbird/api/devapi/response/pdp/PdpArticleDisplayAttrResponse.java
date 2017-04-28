@@ -1,15 +1,14 @@
 package zeta.android.thunderbird.api.devapi.response.pdp;
 
-
 public class PdpArticleDisplayAttrResponse {
 
-    public int id;
+    public final int id;
 
-    public PdpCoreResponse core;
+    public final PdpCoreResponse core;
 
-    public PdpSocialResponse social;
+    public final PdpSocialResponse social;
 
-    public PdpExploreResponse explore;
+    public final PdpExploreResponse explore;
 
     public PdpArticleDisplayAttrResponse(int id,
                                          PdpCoreResponse core,

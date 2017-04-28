@@ -1,27 +1,24 @@
 package zeta.android.thunderbird.api.devapi.response.pdp;
 
-
 public class PdpArticleTypeResponse {
 
+    public final int id;
 
-    public int id;
+    public final String typeName;
 
-    public String typeName;
+    public final boolean active;
 
-    public boolean active;
+    public final boolean socialSharingEnabled;
 
-    public boolean socialSharingEnabled;
+    public final boolean isReturnable;
 
-    public boolean isReturnable;
+    public final boolean isExchangeable;
 
-    public boolean isExchangeable;
+    public final boolean pickupEnabled;
 
-    public boolean pickupEnabled;
+    public final boolean isTryAndBuyEnabled;
 
-
-    public boolean isTryAndBuyEnabled;
-
-    public PdpServiceabilityDisclaimerResponse serviceabilityDisclaimer;
+    public final PdpServiceabilityDisclaimerResponse serviceabilityDisclaimer;
 
     public PdpArticleTypeResponse(int id,
                                   String typeName,
@@ -42,6 +39,5 @@ public class PdpArticleTypeResponse {
         this.isTryAndBuyEnabled = isTryAndBuyEnabled;
         this.serviceabilityDisclaimer = serviceabilityDisclaimer;
     }
-
 
 }

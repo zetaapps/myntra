@@ -2,22 +2,21 @@ package zeta.android.thunderbird.api.devapi.response.pdp;
 
 public class PdpMasterCategoryResponse {
 
+    public final int id;
 
-    public int id;
+    public final String typeName;
 
-    public String typeName;
+    public final boolean active;
 
-    public boolean active;
+    public final boolean socialSharingEnabled;
 
-    public boolean socialSharingEnabled;
+    public final boolean isReturnable;
 
-    public boolean isReturnable;
+    public final boolean isExchangeable;
 
-    public boolean isExchangeable;
+    public final boolean pickupEnabled;
 
-    public boolean pickupEnabled;
-
-    public boolean isTryAndBuyEnabled;
+    public final boolean isTryAndBuyEnabled;
 
     public PdpMasterCategoryResponse(int id,
                                      String typeName,

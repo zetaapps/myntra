@@ -1,66 +1,65 @@
 package zeta.android.thunderbird.api.devapi.response.pdp;
 
-
 import com.google.gson.annotations.SerializedName;
 
 public class PdpArticleAttributesResponse {
 
     @SerializedName("Pattern")
-    public String pattern;
+    public final String pattern;
 
     @SerializedName("Transparency")
-    public String transparency;
+    public final String transparency;
 
     @SerializedName("Sleeve Length")
-    public String sleeveLength;
+    public final String sleeveLength;
 
     @SerializedName("Sleeve Styling")
-    public String sleeveStyling;
+    public final String sleeveStyling;
 
     @SerializedName("taxMaterial")
-    public String taxMaterial;
+    public final String taxMaterial;
 
     @SerializedName("Closure")
-    public String closure;
+    public final String closure;
 
     @SerializedName("Occasion")
-    public String occasion;
+    public final String occasion;
 
     @SerializedName("Main Trend")
-    public String mainTrend;
+    public final String mainTrend;
 
     @SerializedName("Print or Pattern Type")
-    public String printOrPatternType;
+    public final String printOrPatternType;
 
     @SerializedName("Wash Care")
-    public String washCare;
+    public final String washCare;
 
     @SerializedName("Fabric Type")
-    public String fabricType;
+    public final String fabricType;
 
     @SerializedName("Sub Trend")
-    public String subTrend;
+    public final String subTrend;
 
     @SerializedName("Weave Type")
-    public String weaveType;
+    public final String weaveType;
 
     @SerializedName("Type")
-    public String type;
+    public final String type;
 
     @SerializedName("Surface Styling")
-    public String surfaceStyling;
+    public final String surfaceStyling;
 
     @SerializedName("Length")
-    public String length;
+    public final String length;
 
     @SerializedName("Lining")
-    public String lining;
+    public final String lining;
 
     @SerializedName("Neck")
-    public String neck;
+    public final String neck;
 
     @SerializedName("Fabric")
-    public String fabric;
+    public final String fabric;
 
     public PdpArticleAttributesResponse(String pattern,
                                         String transparency,
@@ -101,7 +100,5 @@ public class PdpArticleAttributesResponse {
         this.lining = lining;
         this.neck = neck;
         this.fabric = fabric;
-
-
     }
 }

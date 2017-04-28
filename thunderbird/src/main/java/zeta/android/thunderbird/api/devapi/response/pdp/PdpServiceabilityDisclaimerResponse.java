@@ -2,12 +2,12 @@ package zeta.android.thunderbird.api.devapi.response.pdp;
 
 public class PdpServiceabilityDisclaimerResponse {
 
-    public String title;
+    public final String title;
 
-    public String desc;
+    public final String desc;
 
     public PdpServiceabilityDisclaimerResponse(String title,
-                                              String desc) {
+                                               String desc) {
         this.title = title;
         this.desc = desc;
     }

@@ -2,9 +2,9 @@ package zeta.android.thunderbird.api.devapi.response.pdp;
 
 public class PdpDiscountToolTipTextResponse {
 
-    public String text;
+    public final String text;
 
-    public boolean hasFreeItem;
+    public final boolean hasFreeItem;
 
     public PdpDiscountToolTipTextResponse(String text,
                                           boolean hasFreeItem) {

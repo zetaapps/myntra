@@ -4,16 +4,15 @@ import java.net.URL;
 
 public class PdpDefaultStyleImagesResponse {
 
+    public final URL imageURL;
 
-    public URL imageURL;
+    public final PdpResolutionsResponse resolutions;
 
-    public PdpResolutionsResponse resolutions;
-
-    public String imageType;
+    public final String imageType;
 
     public PdpDefaultStyleImagesResponse(URL imageURL,
-                              PdpResolutionsResponse resolutions,
-                              String imageType) {
+                                         PdpResolutionsResponse resolutions,
+                                         String imageType) {
         this.imageURL = imageURL;
         this.resolutions = resolutions;
         this.imageType = imageType;

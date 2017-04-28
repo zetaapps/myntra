@@ -2,10 +2,9 @@ package zeta.android.thunderbird.api.devapi.response.pdp;
 
 public class PdpDescriptionResponse {
 
+    public final String descriptorType;
 
-    public String descriptorType;
-
-    public String value;
+    public final String value;
 
     public PdpDescriptionResponse(String descriptorType,
                                   String value) {

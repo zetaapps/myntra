@@ -1,11 +1,10 @@
 package zeta.android.thunderbird.api.devapi.response.pdp;
 
-
 public class PdpSizeFitDescResponse {
 
-    public String descriptorType;
+    public final String descriptorType;
 
-    public String value;
+    public final String value;
 
     public PdpSizeFitDescResponse(String descriptorType,
                                   String value) {

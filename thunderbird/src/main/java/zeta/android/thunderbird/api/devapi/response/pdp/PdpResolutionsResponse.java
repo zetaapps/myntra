@@ -1,51 +1,50 @@
 package zeta.android.thunderbird.api.devapi.response.pdp;
 
-
 import com.google.gson.annotations.SerializedName;
 
 public class PdpResolutionsResponse {
 
     @SerializedName("1080X1440Xmini")
-    public String _1080X1440Xmini;
+    public final String _1080X1440Xmini;
 
     @SerializedName("48X64")
-    public String _48X64;
+    public final String _48X64;
 
     @SerializedName("1080X1440")
-    public String _1080X1440;
+    public final String _1080X1440;
 
     @SerializedName("150X200")
-    public String _150X200;
+    public final String _150X200;
 
     @SerializedName("81X108Xmini")
-    public String _81X108Xmini;
+    public final String _81X108Xmini;
 
     @SerializedName("81X108")
-    public String _81X108;
+    public final String _81X108;
 
     @SerializedName("360X480")
-    public String _360X480;
+    public final String _360X480;
 
     @SerializedName("180X240")
-    public String _180X240;
+    public final String _180X240;
 
     @SerializedName("360X480Xmini")
-    public String _360X480Xmini;
+    public final String _360X480Xmini;
 
     @SerializedName("180X240Xmini")
-    public String _180X240Xmini;
+    public final String _180X240Xmini;
 
     @SerializedName("150X200Xmini")
-    public String _150X200Xmini;
+    public final String _150X200Xmini;
 
     @SerializedName("48X64Xmini")
-    public String _48X64Xmini;
+    public final String _48X64Xmini;
 
     @SerializedName("125X161")
-    public String _125X161;
+    public final String _125X161;
 
     @SerializedName("125X161Xmini")
-    public String _125X161Xmini;
+    public final String _125X161Xmini;
 
     public PdpResolutionsResponse(String _1080X1440Xmini,
                                   String _48X64,

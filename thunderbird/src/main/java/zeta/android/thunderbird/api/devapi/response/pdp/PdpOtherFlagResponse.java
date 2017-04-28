@@ -1,13 +1,12 @@
 package zeta.android.thunderbird.api.devapi.response.pdp;
 
-
 public class PdpOtherFlagResponse {
 
-    public String dataType;
+    public final String dataType;
 
-    public String name;
+    public final String name;
 
-    public String value;
+    public final String value;
 
     public PdpOtherFlagResponse(String dataType,
                                 String name,

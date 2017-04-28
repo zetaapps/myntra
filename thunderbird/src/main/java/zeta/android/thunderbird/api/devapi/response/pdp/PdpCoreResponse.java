@@ -2,17 +2,17 @@ package zeta.android.thunderbird.api.devapi.response.pdp;
 
 public class PdpCoreResponse {
 
-    public String order;
+    public final String order;
 
-    public String display;
+    public final String display;
 
-    public String pdtDetail;
+    public final String pdtDetail;
 
-    public String pdtDeliveryOptions;
+    public final String pdtDeliveryOptions;
 
-    public String pdtSimilar;
+    public final String pdtSimilar;
 
-    public String pdtLike;
+    public final String pdtLike;
 
     public PdpCoreResponse(String order,
                            String display,

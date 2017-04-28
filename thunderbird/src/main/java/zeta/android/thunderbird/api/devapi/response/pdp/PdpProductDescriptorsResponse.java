@@ -2,21 +2,19 @@ package zeta.android.thunderbird.api.devapi.response.pdp;
 
 import com.google.gson.annotations.SerializedName;
 
-
 public class PdpProductDescriptorsResponse {
 
-
     @SerializedName("materials_care_desc")
-    public PdpMaterialsCareDescResponse materialsCareDesc;
+    public final PdpMaterialsCareDescResponse materialsCareDesc;
 
     @SerializedName("size_fit_desc")
-    public PdpSizeFitDescResponse sizeFitDesc;
+    public final PdpSizeFitDescResponse sizeFitDesc;
 
     @SerializedName("description")
-    public PdpDescriptionResponse description;
+    public final PdpDescriptionResponse description;
 
     @SerializedName("style_note")
-    public PdpStyleNoteResponse styleNote;
+    public final PdpStyleNoteResponse styleNote;
 
     public PdpProductDescriptorsResponse(PdpMaterialsCareDescResponse materialsCareDesc,
                                          PdpSizeFitDescResponse sizeFitDesc,

@@ -5,19 +5,19 @@ import com.google.gson.annotations.SerializedName;
 public class PdpStyleImagesResponse {
 
     @SerializedName("default")
-    public PdpDefaultStyleImagesResponse defaultImages;
+    public final PdpDefaultStyleImagesResponse defaultImages;
 
-    public String sizeRepresentation;
+    public final String sizeRepresentation;
 
-    public PdpSearchResponse search;
+    public final PdpSearchResponse search;
 
-    public PdpBackResponse back;
+    public final PdpBackResponse back;
 
-    public PdpLeftResponse left;
+    public final PdpLeftResponse left;
 
-    public PdpFrontResponse front;
+    public final PdpFrontResponse front;
 
-    public PdpRightResponse right;
+    public final PdpRightResponse right;
 
     public PdpStyleImagesResponse(PdpDefaultStyleImagesResponse defaultImages,
                                   String sizeRepresentation,

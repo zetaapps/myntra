@@ -1,24 +1,22 @@
 package zeta.android.thunderbird.api.devapi.response.pdp;
 
-
-
 public class PdpSubCategoryResponse {
 
-    public int id;
+    public final int id;
 
-    public String typeName;
+    public final String typeName;
 
-    public boolean active;
+    public final boolean active;
 
-    public boolean socialSharingEnabled;
+    public final boolean socialSharingEnabled;
 
-    public boolean isReturnable;
+    public final boolean isReturnable;
 
-    public boolean isExchangeable;
+    public final boolean isExchangeable;
 
-    public boolean pickupEnabled;
+    public final boolean pickupEnabled;
 
-    public boolean isTryAndBuyEnabled;
+    public final boolean isTryAndBuyEnabled;
 
     public PdpSubCategoryResponse(int id,
                                   String typeName,

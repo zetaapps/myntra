@@ -2,22 +2,21 @@ package zeta.android.thunderbird.api.devapi.response.pdp;
 
 public class PdpDiscountDataResponse {
 
+    public final int discountType;
 
-    public int discountType;
+    public final double discountAmount;
 
-    public double discountAmount;
+    public final int discountId;
 
-    public int discountId;
+    public final int discountRuleId;
 
-    public int discountRuleId;
+    public final int discountPercent;
 
-    public int discountPercent;
+    public final double discountModifiedDate;
 
-    public double discountModifiedDate;
+    public final PdpDiscountTextResponse discountText;
 
-    public PdpDiscountTextResponse discountText;
-
-    public PdpDiscountToolTipTextResponse discountToolTipText;
+    public final PdpDiscountToolTipTextResponse discountToolTipText;
 
     public PdpDiscountDataResponse(int discountType,
                                    double discountAmount,

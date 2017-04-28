@@ -1,109 +1,171 @@
 package zeta.android.thunderbird.api.devapi.response.pdp;
 
+import android.support.annotation.Nullable;
+
 import com.google.gson.annotations.SerializedName;
 
 import java.util.List;
 
-
 public class PdpDataResponse {
 
     @SerializedName("id")
-    public int productId;
+    public final int productId;
 
     @SerializedName("price")
-    public int price;
+    public final int price;
 
     @SerializedName("discountedPrice")
-    public int discountedPrice;
+    public final int discountedPrice;
 
     @SerializedName("styleType")
-    public String styleType;
+    public final String styleType;
 
     @SerializedName("articleNumber")
-    public String articleNumber;
+    public final String articleNumber;
 
     @SerializedName("visualTag")
-    public String visualTag;
+    public final String visualTag;
 
     @SerializedName("productDisplayName")
-    public String productDisplayName;
+    public final String productDisplayName;
 
     @SerializedName("variantName")
-    public String variantName;
+    public final String variantName;
 
     @SerializedName("catalogAddDate")
-    public String catalogAddDate;
+    public final String catalogAddDate;
 
     @SerializedName("brandName")
-    public String brandName;
+    public final String brandName;
 
     @SerializedName("ageGroup")
-    public String ageGroup;
+    public final String ageGroup;
 
     @SerializedName("gender")
-    public String gender;
+    public final String gender;
 
     @SerializedName("baseColour")
-    public String baseColour;
+    public final String baseColour;
 
     @SerializedName("colour1")
-    public String colour1;
+    public final String colour1;
 
     @SerializedName("colour2")
-    public String colour2;
+    public final String colour2;
 
     @SerializedName("fashionType")
-    public String fashionType;
+    public final String fashionType;
 
     @SerializedName("season")
-    public String season;
+    public final String season;
 
     @SerializedName("year")
-    public String year;
+    public final String year;
 
     @SerializedName("usage")
-    public String usage;
+    public final String usage;
 
     @SerializedName("navigationId")
-    public int navigationId;
+    public final int navigationId;
 
     @SerializedName("Sports")
-    public String sports;
+    public final String sports;
 
     @SerializedName("landingPageUrl")
-    public String landingPageUrl;
+    public final String landingPageUrl;
 
     @SerializedName("articleAttributes")
-    public PdpArticleAttributesResponse articleAttributesResponse;
+    public final PdpArticleAttributesResponse articleAttributesResponse;
 
+    @Nullable
     @SerializedName("crossLinks")
-    public List<PdpCrossLinksResponse> crossLinksResponseList = null;
+    public final List<PdpCrossLinksResponse> crossLinksResponseList;
 
-    public boolean codEnabled;
+    public final boolean codEnabled;
 
     @SerializedName("styleImages")
-    public PdpStyleImagesResponse styleImages;
+    public final PdpStyleImagesResponse styleImages;
 
-    public PdpLookGoodAlbumResponse lookGoodAlbum;
+    public final PdpLookGoodAlbumResponse lookGoodAlbum;
 
-    public PdpStyle360ImagesResponse style360Images;
+    public final PdpStyle360ImagesResponse style360Images;
 
-    public PdpMasterCategoryResponse masterCategory;
+    public final PdpMasterCategoryResponse masterCategory;
 
-    public PdpSubCategoryResponse subCategory;
+    public final PdpSubCategoryResponse subCategory;
 
-    public PdpArticleTypeResponse articleType;
+    public final PdpArticleTypeResponse articleType;
 
-    public boolean isEMIEnabled;
+    public final boolean isEMIEnabled;
 
-    public List<PdpOtherFlagResponse> otherFlags = null;
+    @Nullable
+    public final List<PdpOtherFlagResponse> otherFlags;
 
-    public PdpArticleDisplayAttrResponse articleDisplayAttr;
+    public final PdpArticleDisplayAttrResponse articleDisplayAttr;
 
-    public PdpProductDescriptorsResponse productDescriptors;
+    public final PdpProductDescriptorsResponse productDescriptors;
 
-    public List<PdpStyleOptionsResponse> styleOptions = null;
+    @Nullable
+    public final List<PdpStyleOptionsResponse> styleOptions;
 
-    public PdpDiscountDataResponse discountData;
+    public final PdpDiscountDataResponse discountData;
 
+    public PdpDataResponse(int productId, int price, int discountedPrice, String styleType,
+                           String articleNumber, String visualTag, String productDisplayName,
+                           String variantName, String catalogAddDate, String brandName,
+                           String ageGroup, String gender, String baseColour, String colour1,
+                           String colour2, String fashionType, String season, String year,
+                           String usage, int navigationId, String sports, String landingPageUrl,
+                           PdpArticleAttributesResponse articleAttributesResponse,
+                           @Nullable List<PdpCrossLinksResponse> crossLinksResponseList,
+                           boolean codEnabled, PdpStyleImagesResponse styleImages,
+                           PdpLookGoodAlbumResponse lookGoodAlbum,
+                           PdpStyle360ImagesResponse style360Images,
+                           PdpMasterCategoryResponse masterCategory,
+                           PdpSubCategoryResponse subCategory,
+                           PdpArticleTypeResponse articleType,
+                           boolean isEMIEnabled,
+                           List<PdpOtherFlagResponse> otherFlags,
+                           PdpArticleDisplayAttrResponse articleDisplayAttr,
+                           PdpProductDescriptorsResponse productDescriptors,
+                           @Nullable List<PdpStyleOptionsResponse> styleOptions,
+                           PdpDiscountDataResponse discountData) {
+        this.productId = productId;
+        this.price = price;
+        this.discountedPrice = discountedPrice;
+        this.styleType = styleType;
+        this.articleNumber = articleNumber;
+        this.visualTag = visualTag;
+        this.productDisplayName = productDisplayName;
+        this.variantName = variantName;
+        this.catalogAddDate = catalogAddDate;
+        this.brandName = brandName;
+        this.ageGroup = ageGroup;
+        this.gender = gender;
+        this.baseColour = baseColour;
+        this.colour1 = colour1;
+        this.colour2 = colour2;
+        this.fashionType = fashionType;
+        this.season = season;
+        this.year = year;
+        this.usage = usage;
+        this.navigationId = navigationId;
+        this.sports = sports;
+        this.landingPageUrl = landingPageUrl;
+        this.articleAttributesResponse = articleAttributesResponse;
+        this.crossLinksResponseList = crossLinksResponseList;
+        this.codEnabled = codEnabled;
+        this.styleImages = styleImages;
+        this.lookGoodAlbum = lookGoodAlbum;
+        this.style360Images = style360Images;
+        this.masterCategory = masterCategory;
+        this.subCategory = subCategory;
+        this.articleType = articleType;
+        this.isEMIEnabled = isEMIEnabled;
+        this.otherFlags = otherFlags;
+        this.articleDisplayAttr = articleDisplayAttr;
+        this.productDescriptors = productDescriptors;
+        this.styleOptions = styleOptions;
+        this.discountData = discountData;
+    }
 }

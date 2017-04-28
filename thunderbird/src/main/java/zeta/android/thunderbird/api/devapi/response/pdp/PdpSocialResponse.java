@@ -1,18 +1,16 @@
 package zeta.android.thunderbird.api.devapi.response.pdp;
 
-
 public class PdpSocialResponse {
 
+    public final String order;
 
-    public String order;
+    public final String display;
 
-    public String display;
+    public final String userLikes;
 
-    public String userLikes;
+    public final String styleNotes;
 
-    public String styleNotes;
-
-    public String crossSell;
+    public final String crossSell;
 
     public PdpSocialResponse(String order,
                              String display,

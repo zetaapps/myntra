@@ -2,14 +2,13 @@ package zeta.android.thunderbird.api.devapi.response.pdp;
 
 public class PdpExploreResponse {
 
+    public final String display;
 
-    public String display;
+    public final String crosslink;
 
-    public String crosslink;
+    public final String similar;
 
-    public String similar;
-
-    public String order;
+    public final String order;
 
     public PdpExploreResponse(String display,
                               String crosslink,

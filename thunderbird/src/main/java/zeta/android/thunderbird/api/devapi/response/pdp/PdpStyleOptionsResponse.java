@@ -1,31 +1,30 @@
 package zeta.android.thunderbird.api.devapi.response.pdp;
 
-
 public class PdpStyleOptionsResponse {
 
-    public int id;
+    public final int id;
 
-    public String name;
+    public final String name;
 
-    public String value;
+    public final String value;
 
-    public String unifiedSize;
+    public final String unifiedSize;
 
-    public String unifiedSizeValue;
+    public final String unifiedSizeValue;
 
-    public String allSize;
+    public final String allSize;
 
-    public int skuId;
+    public final int skuId;
 
-    public PdpSkuAvailabilityDetailMapResponse skuAvailabilityDetailMap;
+    public final PdpSkuAvailabilityDetailMapResponse skuAvailabilityDetailMap;
 
-    public PdpWarehouseIdToItemCountMapResponse warehouseIdToItemCountMap;
+    public final PdpWarehouseIdToItemCountMapResponse warehouseIdToItemCountMap;
 
-    public int inventoryCount;
+    public final int inventoryCount;
 
-    public boolean available;
+    public final boolean available;
 
-    public boolean active;
+    public final boolean active;
 
     public PdpStyleOptionsResponse(int id,
                                    String name,
