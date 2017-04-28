@@ -3,7 +3,6 @@ package zeta.android.thunderbird.api.devapi.response.pdp;
 
 public class PdpStyleOptionsResponse {
 
-
     public int id;
 
     public String name;

@@ -6,4 +6,5 @@ import java.util.Map;
 public class PdpSkuAvailabilityDetailMapResponse {
 
     public Map<String, PdpSkuAvailabilityDetailMapObjectResponse> pdpSkuAvailabilityDetailMapObjectResponseMap;
+
 }

@@ -19,6 +19,8 @@ import retrofit2.Converter;
 import retrofit2.Retrofit;
 import retrofit2.adapter.rxjava.RxJavaCallAdapterFactory;
 import retrofit2.converter.gson.GsonConverterFactory;
+import zeta.android.thunderbird.api.devapi.response.pdp.PdpSkuAvailabilityDetailMapResponse;
+import zeta.android.thunderbird.api.devapi.response.pdp.PdpSkuAvailabilityDetailMapResponseDeserializer;
 import zeta.android.thunderbird.environments.ApifyEnvironment;
 import zeta.android.thunderbird.environments.DevApiEnvironment;
 import zeta.android.thunderbird.environments.IdpApiEnvironment;
@@ -82,6 +84,9 @@ public class MyntraEngineModule {
     Gson providesGson() {
         return new GsonBuilder()
                 .setLenient()
+                // Deserializers
+                .registerTypeAdapter(PdpSkuAvailabilityDetailMapResponse.class,
+                        new PdpSkuAvailabilityDetailMapResponseDeserializer())
                 .create();
     }
 
