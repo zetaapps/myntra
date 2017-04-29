@@ -1,6 +1,7 @@
 package zeta.android.thunderbird.models.products.pdpv3.cards;
 
 import android.os.Parcelable;
+import android.support.annotation.Nullable;
 
 import com.google.auto.value.AutoValue;
 
@@ -8,6 +9,7 @@ import java.util.LinkedHashMap;
 
 import zeta.android.thunderbird.models.products.pdpv3.common.constants.PdpV3CardType;
 import zeta.android.thunderbird.models.products.pdpv3.common.constants.PdpV3ComponentType;
+import zeta.android.thunderbird.models.products.pdpv3.component.PdpV3MoreInfoComponent;
 
 @AutoValue
 public abstract class PdpV3MoreInfoCard implements Parcelable {
@@ -28,12 +30,17 @@ public abstract class PdpV3MoreInfoCard implements Parcelable {
     @PdpV3ComponentType
     public abstract LinkedHashMap<String, Integer> getComponentPositionsIndex();
 
+    @Nullable
+    public abstract PdpV3MoreInfoComponent getPdpV3MoreInfoComponent();
+
     @AutoValue.Builder
     public static abstract class Builder {
 
         public abstract Builder setPdpV3CardType(@PdpV3CardType String cardType);
 
         public abstract Builder setComponentPositionsIndex(@PdpV3ComponentType LinkedHashMap<String, Integer> componentPositionsIndex);
+
+        public abstract Builder setPdpV3MoreInfoComponent(@Nullable PdpV3MoreInfoComponent pdpV3MoreInfoComponent);
 
         public abstract PdpV3MoreInfoCard build();
     }

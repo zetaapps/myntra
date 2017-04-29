@@ -6,10 +6,10 @@ import android.support.annotation.Nullable;
 import com.google.auto.value.AutoValue;
 
 @AutoValue
-public abstract class PdpMoreInfoProperty implements Parcelable{
+public abstract class PdpV3MoreInfoProperty implements Parcelable{
 
     public static Builder create() {
-        return new $AutoValue_PdpMoreInfoProperty.Builder();
+        return new $AutoValue_PdpV3MoreInfoProperty.Builder();
     }
 
     @Nullable
@@ -30,7 +30,7 @@ public abstract class PdpMoreInfoProperty implements Parcelable{
 
         public abstract Builder setAction(@Nullable String action);
 
-        public abstract PdpMoreInfoProperty build();
+        public abstract PdpV3MoreInfoProperty build();
     }
 
 }
