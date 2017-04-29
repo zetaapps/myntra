@@ -24,7 +24,7 @@ public abstract class PdpV3ActionProperty implements Parcelable {
     @AutoValue.Builder
     public static abstract class Builder {
 
-        public abstract Builder setActionType(@Nullable @PdpV3ActionType String title);
+        public abstract Builder setActionType(@Nullable @PdpV3ActionType String actionType);
 
         public abstract Builder setAction(@Nullable String action);
 
