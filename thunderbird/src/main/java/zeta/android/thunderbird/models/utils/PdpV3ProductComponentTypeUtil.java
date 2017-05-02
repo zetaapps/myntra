@@ -15,13 +15,13 @@ import zeta.android.utils.lang.StringUtils;
 @ParametersAreNonnullByDefault
 public class PdpV3ProductComponentTypeUtil {
 
-    private static final String PRODUCT_COMPONENT_IMAGE = "PRODUCT_COMPONENT_IMAGE";
+    private static final String PRODUCT_COMPONENT_IMAGE = "IMAGE_SWIPE";
     private static final String PRODUCT_COMPONENT_INFO = "INFO";
-    private static final String PRODUCT_COMPONENT_VAT_INFO = "PRODUCT_COMPONENT_VAT_INFO";
-    private static final String PRODUCT_COMPONENT_BEST_PRICE = "PRODUCT_COMPONENT_BEST_PRICE";
-    private static final String PRODUCT_COMPONENT_SIZE_SELECTOR = "PRODUCT_COMPONENT_SIZE_SELECTOR";
-    private static final String PRODUCT_COMPONENT_PRIMARY_OFFER = "PRODUCT_COMPONENT_PRIMARY_OFFER";
-    private static final String PRODUCT_COMPONENT_ADD_TO_CART_BUTTON = "PRODUCT_COMPONENT_ADD_TO_CART_BUTTON";
+    private static final String PRODUCT_COMPONENT_VAT_INFO = "VAT_INFO";
+    private static final String PRODUCT_COMPONENT_BEST_PRICE = "BEST_PRICE";
+    private static final String PRODUCT_COMPONENT_SIZE_SELECTOR = "SIZE_SELECTOR";
+    private static final String PRODUCT_COMPONENT_PRIMARY_OFFER = "PRIMARY_OFFER";
+    private static final String PRODUCT_COMPONENT_ADD_TO_CART_BUTTON = "ADD_BUTTONS_PDP";
 
     @PdpV3ComponentType
     public static String from(@Nullable String identifierType) {
