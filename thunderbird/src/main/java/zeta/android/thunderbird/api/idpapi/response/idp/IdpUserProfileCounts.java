@@ -5,12 +5,12 @@ import com.google.gson.annotations.SerializedName;
 public class IdpUserProfileCounts {
 
     @SerializedName("following")
-    public final String following;
+    public final int following;
 
     @SerializedName("followers")
-    public final String followers;
+    public final int followers;
 
-    public IdpUserProfileCounts(String following, String followers) {
+    public IdpUserProfileCounts(int following, int followers) {
         this.following = following;
         this.followers = followers;
     }

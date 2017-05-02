@@ -3,6 +3,7 @@ package zeta.android.thunderbird.models.transformers;
 import javax.annotation.ParametersAreNonnullByDefault;
 
 import zeta.android.thunderbird.api.idpapi.response.idp.IdpTokenResponse;
+import zeta.android.thunderbird.api.idpapi.response.idp.IdpUserProfileDataResponse;
 import zeta.android.thunderbird.api.idpapi.response.idp.IdpUserProfileResponse;
 import zeta.android.thunderbird.models.common.ITransformer;
 import zeta.android.thunderbird.models.session.SessionModel;
@@ -17,14 +18,15 @@ public class SessionModelTransformer implements ITransformer<IdpTokenResponse, S
 
     @Override
     public SessionModel transform(IdpTokenResponse idpTokenResponse) {
-        IdpUserProfileResponse profileData = idpTokenResponse.profileData;
+        IdpUserProfileDataResponse profileData = idpTokenResponse.profileData;
+        IdpUserProfileResponse profileResponse = profileData.profile;
         UserProfileModel profileModel = UserProfileModel.create().build();
 
         return SessionModel.create()
                 .setProfileModel(profileModel)
                 .setEmail(UserEmail.create(profileData.email))
                 .setFirstName(UserFirstName.create(profileData.firstName))
-                .setLastName(profileData.lastName != null ? UserLastName.create(profileData.lastName) : null)
+                .setLastName(profileResponse.lastName != null ? UserLastName.create(profileResponse.lastName) : null)
                 .setMobileNumber(profileData.mobile != null ? UserMobileNumber.create(profileData.mobile) : null)
                 .build();
     }

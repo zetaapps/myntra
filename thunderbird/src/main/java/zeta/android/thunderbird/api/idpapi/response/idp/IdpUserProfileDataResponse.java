@@ -23,10 +23,10 @@ public class IdpUserProfileDataResponse {
     public final String status;
 
     @SerializedName("lastlogin")
-    public final String lastLogin;
+    public final double lastLogin;
 
     @SerializedName("firstlogin")
-    public final String firstLogin;
+    public final double firstLogin;
 
     @SerializedName("gender")
     public final String gender;
@@ -38,15 +38,15 @@ public class IdpUserProfileDataResponse {
     public final String dateOfBirth;
 
     @SerializedName("new_")
-    public final String isNew;
+    public final boolean isNew;
 
     @SerializedName("profile")
     public final IdpUserProfileResponse profile;
 
     public IdpUserProfileDataResponse(String login, String userType, String firstName, String email,
-                                      String mobile, String status, String lastLogin,
-                                      String firstLogin, String gender, String uidx,
-                                      String dateOfBirth, String isNew, IdpUserProfileResponse profile) {
+                                      String mobile, String status, double lastLogin,
+                                      double firstLogin, String gender, String uidx,
+                                      String dateOfBirth, boolean isNew, IdpUserProfileResponse profile) {
         this.login = login;
         this.userType = userType;
         this.firstName = firstName;

@@ -14,7 +14,7 @@ public class IdpUserProfileResponse {
     public final String lastName;
 
     @SerializedName("imageJsonEntryMap")
-    public final String imageJsonEntryMap;
+    public final IdpImageJsonEntryMap imageJsonEntryMap;
 
     @SerializedName("gender")
     public final String gender;
@@ -38,7 +38,7 @@ public class IdpUserProfileResponse {
     public final String uidx;
 
     @SerializedName("pLevel")
-    public final String pLevel;
+    public final int pLevel;
 
     @SerializedName("counts")
     public final IdpUserProfileCounts counts;
@@ -58,18 +58,18 @@ public class IdpUserProfileResponse {
     @SerializedName("usertype")
     public final String userType;
 
-    @SerializedName("mobile")
-    public final String mobile;
+    @SerializedName("phone")
+    public final String phone;
 
     @SerializedName("name")
     public final String name;
 
-    public IdpUserProfileResponse(String email, String firstName, String lastName, String imageJsonEntryMap,
+    public IdpUserProfileResponse(String email, String firstName, String lastName, IdpImageJsonEntryMap imageJsonEntryMap,
                                   String gender, String image, String imageType, String coverImage,
                                   String coverImageType, String publicProfileId, String uidx,
-                                  String pLevel, IdpUserProfileCounts counts, String bio,
+                                  int pLevel, IdpUserProfileCounts counts, String bio,
                                   String tagsMap, String location, String dateOfBirth,
-                                  String userType, String mobile, String name) {
+                                  String userType, String phone, String name) {
         this.email = email;
         this.firstName = firstName;
         this.lastName = lastName;
@@ -88,7 +88,7 @@ public class IdpUserProfileResponse {
         this.location = location;
         this.dateOfBirth = dateOfBirth;
         this.userType = userType;
-        this.mobile = mobile;
+        this.phone = phone;
         this.name = name;
     }
 }

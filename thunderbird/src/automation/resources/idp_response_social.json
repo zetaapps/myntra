@@ -1,0 +1,46 @@
+{
+	"meta": {
+		"code": 200,
+		"token": "JJNc44801c22f3311e78ca0b82a72d62f691493728504G",
+		"xsrfToken": "iyif5X0PtHdaLQVc74MIjCEPf6mbTZYZ"
+	},
+	"notification": {},
+	"data": {
+		"login": "737b5023.f712.4739.86cd.c6ce3fac8523ZFhN04Xf5p",
+		"usertype": "C",
+		"firstname": "Michael",
+		"email": "Michael@gmail.com",
+		"mobile": "8147963622",
+		"status": "Y",
+		"lastlogin": 0,
+		"firstlogin": 1365067384,
+		"gender": "M",
+		"uidx": "737b5023.f712.4739.86cd.c6ce3fac8523ZFhN04Xf5p",
+		"dob": 777234600000,
+		"new_": true,
+		"profile": {
+			"firstname": "Michael",
+			"lastname": null,
+			"imageJsonEntryMap": null,
+			"gender": "MALE",
+			"image": "https://lh6.googleusercontent.com/-Qfd_MYthuHY/AAAAAAAAAAI/AAAAAAAAAPw/kvBsAF7jho/photo.jpg?sz=50",
+			"imageType": "EXTERNAL_URL",
+			"coverImage": null,
+			"coverImageType": null,
+			"publicProfileId": "Michael",
+			"uidx": "737b5023.f712.4739.86cd.c6ce3fac8523ZFhN04Xf5p",
+			"pLevel": 0,
+			"counts": {
+				"following": 3,
+				"followers": 11
+			},
+			"bio": null,
+			"tagsMap": "{\"myntraVerified\":false,\"invited\":true}",
+			"location": null,
+			"dob": 0,
+			"usertype": "REGULAR",
+			"phone": "8147963622",
+			"name": "Michael"
+		}
+	}
+}

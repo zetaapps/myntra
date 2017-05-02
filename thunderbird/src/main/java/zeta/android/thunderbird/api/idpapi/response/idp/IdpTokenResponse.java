@@ -11,11 +11,11 @@ public class IdpTokenResponse {
     public final IdpNotificationResponse dataNotification;
 
     @SerializedName("data")
-    public final IdpUserProfileResponse profileData;
+    public final IdpUserProfileDataResponse profileData;
 
     public IdpTokenResponse(IdpMetaResponse profileMeta,
                             IdpNotificationResponse dataNotification,
-                            IdpUserProfileResponse profileData) {
+                            IdpUserProfileDataResponse profileData) {
         this.profileMeta = profileMeta;
         this.dataNotification = dataNotification;
         this.profileData = profileData;

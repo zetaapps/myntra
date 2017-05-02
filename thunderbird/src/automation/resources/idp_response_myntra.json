@@ -1,0 +1,51 @@
+{
+	"meta": {
+		"code": 200,
+		"token": "JJNaee204df2f2e11e7b1b5b82a72d5b5ce1493726320G",
+		"xsrfToken": "3xHR2ykbX4ir9tU7rNTEmQiZneOdqayK"
+	},
+	"notification": {},
+	"data": {
+		"login": "f630073e.dadd.4497.84fb.a10279033f9bnHIyWGEgt6",
+		"usertype": "C",
+		"firstname": "Mani",
+		"email": "mtest@myntra.com",
+		"mobile": "9000000010",
+		"status": "Y",
+		"lastlogin": 0,
+		"firstlogin": 1461067916,
+		"gender": "M",
+		"uidx": "f630073e.dadd.4497.84fb.a10279033f9bnHIyWGEgt6",
+		"dob": 1464633000000,
+		"new_": false,
+		"profile": {
+			"firstname": "Mani",
+			"lastname": null,
+			"imageJsonEntryMap": {
+				"COVER": "{\"id\":19904232,\"createdBy\":\"f630073e.dadd.4497.84fb.a10279033f9bnHIyWGEgt6\",\"createdOn\":1479209997000,\"lastModifiedOn\":1479209997000,\"version\":0,\"format\":\"JPEG\",\"isCompressed\":false,\"resolution\":\"720X544\",\"aspectRatio\":\"45:34\",\"viewtype\":\"front\",\"client_id\":4,\"client_description\":\"video_migration_script\",\"client_reference_id\":\"19904232\",\"imgs\":{\"S3\":{\"id\":34089408,\"relativePath\":\"assets/images/2016/11/15/11479209997019-3015-11efhy7.jpg\",\"size\":67138,\"domain\":\"http://myntra.myntassets.com/\",\"securedDomain\":\"https://myntrawebimages.s3.amazonaws.com/\",\"resolutionFormula\":\"assets/images/2016/11/15/11479209997019-3015-11efhy7_($width)_($height).jpg\",\"path\":\"http://myntra.myntassets.com/assets/images/2016/11/15/11479209997019-3015-11efhy7.jpg\",\"storedUploaderType\":\"S3\",\"servingUploaderType\":\"S3\"},\"CL\":{\"id\":34089407,\"relativePath\":\"assets/images/2016/11/15/11479209997019-3015-11efhy7.jpg\",\"size\":67138,\"domain\":\"http://assets.myntassets.com/\",\"securedDomain\":\"https://secureassets.myntassets.com/\",\"resolutionFormula\":\"h_($height),q_($qualityPercentage),w_($width)/v1/assets/images/2016/11/15/11479209997019-3015-11efhy7.jpg\",\"path\":\"http://assets.myntassets.com/assets/images/2016/11/15/11479209997019-3015-11efhy7.jpg\",\"storedUploaderType\":\"CL\",\"servingUploaderType\":\"CL\"}},\"path\":\"assets/images/2016/11/15/11479209997019-3015-11efhy7.jpg\",\"securedDomain\":\"https://secureassets.myntassets.com/\",\"domain\":\"http://assets.myntassets.com/\",\"storedUploaderType\":\"CL\",\"servingUploaderType\":\"CL\",\"resolutionFormula\":\"h_($height),q_($qualityPercentage),w_($width)/v1/assets/images/2016/11/15/11479209997019-3015-11efhy7.jpg\"}",
+				"COVER_DEFAULT": "http://assets.myntassets.com/assets/images/2016/11/15/11479209997019-3015-11efhy7.jpg",
+				"PROFILE": "{\"id\":19904224,\"createdBy\":\"f630073e.dadd.4497.84fb.a10279033f9bnHIyWGEgt6\",\"createdOn\":1479209978000,\"lastModifiedOn\":1479209978000,\"version\":0,\"format\":\"JPEG\",\"isCompressed\":false,\"resolution\":\"680X680\",\"aspectRatio\":\"1:1\",\"viewtype\":\"front\",\"client_id\":4,\"client_description\":\"video_migration_script\",\"client_reference_id\":\"19904224\",\"imgs\":{\"S3\":{\"id\":34089396,\"relativePath\":\"assets/images/2016/11/15/11479209978262-32837-ktexnl.jpg\",\"size\":82612,\"domain\":\"http://myntra.myntassets.com/\",\"securedDomain\":\"https://myntrawebimages.s3.amazonaws.com/\",\"resolutionFormula\":\"assets/images/2016/11/15/11479209978262-32837-ktexnl_($width)_($height).jpg\",\"path\":\"http://myntra.myntassets.com/assets/images/2016/11/15/11479209978262-32837-ktexnl.jpg\",\"storedUploaderType\":\"S3\",\"servingUploaderType\":\"S3\"},\"CL\":{\"id\":34089395,\"relativePath\":\"assets/images/2016/11/15/11479209978262-32837-ktexnl.jpg\",\"size\":82612,\"domain\":\"http://assets.myntassets.com/\",\"securedDomain\":\"https://secureassets.myntassets.com/\",\"resolutionFormula\":\"h_($height),q_($qualityPercentage),w_($width)/v1/assets/images/2016/11/15/11479209978262-32837-ktexnl.jpg\",\"path\":\"http://assets.myntassets.com/assets/images/2016/11/15/11479209978262-32837-ktexnl.jpg\",\"storedUploaderType\":\"CL\",\"servingUploaderType\":\"CL\"}},\"path\":\"assets/images/2016/11/15/11479209978262-32837-ktexnl.jpg\",\"securedDomain\":\"https://secureassets.myntassets.com/\",\"domain\":\"http://assets.myntassets.com/\",\"storedUploaderType\":\"CL\",\"servingUploaderType\":\"CL\",\"resolutionFormula\":\"h_($height),q_($qualityPercentage),w_($width)/v1/assets/images/2016/11/15/11479209978262-32837-ktexnl.jpg\"}",
+				"PROFILE_DEFAULT": "http://assets.myntassets.com/assets/images/2016/11/15/11479209978262-32837-ktexnl.jpg"
+			},
+			"gender": "MALE",
+			"image": "http://assets.myntassets.com/assets/images/2016/11/15/11479209978262-32837-ktexnl.jpg",
+			"imageType": "EXTERNAL_URL",
+			"coverImage": "http://assets.myntassets.com/assets/images/2016/11/15/11479209997019-3015-11efhy7.jpg",
+			"coverImageType": "EXTERNAL_URL",
+			"publicProfileId": "Mani-lkd-tzqx",
+			"uidx": "f630073e.dadd.4497.84fb.a10279033f9bnHIyWGEgt6",
+			"pLevel": 0,
+			"counts": {
+				"following": 13,
+				"followers": 1
+			},
+			"bio": "Love Design and Fashion",
+			"tagsMap": "{\"myntraVerified\":false,\"invited\":true}",
+			"location": "Bangalore",
+			"dob": 1464676200000,
+			"usertype": "REGULAR",
+			"phone": "9000000010",
+			"name": "Mani"
+		}
+	}
+}
