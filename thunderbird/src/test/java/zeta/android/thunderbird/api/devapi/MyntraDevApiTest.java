@@ -18,7 +18,11 @@ import rx.observers.TestSubscriber;
 import zeta.android.thunderbird.ApiTestBase;
 import zeta.android.thunderbird.api.devapi.response.feed.FeedCardsResponse;
 import zeta.android.thunderbird.api.devapi.response.feed.FeedChildrenResponse;
+import zeta.android.thunderbird.api.devapi.response.feed.FeedForumContentResponse;
+import zeta.android.thunderbird.api.devapi.response.feed.FeedForumPostEntriesResponse;
 import zeta.android.thunderbird.api.devapi.response.feed.FeedForumResponse;
+import zeta.android.thunderbird.api.devapi.response.feed.FeedForumTopicResponse;
+import zeta.android.thunderbird.api.devapi.response.feed.FeedForumUserResponse;
 import zeta.android.thunderbird.api.devapi.response.feed.FeedHeaderResponse;
 import zeta.android.thunderbird.api.devapi.response.feed.FeedResponse;
 import zeta.android.thunderbird.api.devapi.response.feed.FeedSideShowResponse;
@@ -55,6 +59,8 @@ import zeta.android.thunderbird.api.devapi.response.search.SearchProductsRespons
 import zeta.android.thunderbird.api.devapi.response.search.SearchResponse;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
 
 @ParametersAreNonnullByDefault
@@ -173,6 +179,52 @@ public class MyntraDevApiTest extends ApiTestBase {
         List<Response<FeedForumResponse>> onNextEvents = testSubscriber.getOnNextEvents();
         FeedForumResponse feedForumResponse = onNextEvents.get(0).body();
         assertEquals(200, feedForumResponse.meta.status);
+        assertNotNull(feedForumResponse);
+        assertTrue(feedForumResponse.data.feed.size() > 0);
+        FeedForumContentResponse feedForumContentResponse = feedForumResponse.data.feed.get(0);
+        assertEquals(238551, feedForumContentResponse.cardId);
+        assertEquals("QUESTION", feedForumContentResponse.cardType);
+        assertEquals(110638, feedForumContentResponse.postId);
+        assertEquals("39933145.bbf9.42c1.b9ac.3b8f53d9e4adnAJoyqP2Vh", feedForumContentResponse.postOwnerId);
+        assertEquals(false, feedForumContentResponse.isHidden);
+        assertEquals(false, feedForumContentResponse.isDeleted);
+        assertEquals("1492332779000", feedForumContentResponse.createdOn);
+        assertEquals(2, feedForumContentResponse.topicId);
+        assertNotNull(feedForumContentResponse.postEntries);
+        FeedForumPostEntriesResponse feedForumPostEntriesResponse = feedForumContentResponse.postEntries.get(0);
+        assertEquals("QUESTION", feedForumPostEntriesResponse.type);
+        assertEquals(110638, feedForumPostEntriesResponse.id);
+        assertEquals("1492332779000", feedForumPostEntriesResponse.createdAt);
+        assertEquals(89773, feedForumPostEntriesResponse.since);
+        assertEquals(0, feedForumPostEntriesResponse.commentCount);
+        assertEquals(0, feedForumPostEntriesResponse.answerCount);
+        assertFalse(feedForumPostEntriesResponse.isFeatured);
+        assertFalse(feedForumPostEntriesResponse.isSpammed);
+        assertFalse(feedForumPostEntriesResponse.isOwner);
+        assertFalse(feedForumPostEntriesResponse.isLiked);
+        assertFalse(feedForumPostEntriesResponse.isFollowed);
+        assertFalse(feedForumPostEntriesResponse.hasAnswered);
+        assertEquals(0, feedForumPostEntriesResponse.followersCount);
+        assertFalse(feedForumPostEntriesResponse.isAnonymous);
+        assertFalse(feedForumPostEntriesResponse.isPublishedToAll);
+        assertFalse(feedForumPostEntriesResponse.isFirst);
+        assertNotNull(feedForumPostEntriesResponse.topics);
+        FeedForumTopicResponse feedForumTopicResponse = feedForumPostEntriesResponse.topics.get(0);
+        assertEquals(2, feedForumTopicResponse.topicId);
+        assertEquals("Women's Fashion", feedForumTopicResponse.topicTitle);
+        assertFalse(feedForumTopicResponse.isDeleted);
+        assertNotNull(feedForumPostEntriesResponse.description);
+        assertNotNull(feedForumPostEntriesResponse.parent);
+        assertNotNull(feedForumPostEntriesResponse.topParent);
+        assertNotNull(feedForumPostEntriesResponse.user);
+        FeedForumUserResponse feedForumUserResponse = feedForumPostEntriesResponse.user;
+        assertEquals("Niharika Trama", feedForumUserResponse.firstname);
+        assertEquals("FEMALE", feedForumUserResponse.gender);
+        assertEquals("https://fbcdn-profile-a.akamaihd.net/hprofile-ak-xfp1/v/t1.0-1/p720x720/14376_861192333937733_2029720630944562471_n.jpg?oh=e140e22d8d69c20a4d5d14631ff410b9&oe=5603A1A1&__gda__=1442463924_c97973ce79cf7ebb9914de59ffc67783", feedForumUserResponse.image);
+        assertEquals("EXTERNAL_URL", feedForumUserResponse.imageType);
+        assertEquals("Niharika.Trama", feedForumUserResponse.publicProfileId);
+        assertEquals("39933145.bbf9.42c1.b9ac.3b8f53d9e4adnAJoyqP2Vh", feedForumUserResponse.uidx);
+        assertEquals("Niharika Trama", feedForumUserResponse.name);
     }
 
     @Test
