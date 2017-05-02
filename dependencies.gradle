@@ -2,10 +2,10 @@ ext.versions = [
         compileSdk                            : 25,
         minSdk                                : 16,
         targetSdk                             : 24,
-        buildTools                            : "25.0.2",
+        buildTools                            : "25.0.3",
 
-        supportLibVersion                     : "25.1.0",
-        playServicesVersion                   : "10.0.1",
+        supportLibVersion                     : "25.3.1",
+        playServicesVersion                   : "10.2.4",
         dexmakerVersion                       : "1.2",
         multiDexVersion                       : "1.0.1",
 
@@ -16,7 +16,7 @@ ext.versions = [
         eventBusVersion                       : "3.0.0",
 
         javaxAnnotationApiVersion             : "1.2",
-        jsr305Version                         : "2.0.1",
+        jsr305Version                         : "3.0.1",
 
         ormliteVersion                        : "4.48",
         prettyTimeVersion                     : "3.2.7.Final",
@@ -24,7 +24,7 @@ ext.versions = [
         autoValue                             : "1.4.1",
         autoValueParcel                       : "0.2.5",
 
-        daggerVersion                         : "2.9",
+        daggerVersion                         : "2.10",
         retrofitVersion                       : "2.1.0",
         rxJavaVersion                         : "1.2.4",
         rxAndroidVersion                      : "1.2.1",
@@ -44,7 +44,7 @@ ext.versions = [
         branchIOVersion                       : '2.6.0',
 
         lynxVersion                           : '1.6',
-        stethoVersion                         : '1.3.1',
+        stethoVersion                         : '1.5.0',
         tinyDancerVersion                     : '0.1.0',
         timberVersion                         : "4.1.2",
         leakcanaryVersion                     : "1.5",
@@ -73,7 +73,7 @@ ext.versions = [
         fabricPluginVersion                   : "1.22.1",
         gradlePluginVersion                   : "2.3.1",
         frodoPluginVersion                    : "0.8.3",
-        retroLambdaPluginVersion              : "3.2.5",
+        retroLambdaPluginVersion              : "3.6.1",
         retrolombokPluginVersion              : "0.2.3.a2",
         gmsServicesPluginVersion              : "3.0.0",
 ]

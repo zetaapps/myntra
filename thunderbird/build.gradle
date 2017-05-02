@@ -102,11 +102,7 @@ dependencies {
 
     testCompile libraries.junit
     testCompile libraries.retrofitMock
-    testCompile libraries.orgDotJson
     testCompile libraries.mockitoCore
-
-    androidTestCompile libraries.supportTestRunner
-    androidTestCompile libraries.supportTestRules
 }
 
 frodo {
