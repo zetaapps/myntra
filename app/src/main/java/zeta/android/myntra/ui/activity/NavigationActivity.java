@@ -96,6 +96,12 @@ public class NavigationActivity extends BaseNavigationActivity implements Naviga
 
         TextView headerEmail;
 
+        @BindView(R.id.navigation_left_drawer)
+        View leftDrawerFragmentView;
+
+        @BindView(R.id.navigation_right_drawer)
+        View rightDrawerFragmentView;
+
         NavigationLeftDrawerFragment leftDrawerFragment;
 
         NavigationRightGuestSessionDrawerFragment rightDrawerFragment;
@@ -135,7 +141,8 @@ public class NavigationActivity extends BaseNavigationActivity implements Naviga
         mNavigationFragmentManager.setFragmentManager(supportFragmentManager);
         mNavigationFragmentManager.setContainerId(R.id.container);
         mNavigationFragmentManager.setDrawerLayout(mViews.drawerLayout);
-        //mNavigationFragmentManager.setDrawer(mViews.navigationView);
+        mNavigationFragmentManager.setDrawer(mViews.leftDrawerFragmentView,
+                mViews.rightDrawerFragmentView);
 
         mDrawerToggle = new ActionBarDrawerToggle(
                 this, mViews.drawerLayout, mViews.toolbar,

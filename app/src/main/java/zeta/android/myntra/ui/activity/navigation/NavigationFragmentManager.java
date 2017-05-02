@@ -19,14 +19,21 @@ import zeta.android.myntra.R;
 public class NavigationFragmentManager {
 
     @Nullable
-    private View mDrawer;
+    private View mLeftDrawer;
+
+    @Nullable
+    private View mRightDrawer;
+
     @Nullable
     private DrawerLayout mDrawerLayout;
+
     private int mContainerId;
+
     private FragmentManager mFragmentManager;
 
-    public void setDrawer(@Nullable View drawer) {
-        mDrawer = drawer;
+    public void setDrawer(@Nullable View leftDrawer, @Nullable View rightDrawer) {
+        mLeftDrawer = leftDrawer;
+        mRightDrawer = rightDrawer;
     }
 
     public void setDrawerLayout(@Nullable DrawerLayout drawerLayout) {
@@ -159,8 +166,10 @@ public class NavigationFragmentManager {
     }
 
     private void closeDrawer() {
-        if (mDrawerLayout != null && mDrawer != null && mDrawerLayout.isDrawerOpen(mDrawer)) {
-            mDrawerLayout.closeDrawer(mDrawer);
+        if (mDrawerLayout != null &&
+                ((mLeftDrawer != null && mDrawerLayout.isDrawerOpen(mLeftDrawer) ||
+                        (mRightDrawer != null && mDrawerLayout.isDrawerOpen(mRightDrawer))))) {
+            mDrawerLayout.closeDrawer(mLeftDrawer);
         }
     }
 
