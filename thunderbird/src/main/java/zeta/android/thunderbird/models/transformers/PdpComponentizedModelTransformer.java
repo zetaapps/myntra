@@ -175,23 +175,22 @@ public class PdpComponentizedModelTransformer implements ITransformer<PdpCompone
         PdpV3LikersLazyComponent pdpV3LikersLazyComponent = null;
         PdpV3CompleteLookComponent pdpV3CompleteLookComponent = null;
 
-        if(CollectionUtils.hasElements(socialCard.componentsList)){
+        if (CollectionUtils.hasElements(socialCard.componentsList)) {
             final int componentListSize = socialCard.componentsList.size();
-            for(int indexPos = 0; indexPos < componentListSize; indexPos++){
+            for (int indexPos = 0; indexPos < componentListSize; indexPos++) {
                 PdpComponentizationComponentsResponse pdpComponentizationComponentsResponse
                         = socialCard.componentsList.get(indexPos);
                 @PdpV3ComponentType
                 final String componentType = pdpComponentizationComponentsResponse.type;
-                switch (componentType){
+                switch (componentType) {
                     case PdpV3ComponentType.LIKERS_LAZY:
-                        transformPdpV3LikersLazyComponent(pdpComponentizationComponentsResponse.props.actionType,
+                        pdpV3LikersLazyComponent = transformPdpV3LikersLazyComponent(pdpComponentizationComponentsResponse.props.actionType,
                                 pdpComponentizationComponentsResponse.props.action,
                                 pdpComponentizationComponentsResponse.args.title);
                         componentPositionIndex.put(PdpV3ComponentTypeUtil.from(componentType), indexPos);
                         break;
                     case PdpV3ComponentType.COMPLETE_LOOK:
-                        pdpV3CompleteLookComponent = transformPdpV3CompleteLookComponent(
-                                pdpComponentizationComponentsResponse.props.styleNote,
+                        pdpV3CompleteLookComponent = transformPdpV3CompleteLookComponent(pdpComponentizationComponentsResponse.props.styleNote,
                                 pdpComponentizationComponentsResponse.args.title);
                         componentPositionIndex.put(PdpV3ComponentTypeUtil.from(componentType), indexPos);
                         break;
@@ -207,11 +206,11 @@ public class PdpComponentizedModelTransformer implements ITransformer<PdpCompone
     }
 
     private PdpV3LikersLazyComponent transformPdpV3LikersLazyComponent(String actionType,
-                                                                       String action, String title){
+                                                                       String action, String title) {
 
         @PdpV3ActionType String pdpV3ActionType = getPdpV3ActionType(actionType);
         PdpV3SocialTitle pdpV3SocialTitle = null;
-        if(StringUtils.isNotNullOrEmpty(title)){
+        if (StringUtils.isNotNullOrEmpty(title)) {
             pdpV3SocialTitle = PdpV3SocialTitle.create(title);
         }
 
@@ -223,14 +222,14 @@ public class PdpComponentizedModelTransformer implements ITransformer<PdpCompone
                 .build();
     }
 
-    private PdpV3CompleteLookComponent transformPdpV3CompleteLookComponent(String styleNote, String title){
+    private PdpV3CompleteLookComponent transformPdpV3CompleteLookComponent(String styleNote, String title) {
 
         PdpV3SocialTitle pdpV3SocialTitle = null;
         PdpV3StyleNote pdpV3StyleNote = null;
-        if(StringUtils.isNotNullOrEmpty(title)){
+        if (StringUtils.isNotNullOrEmpty(title)) {
             pdpV3SocialTitle = PdpV3SocialTitle.create(title);
         }
-        if(StringUtils.isNotNullOrEmpty(styleNote)){
+        if (StringUtils.isNotNullOrEmpty(styleNote)) {
             pdpV3StyleNote = PdpV3StyleNote.create(title);
         }
 
@@ -251,13 +250,12 @@ public class PdpComponentizedModelTransformer implements ITransformer<PdpCompone
         LinkedHashMap<String, Integer> componentPositionIndex = new LinkedHashMap<>(0);
         PdpV3RelatedPdpLazyComponent pdpV3RelatedPdpLazyComponent = null;
         PdpV3CrossLinksComponent pdpV3CrossLinksComponent = null;
-
-        if(CollectionUtils.hasElements(relatedCard.componentsList)){
+        if (CollectionUtils.hasElements(relatedCard.componentsList)) {
             final int componentListSize = relatedCard.componentsList.size();
-            for(int indexPos = 0; indexPos < componentListSize; indexPos++){
+            for (int indexPos = 0; indexPos < componentListSize; indexPos++) {
                 @PdpV3ComponentType
                 final String componentType = relatedCard.componentsList.get(indexPos).type;
-                switch (componentType){
+                switch (componentType) {
                     case PdpV3ComponentType.RELATED_PDP_LAZY:
                         pdpV3RelatedPdpLazyComponent = transformPdpV3RelatedPdpLazyComponent(
                                 relatedCard.componentsList.get(indexPos).props.actionType,
@@ -283,7 +281,7 @@ public class PdpComponentizedModelTransformer implements ITransformer<PdpCompone
     }
 
     private PdpV3RelatedPdpLazyComponent transformPdpV3RelatedPdpLazyComponent(String actionType,
-                                                                               String action){
+                                                                               String action) {
 
         @PdpV3ActionType String pdpV3ActionType = getPdpV3ActionType(actionType);
 
@@ -295,14 +293,16 @@ public class PdpComponentizedModelTransformer implements ITransformer<PdpCompone
                 .build();
     }
 
-
     @Nullable
     private PdpV3CrossLinksComponent transformPdpV3PdpV3CrossLinksComponent(
             @Nullable List<PdpComponentizationCrossLinksResponse> crossLinksList) {
 
+        if (crossLinksList == null) {
+            return null;
+        }
+
         List<PdpV3CrossLinksProperty> crossLinksPropertyList = new ArrayList<>(0);
-        for(PdpComponentizationCrossLinksResponse pdpComponentizationCrossLinksResponse :
-                crossLinksList){
+        for (PdpComponentizationCrossLinksResponse pdpComponentizationCrossLinksResponse : crossLinksList) {
             crossLinksPropertyList.add(PdpV3CrossLinksProperty.create()
                     .setTitle(pdpComponentizationCrossLinksResponse.title)
                     .setUrl(pdpComponentizationCrossLinksResponse.url)
@@ -324,7 +324,7 @@ public class PdpComponentizedModelTransformer implements ITransformer<PdpCompone
         @PdpV3ComponentType
         LinkedHashMap<String, Integer> componentPositionIndex = new LinkedHashMap<>(0);
         PdpV3MoreInfoComponent pdpV3MoreInfoComponent = null;
-        if(CollectionUtils.hasElements(moreInfoCard.componentsList)){
+        if (CollectionUtils.hasElements(moreInfoCard.componentsList)) {
             final int moreInfoIndexPos = 0;
             @PdpV3ComponentType
             final String componentType = moreInfoCard.componentsList.get(moreInfoIndexPos).type;
@@ -346,7 +346,7 @@ public class PdpComponentizedModelTransformer implements ITransformer<PdpCompone
     }
 
     private PdpV3MoreInfoComponent transformPdpV3MoreInfoComponent(List<PdpComponentizationMoreInfoResponse>
-                                                                           moreInfoList){
+                                                                moreInfoList) {
         List<PdpV3MoreInfoProperty> pdpV3MoreInfoPropertyList = new ArrayList<>(0);
         for (PdpComponentizationMoreInfoResponse pdpComponentizationMoreInfoResponse : moreInfoList) {
             String action = null;
@@ -371,9 +371,9 @@ public class PdpComponentizedModelTransformer implements ITransformer<PdpCompone
     //region Common helper methods
 
     @PdpV3ActionType
-    private String getPdpV3ActionType(String actionType){
-        @PdpV3ActionType String pdpV3ActionType = PdpV3ActionType.UNKNOWN ;
-        if(StringUtils.isNotNullOrEmpty(actionType)){
+    private String getPdpV3ActionType(String actionType) {
+        @PdpV3ActionType String pdpV3ActionType = PdpV3ActionType.UNKNOWN;
+        if (StringUtils.isNotNullOrEmpty(actionType)) {
             switch (actionType) {
                 case PdpV3ActionType.LAZY:
                     pdpV3ActionType = PdpV3ActionType.LAZY;

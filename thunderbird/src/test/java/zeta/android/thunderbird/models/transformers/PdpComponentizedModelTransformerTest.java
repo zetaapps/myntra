@@ -1,5 +1,6 @@
 package zeta.android.thunderbird.models.transformers;
 
+<<<<<<< HEAD
 import org.junit.Before;
 import org.junit.Test;
 
@@ -42,4 +43,8 @@ public class PdpComponentizedModelTransformerTest {
         return mPdpModelTransformer.transform(response);
     }
 
+=======
+public class PdpComponentizedModelTransformerTest {
+
+>>>>>>> Little clean up
 }
