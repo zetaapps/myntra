@@ -24,6 +24,8 @@ import zeta.android.thunderbird.models.common.GenderType;
 
 import zeta.android.thunderbird.managers.params.ProductDetailsParams;
 
+import zeta.android.thunderbird.managers.params.ProductDetailsParams;
+
 import zeta.android.thunderbird.models.common.ITransformer;
 import zeta.android.thunderbird.models.products.common.ProductBrand;
 import zeta.android.thunderbird.models.products.common.ProductId;
@@ -64,6 +66,10 @@ import zeta.android.thunderbird.models.products.pdpv3.property.PdpV3ProductDetai
 import zeta.android.thunderbird.models.products.pdpv3.property.PdpV3ServicabilityProperty;
 import zeta.android.thunderbird.models.utils.PdpV3BrandComponentTypeUtil;
 
+
+import zeta.android.thunderbird.models.products.pdpv3.property.PdpV3ProductDetailProperty;
+import zeta.android.thunderbird.models.products.pdpv3.property.PdpV3ServicabilityProperty;
+import zeta.android.thunderbird.models.utils.PdpV3BrandComponentTypeUtil;
 import zeta.android.thunderbird.models.utils.PdpV3CardTypeUtil;
 import zeta.android.thunderbird.models.utils.PdpV3ComponentTypeUtil;
 import zeta.android.thunderbird.models.utils.PdpV3MoreInfoComponentTypeUtils;
@@ -223,6 +229,7 @@ public class PdpComponentizedModelTransformer implements ITransformer<PdpCompone
         }
         return PdpV3ProductDetailComponent.create()
                 .setPdpV3ProductDetailPropertyList(pdpV3ProductDetailPropertyList)
+
                 .build();
     }
 
