@@ -11,7 +11,7 @@ public abstract class PdpV3LikeProperty implements Parcelable {
         return new $AutoValue_PdpV3LikeProperty.Builder();
     }
 
-    public abstract boolean getIsLiked();
+    public abstract String getIsLiked();
 
     public abstract String getLikeCount();
 
@@ -20,7 +20,7 @@ public abstract class PdpV3LikeProperty implements Parcelable {
     @AutoValue.Builder
     public static abstract class Builder {
 
-        public abstract Builder setIsLiked(boolean liked);
+        public abstract Builder setIsLiked(String liked);
 
         public abstract Builder setLikeCount(String likeCount);
 

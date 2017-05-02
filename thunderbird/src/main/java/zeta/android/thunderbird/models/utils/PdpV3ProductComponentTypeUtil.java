@@ -18,7 +18,7 @@ public class PdpV3ProductComponentTypeUtil {
     private static final String PRODUCT_COMPONENT_IMAGE = "IMAGE_SWIPE";
     private static final String PRODUCT_COMPONENT_INFO = "INFO";
     private static final String PRODUCT_COMPONENT_VAT_INFO = "VAT_INFO";
-    private static final String PRODUCT_COMPONENT_BEST_PRICE = "BEST_PRICE";
+    private static final String PRODUCT_COMPONENT_BEST_PRICE = "BEST_PRICE_ONDEMAND";
     private static final String PRODUCT_COMPONENT_SIZE_SELECTOR = "SIZE_SELECTOR";
     private static final String PRODUCT_COMPONENT_PRIMARY_OFFER = "PRIMARY_OFFER";
     private static final String PRODUCT_COMPONENT_ADD_TO_CART_BUTTON = "ADD_BUTTONS_PDP";
@@ -37,7 +37,7 @@ public class PdpV3ProductComponentTypeUtil {
             case PRODUCT_COMPONENT_VAT_INFO:
                 return PdpV3ComponentType.PRODUCT_COMPONENT_VAT_INFO;
             case PRODUCT_COMPONENT_BEST_PRICE:
-                return PdpV3ComponentType.PRODUCT_COMPONENT_BEST_PRICE;
+                return PdpV3ComponentType.PRODUCT_COMPONENT_BEST_PRICE_ONDEMAND;
             case PRODUCT_COMPONENT_SIZE_SELECTOR:
                 return PdpV3ComponentType.PRODUCT_COMPONENT_SIZE_SELECTOR;
             case PRODUCT_COMPONENT_PRIMARY_OFFER:
