@@ -6,8 +6,12 @@ import org.junit.Test;
 import javax.annotation.ParametersAreNonnullByDefault;
 
 import zeta.android.thunderbird.api.apify.pdpv3.componentization.PdpComponentizationResponse;
+import zeta.android.thunderbird.models.common.GenderType;
+import zeta.android.thunderbird.models.products.common.ProductBrand;
 import zeta.android.thunderbird.models.products.pdpv3.PdpComponentizationModel;
 import zeta.android.thunderbird.utils.TestUtils;
+
+import static org.junit.Assert.assertEquals;
 
 @ParametersAreNonnullByDefault
 public class PdpComponentizedModelTransformerTest {
@@ -23,8 +27,13 @@ public class PdpComponentizedModelTransformerTest {
     public void testPdpResponse() {
         PdpComponentizationModel pdpResponse = getPdpComponentizationModel();
         assert pdpResponse != null;
-        //TODO :: Add more asserts here.
-        //TODO:: Test unit level here.
+        assertEquals(1675810, pdpResponse.getProductId().getRawId());
+        assertEquals("Soch Outlet Women Pink Solid Straight Kurta", pdpResponse.getProductTitle().getRawId());
+        assertEquals(GenderType.FEMALE, pdpResponse.getGender());
+        ProductBrand productBrand = pdpResponse.getProductBrand();
+        assert productBrand != null;
+        assertEquals("Soch Outlet", productBrand.getRawId());
+        //TODO::  Add more top level test
     }
 
     private PdpComponentizationModel getPdpComponentizationModel() {

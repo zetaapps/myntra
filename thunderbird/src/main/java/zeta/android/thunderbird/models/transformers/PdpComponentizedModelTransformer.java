@@ -14,7 +14,9 @@ import zeta.android.thunderbird.api.apify.pdpv3.componentization.PdpComponentiza
 import zeta.android.thunderbird.api.apify.pdpv3.componentization.PdpComponentizationInfoResponse;
 import zeta.android.thunderbird.api.apify.pdpv3.componentization.PdpComponentizationMoreInfoResponse;
 import zeta.android.thunderbird.api.apify.pdpv3.componentization.PdpComponentizationResponse;
+import zeta.android.thunderbird.models.common.GenderType;
 import zeta.android.thunderbird.models.common.ITransformer;
+import zeta.android.thunderbird.models.products.common.ProductBrand;
 import zeta.android.thunderbird.models.products.common.ProductId;
 import zeta.android.thunderbird.models.products.common.ProductTitle;
 import zeta.android.thunderbird.models.products.pdpv3.PdpComponentizationModel;
@@ -37,6 +39,7 @@ import zeta.android.thunderbird.models.products.pdpv3.component.PdpV3RelatedPdpL
 import zeta.android.thunderbird.models.products.pdpv3.property.PdpV3ActionProperty;
 import zeta.android.thunderbird.models.products.pdpv3.property.PdpV3CrossLinksProperty;
 import zeta.android.thunderbird.models.products.pdpv3.property.PdpV3MoreInfoProperty;
+import zeta.android.thunderbird.models.utils.GenderTypeUtil;
 import zeta.android.thunderbird.models.utils.PdpV3CardTypeUtil;
 import zeta.android.thunderbird.models.utils.PdpV3ComponentTypeUtil;
 import zeta.android.thunderbird.models.utils.PdpV3ProductComponentTypeUtil;
@@ -56,6 +59,9 @@ public class PdpComponentizedModelTransformer implements ITransformer<PdpCompone
     public PdpComponentizationModel transform(PdpComponentizationResponse response) {
 
         PdpComponentizationInfoResponse info = response.info;
+        @GenderType
+        String genderType = GenderTypeUtil.from(response.info.gender);
+        ProductBrand productBrand = response.info.brand != null ? ProductBrand.create(response.info.brand) : null;
         List<PdpComponentizationCardsResponse> cardsList = response.cardsList;
 
         //region info
@@ -111,6 +117,8 @@ public class PdpComponentizedModelTransformer implements ITransformer<PdpCompone
         return PdpComponentizationModel.create()
                 .setProductId(productId)
                 .setProductTitle(title)
+                .setGender(genderType)
+                .setProductBrand(productBrand)
                 .setBrandCard(brandCard)
                 .setSocialCard(socialCard)
                 .setProductCard(productCard)

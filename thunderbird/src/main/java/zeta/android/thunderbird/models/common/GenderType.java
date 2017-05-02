@@ -12,7 +12,7 @@ import java.lang.annotation.RetentionPolicy;
         GenderType.UNKNOWN,
 })
 public @interface GenderType {
-    String MALE = "male";
-    String FEMALE = "female";
+    String MALE = "MALE";
+    String FEMALE = "FEMALE";
     String UNKNOWN = "UNKNOWN";
 }
