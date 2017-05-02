@@ -12,10 +12,18 @@ import javax.annotation.ParametersAreNonnullByDefault;
 import zeta.android.thunderbird.api.apify.pdpv3.componentization.PdpComponentizationCardsResponse;
 import zeta.android.thunderbird.api.apify.pdpv3.componentization.PdpComponentizationComponentsResponse;
 import zeta.android.thunderbird.api.apify.pdpv3.componentization.PdpComponentizationCrossLinksResponse;
+import zeta.android.thunderbird.api.apify.pdpv3.componentization.PdpComponentizationFlagsResponse;
 import zeta.android.thunderbird.api.apify.pdpv3.componentization.PdpComponentizationInfoResponse;
 import zeta.android.thunderbird.api.apify.pdpv3.componentization.PdpComponentizationMoreInfoResponse;
+import zeta.android.thunderbird.api.apify.pdpv3.componentization.PdpComponentizationPayloadResponse;
+import zeta.android.thunderbird.api.apify.pdpv3.componentization.PdpComponentizationProductDetailResponse;
+import zeta.android.thunderbird.api.apify.pdpv3.componentization.PdpComponentizationPropsResponse;
 import zeta.android.thunderbird.api.apify.pdpv3.componentization.PdpComponentizationResponse;
+
 import zeta.android.thunderbird.models.common.GenderType;
+
+import zeta.android.thunderbird.managers.params.ProductDetailsParams;
+
 import zeta.android.thunderbird.models.common.ITransformer;
 import zeta.android.thunderbird.models.products.common.ProductBrand;
 import zeta.android.thunderbird.models.products.common.ProductId;
@@ -27,8 +35,13 @@ import zeta.android.thunderbird.models.products.pdpv3.cards.PdpV3ProductCard;
 import zeta.android.thunderbird.models.products.pdpv3.cards.PdpV3RelatedCard;
 import zeta.android.thunderbird.models.products.pdpv3.cards.PdpV3ServiceabilityCard;
 import zeta.android.thunderbird.models.products.pdpv3.cards.PdpV3SocialCard;
+import zeta.android.thunderbird.models.products.pdpv3.common.PdpV3Pincode;
+import zeta.android.thunderbird.models.products.pdpv3.common.PdpV3ServicabilityDescription;
+import zeta.android.thunderbird.models.products.pdpv3.common.PdpV3ServicabilityPlaceHolder;
+import zeta.android.thunderbird.models.products.pdpv3.common.PdpV3ServicabilityTitle;
 import zeta.android.thunderbird.models.products.pdpv3.common.PdpV3SocialTitle;
 import zeta.android.thunderbird.models.products.pdpv3.common.PdpV3StyleNote;
+import zeta.android.thunderbird.models.products.pdpv3.common.PdpV3WareHouse;
 import zeta.android.thunderbird.models.products.pdpv3.common.constants.PdpV3ActionType;
 import zeta.android.thunderbird.models.products.pdpv3.common.constants.PdpV3CardType;
 import zeta.android.thunderbird.models.products.pdpv3.common.constants.PdpV3ComponentType;
@@ -36,7 +49,9 @@ import zeta.android.thunderbird.models.products.pdpv3.component.PdpV3CompleteLoo
 import zeta.android.thunderbird.models.products.pdpv3.component.PdpV3CrossLinksComponent;
 import zeta.android.thunderbird.models.products.pdpv3.component.PdpV3LikersLazyComponent;
 import zeta.android.thunderbird.models.products.pdpv3.component.PdpV3MoreInfoComponent;
+import zeta.android.thunderbird.models.products.pdpv3.component.PdpV3ProductDetailComponent;
 import zeta.android.thunderbird.models.products.pdpv3.component.PdpV3RelatedPdpLazyComponent;
+import zeta.android.thunderbird.models.products.pdpv3.component.PdpV3ServicabilityComponent;
 import zeta.android.thunderbird.models.products.pdpv3.property.PdpV3ActionProperty;
 import zeta.android.thunderbird.models.products.pdpv3.property.PdpV3CrossLinksProperty;
 import zeta.android.thunderbird.models.products.pdpv3.property.PdpV3MoreInfoProperty;
@@ -45,9 +60,17 @@ import zeta.android.thunderbird.models.utils.GenderTypeUtil;
 
 import zeta.android.thunderbird.models.products.pdpv3.property.PdpV3RelatedProperty;
 
+import zeta.android.thunderbird.models.products.pdpv3.property.PdpV3ProductDetailProperty;
+import zeta.android.thunderbird.models.products.pdpv3.property.PdpV3ServicabilityProperty;
+import zeta.android.thunderbird.models.utils.PdpV3BrandComponentTypeUtil;
+
 import zeta.android.thunderbird.models.utils.PdpV3CardTypeUtil;
 import zeta.android.thunderbird.models.utils.PdpV3ComponentTypeUtil;
+import zeta.android.thunderbird.models.utils.PdpV3MoreInfoComponentTypeUtils;
 import zeta.android.thunderbird.models.utils.PdpV3ProductComponentTypeUtil;
+import zeta.android.thunderbird.models.utils.PdpV3RelatedComponentTypeUtil;
+import zeta.android.thunderbird.models.utils.PdpV3ServicabilityComponentTypeUtil;
+import zeta.android.thunderbird.models.utils.PdpV3SocialComponentTypeUtil;
 import zeta.android.utils.lang.CollectionUtils;
 import zeta.android.utils.lang.StringUtils;
 
@@ -156,15 +179,191 @@ public class PdpComponentizedModelTransformer implements ITransformer<PdpCompone
                 .build();
     }
 
+
+    //region PdpV3BrandCard transformer methods
+
     private PdpV3BrandCard transformBrandCard(PdpComponentizationCardsResponse brandCard) {
+
+        @PdpV3ComponentType
+        LinkedHashMap<String, Integer> componentPositionIndex = new LinkedHashMap<>(0);
+        PdpV3ProductDetailComponent pdpV3ProductDetailComponent = null;
+
+        if (CollectionUtils.hasElements(brandCard.componentsList)) {
+            final int brandIndexPos = 0;
+            @PdpV3ComponentType
+            final String componentType = brandCard.componentsList.get(brandIndexPos).type;
+            switch (componentType) {
+                case PdpV3ComponentType.MORE_INFO_COMPONENT_MORE_INFO:
+                    pdpV3ProductDetailComponent = transformPdpV3ProductDetailComponent(brandCard.componentsList.get(brandIndexPos).props.productDetailList);
+                    @PdpV3ComponentType
+                    String pdpV3ComponentType = PdpV3BrandComponentTypeUtil.from(componentType);
+                    componentPositionIndex.put(pdpV3ComponentType, brandIndexPos);
+                    break;
+            }
+        }
+
         return PdpV3BrandCard.create()
+                .setComponentPositionsIndex(componentPositionIndex)
+                .setPdpV3ProductDetailComponent(pdpV3ProductDetailComponent)
                 .build();
     }
 
-    private PdpV3ServiceabilityCard transformServiceabilityCard(PdpComponentizationCardsResponse serviceabilityCard) {
-        return PdpV3ServiceabilityCard.create()
+    private PdpV3ProductDetailComponent transformPdpV3ProductDetailComponent(@Nullable List
+            <PdpComponentizationProductDetailResponse> pdpComponentizationProductDetailResponseList) {
+
+        List<PdpV3ProductDetailProperty> pdpV3ProductDetailPropertyList = null;
+
+        if (pdpComponentizationProductDetailResponseList != null) {
+            pdpV3ProductDetailPropertyList = new ArrayList<>(0);
+            for (PdpComponentizationProductDetailResponse pdpComponentizationProductDetailResponse :
+                    pdpComponentizationProductDetailResponseList) {
+                pdpV3ProductDetailPropertyList.add(transformPdpV3ProductDetailProperty
+                        (pdpComponentizationProductDetailResponse));
+            }
+        }
+        return PdpV3ProductDetailComponent.create()
+                .setPdpV3ProductDetailPropertyList(pdpV3ProductDetailPropertyList)
                 .build();
     }
+
+    private PdpV3ProductDetailProperty transformPdpV3ProductDetailProperty(PdpComponentizationProductDetailResponse
+
+                                                                                   pdpComponentizationProductDetailResponse) {
+
+        final String type = pdpComponentizationProductDetailResponse.type == null ? null : (pdpComponentizationProductDetailResponse.type).toString();
+        final String content = pdpComponentizationProductDetailResponse.content == null ? null : (pdpComponentizationProductDetailResponse.content).toString();
+
+        return PdpV3ProductDetailProperty.create()
+                .setPdpV3ProductDetailType(type)
+                .setPdpV3ProductDetailContent(content)
+                .setPdpV3ProductDetailDescription(pdpComponentizationProductDetailResponse.description)
+                .setPdpV3ProductDetailTitle(pdpComponentizationProductDetailResponse.title)
+                .build();
+    }
+
+    //endregion
+
+
+    //region PdpV3ServicabilityCard transformer methods
+
+    private PdpV3ServiceabilityCard transformServiceabilityCard(PdpComponentizationCardsResponse serviceabilityCard) {
+
+        @PdpV3ComponentType
+        LinkedHashMap<String, Integer> componentPositionIndex = new LinkedHashMap<>(0);
+        PdpV3ServicabilityComponent pdpV3ServicabilityComponent = null;
+
+        if(CollectionUtils.hasElements(serviceabilityCard.componentsList)){
+            final int servicabilityIndexPos = 0;
+            @PdpV3ComponentType
+            final String componentType = serviceabilityCard.componentsList.get(servicabilityIndexPos).type;
+            switch (componentType) {
+                case PdpV3ComponentType.MORE_INFO_COMPONENT_MORE_INFO:
+                    pdpV3ServicabilityComponent = transformPdpV3ServicabilityComponent(serviceabilityCard.componentsList.get(servicabilityIndexPos));
+                    @PdpV3ComponentType
+                    String pdpV3ComponentType = PdpV3ServicabilityComponentTypeUtil.from(componentType);
+                    componentPositionIndex.put(pdpV3ComponentType, servicabilityIndexPos);
+                    break;
+            }
+        }
+
+        return PdpV3ServiceabilityCard.create()
+                .setComponentPositionsIndex(componentPositionIndex)
+                .setPdpV3ServicabilityComponent(pdpV3ServicabilityComponent)
+                .build();
+    }
+
+
+    private PdpV3ServicabilityComponent transformPdpV3ServicabilityComponent(PdpComponentizationComponentsResponse
+                                                                                     pdpComponentizationComponentsResponse){
+
+        PdpV3ServicabilityPlaceHolder pdpV3ServicabilityPlaceHolder =
+                transformPdpV3ServicabilityPlaceHolder(pdpComponentizationComponentsResponse.args.placehoder);
+
+        PdpV3ServicabilityTitle pdpV3ServicabilityTitle =
+                transformPdpV3ServicabilityTitle(pdpComponentizationComponentsResponse.args.title);
+
+        List<PdpV3ServicabilityDescription> pdpV3ServicabilityDescriptionList =
+                transformPdpV3ServicabilityDescriptionList(pdpComponentizationComponentsResponse.args.description);
+
+        PdpV3ServicabilityProperty pdpV3ServicabilityProperty = transformPdpV3ServicabilityProperty(pdpComponentizationComponentsResponse.props);
+
+        return PdpV3ServicabilityComponent.create(pdpV3ServicabilityProperty)
+                .setPdpV3ServicabilityDescriptionList(pdpV3ServicabilityDescriptionList)
+                .setPdpV3ServicabilityPlaceHolder(pdpV3ServicabilityPlaceHolder)
+                .setPdpV3ServicabilityTitle(pdpV3ServicabilityTitle)
+                .build();
+
+    }
+
+    private PdpV3ServicabilityProperty transformPdpV3ServicabilityProperty(PdpComponentizationPropsResponse
+                                                                                   pdpComponentizationPropsResponse){
+
+        List<PdpV3ServicabilityDescription> pdpV3ServicabilityDescriptorList =
+                transformPdpV3ServicabilityDescriptionList(pdpComponentizationPropsResponse.serviceability.descriptorList);
+
+        PdpComponentizationPayloadResponse pdpComponentizationPayloadResponse = pdpComponentizationPropsResponse.serviceability.payload;
+        PdpV3Pincode pdpV3Pincode = null;
+        List<PdpV3WareHouse> pdpV3WareHouseList = null;
+        PdpComponentizationFlagsResponse pdpComponentizationFlagsResponse = pdpComponentizationPropsResponse.serviceability.payload.options.flags;
+
+        if(StringUtils.isNotNull(pdpComponentizationPayloadResponse.pincode)){
+            pdpV3Pincode = PdpV3Pincode.create(pdpComponentizationPayloadResponse.pincode);
+        }
+
+        if(pdpComponentizationPayloadResponse.options.warehouseList != null){
+            pdpV3WareHouseList = new ArrayList<>(0);
+            for(String warehouse : pdpComponentizationPayloadResponse.options.warehouseList){
+                pdpV3WareHouseList.add(PdpV3WareHouse.create(warehouse));
+            }
+        }
+
+        return PdpV3ServicabilityProperty.create(pdpComponentizationPayloadResponse.options.price, pdpComponentizationPayloadResponse.options.price)
+                .setPdpV3ServicabilityAction(pdpComponentizationPropsResponse.serviceability.action)
+                .setPdpV3ServicabilityDescriptorList(pdpV3ServicabilityDescriptorList)
+                .setPdpV3Pincode(pdpV3Pincode)
+                .setPdpV3WareHouseList(pdpV3WareHouseList)
+                .setPdpV3ProductLeadTime(pdpComponentizationPayloadResponse.options.leadTime)
+                .setPdpV3ProductReturnPeriod(pdpComponentizationPayloadResponse.options.returnPeriod)
+                .setPdpV3ProductIsExchangeable(pdpComponentizationFlagsResponse.isExchangeable)
+                .setPdpV3ProductIsFragile(pdpComponentizationFlagsResponse.isFragile)
+                .setPdpV3ProductIsHazmat(pdpComponentizationFlagsResponse.isHazmat)
+                .setPdpV3ProductIsJewellery(pdpComponentizationFlagsResponse.isJewellery)
+                .setPdpV3ProductIsLarge(pdpComponentizationFlagsResponse.isLarge)
+                .setPdpV3ProductIsReturnable(pdpComponentizationFlagsResponse.isReturnable)
+                .setPdpV3ProductIsTryable(pdpComponentizationFlagsResponse.isTryable)
+                .setPdpV3CodeEnabled(pdpComponentizationFlagsResponse.codEnabled)
+                .build();
+    }
+
+    private List<PdpV3ServicabilityDescription> transformPdpV3ServicabilityDescriptionList(@Nullable
+                                                                                           List<String> descriptionList){
+
+        if(descriptionList == null){
+            return null;
+        }
+        List<PdpV3ServicabilityDescription> pdpV3ServicabilityDescriptionList = new ArrayList<>(0);
+        for(String description : descriptionList){
+            pdpV3ServicabilityDescriptionList.add(PdpV3ServicabilityDescription.create(description));
+        }
+        return pdpV3ServicabilityDescriptionList;
+    }
+
+    private PdpV3ServicabilityPlaceHolder transformPdpV3ServicabilityPlaceHolder(@Nullable String placeholder){
+        if(StringUtils.isNotNull(placeholder)){
+            return PdpV3ServicabilityPlaceHolder.create(placeholder);
+        }
+        return null;
+    }
+
+    private PdpV3ServicabilityTitle transformPdpV3ServicabilityTitle(@Nullable String title){
+        if(StringUtils.isNotNull(title)){
+            return PdpV3ServicabilityTitle.create(title);
+        }
+        return null;
+    }
+
+    //endregion
+
 
     //region PdpV3SocialCard transformer methods
 
@@ -183,16 +382,16 @@ public class PdpComponentizedModelTransformer implements ITransformer<PdpCompone
                 @PdpV3ComponentType
                 final String componentType = pdpComponentizationComponentsResponse.type;
                 switch (componentType) {
-                    case PdpV3ComponentType.LIKERS_LAZY:
+                    case PdpV3ComponentType.SOCIAL_COMPONENT_LIKERS_LAZY:
                         pdpV3LikersLazyComponent = transformPdpV3LikersLazyComponent(pdpComponentizationComponentsResponse.props.actionType,
                                 pdpComponentizationComponentsResponse.props.action,
                                 pdpComponentizationComponentsResponse.args.title);
-                        componentPositionIndex.put(PdpV3ComponentTypeUtil.from(componentType), indexPos);
+                        componentPositionIndex.put(PdpV3SocialComponentTypeUtil.from(componentType), indexPos);
                         break;
-                    case PdpV3ComponentType.COMPLETE_LOOK:
+                    case PdpV3ComponentType.SOCIAL_COMPONENT_COMPLETE_LOOK:
                         pdpV3CompleteLookComponent = transformPdpV3CompleteLookComponent(pdpComponentizationComponentsResponse.props.styleNote,
                                 pdpComponentizationComponentsResponse.args.title);
-                        componentPositionIndex.put(PdpV3ComponentTypeUtil.from(componentType), indexPos);
+                        componentPositionIndex.put(PdpV3SocialComponentTypeUtil.from(componentType), indexPos);
                         break;
                 }
             }
@@ -256,17 +455,17 @@ public class PdpComponentizedModelTransformer implements ITransformer<PdpCompone
                 @PdpV3ComponentType
                 final String componentType = relatedCard.componentsList.get(indexPos).type;
                 switch (componentType) {
-                    case PdpV3ComponentType.RELATED_PDP_LAZY:
+                    case PdpV3ComponentType.RELATED_COMPONENT_RELATED_PDP_LAZY:
                         pdpV3RelatedPdpLazyComponent = transformPdpV3RelatedPdpLazyComponent(
                                 relatedCard.componentsList.get(indexPos).props.actionType,
                                 relatedCard.componentsList.get(indexPos).props.action);
-                        componentPositionIndex.put(PdpV3ProductComponentTypeUtil.from(componentType),
+                        componentPositionIndex.put(PdpV3RelatedComponentTypeUtil.from(componentType),
                                 indexPos);
                         break;
-                    case PdpV3ComponentType.CROSS_LINKS:
+                    case PdpV3ComponentType.RELATED_COPONENT_CROSS_LINKS:
                         pdpV3CrossLinksComponent = transformPdpV3PdpV3CrossLinksComponent(
                                 relatedCard.componentsList.get(indexPos).props.crossLinksList);
-                        componentPositionIndex.put(PdpV3ProductComponentTypeUtil.from(componentType),
+                        componentPositionIndex.put(PdpV3RelatedComponentTypeUtil.from(componentType),
                                 indexPos);
                         break;
                 }
@@ -329,11 +528,11 @@ public class PdpComponentizedModelTransformer implements ITransformer<PdpCompone
             @PdpV3ComponentType
             final String componentType = moreInfoCard.componentsList.get(moreInfoIndexPos).type;
             switch (componentType) {
-                case PdpV3ComponentType.MORE_INFO:
+                case PdpV3ComponentType.MORE_INFO_COMPONENT_MORE_INFO:
                     pdpV3MoreInfoComponent = transformPdpV3MoreInfoComponent(moreInfoCard.componentsList.
-                            get(moreInfoIndexPos).props.moreInfoList);
+                                get(moreInfoIndexPos).props.moreInfoList);
                     @PdpV3ComponentType
-                    String pdpV3ComponentType = PdpV3ProductComponentTypeUtil.from(componentType);
+                    String pdpV3ComponentType = PdpV3MoreInfoComponentTypeUtils.from(componentType);
                     componentPositionIndex.put(pdpV3ComponentType, moreInfoIndexPos);
                     break;
             }
@@ -345,21 +544,23 @@ public class PdpComponentizedModelTransformer implements ITransformer<PdpCompone
                 .build();
     }
 
-    private PdpV3MoreInfoComponent transformPdpV3MoreInfoComponent(List<PdpComponentizationMoreInfoResponse>
-                                                                moreInfoList) {
+    private PdpV3MoreInfoComponent transformPdpV3MoreInfoComponent(@Nullable List<PdpComponentizationMoreInfoResponse>
+                                                                           moreInfoList) {
         List<PdpV3MoreInfoProperty> pdpV3MoreInfoPropertyList = new ArrayList<>(0);
-        for (PdpComponentizationMoreInfoResponse pdpComponentizationMoreInfoResponse : moreInfoList) {
-            String action = null;
-            if (pdpComponentizationMoreInfoResponse.action != null) {
-                action = pdpComponentizationMoreInfoResponse.action.toString();
+        if(moreInfoList != null) {
+            for (PdpComponentizationMoreInfoResponse pdpComponentizationMoreInfoResponse : moreInfoList) {
+                String action = null;
+                if (pdpComponentizationMoreInfoResponse.action != null) {
+                    action = pdpComponentizationMoreInfoResponse.action.toString();
+                }
+                pdpV3MoreInfoPropertyList.add(PdpV3MoreInfoProperty.create()
+                        .setAction(action)
+                        .setDescription(pdpComponentizationMoreInfoResponse.description)
+                        .setTitle(pdpComponentizationMoreInfoResponse.title)
+                        .build());
             }
-            pdpV3MoreInfoPropertyList.add(PdpV3MoreInfoProperty.create()
-                    .setAction(action)
-                    .setDescription(pdpComponentizationMoreInfoResponse.description)
-                    .setTitle(pdpComponentizationMoreInfoResponse.title)
-                    .build());
-        }
 
+        }
         return PdpV3MoreInfoComponent.create()
                 .setPdpV3MoreInfoPropertyList(pdpV3MoreInfoPropertyList)
                 .build();

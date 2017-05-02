@@ -8,10 +8,8 @@ import zeta.android.thunderbird.models.products.pdpv3.common.constants.PdpV3Comp
 import zeta.android.utils.lang.StringUtils;
 
 @ParametersAreNonnullByDefault
-public class PdpV3SocialComponentTypeUtil {
-
-    private static final String SOCIAL_COMPONENT_LIKERS_LAZY = "LIKERS_LAZY";
-    private static final String SOCIAL_COMPONENT_COMPLETE_LOOK = "COMPLETE_LOOK";
+public class PdpV3ServicabilityComponentTypeUtil {
+    private static final String SERVICEABILITY_COMPONENT_SERVICEABILITY = "SERVICEABILITY";
 
     @PdpV3ComponentType
     public static String from(@Nullable String identifierType) {
@@ -20,13 +18,10 @@ public class PdpV3SocialComponentTypeUtil {
         }
 
         switch (identifierType.toLowerCase()) {
-            case SOCIAL_COMPONENT_LIKERS_LAZY:
-                return PdpV3ComponentType.SOCIAL_COMPONENT_LIKERS_LAZY;
-            case SOCIAL_COMPONENT_COMPLETE_LOOK:
-                return PdpV3ComponentType.SOCIAL_COMPONENT_COMPLETE_LOOK;
+            case SERVICEABILITY_COMPONENT_SERVICEABILITY:
+                return PdpV3ComponentType.SERVICEABILITY_COMPONENT_SERVICEABILITY;
             default:
                 return PdpV3ComponentType.UNKNOWN;
         }
     }
-
 }

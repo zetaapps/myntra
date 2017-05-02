@@ -16,7 +16,7 @@ import java.lang.annotation.RetentionPolicy;
 public @interface PdpV3CardType {
     String PRODUCT = "PRODUCT";
     String BRAND = "BRAND";
-    String SERVICEABILITY = "SERVICEABILITY";
+    String SERVICEABILITY = "SERVICEABILITY_COMPONENT_SERVICEABILITY";
     String SOCIAL = "SOCIAL";
     String RELATED = "RELATED";
     String MORE_INFO_CARD = "MORE_INFO_CARD";

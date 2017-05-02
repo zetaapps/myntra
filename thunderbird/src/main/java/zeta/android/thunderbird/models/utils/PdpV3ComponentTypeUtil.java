@@ -12,7 +12,7 @@ public class PdpV3ComponentTypeUtil {
 
     private static final String PRODUCT = "PRODUCT";
     private static final String BRAND = "BRAND";
-    private static final String SERVICEABILITY = "SERVICEABILITY";
+    private static final String SERVICEABILITY = "SERVICEABILITY_COMPONENT_SERVICEABILITY";
     private static final String SOCIAL = "SOCIAL";
     private static final String RELATED = "RELATED";
     private static final String MORE_INFO_CARD = "MORE_INFO_CARD";

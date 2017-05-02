@@ -333,8 +333,8 @@ public class MyntraApifyTest extends ApiTestBase {
         assertEquals("SOCIAL", pdpV3Card.type);
         List<PdpComponentizationComponentsResponse> pdpComponentizationComponentsResponseList = pdpV3Card.componentsList;
         PdpComponentizationComponentsResponse pdpComponentizationComponentsResponse = pdpComponentizationComponentsResponseList.get(1);
-        assertEquals("LIKERS_LAZY", pdpComponentizationComponentsResponse.type);
-        assertEquals("LIKERS_LAZY", pdpComponentizationComponentsResponse.viewType);
+        assertEquals("SOCIAL_COMPONENT_LIKERS_LAZY", pdpComponentizationComponentsResponse.type);
+        assertEquals("SOCIAL_COMPONENT_LIKERS_LAZY", pdpComponentizationComponentsResponse.viewType);
         assertEquals("lazy", pdpComponentizationComponentsResponse.props.actionType);
         assertEquals("/product/1675810/likes/summary?co=1", pdpComponentizationComponentsResponse.props.action);
         assertEquals("Liked by", pdpComponentizationComponentsResponse.args.title);
@@ -461,8 +461,8 @@ public class MyntraApifyTest extends ApiTestBase {
         assertEquals(9, pdpV3ComponentsList.size());
         PdpComponentizationComponentsResponse pdpV3Component = pdpV3ComponentsList.get(6);
 
-        assertEquals("PRODUCT_DETAILS", pdpV3Component.type);
-        assertEquals("PRODUCT_DETAILS", pdpV3Component.viewType);
+        assertEquals("BRAND_COMPONENT_PRODUCT_DETAILS", pdpV3Component.type);
+        assertEquals("BRAND_COMPONENT_PRODUCT_DETAILS", pdpV3Component.viewType);
 
         assert pdpV3Component.props.productDetailList != null;
 
