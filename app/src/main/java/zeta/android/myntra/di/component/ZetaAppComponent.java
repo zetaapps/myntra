@@ -18,6 +18,7 @@ import zeta.android.myntra.ui.fragment.subcomponents.ZetaHomeSubComponent;
 import zeta.android.myntra.ui.fragment.subcomponents.ZetaLoginSubComponent;
 import zeta.android.myntra.ui.fragment.subcomponents.ZetaMyOrdersSubComponent;
 import zeta.android.myntra.ui.fragment.subcomponents.ZetaProductsSubComponent;
+import zeta.android.myntra.ui.fragment.subcomponents.ZetaRightNavLoggedInSessionSubComponent;
 import zeta.android.myntra.ui.fragment.subcomponents.ZetaSearchInitiatorSubComponent;
 import zeta.android.myntra.ui.fragment.subcomponents.ZetaSearchSubComponent;
 import zeta.android.myntra.ui.fragment.subcomponents.ZetaSettingsSubComponent;
@@ -56,6 +57,8 @@ public interface ZetaAppComponent {
     ZetaSearchInitiatorSubComponent zetaSearchInitiatorComponent();
 
     ZetaProductsSubComponent zetaProductsComponent(ProductsModule productModule);
+
+    ZetaRightNavLoggedInSessionSubComponent zetaZetaRightNavLoggedInSessionComponent(SessionModule sessionModule);
 
     NavigationActivityComponent navigationActivity();
 
