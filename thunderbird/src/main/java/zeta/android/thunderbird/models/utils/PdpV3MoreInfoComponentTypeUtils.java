@@ -19,7 +19,7 @@ public class PdpV3MoreInfoComponentTypeUtils {
             return PdpV3ComponentType.UNKNOWN;
         }
 
-        switch (identifierType.toLowerCase()) {
+        switch (identifierType.toUpperCase()) {
             case MORE_INFO_COMPONENT_MORE_INFO:
                 return PdpV3ComponentType.MORE_INFO_COMPONENT_MORE_INFO;
             default:

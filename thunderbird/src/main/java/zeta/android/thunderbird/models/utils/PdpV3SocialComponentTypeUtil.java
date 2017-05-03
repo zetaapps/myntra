@@ -19,7 +19,7 @@ public class PdpV3SocialComponentTypeUtil {
             return PdpV3ComponentType.UNKNOWN;
         }
 
-        switch (identifierType.toLowerCase()) {
+        switch (identifierType.toUpperCase()) {
             case SOCIAL_COMPONENT_LIKERS_LAZY:
                 return PdpV3ComponentType.SOCIAL_COMPONENT_LIKERS_LAZY;
             case SOCIAL_COMPONENT_COMPLETE_LOOK:

@@ -6,14 +6,14 @@ public class PdpV3DiscountResponse {
 
     public final String description;
 
-    public final Object myntCash;
+    public final String myntCash;
 
-    public final Object coupon;
+    public final String coupon;
 
     public PdpV3DiscountResponse(String label,
                                  String description,
-                                 Object myntCash,
-                                 Object coupon) {
+                                 String myntCash,
+                                 String coupon) {
         this.label = label;
         this.description = description;
         this.myntCash = myntCash;

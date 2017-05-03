@@ -1,6 +1,7 @@
 package zeta.android.thunderbird.models.products.pdpv3.property;
 
 import android.os.Parcelable;
+import android.support.annotation.Nullable;
 
 import com.google.auto.value.AutoValue;
 
@@ -15,8 +16,10 @@ public abstract class PdpV3DiscountProperty implements Parcelable {
 
     public abstract String getDescription();
 
+    @Nullable
     public abstract String getMyntraCrash();
 
+    @Nullable
     public abstract String getMyntraCoupon();
 
     @AutoValue.Builder
@@ -26,9 +29,9 @@ public abstract class PdpV3DiscountProperty implements Parcelable {
 
         public abstract Builder setDescription(String description);
 
-        public abstract Builder setMyntraCrash(String myntraCrash);
+        public abstract Builder setMyntraCrash(@Nullable String myntraCrash);
 
-        public abstract Builder setMyntraCoupon(String coupon);
+        public abstract Builder setMyntraCoupon(@Nullable String coupon);
 
         public abstract PdpV3DiscountProperty build();
     }

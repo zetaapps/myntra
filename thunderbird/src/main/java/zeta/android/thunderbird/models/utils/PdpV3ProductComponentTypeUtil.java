@@ -29,7 +29,7 @@ public class PdpV3ProductComponentTypeUtil {
             return PdpV3ComponentType.UNKNOWN;
         }
 
-        switch (identifierType.toLowerCase()) {
+        switch (identifierType.toUpperCase()) {
             case PRODUCT_COMPONENT_IMAGE:
                 return PdpV3ComponentType.PRODUCT_COMPONENT_IMAGE;
             case PRODUCT_COMPONENT_INFO:

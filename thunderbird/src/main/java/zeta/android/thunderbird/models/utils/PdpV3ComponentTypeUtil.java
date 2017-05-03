@@ -23,7 +23,7 @@ public class PdpV3ComponentTypeUtil {
             return PdpV3CardType.UNKNOWN;
         }
 
-        switch (identifierType.toLowerCase()) {
+        switch (identifierType.toUpperCase()) {
             case PRODUCT:
                 return PdpV3CardType.BRAND;
             case BRAND:

@@ -103,6 +103,11 @@ dependencies {
     testCompile libraries.junit
     testCompile libraries.retrofitMock
     testCompile libraries.mockitoCore
+
+    //power mockito framework for static method mocking
+    testCompile libraries.powerMockitoApi
+    testCompile libraries.powerMockitoJunitRule
+    testCompile libraries.powerMockitoJunit
 }
 
 frodo {

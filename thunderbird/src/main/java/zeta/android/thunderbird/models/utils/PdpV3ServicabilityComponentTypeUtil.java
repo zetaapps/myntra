@@ -17,7 +17,7 @@ public class PdpV3ServicabilityComponentTypeUtil {
             return PdpV3ComponentType.UNKNOWN;
         }
 
-        switch (identifierType.toLowerCase()) {
+        switch (identifierType.toUpperCase()) {
             case SERVICEABILITY_COMPONENT_SERVICEABILITY:
                 return PdpV3ComponentType.SERVICEABILITY_COMPONENT_SERVICEABILITY;
             default:

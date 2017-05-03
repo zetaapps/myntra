@@ -19,7 +19,7 @@ public class PdpV3RelatedComponentTypeUtil {
             return PdpV3ComponentType.UNKNOWN;
         }
 
-        switch (identifierType.toLowerCase()) {
+        switch (identifierType.toUpperCase()) {
             case RELATED_COMPONENT_RELATED_PDP_LAZY:
                 return PdpV3ComponentType.RELATED_COMPONENT_RELATED_PDP_LAZY;
             case RELATED_COPONENT_CROSS_LINKS:

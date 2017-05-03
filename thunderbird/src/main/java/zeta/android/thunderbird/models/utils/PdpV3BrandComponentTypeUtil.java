@@ -18,7 +18,7 @@ public class PdpV3BrandComponentTypeUtil {
             return PdpV3ComponentType.UNKNOWN;
         }
 
-        switch (identifierType.toLowerCase()) {
+        switch (identifierType.toUpperCase()) {
             case BRAND_COMPONENT_PRODUCT_DETAILS:
                 return PdpV3ComponentType.BRAND_COMPONENT_PRODUCT_DETAILS;
             default:

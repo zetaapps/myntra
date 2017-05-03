@@ -6,11 +6,11 @@ public class PdpComponentizationMoreInfoResponse {
 
     public final String description;
 
-    public final Object action;
+    public final String action;
 
     public PdpComponentizationMoreInfoResponse(String title,
                                                String description,
-                                               Object action) {
+                                               String action) {
         this.title = title;
         this.description = description;
         this.action = action;

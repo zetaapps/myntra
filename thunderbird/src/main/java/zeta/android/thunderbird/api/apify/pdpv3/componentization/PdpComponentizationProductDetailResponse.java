@@ -2,16 +2,16 @@ package zeta.android.thunderbird.api.apify.pdpv3.componentization;
 
 public class PdpComponentizationProductDetailResponse {
 
-    public final Object type;
+    public final String type;
 
-    public final Object content;
+    public final String content;
 
     public final String title;
 
     public final String description;
 
-    public PdpComponentizationProductDetailResponse(Object type,
-                                                    Object content,
+    public PdpComponentizationProductDetailResponse(String type,
+                                                    String content,
                                                     String title,
                                                     String description) {
         this.type = type;
