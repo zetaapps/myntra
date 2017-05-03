@@ -8,5 +8,20 @@
     android:scrollbars="none"
     app:insetForegroundCompat="@color/colorPrimaryDark">
 
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true">
+
+        <zeta.android.myntra.ui.views.navigation.LeftNavHeaderView
+            android:id="@+id/left_nav_header_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <zeta.android.myntra.ui.views.navigation.LeftNavFooterView
+            android:id="@+id/left_nav_footer_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+    </ScrollView>
 
 </zeta.android.myntra.ui.views.navigation.ScrimInsetsFrameLayout>

@@ -8,10 +8,13 @@ import android.view.ViewGroup;
 
 import javax.annotation.ParametersAreNonnullByDefault;
 
+import butterknife.BindView;
 import zeta.android.myntra.R;
 import zeta.android.myntra.di.component.ZetaAppComponent;
 import zeta.android.myntra.ui.common.BaseViews;
 import zeta.android.myntra.ui.fragment.common.BaseNavigationFragment;
+import zeta.android.myntra.ui.views.navigation.LeftNavFooterView;
+import zeta.android.myntra.ui.views.navigation.LeftNavHeaderView;
 
 @ParametersAreNonnullByDefault
 public class NavigationLeftDrawerFragment extends BaseNavigationFragment {
@@ -19,6 +22,12 @@ public class NavigationLeftDrawerFragment extends BaseNavigationFragment {
     private Views mViews;
 
     static class Views extends BaseViews {
+
+        @BindView(R.id.left_nav_header_view)
+        LeftNavHeaderView headerView;
+
+        @BindView(R.id.left_nav_footer_view)
+        LeftNavFooterView footerView;
 
         Views(View root) {
             super(root);
