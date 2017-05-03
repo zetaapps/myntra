@@ -49,7 +49,7 @@ import zeta.android.myntra.ui.common.BaseViews;
 import zeta.android.myntra.ui.fragment.DebugFragment;
 import zeta.android.myntra.ui.fragment.accounts.AccountsFragment;
 import zeta.android.myntra.ui.fragment.home.HomeFragment;
-import zeta.android.myntra.ui.fragment.login.NavigationLeftDrawerFragment;
+import zeta.android.myntra.ui.fragment.navigation.NavigationLeftDrawerFragment;
 import zeta.android.myntra.ui.fragment.myorders.MyOrderFragment;
 import zeta.android.myntra.ui.fragment.navigation.NavigationRightGuestSessionDrawerFragment;
 import zeta.android.myntra.ui.fragment.settings.SettingsFragment;

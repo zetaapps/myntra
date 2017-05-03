@@ -28,7 +28,7 @@
     <!-- left navigation -->
     <fragment
         android:id="@+id/navigation_left_drawer"
-        android:name="zeta.android.myntra.ui.fragment.login.NavigationLeftDrawerFragment"
+        android:name="zeta.android.myntra.ui.fragment.navigation.NavigationLeftDrawerFragment"
         android:layout_width="@dimen/navigation_left_drawer_width"
         android:layout_height="match_parent"
         android:layout_gravity="start"
