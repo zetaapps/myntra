@@ -20,9 +20,8 @@ import zeta.android.thunderbird.modules.SessionModule;
 @ParametersAreNonnullByDefault
 public class NavigationRightLoggedInSessionDrawerFragment extends BaseNavigationFragment {
 
-
-    private static final String ARG_BUNDLE_PDP_PARAMS = "ARG_BUNDLE_PDP_PARAMS";
-    private static final String ARG_HOME_SAVED_STATE_PRESENTER = "ARG_PRODUCT_DETAILS_SAVED_STATE_PRESENTER";
+    private static final String ARG_BUNDLE_RIGHT_NAVIGATION_PARAMS = "ARG_BUNDLE_RIGHT_NAVIGATION_PARAMS";
+    private static final String ARG_RIGHT_NAV_SAVED_STATE_PRESENTER = "ARG_RIGHT_NAV_SAVED_STATE_PRESENTER";
 
     private Views mViews;
 
