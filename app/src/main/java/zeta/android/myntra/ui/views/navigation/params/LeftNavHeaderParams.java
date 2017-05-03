@@ -2,8 +2,6 @@ package zeta.android.myntra.ui.views.navigation.params;
 
 import com.google.auto.value.AutoValue;
 
-import zeta.android.thunderbird.models.products.pdp.PdpModel;
-
 @AutoValue
 public abstract class LeftNavHeaderParams {
 
