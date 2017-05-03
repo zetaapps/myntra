@@ -18,6 +18,6 @@ public abstract class LeftNavHeaderParams {
 
         public abstract Builder setHeaderTitle(String headerTitle);
 
-        public abstract PdpModel build();
+        public abstract LeftNavHeaderParams build();
     }
 }
