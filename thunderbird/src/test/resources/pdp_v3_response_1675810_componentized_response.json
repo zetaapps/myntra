@@ -495,6 +495,38 @@
       ]
     },
     {
+      "type": "BRAND",
+      "components": [
+        {
+          "type": "PRODUCT_DETAILS",
+          "viewType": "PRODUCT_DETAILS",
+          "props": {
+            "productDetails": [
+              {
+                "type": null,
+                "content": null,
+                "title": "Product Details",
+                "description": "Pink solid straight kurta, has a mandarin collar, three quarter sleeve with roll-up tab detail, straight hem"
+              },
+              {
+                "type": null,
+                "content": null,
+                "title": "MATERIAL & CARE",
+                "description": "<p>Polyester <br> Dry Clean</p>"
+              },
+              {
+                "type": null,
+                "content": null,
+                "title": "SIZE & FIT",
+                "description": "<p>The model (height 5'8\", chest 33'' and waist 28'') is wearing a size S</p>"
+              }
+            ]
+          }
+        },
+        {}
+      ]
+    },
+    {
       "type": "SERVICEABILITY",
       "components": [
         {

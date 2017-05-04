@@ -99,7 +99,7 @@ public class MyntraApifyTest extends ApiTestBase {
         assert response != null;
 
         List<PdpComponentizationCardsResponse> pdpV3CardsList = response.cardsList;
-        assertEquals(5, pdpV3CardsList.size());
+        assertEquals(6, pdpV3CardsList.size());
 
         PdpComponentizationCardsResponse pdpV3Card = pdpV3CardsList.get(0);
 
@@ -119,7 +119,7 @@ public class MyntraApifyTest extends ApiTestBase {
         assert response != null;
 
         List<PdpComponentizationCardsResponse> pdpV3CardsList = response.cardsList;
-        assertEquals(5, pdpV3CardsList.size());
+        assertEquals(6, pdpV3CardsList.size());
 
         PdpComponentizationCardsResponse pdpV3Card = pdpV3CardsList.get(0);
         List<PdpComponentizationComponentsResponse> pdpV3ComponentsList = pdpV3Card.componentsList;
@@ -152,7 +152,7 @@ public class MyntraApifyTest extends ApiTestBase {
         assert response != null;
 
         List<PdpComponentizationCardsResponse> pdpV3CardsList = response.cardsList;
-        assertEquals(5, pdpV3CardsList.size());
+        assertEquals(6, pdpV3CardsList.size());
 
         PdpComponentizationCardsResponse pdpV3Card = pdpV3CardsList.get(0);
         List<PdpComponentizationComponentsResponse> pdpV3ComponentsList = pdpV3Card.componentsList;
@@ -183,7 +183,7 @@ public class MyntraApifyTest extends ApiTestBase {
         assert response != null;
 
         List<PdpComponentizationCardsResponse> pdpV3CardsList = response.cardsList;
-        assertEquals(5, pdpV3CardsList.size());
+        assertEquals(6, pdpV3CardsList.size());
 
         PdpComponentizationCardsResponse pdpV3Card = pdpV3CardsList.get(0);
         List<PdpComponentizationComponentsResponse> pdpV3ComponentsList = pdpV3Card.componentsList;
@@ -223,7 +223,7 @@ public class MyntraApifyTest extends ApiTestBase {
         assert response != null;
 
         List<PdpComponentizationCardsResponse> pdpV3CardsList = response.cardsList;
-        assertEquals(5, pdpV3CardsList.size());
+        assertEquals(6, pdpV3CardsList.size());
 
         PdpComponentizationCardsResponse pdpV3Card = pdpV3CardsList.get(0);
         List<PdpComponentizationComponentsResponse> pdpV3ComponentsList = pdpV3Card.componentsList;
@@ -257,7 +257,7 @@ public class MyntraApifyTest extends ApiTestBase {
         assert response != null;
 
         List<PdpComponentizationCardsResponse> pdpV3CardsList = response.cardsList;
-        assertEquals(5, pdpV3CardsList.size());
+        assertEquals(6, pdpV3CardsList.size());
 
         PdpComponentizationCardsResponse pdpV3Card = pdpV3CardsList.get(0);
         List<PdpComponentizationComponentsResponse> pdpV3ComponentsList = pdpV3Card.componentsList;
@@ -287,9 +287,9 @@ public class MyntraApifyTest extends ApiTestBase {
         assert response != null;
 
         List<PdpComponentizationCardsResponse> pdpV3CardsList = response.cardsList;
-        assertEquals(5, pdpV3CardsList.size());
+        assertEquals(6, pdpV3CardsList.size());
 
-        PdpComponentizationCardsResponse pdpV3Card = pdpV3CardsList.get(1);
+        PdpComponentizationCardsResponse pdpV3Card = pdpV3CardsList.get(2);
         assert pdpV3Card.componentsList != null;
         PdpComponentizationComponentsResponse pdpV3Component = pdpV3Card.componentsList.get(0);
         PdpComponentizationServiceabilityResponse serviceability = pdpV3Component.props.serviceability;
@@ -326,9 +326,9 @@ public class MyntraApifyTest extends ApiTestBase {
         assert response != null;
 
         List<PdpComponentizationCardsResponse> pdpV3CardsList = response.cardsList;
-        assertEquals(5, pdpV3CardsList.size());
+        assertEquals(6, pdpV3CardsList.size());
 
-        PdpComponentizationCardsResponse pdpV3Card = pdpV3CardsList.get(2);
+        PdpComponentizationCardsResponse pdpV3Card = pdpV3CardsList.get(3);
         assert pdpV3Card.componentsList != null;
         assertEquals("SOCIAL", pdpV3Card.type);
         List<PdpComponentizationComponentsResponse> pdpComponentizationComponentsResponseList = pdpV3Card.componentsList;
@@ -352,9 +352,9 @@ public class MyntraApifyTest extends ApiTestBase {
         assert response != null;
 
         List<PdpComponentizationCardsResponse> pdpV3CardsList = response.cardsList;
-        assertEquals(5, pdpV3CardsList.size());
+        assertEquals(6, pdpV3CardsList.size());
 
-        PdpComponentizationCardsResponse pdpV3Card = pdpV3CardsList.get(3);
+        PdpComponentizationCardsResponse pdpV3Card = pdpV3CardsList.get(4);
         assert pdpV3Card.componentsList != null;
         assertEquals("RELATED", pdpV3Card.type);
         List<PdpComponentizationComponentsResponse> pdpComponentizationComponentsResponseList = pdpV3Card.componentsList;
@@ -380,7 +380,7 @@ public class MyntraApifyTest extends ApiTestBase {
         assert response != null;
 
         List<PdpComponentizationCardsResponse> pdpV3CardsList = response.cardsList;
-        assertEquals(5, pdpV3CardsList.size());
+        assertEquals(6, pdpV3CardsList.size());
 
         PdpComponentizationCardsResponse pdpV3Card = pdpV3CardsList.get(0);
         List<PdpComponentizationComponentsResponse> pdpV3ComponentsList = pdpV3Card.componentsList;
@@ -403,7 +403,7 @@ public class MyntraApifyTest extends ApiTestBase {
         assert response != null;
 
         List<PdpComponentizationCardsResponse> pdpV3CardsList = response.cardsList;
-        assertEquals(5, pdpV3CardsList.size());
+        assertEquals(6, pdpV3CardsList.size());
 
         PdpComponentizationCardsResponse pdpV3Card = pdpV3CardsList.get(0);
         List<PdpComponentizationComponentsResponse> pdpV3ComponentsList = pdpV3Card.componentsList;
@@ -429,7 +429,7 @@ public class MyntraApifyTest extends ApiTestBase {
         assert response != null;
 
         List<PdpComponentizationCardsResponse> pdpV3CardsList = response.cardsList;
-        assertEquals(5, pdpV3CardsList.size());
+        assertEquals(6, pdpV3CardsList.size());
 
         PdpComponentizationCardsResponse pdpV3Card = pdpV3CardsList.get(0);
         List<PdpComponentizationComponentsResponse> pdpV3ComponentsList = pdpV3Card.componentsList;
@@ -452,7 +452,7 @@ public class MyntraApifyTest extends ApiTestBase {
         assert response != null;
 
         List<PdpComponentizationCardsResponse> pdpV3CardsList = response.cardsList;
-        assertEquals(5, pdpV3CardsList.size());
+        assertEquals(6, pdpV3CardsList.size());
 
         PdpComponentizationCardsResponse pdpV3Card = pdpV3CardsList.get(0);
         List<PdpComponentizationComponentsResponse> pdpV3ComponentsList = pdpV3Card.componentsList;
@@ -487,7 +487,7 @@ public class MyntraApifyTest extends ApiTestBase {
         assert response != null;
 
         List<PdpComponentizationCardsResponse> pdpV3CardsList = response.cardsList;
-        assertEquals(5, pdpV3CardsList.size());
+        assertEquals(6, pdpV3CardsList.size());
 
         PdpComponentizationCardsResponse pdpV3Card = pdpV3CardsList.get(0);
         List<PdpComponentizationComponentsResponse> pdpV3ComponentsList = pdpV3Card.componentsList;
@@ -514,7 +514,7 @@ public class MyntraApifyTest extends ApiTestBase {
         assert response != null;
 
         List<PdpComponentizationCardsResponse> pdpV3CardsList = response.cardsList;
-        assertEquals(5, pdpV3CardsList.size());
+        assertEquals(6, pdpV3CardsList.size());
 
         PdpComponentizationCardsResponse pdpV3Card = pdpV3CardsList.get(0);
         List<PdpComponentizationComponentsResponse> pdpV3ComponentsList = pdpV3Card.componentsList;

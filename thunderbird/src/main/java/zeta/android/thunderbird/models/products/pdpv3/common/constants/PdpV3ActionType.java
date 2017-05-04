@@ -11,9 +11,9 @@ import java.lang.annotation.RetentionPolicy;
             PdpV3ActionType.LAZY_LOADED,
             PdpV3ActionType.UNKNOWN})
 public @interface PdpV3ActionType {
-    String ON_DEMAND = "onDemand";
+    String ON_DEMAND = "ondemand";
     String LAZY = "lazy";
-    String LAZY_LOADED = "lazyLoaded";
+    String LAZY_LOADED = "lazyloaded";
     String UNKNOWN = "unknown";
 }
 
