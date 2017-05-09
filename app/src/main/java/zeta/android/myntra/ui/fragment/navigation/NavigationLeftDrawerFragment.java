@@ -15,6 +15,8 @@ import zeta.android.myntra.ui.common.BaseViews;
 import zeta.android.myntra.ui.fragment.common.BaseNavigationFragment;
 import zeta.android.myntra.ui.views.navigation.LeftNavFooterView;
 import zeta.android.myntra.ui.views.navigation.LeftNavHeaderView;
+import zeta.android.myntra.ui.views.navigation.LeftNavMenuView;
+import zeta.android.myntra.ui.views.navigation.LeftNavSubMenuView;
 
 @ParametersAreNonnullByDefault
 public class NavigationLeftDrawerFragment extends BaseNavigationFragment {
@@ -25,6 +27,12 @@ public class NavigationLeftDrawerFragment extends BaseNavigationFragment {
 
         @BindView(R.id.left_nav_header_view)
         LeftNavHeaderView headerView;
+
+        @BindView(R.id.left_nav_menu_view)
+        LeftNavMenuView menuView;
+
+        @BindView(R.id.left_nav_sub_menu_view)
+        LeftNavSubMenuView subMenuView;
 
         @BindView(R.id.left_nav_footer_view)
         LeftNavFooterView footerView;

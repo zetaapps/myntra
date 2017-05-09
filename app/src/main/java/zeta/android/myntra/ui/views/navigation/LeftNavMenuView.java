@@ -17,12 +17,13 @@ import zeta.android.myntra.ui.common.BaseViews;
 import zeta.android.myntra.ui.views.navigation.params.LeftNavHeaderParams;
 import zeta.android.utils.view.ViewUtils;
 
-@ParametersAreNonnullByDefault
-public class LeftNavFooterView extends FrameLayout {
 
-    private LeftNavFooterView.Views mViews;
+@ParametersAreNonnullByDefault
+public class LeftNavMenuView extends FrameLayout {
+    
+    private LeftNavMenuView.Views mViews;
     @Nullable
-    private LeftNavFooterView.LeftNavFooterViewClickListener mListener;
+    private LeftNavMenuView.LeftNavMenuViewClickListener mListener;
 
     static class Views extends BaseViews {
 
@@ -34,23 +35,23 @@ public class LeftNavFooterView extends FrameLayout {
         }
     }
 
-    public interface LeftNavFooterViewClickListener {
+    public interface LeftNavMenuViewClickListener {
         void onHeaderTitleClicked();
     }
     
-    public LeftNavFooterView(@NonNull Context context) {
+    public LeftNavMenuView(@NonNull Context context) {
         super(context);
     }
 
-    public LeftNavFooterView(@NonNull Context context, @Nullable AttributeSet attrs) {
+    public LeftNavMenuView(@NonNull Context context, @Nullable AttributeSet attrs) {
         super(context, attrs);
     }
 
-    public LeftNavFooterView(@NonNull Context context, @Nullable AttributeSet attrs, @AttrRes int defStyleAttr) {
+    public LeftNavMenuView(@NonNull Context context, @Nullable AttributeSet attrs, @AttrRes int defStyleAttr) {
         super(context, attrs, defStyleAttr);
     }
 
-    public void setOnClickListener(LeftNavFooterView.LeftNavFooterViewClickListener listener) {
+    public void setOnClickListener(LeftNavMenuView.LeftNavMenuViewClickListener listener) {
         mListener = listener;
     }
 
@@ -60,8 +61,8 @@ public class LeftNavFooterView extends FrameLayout {
     }
 
     private void init() {
-        inflate(getContext(), R.layout.view_left_nav_footer, this);
-        mViews = new LeftNavFooterView.Views(this);
+        inflate(getContext(), R.layout.view_left_nav_sub_menu, this);
+        mViews = new LeftNavMenuView.Views(this);
         mViews.menuTitle.setOnClickListener(v -> {
             if (mListener == null) {
                 return;
@@ -69,4 +70,5 @@ public class LeftNavFooterView extends FrameLayout {
             mListener.onHeaderTitleClicked();
         });
     }
+
 }
