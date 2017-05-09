@@ -16,12 +16,27 @@ import retrofit2.mock.BehaviorDelegate;
 import rx.Observable;
 import rx.observers.TestSubscriber;
 import zeta.android.thunderbird.ApiTestBase;
+import zeta.android.thunderbird.api.devapi.response.feed.FeedActivitiesResponse;
 import zeta.android.thunderbird.api.devapi.response.feed.FeedCardsResponse;
+import zeta.android.thunderbird.api.devapi.response.feed.FeedCarouselResponse;
 import zeta.android.thunderbird.api.devapi.response.feed.FeedChildrenResponse;
+import zeta.android.thunderbird.api.devapi.response.feed.FeedForumContentResponse;
+import zeta.android.thunderbird.api.devapi.response.feed.FeedForumDataResponse;
+import zeta.android.thunderbird.api.devapi.response.feed.FeedForumDescriptionResponse;
+import zeta.android.thunderbird.api.devapi.response.feed.FeedForumMetaResponse;
+import zeta.android.thunderbird.api.devapi.response.feed.FeedForumParentResponse;
+import zeta.android.thunderbird.api.devapi.response.feed.FeedForumPostEntriesResponse;
 import zeta.android.thunderbird.api.devapi.response.feed.FeedForumResponse;
+import zeta.android.thunderbird.api.devapi.response.feed.FeedForumTopParentResponse;
+import zeta.android.thunderbird.api.devapi.response.feed.FeedForumTopicResponse;
+import zeta.android.thunderbird.api.devapi.response.feed.FeedForumUserResponse;
 import zeta.android.thunderbird.api.devapi.response.feed.FeedHeaderResponse;
+import zeta.android.thunderbird.api.devapi.response.feed.FeedImagesResponse;
+import zeta.android.thunderbird.api.devapi.response.feed.FeedMetaResponse;
+import zeta.android.thunderbird.api.devapi.response.feed.FeedPropsResponse;
 import zeta.android.thunderbird.api.devapi.response.feed.FeedResponse;
-import zeta.android.thunderbird.api.devapi.response.feed.FeedSideShowResponse;
+import zeta.android.thunderbird.api.devapi.response.feed.FeedSlideShowResponse;
+import zeta.android.thunderbird.api.devapi.response.feed.FeedSlidesResponse;
 import zeta.android.thunderbird.api.devapi.response.pdp.PdpArticleAttributesResponse;
 import zeta.android.thunderbird.api.devapi.response.pdp.PdpArticleDisplayAttrResponse;
 import zeta.android.thunderbird.api.devapi.response.pdp.PdpArticleTypeResponse;
@@ -55,7 +70,7 @@ import zeta.android.thunderbird.api.devapi.response.search.SearchProductsRespons
 import zeta.android.thunderbird.api.devapi.response.search.SearchResponse;
 
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.assertNull;
 
 @ParametersAreNonnullByDefault
 public class MyntraDevApiTest extends ApiTestBase {
@@ -85,9 +100,9 @@ public class MyntraDevApiTest extends ApiTestBase {
             }
 
             @Override
-            public Observable<Response<FeedSideShowResponse>> getFeedSlideShowResponse() {
+            public Observable<Response<FeedSlideShowResponse>> getFeedSlideShowResponse() {
                 return myntraDevApiBehaviorDelegate.returning(
-                        buildResponse("feed_slide_show.json", FeedSideShowResponse.class))
+                        buildResponse("feed_slide_show.json", FeedSlideShowResponse.class))
                         .getFeedSlideShowResponse();
             }
 
@@ -141,39 +156,505 @@ public class MyntraDevApiTest extends ApiTestBase {
     }
 
     @Test
-    public void getFeedSlideShowResponse() throws Exception {
-        TestSubscriber<Response<FeedSideShowResponse>> testSubscriber = new TestSubscriber<>();
+    public void getFeedSlideShowResponseTest() throws Exception {
+        TestSubscriber<Response<FeedSlideShowResponse>> testSubscriber = new TestSubscriber<>();
         myntraDevApi.getFeedSlideShowResponse().subscribe(testSubscriber);
         testSubscriber.assertNoErrors();
 
-        List<Response<FeedSideShowResponse>> onNextEvents = testSubscriber.getOnNextEvents();
-        FeedSideShowResponse feedSlideShowResponse = onNextEvents.get(0).body();
+        List<Response<FeedSlideShowResponse>> onNextEvents = testSubscriber.getOnNextEvents();
+        FeedSlideShowResponse feedSlideShowResponse = onNextEvents.get(0).body();
         assert feedSlideShowResponse != null;
         assertEquals(1, feedSlideShowResponse.count);
-        assert feedSlideShowResponse.cards != null;
-        FeedCardsResponse feedCardsResponse = feedSlideShowResponse.cards.get(0);
+        List<FeedCardsResponse> feedCardsResponseList = feedSlideShowResponse.cards;
+        assertEquals(1, feedCardsResponseList.size());
+        FeedCardsResponse feedCardsResponse = feedCardsResponseList.get(0);
+        assert feedCardsResponse != null;
         assertEquals("COMPONENT_CARD", feedCardsResponse.cardType);
-        assert feedCardsResponse.feedPropsResponse != null;
-        assertEquals("2:ddb1fcb8-97e1-41d1-a183-1d6f872c26b3", feedCardsResponse.feedPropsResponse.id);
-        assertEquals("f5e7b529-7b6d-4d53-8c6f-1e3206f00183", feedCardsResponse.feedPropsResponse.storyId);
-
-        assert feedCardsResponse.feedContent != null;
-        assertTrue(feedCardsResponse.feedContent.size() > 0);
-        FeedChildrenResponse feedChildrenResponse = feedCardsResponse.feedContent.get(0);
+        List<FeedChildrenResponse> feedChildrenResponseList = feedCardsResponse.feedContent;
+        assertEquals(1, feedChildrenResponseList.size());
+        FeedChildrenResponse feedChildrenResponse = feedChildrenResponseList.get(0);
+        assert feedChildrenResponse != null;
         assertEquals("SLIDESHOW", feedChildrenResponse.feedCardType);
-        assert feedChildrenResponse.feedChildProp != null;
     }
 
     @Test
-    public void getFeedForumResponse() throws Exception {
+    public void getFeedSlideResponseTest() throws Exception {
+        TestSubscriber<Response<FeedSlideShowResponse>> testSubscriber = new TestSubscriber<>();
+        myntraDevApi.getFeedSlideShowResponse().subscribe(testSubscriber);
+        testSubscriber.assertNoErrors();
+
+        List<Response<FeedSlideShowResponse>> onNextEvents = testSubscriber.getOnNextEvents();
+        FeedSlideShowResponse feedSlideShowResponse = onNextEvents.get(0).body();
+        assert feedSlideShowResponse != null;
+        assertEquals(1, feedSlideShowResponse.count);
+        List<FeedCardsResponse> feedCardsResponseList = feedSlideShowResponse.cards;
+        assertEquals(1, feedCardsResponseList.size());
+        FeedCardsResponse feedCardsResponse = feedCardsResponseList.get(0);
+        assert feedCardsResponse != null;
+        assertEquals("COMPONENT_CARD", feedCardsResponse.cardType);
+        List<FeedChildrenResponse> feedChildrenResponseList = feedCardsResponse.feedContent;
+        assertEquals(1, feedChildrenResponseList.size());
+        FeedChildrenResponse feedChildrenResponse = feedChildrenResponseList.get(0);
+        assert feedChildrenResponse != null;
+        assertEquals("SLIDESHOW", feedChildrenResponse.feedCardType);
+        List<FeedSlidesResponse> feedSlidesResponseList = feedChildrenResponse.feedChildProp.slides;
+        assertEquals(2, feedSlidesResponseList.size());
+        FeedSlidesResponse feedSlidesResponse = feedSlidesResponseList.get(0);
+        assert feedSlidesResponse != null;
+        assertEquals("List", feedSlidesResponse.contentType);
+        assertEquals("Shop Now", feedSlidesResponse.alt);
+        assertEquals(9, feedSlidesResponse.height);
+        assertEquals("2:890d5a2b-273b-42e3-b6f3-0fcb8773f02d", feedSlidesResponse.id);
+        assertEquals("/shop/mantastic-jan17", feedSlidesResponse.link);
+        assertEquals("MYNT_ASSETS", feedSlidesResponse.provider);
+        assertEquals(16, feedSlidesResponse.width);
+        assertEquals("http://assets.myntassets.com/assets/images/banners/2017/1/19/11484847333924-mantastic-desktop.jpg", feedSlidesResponse.src);
+    }
+
+    @Test
+    public void getFeedSlideShowActivitiesResponseTest() throws Exception {
+        TestSubscriber<Response<FeedSlideShowResponse>> testSubscriber = new TestSubscriber<>();
+        myntraDevApi.getFeedSlideShowResponse().subscribe(testSubscriber);
+        testSubscriber.assertNoErrors();
+
+        List<Response<FeedSlideShowResponse>> onNextEvents = testSubscriber.getOnNextEvents();
+        FeedSlideShowResponse feedSlideShowResponse = onNextEvents.get(0).body();
+        assert feedSlideShowResponse != null;
+        assertEquals(1, feedSlideShowResponse.count);
+        List<FeedCardsResponse> feedCardsResponseList = feedSlideShowResponse.cards;
+        assertEquals(1, feedCardsResponseList.size());
+        FeedCardsResponse feedCardsResponse = feedCardsResponseList.get(0);
+        assert feedCardsResponse != null;
+        FeedPropsResponse feedPropsResponse = feedCardsResponse.feedPropsResponse;
+        assert feedPropsResponse != null;
+        FeedActivitiesResponse feedActivitiesResponse = feedPropsResponse.activitiesResponse;
+        assert feedActivitiesResponse != null;
+        assertEquals(false , feedActivitiesResponse.like.liked);
+        assertEquals(false , feedActivitiesResponse.spam.spammed);
+        assertEquals(189 , feedActivitiesResponse.click.count);
+
+    }
+
+    @Test
+    public void getFeedSlideShowMetaResponseTest() throws Exception {
+        TestSubscriber<Response<FeedSlideShowResponse>> testSubscriber = new TestSubscriber<>();
+        myntraDevApi.getFeedSlideShowResponse().subscribe(testSubscriber);
+        testSubscriber.assertNoErrors();
+
+        List<Response<FeedSlideShowResponse>> onNextEvents = testSubscriber.getOnNextEvents();
+        FeedSlideShowResponse feedSlideShowResponse = onNextEvents.get(0).body();
+        assert feedSlideShowResponse != null;
+        assertEquals(1, feedSlideShowResponse.count);
+        List<FeedCardsResponse> feedCardsResponseList = feedSlideShowResponse.cards;
+        assertEquals(1, feedCardsResponseList.size());
+        FeedCardsResponse feedCardsResponse = feedCardsResponseList.get(0);
+        assert feedCardsResponse != null;
+        FeedPropsResponse feedPropsResponse = feedCardsResponse.feedPropsResponse;
+        assert feedPropsResponse != null;
+        FeedMetaResponse feedMetaResponse = feedPropsResponse.metaResponse;
+        assert feedMetaResponse != null;
+        assertEquals("slideshow", feedMetaResponse.ogName);
+        assertEquals(2, feedMetaResponse.ogApp.id);
+        assertEquals("http://assets.myntassets.com/assets/images/banners/2017/1/19/11484847333898-gd-desk.jpg,http://assets.myntassets.com/assets/images/banners/2017/1/19/11484847333924-mantastic-desktop.jpg",feedMetaResponse.ogImageUrl);
+        assertEquals("http://www.myntra.com/mailers/feedcard/2:ddb1fcb8-97e1-41d1-a183-1d6f872c26b3",feedMetaResponse.share.ogUrl);
+        assertEquals("",feedMetaResponse.share.ogTitle);
+        assertEquals("slideshow,List", feedMetaResponse.publisherTag);
+        assertEquals("List", feedMetaResponse.contentType);
+        assertEquals("slideshow", feedMetaResponse.source);
+
+    }
+
+
+    @Test
+    public void getFeedForumMetaResponseTest() throws Exception {
         TestSubscriber<Response<FeedForumResponse>> testSubscriber = new TestSubscriber<>();
         myntraDevApi.getFeedForumResponse().subscribe(testSubscriber);
         testSubscriber.assertNoErrors();
 
         List<Response<FeedForumResponse>> onNextEvents = testSubscriber.getOnNextEvents();
         FeedForumResponse feedForumResponse = onNextEvents.get(0).body();
-        assertEquals(200, feedForumResponse.meta.status);
+        assert feedForumResponse != null;
+        FeedForumMetaResponse feedForumMetaResponse = feedForumResponse.meta;
+        assert feedForumMetaResponse != null;
+        assertEquals(200, feedForumMetaResponse.status);
     }
+
+    @Test
+    public void getFeedForumDataResponseTest() throws Exception {
+        TestSubscriber<Response<FeedForumResponse>> testSubscriber = new TestSubscriber<>();
+        myntraDevApi.getFeedForumResponse().subscribe(testSubscriber);
+        testSubscriber.assertNoErrors();
+
+        List<Response<FeedForumResponse>> onNextEvents = testSubscriber.getOnNextEvents();
+        FeedForumResponse feedForumResponse = onNextEvents.get(0).body();
+        assert feedForumResponse != null;
+        FeedForumDataResponse feedForumDataResponse = feedForumResponse.data;
+        assert feedForumDataResponse != null;
+        List<FeedForumContentResponse> feedForumContentResponseList = feedForumDataResponse.feed;
+        assertEquals(10, feedForumContentResponseList.size());
+    }
+
+    @Test
+    public void getFeedForumContentResponseTest() throws Exception {
+        TestSubscriber<Response<FeedForumResponse>> testSubscriber = new TestSubscriber<>();
+        myntraDevApi.getFeedForumResponse().subscribe(testSubscriber);
+        testSubscriber.assertNoErrors();
+
+        List<Response<FeedForumResponse>> onNextEvents = testSubscriber.getOnNextEvents();
+        FeedForumResponse feedForumResponse = onNextEvents.get(0).body();
+        assert feedForumResponse != null;
+        FeedForumDataResponse feedForumDataResponse = feedForumResponse.data;
+        assert feedForumDataResponse != null;
+        List<FeedForumContentResponse> feedForumContentResponseList = feedForumDataResponse.feed;
+        assertEquals(10, feedForumContentResponseList.size());
+        FeedForumContentResponse feedForumContentResponse = feedForumContentResponseList.get(0);
+        assertEquals(238551, feedForumContentResponse.cardId);
+        assertEquals("QUESTION", feedForumContentResponse.cardType);
+        assertEquals("39933145.bbf9.42c1.b9ac.3b8f53d9e4adnAJoyqP2Vh", feedForumContentResponse.postOwnerId);
+        assertEquals(false, feedForumContentResponse.isDeleted);
+        assertEquals(false, feedForumContentResponse.isHidden);
+        assertEquals("1492332779000", feedForumContentResponse.createdOn);
+        assertEquals(2, feedForumContentResponse.topicId);
+    }
+
+    @Test
+    public void getFeedForumPostEntriesResponseTest() throws Exception {
+        TestSubscriber<Response<FeedForumResponse>> testSubscriber = new TestSubscriber<>();
+        myntraDevApi.getFeedForumResponse().subscribe(testSubscriber);
+        testSubscriber.assertNoErrors();
+
+        List<Response<FeedForumResponse>> onNextEvents = testSubscriber.getOnNextEvents();
+        FeedForumResponse feedForumResponse = onNextEvents.get(0).body();
+        assert feedForumResponse != null;
+        FeedForumDataResponse feedForumDataResponse = feedForumResponse.data;
+        assert feedForumDataResponse != null;
+        List<FeedForumContentResponse> feedForumContentResponseList = feedForumDataResponse.feed;
+        assertEquals(10, feedForumContentResponseList.size());
+        FeedForumContentResponse feedForumContentResponse = feedForumContentResponseList.get(0);
+        assert feedForumContentResponse != null;
+        FeedForumPostEntriesResponse feedForumPostEntriesResponse = feedForumContentResponse.postEntries.get(0);
+        assert feedForumPostEntriesResponse != null;
+        assertEquals("QUESTION", feedForumPostEntriesResponse.type);
+        assertEquals(110638, feedForumPostEntriesResponse.id);
+        assertEquals(89773, feedForumPostEntriesResponse.since);
+        assertEquals(false, feedForumPostEntriesResponse.isFeatured);
+        assertEquals(false, feedForumPostEntriesResponse.isSpammed);
+        assertEquals(false, feedForumPostEntriesResponse.isOwner);
+        assertEquals(false, feedForumPostEntriesResponse.isLiked);
+        assertEquals(false, feedForumPostEntriesResponse.isFollowed);
+        assertEquals(false, feedForumPostEntriesResponse.hasAnswered);
+        assertEquals(false, feedForumPostEntriesResponse.isAnonymous);
+        assertEquals("1492332779000", feedForumPostEntriesResponse.createdAt);
+        assertEquals(0, feedForumPostEntriesResponse.commentCount);
+        assertEquals(0, feedForumPostEntriesResponse.answerCount);
+        assertEquals(0, feedForumPostEntriesResponse.followersCount);
+        assertEquals(0, feedForumPostEntriesResponse.commentCount);
+        assertEquals(238551, feedForumPostEntriesResponse.cardId);
+        assertEquals(false, feedForumPostEntriesResponse.isPublishedToAll);
+        assertEquals(false, feedForumPostEntriesResponse.isFirst);
+
+    }
+
+
+    @Test
+    public void getFeedForumDescriptionResponseTest() throws Exception {
+        TestSubscriber<Response<FeedForumResponse>> testSubscriber = new TestSubscriber<>();
+        myntraDevApi.getFeedForumResponse().subscribe(testSubscriber);
+        testSubscriber.assertNoErrors();
+
+        List<Response<FeedForumResponse>> onNextEvents = testSubscriber.getOnNextEvents();
+        FeedForumResponse feedForumResponse = onNextEvents.get(0).body();
+        assert feedForumResponse != null;
+        FeedForumDataResponse feedForumDataResponse = feedForumResponse.data;
+        assert feedForumDataResponse != null;
+        List<FeedForumContentResponse> feedForumContentResponseList = feedForumDataResponse.feed;
+        assertEquals(10, feedForumContentResponseList.size());
+        FeedForumContentResponse feedForumContentResponse = feedForumContentResponseList.get(0);
+        assert feedForumContentResponse != null;
+        FeedForumPostEntriesResponse feedForumPostEntriesResponse = feedForumContentResponse.postEntries.get(0);
+        assert feedForumPostEntriesResponse != null;
+        List<FeedForumDescriptionResponse> feedForumDescriptionResponseList = feedForumPostEntriesResponse.description;
+        assertEquals(3, feedForumDescriptionResponseList.size());
+        FeedForumDescriptionResponse feedForumDescriptionResponse = feedForumDescriptionResponseList.get(0);
+        assert feedForumDescriptionResponse != null;
+        assertEquals("TEXT", feedForumDescriptionResponse.type);
+        assertEquals("What Type of footwear will look good with a capry type culloton?", feedForumDescriptionResponse.value);
+
+    }
+
+
+    @Test
+    public void getFeedForumParentResponseTest() throws Exception {
+        TestSubscriber<Response<FeedForumResponse>> testSubscriber = new TestSubscriber<>();
+        myntraDevApi.getFeedForumResponse().subscribe(testSubscriber);
+        testSubscriber.assertNoErrors();
+
+        List<Response<FeedForumResponse>> onNextEvents = testSubscriber.getOnNextEvents();
+        FeedForumResponse feedForumResponse = onNextEvents.get(0).body();
+        assert feedForumResponse != null;
+        FeedForumDataResponse feedForumDataResponse = feedForumResponse.data;
+        assert feedForumDataResponse != null;
+        List<FeedForumContentResponse> feedForumContentResponseList = feedForumDataResponse.feed;
+        assertEquals(10, feedForumContentResponseList.size());
+        FeedForumContentResponse feedForumContentResponse = feedForumContentResponseList.get(0);
+        assert feedForumContentResponse != null;
+        FeedForumPostEntriesResponse feedForumPostEntriesResponse = feedForumContentResponse.postEntries.get(0);
+        assert feedForumPostEntriesResponse != null;
+        FeedForumParentResponse feedForumParentResponse = feedForumPostEntriesResponse.parent;
+        assert feedForumParentResponse != null;
+        assertNull(feedForumParentResponse.type);
+        assertEquals(0, feedForumParentResponse.id);
+
+    }
+
+    @Test
+    public void getFeedForumTopParentResponseTest() throws Exception {
+        TestSubscriber<Response<FeedForumResponse>> testSubscriber = new TestSubscriber<>();
+        myntraDevApi.getFeedForumResponse().subscribe(testSubscriber);
+        testSubscriber.assertNoErrors();
+
+        List<Response<FeedForumResponse>> onNextEvents = testSubscriber.getOnNextEvents();
+        FeedForumResponse feedForumResponse = onNextEvents.get(0).body();
+        assert feedForumResponse != null;
+        FeedForumDataResponse feedForumDataResponse = feedForumResponse.data;
+        assert feedForumDataResponse != null;
+        List<FeedForumContentResponse> feedForumContentResponseList = feedForumDataResponse.feed;
+        assertEquals(10, feedForumContentResponseList.size());
+        FeedForumContentResponse feedForumContentResponse = feedForumContentResponseList.get(0);
+        assert feedForumContentResponse != null;
+        FeedForumPostEntriesResponse feedForumPostEntriesResponse = feedForumContentResponse.postEntries.get(0);
+        assert feedForumPostEntriesResponse != null;
+        FeedForumTopParentResponse feedForumTopParentResponse = feedForumPostEntriesResponse.topParent;
+        assert feedForumTopParentResponse != null;
+        assertNull(feedForumTopParentResponse.type);
+        assertEquals(0, feedForumTopParentResponse.id);
+
+    }
+
+    @Test
+    public void getFeedForumUserResponseTest() throws Exception {
+        TestSubscriber<Response<FeedForumResponse>> testSubscriber = new TestSubscriber<>();
+        myntraDevApi.getFeedForumResponse().subscribe(testSubscriber);
+        testSubscriber.assertNoErrors();
+
+        List<Response<FeedForumResponse>> onNextEvents = testSubscriber.getOnNextEvents();
+        FeedForumResponse feedForumResponse = onNextEvents.get(0).body();
+        assert feedForumResponse != null;
+        FeedForumDataResponse feedForumDataResponse = feedForumResponse.data;
+        assert feedForumDataResponse != null;
+        List<FeedForumContentResponse> feedForumContentResponseList = feedForumDataResponse.feed;
+        assertEquals(10, feedForumContentResponseList.size());
+        FeedForumContentResponse feedForumContentResponse = feedForumContentResponseList.get(0);
+        assert feedForumContentResponse != null;
+        FeedForumPostEntriesResponse feedForumPostEntriesResponse = feedForumContentResponse.postEntries.get(0);
+        assert feedForumPostEntriesResponse != null;
+        FeedForumUserResponse feedForumUserResponse = feedForumPostEntriesResponse.user;
+        assert feedForumUserResponse != null;
+
+        assertEquals("Niharika Trama", feedForumUserResponse.firstname);
+        assertNull(feedForumUserResponse.lastname);
+        assertEquals("https://fbcdn-profile-a.akamaihd.net/hprofile-ak-xfp1/v/t1.0-1/p720x720/14376_861192333937733_2029720630944562471_n.jpg?oh=e140e22d8d69c20a4d5d14631ff410b9&oe=5603A1A1&__gda__=1442463924_c97973ce79cf7ebb9914de59ffc67783", feedForumUserResponse.image);
+        assertEquals("EXTERNAL_URL", feedForumUserResponse.imageType);
+        assertEquals("FEMALE", feedForumUserResponse.gender);
+        assertNull(feedForumUserResponse.coverImage);
+        assertNull(feedForumUserResponse.coverImageType);
+        assertEquals("Niharika.Trama", feedForumUserResponse.publicProfileId);
+        assertEquals("39933145.bbf9.42c1.b9ac.3b8f53d9e4adnAJoyqP2Vh", feedForumUserResponse.uidx);
+        assertEquals(8, feedForumUserResponse.counts.followers);
+        assertEquals(0, feedForumUserResponse.pLevel);
+        assertNull(feedForumUserResponse.bio);
+        assertEquals("Niharika Trama", feedForumUserResponse.name);
+
+    }
+
+
+    @Test
+    public void getFeedForumTopicResponseTest() throws Exception {
+        TestSubscriber<Response<FeedForumResponse>> testSubscriber = new TestSubscriber<>();
+        myntraDevApi.getFeedForumResponse().subscribe(testSubscriber);
+        testSubscriber.assertNoErrors();
+
+        List<Response<FeedForumResponse>> onNextEvents = testSubscriber.getOnNextEvents();
+        FeedForumResponse feedForumResponse = onNextEvents.get(0).body();
+        assert feedForumResponse != null;
+        FeedForumDataResponse feedForumDataResponse = feedForumResponse.data;
+        assert feedForumDataResponse != null;
+        List<FeedForumContentResponse> feedForumContentResponseList = feedForumDataResponse.feed;
+        assertEquals(10, feedForumContentResponseList.size());
+        FeedForumContentResponse feedForumContentResponse = feedForumContentResponseList.get(0);
+        assert feedForumContentResponse != null;
+        FeedForumPostEntriesResponse feedForumPostEntriesResponse = feedForumContentResponse.postEntries.get(0);
+        assert feedForumPostEntriesResponse != null;
+        List<FeedForumTopicResponse> feedForumTopicResponseList = feedForumPostEntriesResponse.topics;
+        assertEquals(1, feedForumTopicResponseList.size());
+        FeedForumTopicResponse feedForumTopicResponse = feedForumTopicResponseList.get(0);
+        assertEquals("Women's Fashion", feedForumTopicResponse.topicTitle);
+        assertEquals(2, feedForumTopicResponse.topicId);
+        assertEquals(false, feedForumTopicResponse.isDeleted);
+
+
+    }
+
+    @Test
+    public void getFeedHeaderResponseTest() throws Exception {
+        TestSubscriber<Response<FeedHeaderResponse>> testSubscriber = new TestSubscriber<>();
+        myntraDevApi.getFeedHeaderResponse().subscribe(testSubscriber);
+        testSubscriber.assertNoErrors();
+
+        List<Response<FeedHeaderResponse>> onNextEvents = testSubscriber.getOnNextEvents();
+        FeedHeaderResponse feedHeaderResponse = onNextEvents.get(0).body();
+        assert feedHeaderResponse != null;
+        assertEquals(1, feedHeaderResponse.count);
+        FeedCardsResponse feedCardsResponse = feedHeaderResponse.cards.get(0);
+        assertEquals("COMPONENT_CARD", feedCardsResponse.cardType);
+
+    }
+
+    @Test
+    public void getFeedHeaderPropsResponseTest() throws Exception {
+        TestSubscriber<Response<FeedHeaderResponse>> testSubscriber = new TestSubscriber<>();
+        myntraDevApi.getFeedHeaderResponse().subscribe(testSubscriber);
+        testSubscriber.assertNoErrors();
+
+        List<Response<FeedHeaderResponse>> onNextEvents = testSubscriber.getOnNextEvents();
+        FeedHeaderResponse feedHeaderResponse = onNextEvents.get(0).body();
+        assert feedHeaderResponse != null;
+        assertEquals(1, feedHeaderResponse.count);
+        FeedCardsResponse feedCardsResponse = feedHeaderResponse.cards.get(0);
+        assert feedCardsResponse != null;
+        FeedPropsResponse feedPropsResponse = feedCardsResponse.feedPropsResponse;
+        assert feedPropsResponse != null;
+        assertEquals("2:bd8fb0d3-e0eb-4f2e-b2b5-0ee2d80b70a0", feedPropsResponse.id);
+        assertEquals("f801f4e6-e11e-4e9a-8aa3-0e98f4561cad", feedPropsResponse.storyId);
+
+    }
+
+    @Test
+    public void getFeedHeaderMetaResponseTest() throws Exception {
+        TestSubscriber<Response<FeedHeaderResponse>> testSubscriber = new TestSubscriber<>();
+        myntraDevApi.getFeedHeaderResponse().subscribe(testSubscriber);
+        testSubscriber.assertNoErrors();
+
+        List<Response<FeedHeaderResponse>> onNextEvents = testSubscriber.getOnNextEvents();
+        FeedHeaderResponse feedHeaderResponse = onNextEvents.get(0).body();
+        assert feedHeaderResponse != null;
+        assertEquals(1, feedHeaderResponse.count);
+        FeedCardsResponse feedCardsResponse = feedHeaderResponse.cards.get(0);
+        assert feedCardsResponse != null;
+        FeedPropsResponse feedPropsResponse = feedCardsResponse.feedPropsResponse;
+        assert feedPropsResponse != null;
+        FeedMetaResponse feedMetaResponse = feedPropsResponse.metaResponse;
+        assert feedMetaResponse != null;
+        assertEquals("suggestions", feedMetaResponse.ogName);
+        assertEquals(2, feedMetaResponse.ogApp.id);
+        assertEquals("http://assets.myntassets.com/assets/images/banners/2017/4/7/11491589051168-Women.jpg,http://assets.myntassets.com/assets/images/banners/2017/4/7/11491589051180-Men.jpg,http://assets.myntassets.com/assets/images/banners/2017/4/7/11491589051199-Launchpad.jpg,http://assets.myntassets.com/assets/images/banners/2017/4/7/11491589051214-Kids.jpg,http://assets.myntassets.com/assets/images/banners/2017/4/8/11491593692042-YOUR-PAGE.jpg",feedMetaResponse.ogImageUrl);
+        assertEquals("http://www.myntra.com/mailers/feedcard/2:bd8fb0d3-e0eb-4f2e-b2b5-0ee2d80b70a0",feedMetaResponse.share.ogUrl);
+        assertEquals("",feedMetaResponse.share.ogTitle);
+        assertEquals("header,header", feedMetaResponse.publisherTag);
+        assertEquals("header", feedMetaResponse.contentType);
+        assertEquals("header", feedMetaResponse.source);
+
+    }
+
+    @Test
+    public void getFeedHeaderActivitiesResponseTest() throws Exception {
+        TestSubscriber<Response<FeedHeaderResponse>> testSubscriber = new TestSubscriber<>();
+        myntraDevApi.getFeedHeaderResponse().subscribe(testSubscriber);
+        testSubscriber.assertNoErrors();
+
+        List<Response<FeedHeaderResponse>> onNextEvents = testSubscriber.getOnNextEvents();
+        FeedHeaderResponse feedHeaderResponse = onNextEvents.get(0).body();
+        assert feedHeaderResponse != null;
+        assertEquals(1, feedHeaderResponse.count);
+        FeedCardsResponse feedCardsResponse = feedHeaderResponse.cards.get(0);
+        assert feedCardsResponse != null;
+        FeedPropsResponse feedPropsResponse = feedCardsResponse.feedPropsResponse;
+        assert feedPropsResponse != null;
+        FeedActivitiesResponse feedActivitiesResponse = feedPropsResponse.activitiesResponse;
+        assert feedActivitiesResponse != null;
+        assertEquals(false , feedActivitiesResponse.like.liked);
+        assertEquals(false , feedActivitiesResponse.spam.spammed);
+        assertEquals(839106 , feedActivitiesResponse.click.count);
+
+    }
+
+    @Test
+    public void getFeedHeaderChildrenResponseTest() throws Exception {
+        TestSubscriber<Response<FeedHeaderResponse>> testSubscriber = new TestSubscriber<>();
+        myntraDevApi.getFeedHeaderResponse().subscribe(testSubscriber);
+        testSubscriber.assertNoErrors();
+
+        List<Response<FeedHeaderResponse>> onNextEvents = testSubscriber.getOnNextEvents();
+        FeedHeaderResponse feedHeaderResponse = onNextEvents.get(0).body();
+        assert feedHeaderResponse != null;
+        assertEquals(1, feedHeaderResponse.count);
+        FeedCardsResponse feedCardsResponse = feedHeaderResponse.cards.get(0);
+        assert feedCardsResponse != null;
+        List<FeedChildrenResponse> feedChildrenResponseList = feedCardsResponse.feedContent;
+        assertEquals(1, feedChildrenResponseList.size());
+        FeedChildrenResponse feedChildrenResponse = feedChildrenResponseList.get(0);
+        assert feedChildrenResponse != null;
+        assertEquals("TOPNAV_CAROUSEL", feedChildrenResponse.feedCardType);
+        assertEquals(false, feedChildrenResponse.feedChildProp.transparency);
+
+    }
+
+    @Test
+    public void getFeedHeaderCarouselResponseTest() throws Exception {
+        TestSubscriber<Response<FeedHeaderResponse>> testSubscriber = new TestSubscriber<>();
+        myntraDevApi.getFeedHeaderResponse().subscribe(testSubscriber);
+        testSubscriber.assertNoErrors();
+
+        List<Response<FeedHeaderResponse>> onNextEvents = testSubscriber.getOnNextEvents();
+        FeedHeaderResponse feedHeaderResponse = onNextEvents.get(0).body();
+        assert feedHeaderResponse != null;
+        assertEquals(1, feedHeaderResponse.count);
+        FeedCardsResponse feedCardsResponse = feedHeaderResponse.cards.get(0);
+        assert feedCardsResponse != null;
+        List<FeedChildrenResponse> feedChildrenResponseList = feedCardsResponse.feedContent;
+        assertEquals(1, feedChildrenResponseList.size());
+        FeedChildrenResponse feedChildrenResponse = feedChildrenResponseList.get(0);
+        assert feedChildrenResponse != null;
+        List<FeedCarouselResponse> feedCarouselResponseList = feedChildrenResponse.feedChildProp.carousel;
+        assertEquals(5, feedCarouselResponseList.size());
+        FeedCarouselResponse feedCarouselResponse = feedCarouselResponseList.get(0);
+        assert feedCarouselResponse != null;
+        assertEquals("/growth/fashiongig17", feedCarouselResponse.actionLink);
+        assertEquals("top-nav", feedCarouselResponse.contentType);
+        assertEquals("2:cd5d5a25-34d3-4d2e-bbdf-1f0fffff1074", feedCarouselResponse.id);
+        assertEquals("", feedCarouselResponse.title);
+
+    }
+
+
+    @Test
+    public void getFeedHeaderImageResponseTest() throws Exception {
+        TestSubscriber<Response<FeedHeaderResponse>> testSubscriber = new TestSubscriber<>();
+        myntraDevApi.getFeedHeaderResponse().subscribe(testSubscriber);
+        testSubscriber.assertNoErrors();
+
+        List<Response<FeedHeaderResponse>> onNextEvents = testSubscriber.getOnNextEvents();
+        FeedHeaderResponse feedHeaderResponse = onNextEvents.get(0).body();
+        assert feedHeaderResponse != null;
+        assertEquals(1, feedHeaderResponse.count);
+        FeedCardsResponse feedCardsResponse = feedHeaderResponse.cards.get(0);
+        assert feedCardsResponse != null;
+        List<FeedChildrenResponse> feedChildrenResponseList = feedCardsResponse.feedContent;
+        assertEquals(1, feedChildrenResponseList.size());
+        FeedChildrenResponse feedChildrenResponse = feedChildrenResponseList.get(0);
+        assert feedChildrenResponse != null;
+        List<FeedCarouselResponse> feedCarouselResponseList = feedChildrenResponse.feedChildProp.carousel;
+        assertEquals(5, feedCarouselResponseList.size());
+        FeedCarouselResponse feedCarouselResponse = feedCarouselResponseList.get(0);
+        assert feedCarouselResponse != null;
+        FeedImagesResponse feedImagesResponse = feedCarouselResponse.image;
+        assert feedImagesResponse != null;
+        assertEquals("MYNT_ASSETS", feedImagesResponse.imageSourceProvider);
+        assertEquals("http://assets.myntassets.com/assets/images/banners/2017/4/8/11491593692042-YOUR-PAGE.jpg", feedImagesResponse.imageSourceUrl);
+        assertEquals(13, feedImagesResponse.height);
+        assertEquals(20, feedImagesResponse.width);
+    }
+
 
     @Test
     public void getSearchResultResponse() throws Exception {
@@ -277,7 +758,7 @@ public class MyntraDevApiTest extends ApiTestBase {
         PdpDataResponse pdpDataResponse = response.pdpDataResponse;
         assert pdpDataResponse != null;
 
-        PdpArticleAttributesResponse articleAttributesResponse  = pdpDataResponse.articleAttributesResponse;
+        PdpArticleAttributesResponse articleAttributesResponse = pdpDataResponse.articleAttributesResponse;
         assert articleAttributesResponse != null;
 
 
@@ -304,13 +785,13 @@ public class MyntraDevApiTest extends ApiTestBase {
         assert pdpDataResponse != null;
 
         List<PdpCrossLinksResponse> pdpCrossLinksResponseList = pdpDataResponse.crossLinksResponseList;
-        assertEquals(3 , pdpCrossLinksResponseList.size());
+        assertEquals(3, pdpCrossLinksResponseList.size());
 
         PdpCrossLinksResponse pdpCrossLinksResponse = pdpCrossLinksResponseList.get(0);
         assert pdpCrossLinksResponse != null;
 
         assertEquals("More Tops by Jaipur Kurti", pdpCrossLinksResponse.key);
-        assertEquals("tops?f=brand:Jaipur Kurti::gender:women" , pdpCrossLinksResponse.value);
+        assertEquals("tops?f=brand:Jaipur Kurti::gender:women", pdpCrossLinksResponse.value);
 
     }
 
@@ -348,7 +829,7 @@ public class MyntraDevApiTest extends ApiTestBase {
         assert pdpDataResponse != null;
 
         PdpCoreResponse pdpCoreResponse = pdpDataResponse.articleDisplayAttr.core;
-        assert  pdpCoreResponse != null;
+        assert pdpCoreResponse != null;
 
         assertEquals("0", pdpCoreResponse.order);
         assertEquals("2", pdpCoreResponse.display);
@@ -374,7 +855,7 @@ public class MyntraDevApiTest extends ApiTestBase {
         assert pdpDataResponse != null;
 
         PdpSocialResponse pdpSocialResponse = pdpDataResponse.articleDisplayAttr.social;
-        assert  pdpSocialResponse != null;
+        assert pdpSocialResponse != null;
 
         assertEquals("1", pdpSocialResponse.order);
         assertEquals("2", pdpSocialResponse.display);
@@ -430,15 +911,15 @@ public class MyntraDevApiTest extends ApiTestBase {
         assertEquals("default", defaultStyleImagesResponse.imageType);
         assertEquals("http://assets.myntassets.com/assets/images/1291342/2016/4/4/11459766198814-Jaipur-Kurti-White-Printed-Top-4911459766197997-1.jpg", defaultStyleImagesResponse.imageURL.toString());
 
-        PdpResolutionsResponse pdpResolutionsResponse =  defaultStyleImagesResponse.resolutions;
+        PdpResolutionsResponse pdpResolutionsResponse = defaultStyleImagesResponse.resolutions;
         assert pdpResolutionsResponse != null;
 
-        assertEquals("http://assets.myntassets.com/h_64,q_95,w_48/v1/assets/images/1291342/2016/4/4/11459766198814-Jaipur-Kurti-White-Printed-Top-4911459766197997-1.jpg" , pdpResolutionsResponse._48X64 );
-        assertEquals("http://assets.myntassets.com/h_64,q_95,w_48/v1/assets/images/1291342/2016/4/4/11459766198814-Jaipur-Kurti-White-Printed-Top-4911459766197997-1_mini.jpg"  , pdpResolutionsResponse._48X64Xmini);
-        assertEquals("http://assets.myntassets.com/h_108,q_95,w_81/v1/assets/images/1291342/2016/4/4/11459766198814-Jaipur-Kurti-White-Printed-Top-4911459766197997-1.jpg" , pdpResolutionsResponse._81X108);
+        assertEquals("http://assets.myntassets.com/h_64,q_95,w_48/v1/assets/images/1291342/2016/4/4/11459766198814-Jaipur-Kurti-White-Printed-Top-4911459766197997-1.jpg", pdpResolutionsResponse._48X64);
+        assertEquals("http://assets.myntassets.com/h_64,q_95,w_48/v1/assets/images/1291342/2016/4/4/11459766198814-Jaipur-Kurti-White-Printed-Top-4911459766197997-1_mini.jpg", pdpResolutionsResponse._48X64Xmini);
+        assertEquals("http://assets.myntassets.com/h_108,q_95,w_81/v1/assets/images/1291342/2016/4/4/11459766198814-Jaipur-Kurti-White-Printed-Top-4911459766197997-1.jpg", pdpResolutionsResponse._81X108);
         assertEquals("http://assets.myntassets.com/h_108,q_95,w_81/v1/assets/images/1291342/2016/4/4/11459766198814-Jaipur-Kurti-White-Printed-Top-4911459766197997-1_mini.jpg", pdpResolutionsResponse._81X108Xmini);
         assertEquals("http://assets.myntassets.com/h_161,q_95,w_125/v1/assets/images/1291342/2016/4/4/11459766198814-Jaipur-Kurti-White-Printed-Top-4911459766197997-1.jpg", pdpResolutionsResponse._125X161);
-        assertEquals("http://assets.myntassets.com/h_161,q_95,w_125/v1/assets/images/1291342/2016/4/4/11459766198814-Jaipur-Kurti-White-Printed-Top-4911459766197997-1_mini.jpg" , pdpResolutionsResponse._125X161Xmini);
+        assertEquals("http://assets.myntassets.com/h_161,q_95,w_125/v1/assets/images/1291342/2016/4/4/11459766198814-Jaipur-Kurti-White-Printed-Top-4911459766197997-1_mini.jpg", pdpResolutionsResponse._125X161Xmini);
 
     }
 
@@ -508,7 +989,7 @@ public class MyntraDevApiTest extends ApiTestBase {
         assert pdpDataResponse != null;
 
         PdpArticleTypeResponse articleTypeResponse = pdpDataResponse.articleType;
-        assert  articleTypeResponse != null;
+        assert articleTypeResponse != null;
 
         assertEquals(89, articleTypeResponse.id);
         assertEquals("Tops", articleTypeResponse.typeName);
@@ -539,7 +1020,7 @@ public class MyntraDevApiTest extends ApiTestBase {
         assert pdpDataResponse != null;
 
         List<PdpOtherFlagResponse> pdpOtherFlagResponseList = pdpDataResponse.otherFlags;
-        assertEquals(11 , pdpOtherFlagResponseList.size());
+        assertEquals(11, pdpOtherFlagResponseList.size());
 
         PdpOtherFlagResponse pdpOtherFlagResponse = pdpOtherFlagResponseList.get(0);
         assert pdpOtherFlagResponse != null;
@@ -561,7 +1042,7 @@ public class MyntraDevApiTest extends ApiTestBase {
         assert response != null;
 
         PdpDataResponse pdpDataResponse = response.pdpDataResponse;
-        assert  pdpDataResponse != null;
+        assert pdpDataResponse != null;
         PdpProductDescriptorsResponse pdpProductDescriptorsResponse = pdpDataResponse.productDescriptors;
         assert pdpProductDescriptorsResponse != null;
 
@@ -570,7 +1051,7 @@ public class MyntraDevApiTest extends ApiTestBase {
         assertEquals("materials_care_desc", pdpMaterialsCareDescResponse.descriptorType);
         assertEquals("100% cotton<br>Hand-wash", pdpMaterialsCareDescResponse.value);
 
-        PdpSizeFitDescResponse pdpSizeFitDescResponse  = pdpProductDescriptorsResponse.sizeFitDesc;
+        PdpSizeFitDescResponse pdpSizeFitDescResponse = pdpProductDescriptorsResponse.sizeFitDesc;
         assert pdpSizeFitDescResponse != null;
         assertEquals("size_fit_desc", pdpSizeFitDescResponse.descriptorType);
         assertEquals("The model (height 5'8\" and chest 33\") is wearing a size S&nbsp;", pdpSizeFitDescResponse.value);
@@ -581,7 +1062,7 @@ public class MyntraDevApiTest extends ApiTestBase {
         assertEquals("White printed top, has a boat neck, sleeveless", pdpDescriptionResponse.value);
 
         PdpStyleNoteResponse pdpStyleNoteResponse = pdpProductDescriptorsResponse.styleNote;
-        assert  pdpStyleNoteResponse != null;
+        assert pdpStyleNoteResponse != null;
         assertEquals("style_note", pdpStyleNoteResponse.descriptorType);
         assertEquals("Step up your style quotient with this top from Jaipur Kurti. Team it&nbsp;with your favourite pair of jeans or shorts&nbsp;and wedges or flats&nbsp;when you head out on the weekend.", pdpStyleNoteResponse.value);
 
@@ -603,7 +1084,7 @@ public class MyntraDevApiTest extends ApiTestBase {
         assert pdpDataResponse != null;
 
         List<PdpStyleOptionsResponse> pdpStyleOptionsResponseList = pdpDataResponse.styleOptions;
-        assertEquals(4 , pdpStyleOptionsResponseList.size());
+        assertEquals(4, pdpStyleOptionsResponseList.size());
 
         PdpStyleOptionsResponse pdpStyleOptionsResponse = pdpStyleOptionsResponseList.get(0);
         assert pdpStyleOptionsResponse != null;
@@ -614,8 +1095,8 @@ public class MyntraDevApiTest extends ApiTestBase {
         assertEquals("S", pdpStyleOptionsResponse.unifiedSize);
         assertEquals("S", pdpStyleOptionsResponse.unifiedSizeValue);
         assertEquals("S", pdpStyleOptionsResponse.allSize);
-        assertEquals(10749479 , pdpStyleOptionsResponse.skuId);
-        assertEquals(3,  pdpStyleOptionsResponse.inventoryCount);
+        assertEquals(10749479, pdpStyleOptionsResponse.skuId);
+        assertEquals(3, pdpStyleOptionsResponse.inventoryCount);
         assertEquals(true, pdpStyleOptionsResponse.available);
         assertEquals(true, pdpStyleOptionsResponse.active);
     }
@@ -637,10 +1118,10 @@ public class MyntraDevApiTest extends ApiTestBase {
         PdpDiscountDataResponse pdpDiscountDataResponse = pdpDataResponse.discountData;
         assert pdpDiscountDataResponse != null;
 
-        assertEquals(1 ,pdpDiscountDataResponse.discountType);
-        assertEquals(972099 , pdpDiscountDataResponse.discountId);
+        assertEquals(1, pdpDiscountDataResponse.discountType);
+        assertEquals(972099, pdpDiscountDataResponse.discountId);
         assertEquals(0, pdpDiscountDataResponse.discountRuleId);
-        assertEquals(40 , pdpDiscountDataResponse.discountPercent);
+        assertEquals(40, pdpDiscountDataResponse.discountPercent);
 
     }
 
@@ -655,16 +1136,16 @@ public class MyntraDevApiTest extends ApiTestBase {
         assert response != null;
 
         PdpDataResponse pdpDataResponse = response.pdpDataResponse;
-        assert  pdpDataResponse != null;
+        assert pdpDataResponse != null;
 
         PdpDiscountDataResponse pdpDiscountDataResponse = pdpDataResponse.discountData;
-        assert  pdpDiscountDataResponse != null;
+        assert pdpDiscountDataResponse != null;
 
         PdpDiscountTextResponse pdpDiscountTextResponse = pdpDiscountDataResponse.discountText;
-        assert  pdpDiscountTextResponse != null;
+        assert pdpDiscountTextResponse != null;
 
-        assertEquals("(40% OFF)" ,pdpDiscountTextResponse.text);
-        assertEquals(false , pdpDiscountTextResponse.hasFreeItem);
+        assertEquals("(40% OFF)", pdpDiscountTextResponse.text);
+        assertEquals(false, pdpDiscountTextResponse.hasFreeItem);
 
     }
 
@@ -679,22 +1160,18 @@ public class MyntraDevApiTest extends ApiTestBase {
         assert response != null;
 
         PdpDataResponse pdpDataResponse = response.pdpDataResponse;
-        assert  pdpDataResponse != null;
+        assert pdpDataResponse != null;
 
         PdpDiscountDataResponse pdpDiscountDataResponse = pdpDataResponse.discountData;
-        assert  pdpDiscountDataResponse != null;
+        assert pdpDiscountDataResponse != null;
 
-        PdpDiscountToolTipTextResponse pdpDiscountToolTipTextResponse =pdpDiscountDataResponse.discountToolTipText;
-        assert  pdpDiscountToolTipTextResponse != null;
+        PdpDiscountToolTipTextResponse pdpDiscountToolTipTextResponse = pdpDiscountDataResponse.discountToolTipText;
+        assert pdpDiscountToolTipTextResponse != null;
 
-        assertEquals("Buy this item and get <em>40% </em> off" ,pdpDiscountToolTipTextResponse.text);
-        assertEquals(false , pdpDiscountToolTipTextResponse.hasFreeItem);
+        assertEquals("Buy this item and get <em>40% </em> off", pdpDiscountToolTipTextResponse.text);
+        assertEquals(false, pdpDiscountToolTipTextResponse.hasFreeItem);
 
     }
-
-
-
-
 
 
 }

@@ -10,7 +10,7 @@ import rx.Observable;
 import zeta.android.thunderbird.api.devapi.response.feed.FeedForumResponse;
 import zeta.android.thunderbird.api.devapi.response.feed.FeedHeaderResponse;
 import zeta.android.thunderbird.api.devapi.response.feed.FeedResponse;
-import zeta.android.thunderbird.api.devapi.response.feed.FeedSideShowResponse;
+import zeta.android.thunderbird.api.devapi.response.feed.FeedSlideShowResponse;
 import zeta.android.thunderbird.api.devapi.response.pdp.PdpResponse;
 import zeta.android.thunderbird.api.devapi.response.search.SearchResponse;
 
@@ -24,7 +24,7 @@ public interface MyntraDevApi {
     Observable<Response<FeedHeaderResponse>> getFeedHeaderResponse();
 
     @GET("/lgp/v2.8/stream/slideshow")
-    Observable<Response<FeedSideShowResponse>> getFeedSlideShowResponse();
+    Observable<Response<FeedSlideShowResponse>> getFeedSlideShowResponse();
 
     @GET("/forum/v2.8/feed")
     Observable<Response<FeedForumResponse>> getFeedForumResponse();

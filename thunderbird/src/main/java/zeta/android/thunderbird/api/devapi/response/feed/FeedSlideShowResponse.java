@@ -5,13 +5,13 @@ import java.util.List;
 import javax.annotation.ParametersAreNonnullByDefault;
 
 @ParametersAreNonnullByDefault
-public class FeedSideShowResponse {
+public class FeedSlideShowResponse {
 
     public final int count;
 
     public final List<FeedCardsResponse> cards;
 
-    public FeedSideShowResponse(int count, List<FeedCardsResponse> cards) {
+    public FeedSlideShowResponse(int count, List<FeedCardsResponse> cards) {
         this.count = count;
         this.cards = cards;
     }

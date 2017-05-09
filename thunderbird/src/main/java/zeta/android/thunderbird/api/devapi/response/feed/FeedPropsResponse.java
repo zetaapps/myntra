@@ -9,8 +9,17 @@ public class FeedPropsResponse {
 
     public final String storyId;
 
-    public FeedPropsResponse(String id, String storyId) {
+    public final FeedMetaResponse metaResponse;
+
+    public final FeedActivitiesResponse activitiesResponse;
+
+    public FeedPropsResponse(String id,
+                             String storyId,
+                             FeedMetaResponse metaResponse,
+                             FeedActivitiesResponse activitiesResponse) {
         this.id = id;
         this.storyId = storyId;
+        this.metaResponse = metaResponse;
+        this.activitiesResponse = activitiesResponse;
     }
 }

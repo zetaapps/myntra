@@ -21,7 +21,7 @@ import zeta.android.thunderbird.api.devapi.MyntraDevApi;
 import zeta.android.thunderbird.api.devapi.response.feed.FeedForumResponse;
 import zeta.android.thunderbird.api.devapi.response.feed.FeedHeaderResponse;
 import zeta.android.thunderbird.api.devapi.response.feed.FeedResponse;
-import zeta.android.thunderbird.api.devapi.response.feed.FeedSideShowResponse;
+import zeta.android.thunderbird.api.devapi.response.feed.FeedSlideShowResponse;
 import zeta.android.thunderbird.api.devapi.response.pdp.PdpResponse;
 import zeta.android.thunderbird.api.devapi.response.search.SearchResponse;
 import zeta.android.thunderbird.managers.SearchManager;
@@ -55,9 +55,9 @@ public class SearchModule {
             }
 
             @Override
-            public Observable<Response<FeedSideShowResponse>> getFeedSlideShowResponse() {
+            public Observable<Response<FeedSlideShowResponse>> getFeedSlideShowResponse() {
                 return myntraDevApiBehaviorDelegate.returning(
-                        buildResponse("feed_slide_show.json", FeedSideShowResponse.class))
+                        buildResponse("feed_slide_show.json", FeedSlideShowResponse.class))
                         .getFeedSlideShowResponse();
             }
 
