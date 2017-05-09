@@ -351,12 +351,12 @@ public class PdpComponentizedModelTransformer implements ITransformer<PdpCompone
     }
 
     private PdpV3BestPriceOnDemandComponent transformPdpV3BestPriceOnDemandComponent(PdpComponentizationComponentsResponse pdpComponentizationComponentsResponse) {
-        @PdpV3ActionType String pdpV3ActionType = getPdpV3ActionType(pdpComponentizationComponentsResponse.props.actionType);
+        @PdpV3ActionType String pdpV3ActionType = getPdpV3ActionType(pdpComponentizationComponentsResponse.props.bestPriceOnDemand.actionType);
         String initialText = pdpComponentizationComponentsResponse.args.text == null ? null : pdpComponentizationComponentsResponse.args.text.initial;
 
         return PdpV3BestPriceOnDemandComponent.create()
                 .setActionType(pdpV3ActionType)
-                .setAction(pdpComponentizationComponentsResponse.props.action)
+                .setAction(pdpComponentizationComponentsResponse.props.bestPriceOnDemand.action)
                 .setInitialText(initialText)
                 .build();
     }
@@ -771,7 +771,7 @@ public class PdpComponentizedModelTransformer implements ITransformer<PdpCompone
             pdpV3SocialTitle = PdpV3SocialTitle.create(title);
         }
         if (StringUtils.isNotNullOrEmpty(styleNote)) {
-            pdpV3StyleNote = PdpV3StyleNote.create(title);
+            pdpV3StyleNote = PdpV3StyleNote.create(styleNote);
         }
 
         return PdpV3CompleteLookComponent.create()
