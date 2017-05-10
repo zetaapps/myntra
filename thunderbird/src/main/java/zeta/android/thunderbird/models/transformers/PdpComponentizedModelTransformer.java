@@ -43,6 +43,7 @@ import zeta.android.thunderbird.models.products.pdpv3.cards.PdpV3ProductCard;
 import zeta.android.thunderbird.models.products.pdpv3.cards.PdpV3RelatedCard;
 import zeta.android.thunderbird.models.products.pdpv3.cards.PdpV3ServiceabilityCard;
 import zeta.android.thunderbird.models.products.pdpv3.cards.PdpV3SocialCard;
+
 import zeta.android.thunderbird.models.products.pdpv3.common.PdpV3Pincode;
 import zeta.android.thunderbird.models.products.pdpv3.common.PdpV3ServicabilityDescription;
 import zeta.android.thunderbird.models.products.pdpv3.common.PdpV3ServicabilityPlaceHolder;
@@ -85,6 +86,9 @@ import zeta.android.thunderbird.models.products.pdpv3.property.PdpV3RelatedPrope
 import zeta.android.thunderbird.models.products.pdpv3.property.PdpV3ServicabilityProperty;
 import zeta.android.thunderbird.models.utils.GenderTypeUtil;
 import zeta.android.thunderbird.models.utils.PdpV3BrandComponentTypeUtil;
+
+import zeta.android.thunderbird.models.products.pdpv3.common.constants.PdpV3CardType;
+
 import zeta.android.thunderbird.models.utils.PdpV3CardTypeUtil;
 import zeta.android.thunderbird.models.utils.PdpV3MoreInfoComponentTypeUtils;
 import zeta.android.thunderbird.models.utils.PdpV3ProductComponentTypeUtil;
@@ -202,22 +206,22 @@ public class PdpComponentizedModelTransformer implements ITransformer<PdpCompone
                 componentIndex.put(componentType, indexPos);
 
                 switch (componentType) {
-                    case PdpV3ComponentType.PRODUCT_COMPONENT_IMAGE:
+                    case PdpV3ComponentType.IMAGE_SWIPE:
                         pdpV3ImageComponent = transformPdpV3ImageComponent(componentsResponse.props);
                         break;
-                    case PdpV3ComponentType.PRODUCT_COMPONENT_INFO:
+                    case PdpV3ComponentType.INFO:
                         pdpV3InfoComponent = transformPdpV3InfoComponent(componentsResponse);
                         break;
-                    case PdpV3ComponentType.PRODUCT_COMPONENT_VAT_INFO:
+                    case PdpV3ComponentType.VAT_INFO:
                         pdpV3VatInfoComponent = transformPdpV3VatInfoComponent(componentsResponse.props.vatInfo);
                         break;
-                    case PdpV3ComponentType.PRODUCT_COMPONENT_BEST_PRICE_ONDEMAND:
+                    case PdpV3ComponentType.BEST_PRICE_ONDEMAND:
                         pdpV3BestPriceOnDemandComponent = transformPdpV3BestPriceOnDemandComponent(componentsResponse);
                         break;
-                    case PdpV3ComponentType.PRODUCT_COMPONENT_SIZE_SELECTOR:
+                    case PdpV3ComponentType.SIZE_SELECTOR:
                         pdpV3SizeSelectorComponent = transformPdpV3SizeSelectorComponent(componentsResponse);
                         break;
-                    case PdpV3ComponentType.PRODUCT_COMPONENT_ADD_TO_CART_BUTTON:
+                    case PdpV3ComponentType.ADD_BUTTONS_PDP:
                         pdpV3ButtonsComponent = transformPdpV3ButtonsComponent(componentsResponse);
                         break;
                 }
@@ -540,7 +544,7 @@ public class PdpComponentizedModelTransformer implements ITransformer<PdpCompone
             @PdpV3ComponentType
             final String componentType = brandCard.componentsList.get(brandIndexPos).type;
             switch (componentType) {
-                case PdpV3ComponentType.BRAND_COMPONENT_PRODUCT_DETAILS:
+                case PdpV3ComponentType.PRODUCT_DETAILS:
                     pdpV3ProductDetailComponent = transformPdpV3ProductDetailComponent(brandCard.componentsList.get(brandIndexPos).props.productDetailList);
                     @PdpV3ComponentType
                     String pdpV3ComponentType = PdpV3BrandComponentTypeUtil.from(componentType);
@@ -570,7 +574,6 @@ public class PdpComponentizedModelTransformer implements ITransformer<PdpCompone
         }
         return PdpV3ProductDetailComponent.create()
                 .setPdpV3ProductDetailPropertyList(pdpV3ProductDetailPropertyList)
-
                 .build();
     }
 
@@ -600,7 +603,7 @@ public class PdpComponentizedModelTransformer implements ITransformer<PdpCompone
             @PdpV3ComponentType
             final String componentType = serviceabilityCard.componentsList.get(servicabilityIndexPos).type;
             switch (componentType) {
-                case PdpV3ComponentType.SERVICEABILITY_COMPONENT_SERVICEABILITY:
+                case PdpV3ComponentType.SERVICEABILITY:
                     pdpV3ServicabilityComponent = transformPdpV3ServicabilityComponent(serviceabilityCard.componentsList.get(servicabilityIndexPos));
                     @PdpV3ComponentType
                     String pdpV3ComponentType = PdpV3ServicabilityComponentTypeUtil.from(componentType);
@@ -725,13 +728,13 @@ public class PdpComponentizedModelTransformer implements ITransformer<PdpCompone
                 final String componentType = PdpV3SocialComponentTypeUtil.from(pdpComponentizationComponentsResponse.type);
                 componentPositionIndex.put(PdpV3SocialComponentTypeUtil.from(componentType), indexPos);
                 switch (componentType) {
-                    case PdpV3ComponentType.SOCIAL_COMPONENT_LIKERS_LAZY:
+                    case PdpV3ComponentType.LIKERS_LAZY:
                         pdpV3LikersLazyComponent = transformPdpV3LikersLazyComponent(pdpComponentizationComponentsResponse.props.actionType,
                                 pdpComponentizationComponentsResponse.props.action,
                                 pdpComponentizationComponentsResponse.args.title);
 
                         break;
-                    case PdpV3ComponentType.SOCIAL_COMPONENT_COMPLETE_LOOK:
+                    case PdpV3ComponentType.COMPLETE_LOOK:
                         pdpV3CompleteLookComponent = transformPdpV3CompleteLookComponent(pdpComponentizationComponentsResponse.props.styleNote,
                                 pdpComponentizationComponentsResponse.args.title);
                         break;
@@ -797,14 +800,14 @@ public class PdpComponentizedModelTransformer implements ITransformer<PdpCompone
                 @PdpV3ComponentType
                 final String componentType = relatedCard.componentsList.get(indexPos).type;
                 switch (componentType) {
-                    case PdpV3ComponentType.RELATED_COMPONENT_RELATED_PDP_LAZY:
+                    case PdpV3ComponentType.RELATED_PDP_LAZY:
                         pdpV3RelatedPdpLazyComponent = transformPdpV3RelatedPdpLazyComponent(
                                 relatedCard.componentsList.get(indexPos).props.actionType,
                                 relatedCard.componentsList.get(indexPos).props.action);
                         componentPositionIndex.put(PdpV3RelatedComponentTypeUtil.from(componentType),
                                 indexPos);
                         break;
-                    case PdpV3ComponentType.RELATED_COPONENT_CROSS_LINKS:
+                    case PdpV3ComponentType.CROSS_LINKS:
                         pdpV3CrossLinksComponent = transformPdpV3PdpV3CrossLinksComponent(
                                 relatedCard.componentsList.get(indexPos).props.crossLinksList);
                         componentPositionIndex.put(PdpV3RelatedComponentTypeUtil.from(componentType),
@@ -870,7 +873,7 @@ public class PdpComponentizedModelTransformer implements ITransformer<PdpCompone
             @PdpV3ComponentType
             final String componentType = moreInfoCard.componentsList.get(moreInfoIndexPos).type;
             switch (componentType) {
-                case PdpV3ComponentType.MORE_INFO_COMPONENT_MORE_INFO:
+                case PdpV3ComponentType.MORE_INFO:
                     pdpV3MoreInfoComponent = transformPdpV3MoreInfoComponent(moreInfoCard.componentsList.
                                 get(moreInfoIndexPos).props.moreInfoList);
                     @PdpV3ComponentType

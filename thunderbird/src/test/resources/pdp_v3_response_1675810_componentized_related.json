@@ -1,0 +1,314 @@
+{
+  "cards": [
+    {
+      "components": [
+        {
+          "type": "RELATED_PDP",
+          "viewType": "RELATED_PDP",
+          "props": {
+            "related": [
+              {
+                "type": "Similar",
+                "products": [
+                  {
+                    "id": 1675813,
+                    "name": "Soch Outlet Women Teal Blue Kurta",
+                    "price": {
+                      "mrp": 998,
+                      "discounted": 698,
+                      "discount": {
+                        "label": "(30% OFF)"
+                      }
+                    },
+                    "brand": {
+                      "uidx": null,
+                      "name": "Soch Outlet"
+                    },
+                    "defaultImage": {
+                      "src": "http://assets.myntassets.com/h_($height),q_($qualityPercentage),w_($width)/v1/assets/images/1675813/2016/12/14/11481705229487-Soch-Women-Teal-Solid-Straight-Kurta-1901481705229246-1.jpg",
+                      "secureSrc": "https://assets.myntassets.com/h_($height),q_($qualityPercentage),w_($width)/v1/assets/images/1675813/2016/12/14/11481705229487-Soch-Women-Teal-Solid-Straight-Kurta-1901481705229246-1.jpg"
+                    },
+                    "info": "Kurta",
+                    "baseColour": "Teal"
+                  },
+                  {
+                    "id": 1507184,
+                    "name": "Soch Outlet Blue & Beige Printed Kurta",
+                    "price": {
+                      "mrp": 1198,
+                      "discounted": 599,
+                      "discount": {
+                        "label": "(50% OFF)"
+                      }
+                    },
+                    "brand": {
+                      "uidx": null,
+                      "name": "Soch Outlet"
+                    },
+                    "defaultImage": {
+                      "src": "http://assets.myntassets.com/h_($height),q_($qualityPercentage),w_($width)/v1/assets/images/1507184/2016/9/16/11474012845111-Soch-Blue--Beige-Printed-Kurta-171474012844966-1.jpg",
+                      "secureSrc": "https://assets.myntassets.com/h_($height),q_($qualityPercentage),w_($width)/v1/assets/images/1507184/2016/9/16/11474012845111-Soch-Blue--Beige-Printed-Kurta-171474012844966-1.jpg"
+                    },
+                    "info": "Printed Kurta",
+                    "baseColour": "Blue"
+                  },
+                  {
+                    "id": 1507183,
+                    "name": "Soch Outlet Orange & Beige Printed Kurta",
+                    "price": {
+                      "mrp": 1198,
+                      "discounted": 599,
+                      "discount": {
+                        "label": "(50% OFF)"
+                      }
+                    },
+                    "brand": {
+                      "uidx": null,
+                      "name": "Soch Outlet"
+                    },
+                    "defaultImage": {
+                      "src": "http://assets.myntassets.com/h_($height),q_($qualityPercentage),w_($width)/v1/assets/images/1507183/2016/9/16/11474019000837-Soch-Orange--Beige-Printed-Kurta-8611474019000530-1.jpg",
+                      "secureSrc": "https://assets.myntassets.com/h_($height),q_($qualityPercentage),w_($width)/v1/assets/images/1507183/2016/9/16/11474019000837-Soch-Orange--Beige-Printed-Kurta-8611474019000530-1.jpg"
+                    },
+                    "info": "Printed Kurta",
+                    "baseColour": "Orange"
+                  },
+                  {
+                    "id": 1613069,
+                    "name": "Ruhaans Red Kurti",
+                    "price": {
+                      "mrp": 1099,
+                      "discounted": 659,
+                      "discount": {
+                        "label": "(40% OFF)"
+                      }
+                    },
+                    "brand": {
+                      "uidx": null,
+                      "name": "Ruhaans"
+                    },
+                    "defaultImage": {
+                      "src": "http://assets.myntassets.com/h_($height),q_($qualityPercentage),w_($width)/v1/assets/images/1613069/2016/10/27/11477559465019-Ruhaans-Women-Tunics-6401477559464789-1.jpg",
+                      "secureSrc": "https://assets.myntassets.com/h_($height),q_($qualityPercentage),w_($width)/v1/assets/images/1613069/2016/10/27/11477559465019-Ruhaans-Women-Tunics-6401477559464789-1.jpg"
+                    },
+                    "info": "Kurti",
+                    "baseColour": "Red"
+                  },
+                  {
+                    "id": 1686420,
+                    "name": "Soch Outlet Women Black & White Printed Straight Kurta",
+                    "price": {
+                      "mrp": 698,
+                      "discounted": 488,
+                      "discount": {
+                        "label": "(30% OFF)"
+                      }
+                    },
+                    "brand": {
+                      "uidx": null,
+                      "name": "Soch Outlet"
+                    },
+                    "defaultImage": {
+                      "src": "http://assets.myntassets.com/h_($height),q_($qualityPercentage),w_($width)/v1/assets/images/1686420/2016/12/23/11482493718306-Soch-Women-Black--White-Printed-Straight-Kurta-1771482493718078-1.jpg",
+                      "secureSrc": "https://assets.myntassets.com/h_($height),q_($qualityPercentage),w_($width)/v1/assets/images/1686420/2016/12/23/11482493718306-Soch-Women-Black--White-Printed-Straight-Kurta-1771482493718078-1.jpg"
+                    },
+                    "info": "Rayon Straight Kurta",
+                    "baseColour": "Black"
+                  },
+                  {
+                    "id": 1686422,
+                    "name": "Soch Outlet Women Blue Printed Straight Kurta",
+                    "price": {
+                      "mrp": 998,
+                      "discounted": 698,
+                      "discount": {
+                        "label": "(30% OFF)"
+                      }
+                    },
+                    "brand": {
+                      "uidx": null,
+                      "name": "Soch Outlet"
+                    },
+                    "defaultImage": {
+                      "src": "http://assets.myntassets.com/h_($height),q_($qualityPercentage),w_($width)/v1/assets/images/1686422/2016/12/19/11482132380415-Soch-Women-Blue-Printed-Straight-Kurta-8621482132380337-1.jpg",
+                      "secureSrc": "https://assets.myntassets.com/h_($height),q_($qualityPercentage),w_($width)/v1/assets/images/1686422/2016/12/19/11482132380415-Soch-Women-Blue-Printed-Straight-Kurta-8621482132380337-1.jpg"
+                    },
+                    "info": "Rayon Straight Kurta",
+                    "baseColour": "Blue"
+                  },
+                  {
+                    "id": 1686433,
+                    "name": "Soch Outlet Maroon Kurta",
+                    "price": {
+                      "mrp": 998,
+                      "discounted": 698,
+                      "discount": {
+                        "label": "(30% OFF)"
+                      }
+                    },
+                    "brand": {
+                      "uidx": null,
+                      "name": "Soch Outlet"
+                    },
+                    "defaultImage": {
+                      "src": "http://assets.myntassets.com/h_($height),q_($qualityPercentage),w_($width)/v1/assets/images/1686433/2016/12/30/11483096185716-Soch-Maroon-Kurta-7471483096185504-1.jpg",
+                      "secureSrc": "https://assets.myntassets.com/h_($height),q_($qualityPercentage),w_($width)/v1/assets/images/1686433/2016/12/30/11483096185716-Soch-Maroon-Kurta-7471483096185504-1.jpg"
+                    },
+                    "info": "Kurta",
+                    "baseColour": "Maroon"
+                  },
+                  {
+                    "id": 1686435,
+                    "name": "Soch Outlet Women Navy Blue Straight Kurta",
+                    "price": {
+                      "mrp": 998,
+                      "discounted": 698,
+                      "discount": {
+                        "label": "(30% OFF)"
+                      }
+                    },
+                    "brand": {
+                      "uidx": null,
+                      "name": "Soch Outlet"
+                    },
+                    "defaultImage": {
+                      "src": "http://assets.myntassets.com/h_($height),q_($qualityPercentage),w_($width)/v1/assets/images/1686435/2016/12/26/11482753470864-Soch-Women-Navy-Blue-Straight-Kurta-1621482753470667-1.jpg",
+                      "secureSrc": "https://assets.myntassets.com/h_($height),q_($qualityPercentage),w_($width)/v1/assets/images/1686435/2016/12/26/11482753470864-Soch-Women-Navy-Blue-Straight-Kurta-1621482753470667-1.jpg"
+                    },
+                    "info": "Straight Kurta",
+                    "baseColour": "Navy Blue"
+                  },
+                  {
+                    "id": 1686410,
+                    "name": "Soch Cream-Coloured Printed Kurta",
+                    "price": {
+                      "mrp": 698,
+                      "discounted": 698,
+                      "discount": null
+                    },
+                    "brand": {
+                      "uidx": null,
+                      "name": "Soch"
+                    },
+                    "defaultImage": {
+                      "src": "http://assets.myntassets.com/h_($height),q_($qualityPercentage),w_($width)/v1/assets/images/1686410/2016/12/19/11482145613714-Soch-Cream-Coloured-Printed-Kurta-6131482145613395-1.jpg",
+                      "secureSrc": "https://assets.myntassets.com/h_($height),q_($qualityPercentage),w_($width)/v1/assets/images/1686410/2016/12/19/11482145613714-Soch-Cream-Coloured-Printed-Kurta-6131482145613395-1.jpg"
+                    },
+                    "info": "Printed Kurta",
+                    "baseColour": "Cream"
+                  },
+                  {
+                    "id": 1686399,
+                    "name": "Soch Outlet Women Charcoal & off-white Printed Straight Kurta",
+                    "price": {
+                      "mrp": 698,
+                      "discounted": 698,
+                      "discount": null
+                    },
+                    "brand": {
+                      "uidx": null,
+                      "name": "Soch Outlet"
+                    },
+                    "defaultImage": {
+                      "src": "http://assets.myntassets.com/h_($height),q_($qualityPercentage),w_($width)/v1/assets/images/1686399/2016/12/19/11482131728728-Soch-Women-Charcoal-Printed-Straight-Kurta-9461482131728545-1.jpg",
+                      "secureSrc": "https://assets.myntassets.com/h_($height),q_($qualityPercentage),w_($width)/v1/assets/images/1686399/2016/12/19/11482131728728-Soch-Women-Charcoal-Printed-Straight-Kurta-9461482131728545-1.jpg"
+                    },
+                    "info": "Cotton Straight Kurta",
+                    "baseColour": "Charcoal"
+                  },
+                  {
+                    "id": 1686397,
+                    "name": "Soch Women Beige Printed Straight Kurta",
+                    "price": {
+                      "mrp": 698,
+                      "discounted": 698,
+                      "discount": null
+                    },
+                    "brand": {
+                      "uidx": null,
+                      "name": "Soch"
+                    },
+                    "defaultImage": {
+                      "src": "http://assets.myntassets.com/h_($height),q_($qualityPercentage),w_($width)/v1/assets/images/1686397/2016/12/19/11482146410052-Soch-Women-Beige-Printed-Straight-Kurta-721482146409397-1.jpg",
+                      "secureSrc": "https://assets.myntassets.com/h_($height),q_($qualityPercentage),w_($width)/v1/assets/images/1686397/2016/12/19/11482146410052-Soch-Women-Beige-Printed-Straight-Kurta-721482146409397-1.jpg"
+                    },
+                    "info": "Straight Kurta",
+                    "baseColour": "Beige"
+                  },
+                  {
+                    "id": 1545507,
+                    "name": "AURELIA Yellow Kurti",
+                    "price": {
+                      "mrp": 799,
+                      "discounted": 559,
+                      "discount": {
+                        "label": "(30% OFF)"
+                      }
+                    },
+                    "brand": {
+                      "uidx": null,
+                      "name": "AURELIA"
+                    },
+                    "defaultImage": {
+                      "src": "http://assets.myntassets.com/h_($height),q_($qualityPercentage),w_($width)/v1/assets/images/1545507/2016/10/1/11475321787958-AURELIA-Women-Yellow-Straight-Kurta-671475321787729-1.jpg",
+                      "secureSrc": "https://assets.myntassets.com/h_($height),q_($qualityPercentage),w_($width)/v1/assets/images/1545507/2016/10/1/11475321787958-AURELIA-Women-Yellow-Straight-Kurta-671475321787729-1.jpg"
+                    },
+                    "info": "Kurti",
+                    "baseColour": "Yellow"
+                  },
+                  {
+                    "id": 1686405,
+                    "name": "Soch Outlet Women White & Navy Blue Printed Straight Kurta",
+                    "price": {
+                      "mrp": 698,
+                      "discounted": 698,
+                      "discount": null
+                    },
+                    "brand": {
+                      "uidx": null,
+                      "name": "Soch Outlet"
+                    },
+                    "defaultImage": {
+                      "src": "http://assets.myntassets.com/h_($height),q_($qualityPercentage),w_($width)/v1/assets/images/1686405/2016/12/19/11482137973159-Soch-Women-White-Printed-Straight-Kurta-1571482137973007-1.jpg",
+                      "secureSrc": "https://assets.myntassets.com/h_($height),q_($qualityPercentage),w_($width)/v1/assets/images/1686405/2016/12/19/11482137973159-Soch-Women-White-Printed-Straight-Kurta-1571482137973007-1.jpg"
+                    },
+                    "info": "Printed Straight Kurta",
+                    "baseColour": "White"
+                  },
+                  {
+                    "id": 1692328,
+                    "name": "Jashn Blue Printed Shirt-Style Kurti",
+                    "price": {
+                      "mrp": 1499,
+                      "discounted": 899,
+                      "discount": {
+                        "label": "(40% OFF)"
+                      }
+                    },
+                    "brand": {
+                      "uidx": null,
+                      "name": "Jashn"
+                    },
+                    "defaultImage": {
+                      "src": "http://assets.myntassets.com/h_($height),q_($qualityPercentage),w_($width)/v1/assets/images/1692328/2017/1/25/11485332556926-Jashn-Women-Kurtis-5241485332556579-1.jpg",
+                      "secureSrc": "https://assets.myntassets.com/h_($height),q_($qualityPercentage),w_($width)/v1/assets/images/1692328/2017/1/25/11485332556926-Jashn-Women-Kurtis-5241485332556579-1.jpg"
+                    },
+                    "info": "Shirt-Style Kurti",
+                    "baseColour": "Blue"
+                  }
+                ]
+              },
+              {
+                "type": "ColourVariants",
+                "products": []
+              }
+            ]
+          },
+          "args": {
+            "show": true
+          }
+        }
+      ]
+    }
+  ]
+}

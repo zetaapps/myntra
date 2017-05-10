@@ -31,6 +31,11 @@ import zeta.android.thunderbird.api.apify.pdpv3.pdp.PdpV3ImageResponse;
 import zeta.android.thunderbird.api.apify.pdpv3.pdp.PdpV3MediaResponse;
 import zeta.android.thunderbird.api.apify.pdpv3.pdp.PdpV3Response;
 import zeta.android.thunderbird.api.apify.pdpv3.pdp.PdpV3VideoResponse;
+import zeta.android.thunderbird.api.apify.related.common.PdpV3RelatedProductsProductResponse;
+import zeta.android.thunderbird.api.apify.related.componentization.PdpRelatedProductsComponentizationCardsResponse;
+import zeta.android.thunderbird.api.apify.related.componentization.PdpV3RelatedProductsComponentizationComponentsResponse;
+import zeta.android.thunderbird.api.apify.related.componentization.PdpV3RelatedProductsComponentizationResponse;
+import zeta.android.thunderbird.api.apify.related.general.PdpV3RelatedProductsResponse;
 
 import static junit.framework.Assert.assertEquals;
 import static junit.framework.Assert.assertNull;
@@ -64,10 +69,31 @@ public class MyntraApifyTest extends ApiTestBase {
                         buildResponse("pdp_v3_response_1675810_general.json", PdpV3Response.class))
                         .getProductDetailsResponse(styleId);
             }
+
+            @Override
+            public Observable<Response<PdpV3RelatedProductsComponentizationResponse>>
+            getRelatedProductDetailsComponentizedResponse(@Path("styleId") int styleId,
+                                                          @Query("co") int co,
+                                                          @Query("colors") boolean colors) {
+                return myntraDevApiBehaviorDelegate.returning(
+                        buildResponse("pdp_v3_response_1675810_componentized_related.json",
+                                PdpV3RelatedProductsComponentizationResponse.class))
+                        .getRelatedProductDetailsComponentizedResponse(styleId, co, colors);
+            }
+
+            @Override
+            public Observable<Response<PdpV3RelatedProductsResponse>>
+            getRelatedProductDetailsGeneralResponse(@Path("styleId") int styleId,
+                                                    @Query("colors") boolean colors) {
+                return myntraDevApiBehaviorDelegate.returning(
+                        buildResponse("pdp_v3_response_1675810_related_products_general_response.json",
+                                PdpV3RelatedProductsResponse.class))
+                        .getRelatedProductDetailsGeneralResponse(styleId, colors);
+            }
         };
     }
 
-    //region Componentized Response Tests
+    //region Componentized PDP Response Tests
     @Test
     public void getProductDetailsComponentizedResponseInfoTest() {
         TestSubscriber<Response<PdpComponentizationResponse>> testSubscriber = new TestSubscriber<>();
@@ -531,7 +557,7 @@ public class MyntraApifyTest extends ApiTestBase {
     }
     //endregions
 
-    //region General Response Tests
+    //region General PDP Response Tests
     @Test
     public void getProductDetailsResponseStyleTest() {
         TestSubscriber<Response<PdpV3Response>> testSubscriber = new TestSubscriber<>();
@@ -700,6 +726,266 @@ public class MyntraApifyTest extends ApiTestBase {
         assertNull(sizeResponse.price);
         assertNull(sizeResponse.originalStyle);
     }
+    //endregion
+
+    //region PDP related Response Tests
+
+    //region PDP related Componentized Response Test
+    @Test
+    public void getRelatedProductsComponentizationResponseTest() {
+        TestSubscriber<Response<PdpV3RelatedProductsComponentizationResponse>> testSubscriber = new TestSubscriber<>();
+        myntraApify.getRelatedProductDetailsComponentizedResponse(1675810, 1, false ).subscribe(testSubscriber);
+        testSubscriber.assertNoErrors();
+
+        List<Response<PdpV3RelatedProductsComponentizationResponse>> onNextEvents = testSubscriber.getOnNextEvents();
+        PdpV3RelatedProductsComponentizationResponse response = onNextEvents.get(0).body();
+        assert response != null;
+
+        assertEquals(1, response.cardsList.size());
+    }
+
+
+    @Test
+    public void getRelatedProductsComponentizationRelatedPdpComponentTest() {
+        TestSubscriber<Response<PdpV3RelatedProductsComponentizationResponse>> testSubscriber = new TestSubscriber<>();
+        myntraApify.getRelatedProductDetailsComponentizedResponse(1675810, 1, false ).subscribe(testSubscriber);
+        testSubscriber.assertNoErrors();
+
+        List<Response<PdpV3RelatedProductsComponentizationResponse>> onNextEvents = testSubscriber.getOnNextEvents();
+        PdpV3RelatedProductsComponentizationResponse response = onNextEvents.get(0).body();
+        assert response != null;
+
+        PdpV3RelatedProductsComponentizationComponentsResponse pdpV3RelatedProductsComponentizationComponentsResponse
+                = response.cardsList.get(0).pdpV3ComponentizationComponentsResponseList.get(0);
+
+        assertEquals(1, response.cardsList.get(0).pdpV3ComponentizationComponentsResponseList.size());
+        assertEquals("RELATED_PDP", pdpV3RelatedProductsComponentizationComponentsResponse.type);
+        assertEquals("RELATED_PDP", pdpV3RelatedProductsComponentizationComponentsResponse.viewType);
+        assert pdpV3RelatedProductsComponentizationComponentsResponse.props != null;
+        assert pdpV3RelatedProductsComponentizationComponentsResponse.args != null;
+    }
+
+    @Test
+    public void getRelatedProductsComponentizationRelatedPdpComponentPropsTest() {
+        TestSubscriber<Response<PdpV3RelatedProductsComponentizationResponse>> testSubscriber = new TestSubscriber<>();
+        myntraApify.getRelatedProductDetailsComponentizedResponse(1675810, 1, false ).subscribe(testSubscriber);
+        testSubscriber.assertNoErrors();
+
+        List<Response<PdpV3RelatedProductsComponentizationResponse>> onNextEvents = testSubscriber.getOnNextEvents();
+        PdpV3RelatedProductsComponentizationResponse response = onNextEvents.get(0).body();
+        assert response != null;
+
+        PdpV3RelatedProductsComponentizationComponentsResponse pdpV3RelatedProductsComponentizationComponentsResponse
+                = response.cardsList.get(0).pdpV3ComponentizationComponentsResponseList.get(0);
+
+        assert pdpV3RelatedProductsComponentizationComponentsResponse.props != null;
+        assertEquals(2,
+                pdpV3RelatedProductsComponentizationComponentsResponse.props.pdpV3RelatedProductsRelatedPropsResponseList.size());
+        assertEquals("Similar",
+                pdpV3RelatedProductsComponentizationComponentsResponse.props.pdpV3RelatedProductsRelatedPropsResponseList.get(0).type);
+        assertEquals("ColourVariants",
+                pdpV3RelatedProductsComponentizationComponentsResponse.props.pdpV3RelatedProductsRelatedPropsResponseList.get(1).type);
+    }
+
+
+    @Test
+    public void getRelatedProductsComponentizationRelatedPropsProductTest() {
+        TestSubscriber<Response<PdpV3RelatedProductsComponentizationResponse>> testSubscriber = new TestSubscriber<>();
+        myntraApify.getRelatedProductDetailsComponentizedResponse(1675810, 1, false).subscribe(testSubscriber);
+        testSubscriber.assertNoErrors();
+
+        List<Response<PdpV3RelatedProductsComponentizationResponse>> onNextEvents = testSubscriber.getOnNextEvents();
+        PdpV3RelatedProductsComponentizationResponse response = onNextEvents.get(0).body();
+        assert response != null;
+
+        PdpV3RelatedProductsComponentizationComponentsResponse pdpV3RelatedProductsComponentizationComponentsResponse
+                = response.cardsList.get(0).pdpV3ComponentizationComponentsResponseList.get(0);
+        PdpV3RelatedProductsProductResponse pdpV3RelatedProductsProductResponse
+                = pdpV3RelatedProductsComponentizationComponentsResponse.props.
+                pdpV3RelatedProductsRelatedPropsResponseList.get(0).pdpV3RelatedProductsProductResponseList.get(0);
+
+        assertEquals(1675813, pdpV3RelatedProductsProductResponse.id);
+        assertEquals("Soch Outlet Women Teal Blue Kurta", pdpV3RelatedProductsProductResponse.name);
+        assertEquals("Kurta", pdpV3RelatedProductsProductResponse.info);
+        assertEquals("Teal", pdpV3RelatedProductsProductResponse.baseColour);
+    }
+
+    @Test
+    public void getRelatedProductsComponentizationRelatedPropsProductPriceTest() {
+        TestSubscriber<Response<PdpV3RelatedProductsComponentizationResponse>> testSubscriber = new TestSubscriber<>();
+        myntraApify.getRelatedProductDetailsComponentizedResponse(1675810, 1, false).subscribe(testSubscriber);
+        testSubscriber.assertNoErrors();
+
+        List<Response<PdpV3RelatedProductsComponentizationResponse>> onNextEvents = testSubscriber.getOnNextEvents();
+        PdpV3RelatedProductsComponentizationResponse response = onNextEvents.get(0).body();
+        assert response != null;
+
+        PdpV3RelatedProductsComponentizationComponentsResponse pdpV3RelatedProductsComponentizationComponentsResponse
+                = response.cardsList.get(0).pdpV3ComponentizationComponentsResponseList.get(0);
+        PdpV3RelatedProductsProductResponse pdpV3RelatedProductsProductResponse
+                = pdpV3RelatedProductsComponentizationComponentsResponse.props.
+                pdpV3RelatedProductsRelatedPropsResponseList.get(0).pdpV3RelatedProductsProductResponseList.get(0);
+
+        assertEquals(998, pdpV3RelatedProductsProductResponse.price.mrp);
+        assertEquals(698, pdpV3RelatedProductsProductResponse.price.discounted);
+        assertEquals("(30% OFF)", pdpV3RelatedProductsProductResponse.price.discount.label);
+
+    }
+
+    @Test
+    public void getRelatedProductsComponentizationRelatedPropsProductBrandTest() {
+        TestSubscriber<Response<PdpV3RelatedProductsComponentizationResponse>> testSubscriber = new TestSubscriber<>();
+        myntraApify.getRelatedProductDetailsComponentizedResponse(1675810, 1, false).subscribe(testSubscriber);
+        testSubscriber.assertNoErrors();
+
+        List<Response<PdpV3RelatedProductsComponentizationResponse>> onNextEvents = testSubscriber.getOnNextEvents();
+        PdpV3RelatedProductsComponentizationResponse response = onNextEvents.get(0).body();
+        assert response != null;
+
+        PdpV3RelatedProductsComponentizationComponentsResponse pdpV3RelatedProductsComponentizationComponentsResponse
+                = response.cardsList.get(0).pdpV3ComponentizationComponentsResponseList.get(0);
+        PdpV3RelatedProductsProductResponse pdpV3RelatedProductsProductResponse
+                = pdpV3RelatedProductsComponentizationComponentsResponse.props.
+                pdpV3RelatedProductsRelatedPropsResponseList.get(0).pdpV3RelatedProductsProductResponseList.get(0);
+
+        assertEquals(null, pdpV3RelatedProductsProductResponse.brand.uidx);
+        assertEquals("Soch Outlet", pdpV3RelatedProductsProductResponse.brand.name);
+
+    }
+
+    @Test
+    public void getRelatedProductsComponentizationRelatedPropsProductDefaultImageTest() {
+        TestSubscriber<Response<PdpV3RelatedProductsComponentizationResponse>> testSubscriber = new TestSubscriber<>();
+        myntraApify.getRelatedProductDetailsComponentizedResponse(1675810, 1, false).subscribe(testSubscriber);
+        testSubscriber.assertNoErrors();
+
+        List<Response<PdpV3RelatedProductsComponentizationResponse>> onNextEvents = testSubscriber.getOnNextEvents();
+        PdpV3RelatedProductsComponentizationResponse response = onNextEvents.get(0).body();
+        assert response != null;
+
+        PdpV3RelatedProductsComponentizationComponentsResponse pdpV3RelatedProductsComponentizationComponentsResponse
+                = response.cardsList.get(0).pdpV3ComponentizationComponentsResponseList.get(0);
+        PdpV3RelatedProductsProductResponse pdpV3RelatedProductsProductResponse
+                = pdpV3RelatedProductsComponentizationComponentsResponse.props.
+                pdpV3RelatedProductsRelatedPropsResponseList.get(0).pdpV3RelatedProductsProductResponseList.get(0);
+
+        assertEquals("http://assets.myntassets.com/h_($height),q_($qualityPercentage),w_" +
+                "($width)/v1/assets/images/1675813/2016/12/14/11481705229487" +
+                "-Soch-Women-Teal-Solid-Straight-Kurta-1901481705229246-1.jpg",
+                pdpV3RelatedProductsProductResponse.defaultImage.src);
+
+        assertEquals("https://assets.myntassets.com/h_($height),q_($qualityPercentage),w_" +
+                "($width)/v1/assets/images/1675813/2016/12/14/11481705229487" +
+                "-Soch-Women-Teal-Solid-Straight-Kurta-1901481705229246-1.jpg",
+                pdpV3RelatedProductsProductResponse.defaultImage.secureSrc);
+
+    }
+    //endregion
+
+    //region PDP related General Response Test
+    @Test
+    public void getRelatedProductsGeneralResponseTest() {
+        TestSubscriber<Response<PdpV3RelatedProductsResponse>> testSubscriber = new TestSubscriber<>();
+        myntraApify.getRelatedProductDetailsGeneralResponse(1675810, false ).subscribe(testSubscriber);
+        testSubscriber.assertNoErrors();
+
+        List<Response<PdpV3RelatedProductsResponse>> onNextEvents = testSubscriber.getOnNextEvents();
+        PdpV3RelatedProductsResponse response = onNextEvents.get(0).body();
+        assert response != null;
+
+        assertEquals(2, response.pdpV3RelatedProductsRelatedPropsResponseList.size());
+        assertEquals("Similar", response.pdpV3RelatedProductsRelatedPropsResponseList.get(0).type);
+        assertEquals("ColourVariants", response.pdpV3RelatedProductsRelatedPropsResponseList.get(1).type);
+    }
+
+    @Test
+    public void getRelatedProductsGeneralRelatedPropsProductTest() {
+        TestSubscriber<Response<PdpV3RelatedProductsResponse>> testSubscriber = new TestSubscriber<>();
+        myntraApify.getRelatedProductDetailsGeneralResponse(1675810, false ).subscribe(testSubscriber);
+        testSubscriber.assertNoErrors();
+
+        List<Response<PdpV3RelatedProductsResponse>> onNextEvents = testSubscriber.getOnNextEvents();
+        PdpV3RelatedProductsResponse response = onNextEvents.get(0).body();
+        assert response != null;
+
+        PdpV3RelatedProductsProductResponse pdpV3RelatedProductsProductResponse
+                =response.pdpV3RelatedProductsRelatedPropsResponseList.get(0)
+                .pdpV3RelatedProductsProductResponseList.get(0);
+
+        assertEquals(1692328, pdpV3RelatedProductsProductResponse.id);
+        assertEquals("Jashn Blue Printed Shirt-Style Kurti", pdpV3RelatedProductsProductResponse.name);
+        assertEquals("Shirt-Style Kurti", pdpV3RelatedProductsProductResponse.info);
+        assertEquals("Blue", pdpV3RelatedProductsProductResponse.baseColour);
+    }
+
+    @Test
+    public void getRelatedProductsGeneralRelatedPropsProductPriceTest() {
+        TestSubscriber<Response<PdpV3RelatedProductsResponse>> testSubscriber = new TestSubscriber<>();
+        myntraApify.getRelatedProductDetailsGeneralResponse(1675810, false ).subscribe(testSubscriber);
+        testSubscriber.assertNoErrors();
+
+        List<Response<PdpV3RelatedProductsResponse>> onNextEvents = testSubscriber.getOnNextEvents();
+        PdpV3RelatedProductsResponse response = onNextEvents.get(0).body();
+        assert response != null;
+
+        PdpV3RelatedProductsProductResponse pdpV3RelatedProductsProductResponse
+                =response.pdpV3RelatedProductsRelatedPropsResponseList.get(0)
+                .pdpV3RelatedProductsProductResponseList.get(0);
+
+
+        assertEquals(1499, pdpV3RelatedProductsProductResponse.price.mrp);
+        assertEquals(674, pdpV3RelatedProductsProductResponse.price.discounted);
+        assertEquals("(55% OFF)", pdpV3RelatedProductsProductResponse.price.discount.label);
+
+    }
+
+    @Test
+    public void getRelatedProductsGeneralRelatedPropsProductBrandTest() {
+        TestSubscriber<Response<PdpV3RelatedProductsResponse>> testSubscriber = new TestSubscriber<>();
+        myntraApify.getRelatedProductDetailsGeneralResponse(1675810, false ).subscribe(testSubscriber);
+        testSubscriber.assertNoErrors();
+
+        List<Response<PdpV3RelatedProductsResponse>> onNextEvents = testSubscriber.getOnNextEvents();
+        PdpV3RelatedProductsResponse response = onNextEvents.get(0).body();
+        assert response != null;
+
+        PdpV3RelatedProductsProductResponse pdpV3RelatedProductsProductResponse
+                =response.pdpV3RelatedProductsRelatedPropsResponseList.get(0)
+                .pdpV3RelatedProductsProductResponseList.get(0);
+
+
+        assertEquals(null, pdpV3RelatedProductsProductResponse.brand.uidx);
+        assertEquals("Jashn", pdpV3RelatedProductsProductResponse.brand.name);
+
+    }
+
+    @Test
+    public void getRelatedProductsGeneralRelatedPropsProductDefaultImageTest() {
+        TestSubscriber<Response<PdpV3RelatedProductsResponse>> testSubscriber = new TestSubscriber<>();
+        myntraApify.getRelatedProductDetailsGeneralResponse(1675810, false ).subscribe(testSubscriber);
+        testSubscriber.assertNoErrors();
+
+        List<Response<PdpV3RelatedProductsResponse>> onNextEvents = testSubscriber.getOnNextEvents();
+        PdpV3RelatedProductsResponse response = onNextEvents.get(0).body();
+        assert response != null;
+
+        PdpV3RelatedProductsProductResponse pdpV3RelatedProductsProductResponse
+                =response.pdpV3RelatedProductsRelatedPropsResponseList.get(0)
+                .pdpV3RelatedProductsProductResponseList.get(0);
+
+        assertEquals("http://assets.myntassets.com/h_($height),q_($qualityPercentage),w_" +
+                "($width)/v1/assets/images/1692328/2017/1/25/" +
+                "11485332556926-Jashn-Women-Kurtis-5241485332556579-1.jpg",
+                pdpV3RelatedProductsProductResponse.defaultImage.src);
+
+        assertEquals("https://assets.myntassets.com/h_($height),q_($qualityPercentage),w_" +
+                "($width)/v1/assets/images/1692328/2017/1/25/" +
+                "11485332556926-Jashn-Women-Kurtis-5241485332556579-1.jpg",
+                pdpV3RelatedProductsProductResponse.defaultImage.secureSrc);
+
+    }
+    //endregion
+
     //endregion
 
 }
