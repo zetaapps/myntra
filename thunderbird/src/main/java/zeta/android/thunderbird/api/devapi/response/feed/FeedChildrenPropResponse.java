@@ -17,9 +17,13 @@ public class FeedChildrenPropResponse {
     @SerializedName("slides")
     public final List<FeedSlidesResponse> slides;
 
-    public FeedChildrenPropResponse(boolean transparency, List<FeedCarouselResponse> carousel, List<FeedSlidesResponse> slides) {
+    @SerializedName("images")
+    public final List<FeedImagesResponse> images;
+
+    public FeedChildrenPropResponse(boolean transparency, List<FeedCarouselResponse> carousel, List<FeedSlidesResponse> slides, List<FeedImagesResponse> images) {
         this.transparency = transparency;
         this.carousel = carousel;
         this.slides = slides;
+        this.images = images;
     }
 }
