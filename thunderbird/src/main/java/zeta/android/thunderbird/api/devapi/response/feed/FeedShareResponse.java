@@ -9,13 +9,13 @@ import javax.annotation.ParametersAreNonnullByDefault;
 public class FeedShareResponse {
 
     @SerializedName("og:title")
-    public String ogTitle;
+    public final String ogTitle;
 
     @SerializedName("og:url")
-    public String ogUrl;
+    public final String ogUrl;
 
     @SerializedName("og:image:url")
-    public String ogImageUrl;
+    public final String ogImageUrl;
 
     public FeedShareResponse(String ogTitle,
                              String ogUrl,
