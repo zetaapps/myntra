@@ -1,5 +1,4 @@
 apply plugin: 'com.android.library'
-apply plugin: 'com.neenbedankt.android-apt'
 apply plugin: 'com.fernandocejas.frodo'
 
 android {
@@ -24,6 +23,12 @@ android {
         versionName "0.1"
 
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+
+        javaCompileOptions {
+            annotationProcessorOptions {
+                includeCompileClasspath false
+            }
+        }
     }
 
     lintOptions {
@@ -74,39 +79,40 @@ android {
 }
 
 dependencies {
-    compile libraries.dagger
-    apt libraries.daggerCompiler
+    implementation libraries.dagger
+    annotationProcessor libraries.daggerCompiler
 
-    compile libraries.timber
+    implementation libraries.timber
 
-    compile libraries.zetaUtils
-    compile libraries.zetaEither
+    implementation libraries.zetaUtils
+    implementation libraries.zetaEither
 
-    compile libraries.retrofit
-    compile libraries.retrofitRxAdapter
-    compile libraries.retrofitGsonConverter
+    implementation libraries.retrofit
+    implementation libraries.retrofitRxAdapter
+    implementation libraries.retrofitGsonConverter
 
-    automationCompile libraries.retrofitMock
+    automationImplementation libraries.retrofitMock
 
-    compile libraries.rxJava
-    compile libraries.rxAndroid
-    compile libraries.persistentCookieJar
+    implementation libraries.rxJava
+    implementation libraries.rxAndroid
+    implementation libraries.persistentCookieJar
 
-    provided libraries.autoValue
-    provided libraries.autoValueParcelAdapter
-    apt libraries.autoValueParcel
+    compileOnly libraries.autoValueJakeWharton
+    annotationProcessor libraries.autoValue
+    compileOnly libraries.autoValueParcelAdapter
+    annotationProcessor libraries.autoValueParcel
 
-    compile libraries.jsr305
-    compile libraries.javaxAnnotationApi
+    implementation libraries.jsr305
+    implementation libraries.javaxAnnotationApi
 
-    testCompile libraries.junit
-    testCompile libraries.retrofitMock
-    testCompile libraries.mockitoCore
+    testImplementation libraries.junit
+    testImplementation libraries.retrofitMock
+    testImplementation libraries.mockitoCore
 
     //power mockito framework for static method mocking
-    testCompile libraries.powerMockitoApi
-    testCompile libraries.powerMockitoJunitRule
-    testCompile libraries.powerMockitoJunit
+    testImplementation libraries.powerMockitoApi
+    testImplementation libraries.powerMockitoJunitRule
+    testImplementation libraries.powerMockitoJunit
 }
 
 frodo {

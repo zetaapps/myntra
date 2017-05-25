@@ -1,7 +1,5 @@
 apply plugin: 'com.android.application'
 apply plugin: 'com.fernandocejas.frodo'
-apply plugin: 'com.neenbedankt.android-apt'
-apply plugin: 'android-apt'
 apply plugin: 'io.fabric'
 
 android {
@@ -20,6 +18,12 @@ android {
         versionCode 3
         versionName "1.0.3"
         multiDexEnabled false
+
+        javaCompileOptions {
+            annotationProcessorOptions {
+                includeCompileClasspath false
+            }
+        }
     }
 
     splits {
@@ -58,6 +62,9 @@ android {
         }
     }
 
+    // Specifies a flavor dimension.
+    flavorDimensions "release"
+
     productFlavors {
 
         full {
@@ -65,6 +72,7 @@ android {
             versionNameSuffix "-full"
             versionCode 3
             versionName "1.0.3.1"
+            dimension "release"
         }
 
         lite {
@@ -72,13 +80,9 @@ android {
             versionNameSuffix "-lite"
             versionCode 3
             versionName "1.0.3.2"
+            dimension "release"
         }
 
-    }
-
-    aaptOptions {
-        //Note: If you did not apply PNG optimization on your own, you may want this to be true
-        cruncherEnabled = true
     }
 
     testBuildType "automation"
@@ -153,110 +157,112 @@ android {
 }
 
 dependencies {
-    compile fileTree(dir: 'libs', include: ['*.jar'])
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
 
-    debugCompile project(path: ':thunderbird', configuration: 'debug')
-    releaseCompile project(path: ':thunderbird', configuration: 'release')
-    automationCompile project(path: ':thunderbird', configuration: 'automation')
+    implementation project(':thunderbird')
 
     //SUPPORT LIBS
-    compile libraries.supportV13
-    compile libraries.supportDesign
-    compile libraries.supportAppCompat
-    compile libraries.supportRecyclerView
+    implementation libraries.supportV13
+    implementation libraries.supportDesign
+    implementation libraries.supportAppCompat
+    implementation libraries.supportRecyclerView
 
     //Chrome
-    compile libraries.chromeCustomTab
+    implementation libraries.chromeCustomTab
 
-    compile libraries.eventBus
-    compile libraries.butterKnife
-    apt libraries.butterKnifeCompiler
+    implementation libraries.eventBus
 
     //IMAGE PROCESSING
-    compile libraries.glide
-    compile(libraries.glideOkHttp) {
+    implementation libraries.glide
+    implementation(libraries.glideOkHttp) {
         exclude group: 'glide-parent'
     }
 
-    compile(libraries.bundler) {
+    implementation(libraries.bundler) {
         // exclude this because bundler refers to an old version of the support lib
         exclude group: 'com.google.android'
     }
 
     //ANIMATION
-    compile libraries.lottieAnimation
+    implementation libraries.lottieAnimation
 
     //ANNOTATION
-    compile libraries.jsr305
-    compile libraries.javaxAnnotationApi
+    implementation libraries.jsr305
+    implementation libraries.javaxAnnotationApi
 
     //NETWORK
-    compile libraries.okHttp3
-    compile libraries.okHttp3LogInterceptor
-    compile libraries.retrofit
-    compile libraries.retrofitGsonConverter
-    compile libraries.networkSampler
+    implementation libraries.okHttp3
+    implementation libraries.okHttp3LogInterceptor
+    implementation libraries.retrofit
+    implementation libraries.retrofitGsonConverter
+    implementation libraries.networkSampler
 
     //PROGRAMMING
-    compile libraries.rxJava
-    compile libraries.rxAndroid
-    compile libraries.dagger
-    apt libraries.daggerCompiler
-    provided libraries.autoValue
-    apt libraries.autoValueParcel
+    implementation libraries.rxJava
+    implementation libraries.rxAndroid
+
+    implementation libraries.dagger
+    annotationProcessor libraries.daggerCompiler
+
+    implementation libraries.butterKnife
+    annotationProcessor libraries.butterKnifeCompiler
+
+    compileOnly libraries.autoValueJakeWharton
+    annotationProcessor libraries.autoValue
+    annotationProcessor libraries.autoValueParcel
 
     //Zeta
-    compile libraries.zetaUtils
-    compile libraries.zetaEither
-    compile libraries.zetaListItemDivider
-    compile libraries.zetaHeaderAndFooterAdapters
+    implementation libraries.zetaUtils
+    implementation libraries.zetaEither
+    implementation libraries.zetaListItemDivider
+    implementation libraries.zetaHeaderAndFooterAdapters
 
     //Metagalataic
-    compile libraries.metagalacticExpandableImageView
+    implementation libraries.metagalacticExpandableImageView
 
     //Sticky scroll view
-    compile libraries.stickyScrollView
+    implementation libraries.stickyScrollView
 
     //Facebook
-    fullCompile libraries.facebookSdk
+    fullImplementation libraries.facebookSdk
 
     //Google Authentication
-    fullCompile libraries.playServicesAuthentication
+    fullImplementation libraries.playServicesAuthentication
 
     //CRASH REPORTING TOOLS
-    compile libraries.crashlytics
+    implementation libraries.crashlytics
 
     //Deeplink
-    compile libraries.branchIO
+    implementation libraries.branchIO
 
     //DEVELOPER TOOLS
-    compile libraries.timber
-    debugCompile libraries.lynx
-    debugCompile(libraries.stetho) {
+    implementation libraries.timber
+    debugImplementation libraries.lynx
+    debugImplementation(libraries.stetho) {
         exclude module: 'jsr305'
     }
-    debugCompile libraries.tinyDancer
-    debugCompile libraries.leakcanary
-    releaseCompile libraries.leakcanaryNoOp
-    automationCompile libraries.leakcanaryNoOp
+    debugImplementation libraries.tinyDancer
+    debugImplementation libraries.leakcanary
+    releaseImplementation libraries.leakcanaryNoOp
+    automationImplementation libraries.leakcanaryNoOp
 
     //TESTING
-    testCompile libraries.junit
-    testCompile libraries.assertJ
-    testCompile libraries.mockitoCore
-    testCompile libraries.robolectric
-    testCompile libraries.equalsVerifier
-    testCompile libraries.okHttpMockWebServer
+    testImplementation libraries.junit
+    testImplementation libraries.assertJ
+    testImplementation libraries.mockitoCore
+    testImplementation libraries.robolectric
+    testImplementation libraries.equalsVerifier
+    testImplementation libraries.okHttpMockWebServer
 
-    androidTestCompile libraries.dexmaker
-    androidTestCompile libraries.mockitoCore
-    androidTestCompile(libraries.espressoCore) {
+    androidTestImplementation libraries.dexmaker
+    androidTestImplementation libraries.mockitoCore
+    androidTestImplementation(libraries.espressoCore) {
         exclude module: 'jsr305'
     }
-    androidTestCompile libraries.dexmakerMockito
-    androidTestCompile libraries.supportTestRules
-    androidTestCompile libraries.supportTestRunner
-    androidTestCompile(libraries.espressoContrib) {
+    androidTestImplementation libraries.dexmakerMockito
+    androidTestImplementation libraries.supportTestRules
+    androidTestImplementation libraries.supportTestRunner
+    androidTestImplementation(libraries.espressoContrib) {
         // Causes IncompatibleClassChangeError. As always…
         exclude module: 'jsr305'
         exclude module: 'support-annotations'

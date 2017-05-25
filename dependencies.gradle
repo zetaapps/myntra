@@ -11,7 +11,7 @@ ext.versions = [
 
         facebookSdkVersion                    : "4.18.0",
 
-        butterKnifeVersion                    : "8.5.1",
+        butterKnifeVersion                    : "8.6.0",
         bundlerVersion                        : "1.1.2",
         eventBusVersion                       : "3.0.0",
 
@@ -21,10 +21,11 @@ ext.versions = [
         ormliteVersion                        : "4.48",
         prettyTimeVersion                     : "3.2.7.Final",
 
-        autoValue                             : "1.4.1",
-        autoValueParcel                       : "0.2.5",
+        autoValueVersion                      : "1.4.1",
+        autoValueJakeWhartonVersion           : "1.4.0",
+        autoValueParcelVersion                : "0.2.5",
 
-        daggerVersion                         : "2.10",
+        daggerVersion                         : "2.11-rc2",
         retrofitVersion                       : "2.1.0",
         rxJavaVersion                         : "1.2.4",
         rxAndroidVersion                      : "1.2.1",
@@ -75,7 +76,7 @@ ext.versions = [
         frodoPluginVersion                    : "0.8.3",
         gmsServicesPluginVersion              : "3.0.0",
 
-        powerMockitoVersion               : '1.6.2',
+        powerMockitoVersion                   : '1.6.2',
 ]
 
 ext.gradlePlugins = [
@@ -150,9 +151,10 @@ ext.libraries = [
         //endregion
 
         //region UTILS
-        autoValue                      : "com.google.auto.value:auto-value:$versions.autoValue",
-        autoValueParcel                : "com.ryanharter.auto.value:auto-value-parcel:$versions.autoValueParcel",
-        autoValueParcelAdapter         : "com.ryanharter.auto.value:auto-value-parcel-adapter:$versions.autoValueParcel",
+        autoValue                      : "com.google.auto.value:auto-value:$versions.autoValueVersion",
+        autoValueJakeWharton           : "com.jakewharton.auto.value:auto-value-annotations:$versions.autoValueJakeWhartonVersion",
+        autoValueParcel                : "com.ryanharter.auto.value:auto-value-parcel:$versions.autoValueParcelVersion",
+        autoValueParcelAdapter         : "com.ryanharter.auto.value:auto-value-parcel-adapter:$versions.autoValueParcelVersion",
 
         butterKnife                    : "com.jakewharton:butterknife:$versions.butterKnifeVersion",
         butterKnifeCompiler            : "com.jakewharton:butterknife-compiler:$versions.butterKnifeVersion",
@@ -225,9 +227,9 @@ ext.libraries = [
         espressoCore                   : "com.android.support.test.espresso:espresso-core:$versions.espressoVersion",
         espressoContrib                : "com.android.support.test.espresso:espresso-contrib:$versions.espressoVersion",
 
-        powerMockitoJunit          : "org.powermock:powermock-module-junit4-rule:$versions.powerMockitoVersion",
-        powerMockitoJunitRule       : "org.powermock:powermock-module-junit4:$versions.powerMockitoVersion",
-        powerMockitoApi            : "org.powermock:powermock-api-mockito:$versions.powerMockitoVersion",
-        powerMockitoClassLoading   : "org.powermock:powermock-classloading-xstream:$versions.powerMockitoVersion",
+        powerMockitoJunit              : "org.powermock:powermock-module-junit4-rule:$versions.powerMockitoVersion",
+        powerMockitoJunitRule          : "org.powermock:powermock-module-junit4:$versions.powerMockitoVersion",
+        powerMockitoApi                : "org.powermock:powermock-api-mockito:$versions.powerMockitoVersion",
+        powerMockitoClassLoading       : "org.powermock:powermock-classloading-xstream:$versions.powerMockitoVersion",
         //endregion
 ]

@@ -11,8 +11,8 @@ buildscript {
     repositories {
         jcenter()
 
-        maven { url "https://maven.google.com" }
         maven { url "https://jitpack.io" }
+        maven { url "https://maven.google.com" }
         maven { url "https://maven.fabric.io/public" }
     }
 
@@ -35,8 +35,8 @@ allprojects {
     repositories {
         jcenter()
 
-        maven { url "https://maven.google.com" }
         maven { url "https://jitpack.io" }
+        maven { url "https://maven.google.com" }
         maven { url "https://maven.fabric.io/public" }
     }
 
@@ -80,12 +80,6 @@ subprojects {
         reports {
             xml.enabled = false
             html.enabled = true
-            xml {
-                destination "$project.buildDir/reports/pmd/pmd.xml"
-            }
-            html {
-                destination "$project.buildDir/reports/pmd/pmd.html"
-            }
         }
     }
 
@@ -105,14 +99,6 @@ subprojects {
         reports {
             xml.enabled = false
             html.enabled = true
-
-            xml {
-                destination "$project.buildDir/reports/findbugs/findbugs.xml"
-                withMessages = true
-            }
-            html {
-                destination "$project.buildDir/reports/findbugs/findbugs.html"
-            }
         }
         classpath = files()
     }
