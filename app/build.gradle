@@ -1,4 +1,3 @@
-apply plugin: 'me.tatarka.retrolambda'
 apply plugin: 'com.android.application'
 apply plugin: 'com.fernandocejas.frodo'
 apply plugin: 'com.neenbedankt.android-apt'
@@ -271,10 +270,6 @@ configurations.all {
         // Force our version of support-annotations, we have a conflict between app and androidTest dependency resolution.
         force libraries.supportAnnotations
     }
-}
-
-retrolambda {
-    jvmArgs '-noverify'
 }
 
 // Map for the version code that gives each ABI a value.

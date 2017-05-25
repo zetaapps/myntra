@@ -11,16 +11,15 @@ buildscript {
     repositories {
         jcenter()
 
+        maven { url "https://maven.google.com" }
         maven { url "https://jitpack.io" }
-        maven { url 'https://maven.fabric.io/public' }
+        maven { url "https://maven.fabric.io/public" }
     }
 
     dependencies {
         classpath gradlePlugins.aptPlugin
         classpath gradlePlugins.frodoPlugin
-        classpath gradlePlugins.lombokPlugin
         classpath gradlePlugins.fabricPlugin
-        classpath gradlePlugins.retroLambdaPlugin
         classpath gradlePlugins.androidToolsPlugin
         classpath gradlePlugins.gmsServicesPlugin
 
@@ -36,8 +35,9 @@ allprojects {
     repositories {
         jcenter()
 
+        maven { url "https://maven.google.com" }
         maven { url "https://jitpack.io" }
-        maven { url 'https://maven.fabric.io/public' }
+        maven { url "https://maven.fabric.io/public" }
     }
 
     // Workaround to prevent Gradle from stealing focus from other apps during tests run/etc.

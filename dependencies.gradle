@@ -71,10 +71,8 @@ ext.versions = [
 
         aptPluginVersion                      : "1.8",
         fabricPluginVersion                   : "1.22.1",
-        gradlePluginVersion                   : "2.3.1",
+        gradlePluginVersion                   : "3.0.0-alpha1",
         frodoPluginVersion                    : "0.8.3",
-        retroLambdaPluginVersion              : "3.6.1",
-        retrolombokPluginVersion              : "0.2.3.a2",
         gmsServicesPluginVersion              : "3.0.0",
 
         powerMockitoVersion               : '1.6.2',
@@ -83,12 +81,10 @@ ext.versions = [
 ext.gradlePlugins = [
         fabricPlugin      : "io.fabric.tools:gradle:$versions.fabricPluginVersion",
         androidToolsPlugin: "com.android.tools.build:gradle:$versions.gradlePluginVersion",
-        retroLambdaPlugin : "me.tatarka:gradle-retrolambda:$versions.retroLambdaPluginVersion",
         frodoPlugin       : "com.fernandocejas.frodo:frodo-plugin:$versions.frodoPluginVersion",
         gmsServicesPlugin : "com.google.gms:google-services:$versions.gmsServicesPluginVersion",
         aptPlugin         : "com.neenbedankt.gradle.plugins:android-apt:$versions.aptPluginVersion",
         butterKnifePlugin : "com.jakewharton:butterknife-gradle-plugin:$versions.butterKnifeVersion",
-        lombokPlugin      : "me.tatarka.retrolambda.projectlombok:lombok.ast:$versions.retrolombokPluginVersion",
 ]
 
 ext.libraries = [
