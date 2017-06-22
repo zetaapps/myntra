@@ -196,6 +196,7 @@ dependencies {
     implementation libraries.retrofit
     implementation libraries.retrofitGsonConverter
     implementation libraries.networkSampler
+    implementation libraries.persistentCookieJar
 
     //PROGRAMMING
     implementation libraries.rxJava

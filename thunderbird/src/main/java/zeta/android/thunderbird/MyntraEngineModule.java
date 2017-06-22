@@ -2,7 +2,6 @@ package zeta.android.thunderbird;
 
 import android.content.Context;
 
-import com.franmontiel.persistentcookiejar.BuildConfig;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 

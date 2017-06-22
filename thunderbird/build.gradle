@@ -95,7 +95,6 @@ dependencies {
 
     implementation libraries.rxJava
     implementation libraries.rxAndroid
-    implementation libraries.persistentCookieJar
 
     compileOnly libraries.autoValueJakeWharton
     annotationProcessor libraries.autoValue

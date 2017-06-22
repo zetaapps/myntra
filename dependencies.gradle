@@ -22,7 +22,7 @@ ext.versions = [
         prettyTimeVersion                     : "3.2.7.Final",
 
         autoValueVersion                      : "1.4.1",
-        autoValueJakeWhartonVersion           : "1.4.0",
+        autoValueJakeWhartonVersion           : "1.4",
         autoValueParcelVersion                : "0.2.5",
 
         daggerVersion                         : "2.11-rc2",
@@ -72,7 +72,7 @@ ext.versions = [
 
         aptPluginVersion                      : "1.8",
         fabricPluginVersion                   : "1.22.1",
-        gradlePluginVersion                   : "3.0.0-alpha1",
+        gradlePluginVersion                   : "3.0.0-alpha4",
         frodoPluginVersion                    : "0.8.3",
         gmsServicesPluginVersion              : "3.0.0",
 
