@@ -98,7 +98,6 @@ dependencies {
 
     compileOnly libraries.autoValueJakeWharton
     annotationProcessor libraries.autoValue
-    compileOnly libraries.autoValueParcelAdapter
     annotationProcessor libraries.autoValueParcel
 
     implementation libraries.jsr305
