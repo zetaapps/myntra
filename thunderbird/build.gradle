@@ -36,8 +36,6 @@ android {
         lintConfig file("../config/lint/lint.xml")
     }
 
-    publishNonDefault true
-
     buildTypes {
 
         automation.initWith(buildTypes.debug)
@@ -90,7 +88,6 @@ dependencies {
     implementation libraries.retrofit
     implementation libraries.retrofitRxAdapter
     implementation libraries.retrofitGsonConverter
-
     automationImplementation libraries.retrofitMock
 
     implementation libraries.rxJava
