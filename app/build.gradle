@@ -195,6 +195,7 @@ dependencies {
     implementation libraries.okHttp3LogInterceptor
     implementation libraries.retrofit
     implementation libraries.retrofitGsonConverter
+    automationImplementation libraries.retrofitMock
     implementation libraries.networkSampler
     implementation libraries.persistentCookieJar
 

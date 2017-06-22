@@ -28,7 +28,7 @@ buildscript {
     }
 
     // Part of workaround for Lint + Retrolambda.
-    configurations.classpath.exclude group: 'com.android.tools.external.lombok'
+    //configurations.classpath.exclude group: 'com.android.tools.external.lombok'
 }
 
 allprojects {
