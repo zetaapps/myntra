@@ -47,7 +47,7 @@ ext.versions = [
         lynxVersion                           : '1.6',
         stethoVersion                         : '1.5.0',
         tinyDancerVersion                     : '0.1.0',
-        timberVersion                         : "4.1.2",
+        timberVersion                         : "4.5.1",
         leakcanaryVersion                     : "1.5",
 
         zetaUtilsVersion                      : "0.4",
