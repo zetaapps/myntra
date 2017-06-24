@@ -1,4 +1,4 @@
-# Myntra(Unofficial) - Fashion Retail App.
+# Myntra(unofficial) - Fashion Retail App.
 
 [![Platform](https://img.shields.io/badge/platform-android-green.svg)](http://developer.android.com/index.html)
 ![SDK](https://img.shields.io/badge/SDK-16%2B-green.svg)
@@ -8,7 +8,7 @@
 LICENCE
 -----
 
-Myntra(Unoffcial) using Zeta bootstrap. by [Manjunath Chandrashekar](https://www.linkedin.com/in/manjunath-chandrashekar) is licensed under a [Apache License 2.0](http://www.apache.org/licenses/LICENSE-2.0).
+Myntra(unoffcial) using Zeta bootstrap. by [Manjunath Chandrashekar](https://www.linkedin.com/in/manjunath-chandrashekar) is licensed under a [Apache License 2.0](http://www.apache.org/licenses/LICENSE-2.0).
 
     Copyright 2016 Manjunath Chandrashekar
 
