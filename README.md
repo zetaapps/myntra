@@ -8,7 +8,7 @@
 LICENCE
 -----
 
-Zeta by [Manjunath Chandrashekar](https://www.linkedin.com/in/manjunath-chandrashekar) is licensed under a [Apache License 2.0](http://www.apache.org/licenses/LICENSE-2.0).
+Myntra(Unoffcial) using Zeta bootstrap. by [Manjunath Chandrashekar](https://www.linkedin.com/in/manjunath-chandrashekar) is licensed under a [Apache License 2.0](http://www.apache.org/licenses/LICENSE-2.0).
 
     Copyright 2016 Manjunath Chandrashekar
 
