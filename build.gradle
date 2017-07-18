@@ -124,7 +124,7 @@ subprojects {
         def checkTask = tasks.findByName('check')
 
         //Disabled for now
-        //checkTask.dependsOn('pmd')
+        checkTask.dependsOn('pmd')
         //checkTask.dependsOn('findbugs')
         //checkTask.dependsOn('checkstyle')
 
