@@ -69,14 +69,12 @@ ext.versions = [
         supportTestRunnerVersion              : '0.4.1',
         supportTestVersion                    : "0.4.1",
         espressoVersion                       : '2.2.1',
+        powerMockitoVersion                   : '1.6.2',
 
-        aptPluginVersion                      : "1.8",
         fabricPluginVersion                   : "1.22.1",
         gradlePluginVersion                   : "3.0.0-alpha6",
         frodoPluginVersion                    : "0.8.3",
         gmsServicesPluginVersion              : "3.0.0",
-
-        powerMockitoVersion                   : '1.6.2',
 ]
 
 ext.gradlePlugins = [
@@ -84,7 +82,6 @@ ext.gradlePlugins = [
         androidToolsPlugin: "com.android.tools.build:gradle:$versions.gradlePluginVersion",
         frodoPlugin       : "com.fernandocejas.frodo:frodo-plugin:$versions.frodoPluginVersion",
         gmsServicesPlugin : "com.google.gms:google-services:$versions.gmsServicesPluginVersion",
-        aptPlugin         : "com.neenbedankt.gradle.plugins:android-apt:$versions.aptPluginVersion",
         butterKnifePlugin : "com.jakewharton:butterknife-gradle-plugin:$versions.butterKnifeVersion",
 ]
 

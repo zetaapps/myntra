@@ -6,10 +6,6 @@ android {
     compileSdkVersion versions.compileSdk
     buildToolsVersion versions.buildTools
 
-    dexOptions {
-        javaMaxHeapSize "4g"
-    }
-
     defaultConfig {
         applicationId "zeta.android.myntra"
         minSdkVersion versions.minSdk

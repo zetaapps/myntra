@@ -7,14 +7,13 @@ buildscript {
 
     repositories {
         jcenter()
+        google()
 
         maven { url "https://jitpack.io" }
-        maven { url "https://maven.google.com" }
         maven { url "https://maven.fabric.io/public" }
     }
 
     dependencies {
-        classpath gradlePlugins.aptPlugin
         classpath gradlePlugins.frodoPlugin
         classpath gradlePlugins.fabricPlugin
         classpath gradlePlugins.androidToolsPlugin
@@ -29,9 +28,9 @@ buildscript {
 allprojects {
     repositories {
         jcenter()
+        google()
 
         maven { url "https://jitpack.io" }
-        maven { url "https://maven.google.com" }
         maven { url "https://maven.fabric.io/public" }
     }
 
@@ -122,9 +121,9 @@ subprojects {
         def checkTask = tasks.findByName('check')
 
         //Disabled for now
-        //checkTask.dependsOn('pmd')
+        checkTask.dependsOn('pmd')
         //checkTask.dependsOn('findbugs')
-        //checkTask.dependsOn('checkstyle')
+        checkTask.dependsOn('checkstyle')
 
         // Log instrumentation tests results.
         tasks.withType(AndroidTestTask) { task ->
