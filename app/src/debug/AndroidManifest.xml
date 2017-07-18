@@ -6,4 +6,12 @@
     <uses-permission android:name="android.permission.READ_LOGS" />
     <uses-permission android:name="android.permission.ACCESS_MOCK_LOCATION" />
 
+    <application>
+
+        <!--- Firebase -->
+        <meta-data
+            android:name="firebase_performance_logcat_enabled"
+            android:value="true" />
+    </application>
+
 </manifest>
