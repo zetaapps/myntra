@@ -15,7 +15,7 @@ public class EventBusModule {
 
     @Provides
     @Singleton
-    public EventBus provideEventBus(NoEventSubscribersHandler noEventSubscribersHandler) {
+    EventBus provideEventBus(NoEventSubscribersHandler noEventSubscribersHandler) {
         final EventBus eventBus = EventBus.builder().installDefaultEventBus();
         eventBus.register(new NoSubscribersListener(noEventSubscribersHandler));
         return eventBus;

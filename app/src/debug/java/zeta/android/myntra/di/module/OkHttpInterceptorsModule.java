@@ -23,7 +23,7 @@ public class OkHttpInterceptorsModule {
 
     @Provides
     @Singleton
-    public HttpLoggingInterceptor provideHttpLoggingInterceptor(DebugSharedPreferences sharedPreferences) {
+    HttpLoggingInterceptor provideHttpLoggingInterceptor(DebugSharedPreferences sharedPreferences) {
         final HttpLoggingInterceptor logging = new HttpLoggingInterceptor(message -> Timber.d(message));
         logging.setLevel(sharedPreferences.getHttpLoggingLevel());
         return logging;
@@ -32,14 +32,14 @@ public class OkHttpInterceptorsModule {
     @Provides
     @Singleton
     @OkHttpInterceptors
-    public List<Interceptor> provideOkHttpInterceptors(HttpLoggingInterceptor httpLoggingInterceptor) {
+    List<Interceptor> provideOkHttpInterceptors(HttpLoggingInterceptor httpLoggingInterceptor) {
         return singletonList(httpLoggingInterceptor);
     }
 
     @Provides
     @Singleton
     @OkHttpNetworkInterceptors
-    public List<Interceptor> provideOkHttpNetworkInterceptors() {
+    List<Interceptor> provideOkHttpNetworkInterceptors() {
         return emptyList();
     }
 

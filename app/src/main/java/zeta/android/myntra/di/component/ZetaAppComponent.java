@@ -8,6 +8,7 @@ import zeta.android.myntra.di.module.ConfigModule;
 import zeta.android.myntra.di.module.DebugModule;
 import zeta.android.myntra.di.module.EventBusModule;
 import zeta.android.myntra.di.module.EventBusNoSubscriberModule;
+import zeta.android.myntra.di.module.FirebaseModule;
 import zeta.android.myntra.di.module.NetworkModule;
 import zeta.android.myntra.di.module.OkHttpInterceptorsModule;
 import zeta.android.myntra.di.module.SessionTokenModule;
@@ -31,6 +32,7 @@ import zeta.android.thunderbird.modules.SessionModule;
 @Component(modules = {
         DebugModule.class,
         ConfigModule.class,
+        FirebaseModule.class,
         NetworkModule.class,
         ZetaAppModule.class,
         EventBusModule.class,

@@ -27,7 +27,7 @@ public class DebugModule {
     }
 
     @Provides
-    public LynxConfig provideLynxConfig() {
+    LynxConfig provideLynxConfig() {
         return new LynxConfig();
     }
 }

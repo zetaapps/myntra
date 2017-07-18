@@ -29,10 +29,10 @@ public class NetworkModule {
     @Provides
     @Singleton
     @Named
-    public OkHttpClient provideOkHttpClient(Context context,
-                                            ConnectivityProvider connectivityProvider,
-                                            @OkHttpInterceptors List<Interceptor> interceptors,
-                                            @OkHttpNetworkInterceptors List<Interceptor> networkInterceptors) {
+    OkHttpClient provideOkHttpClient(Context context,
+                                     ConnectivityProvider connectivityProvider,
+                                     @OkHttpInterceptors List<Interceptor> interceptors,
+                                     @OkHttpNetworkInterceptors List<Interceptor> networkInterceptors) {
         //Common interceptors / other OkHttp builder things should go here
         final OkHttpClient.Builder okHttpBuilder = new OkHttpClient.Builder()
                 .readTimeout(THIRTY_SECONDS, TimeUnit.SECONDS)
