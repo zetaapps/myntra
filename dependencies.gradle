@@ -75,6 +75,7 @@ ext.versions = [
         gradlePluginVersion                   : "3.0.0-alpha6",
         frodoPluginVersion                    : "0.8.3",
         gmsServicesPluginVersion              : "3.0.0",
+        firebasePluginVersion                 : "1.1.0",
 ]
 
 ext.gradlePlugins = [
@@ -82,6 +83,7 @@ ext.gradlePlugins = [
         androidToolsPlugin: "com.android.tools.build:gradle:$versions.gradlePluginVersion",
         frodoPlugin       : "com.fernandocejas.frodo:frodo-plugin:$versions.frodoPluginVersion",
         gmsServicesPlugin : "com.google.gms:google-services:$versions.gmsServicesPluginVersion",
+        firebasePlugin    : "com.google.firebase:firebase-plugins:$versions.firebasePluginVersion",
         butterKnifePlugin : "com.jakewharton:butterknife-gradle-plugin:$versions.butterKnifeVersion",
 ]
 
@@ -113,6 +115,7 @@ ext.libraries = [
 
         //region firebase
         appIndexing                    : "com.google.firebase:firebase-appindexing:$versions.playServicesVersion",
+        firebasePerf                   : "com.google.firebase:firebase-perf:$versions.playServicesVersion",
         //endregion
 
         //region facebook
