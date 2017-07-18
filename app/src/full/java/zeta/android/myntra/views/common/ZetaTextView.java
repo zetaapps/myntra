@@ -4,6 +4,7 @@ import android.content.Context;
 import android.support.v7.widget.AppCompatTextView;
 import android.util.AttributeSet;
 
+import javax.annotation.Nullable;
 import javax.annotation.ParametersAreNonnullByDefault;
 
 import zeta.android.myntra.views.common.utils.ZetaFontUtils;
@@ -36,7 +37,7 @@ public class ZetaTextView extends AppCompatTextView {
         init(context, attrs);
     }
 
-    private void init(Context context, AttributeSet attrs) {
+    private void init(Context context, @Nullable AttributeSet attrs) {
         if (!isInEditMode()) {
             setTypeface(ZetaFontUtils.getTypeface(context, attrs));
         }
