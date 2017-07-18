@@ -114,6 +114,7 @@ ext.libraries = [
         //endregion
 
         //region firebase
+        firebaseCore                   : "com.google.firebase:firebase-core:$versions.playServicesVersion",
         firebasePerf                   : "com.google.firebase:firebase-perf:$versions.playServicesVersion",
         firebaseConfig                 : "com.google.firebase:firebase-config:$versions.playServicesVersion",
         firebaseAppIndexing            : "com.google.firebase:firebase-appindexing:$versions.playServicesVersion",
