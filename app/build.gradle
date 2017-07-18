@@ -169,6 +169,7 @@ dependencies {
 
     //Firebase
     implementation libraries.firebasePerf
+    implementation libraries.firebaseConfig
 
     //Chrome
     implementation libraries.chromeCustomTab
@@ -310,4 +311,6 @@ android.applicationVariants.all { variant ->
         }
     }
 }
+
+apply plugin: 'com.google.gms.google-services'
 

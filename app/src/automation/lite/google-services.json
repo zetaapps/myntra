@@ -1,0 +1,231 @@
+{
+  "project_info": {
+    "project_number": "341073748622",
+    "firebase_url": "https://myntra-unofficial.firebaseio.com",
+    "project_id": "myntra-unofficial",
+    "storage_bucket": "myntra-unofficial.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:341073748622:android:80ab8bb296725b3a",
+        "android_client_info": {
+          "package_name": "zeta.android.myntra"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "341073748622-jpms2utl3dqor91rjecl2dbnfmiqvpi3.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "zeta.android.myntra",
+            "certificate_hash": "342d1ea6eb7b7d55d9051c77a846fdd1634573a2"
+          }
+        },
+        {
+          "client_id": "341073748622-87a4mghhussuu79p2tqcc3i6f9i7cdb9.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDGPuR8UNmpH1e4Xn70Vjy5zPB69jqlJV4"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "341073748622-87a4mghhussuu79p2tqcc3i6f9i7cdb9.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:341073748622:android:6292bce8793687c7",
+        "android_client_info": {
+          "package_name": "zeta.android.myntra.full"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "341073748622-6ei36afi0potdptbnm03ssu5jff78gek.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "zeta.android.myntra.full",
+            "certificate_hash": "342d1ea6eb7b7d55d9051c77a846fdd1634573a2"
+          }
+        },
+        {
+          "client_id": "341073748622-87a4mghhussuu79p2tqcc3i6f9i7cdb9.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDGPuR8UNmpH1e4Xn70Vjy5zPB69jqlJV4"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "341073748622-87a4mghhussuu79p2tqcc3i6f9i7cdb9.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:341073748622:android:7d520dce812e54be",
+        "android_client_info": {
+          "package_name": "zeta.android.myntra.lite"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "341073748622-uf5skaife1k44785umv14afo4ts2fhep.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "zeta.android.myntra.lite",
+            "certificate_hash": "342d1ea6eb7b7d55d9051c77a846fdd1634573a2"
+          }
+        },
+        {
+          "client_id": "341073748622-87a4mghhussuu79p2tqcc3i6f9i7cdb9.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDGPuR8UNmpH1e4Xn70Vjy5zPB69jqlJV4"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "341073748622-87a4mghhussuu79p2tqcc3i6f9i7cdb9.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:341073748622:android:b6501b66497ce1f0",
+        "android_client_info": {
+          "package_name": "zeta.android.myntra.full.automation"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "341073748622-cqjahvbaqvqv35uc990pj0u3okv0ifc6.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "zeta.android.myntra.full.automation",
+            "certificate_hash": "342d1ea6eb7b7d55d9051c77a846fdd1634573a2"
+          }
+        },
+        {
+          "client_id": "341073748622-87a4mghhussuu79p2tqcc3i6f9i7cdb9.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDGPuR8UNmpH1e4Xn70Vjy5zPB69jqlJV4"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "341073748622-87a4mghhussuu79p2tqcc3i6f9i7cdb9.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:341073748622:android:377e896770df2c11",
+        "android_client_info": {
+          "package_name": "zeta.android.myntra.lite.automation"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "341073748622-rrs96la55d0on7b9pbc3a2goajpahs5m.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "zeta.android.myntra.lite.automation",
+            "certificate_hash": "342d1ea6eb7b7d55d9051c77a846fdd1634573a2"
+          }
+        },
+        {
+          "client_id": "341073748622-87a4mghhussuu79p2tqcc3i6f9i7cdb9.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDGPuR8UNmpH1e4Xn70Vjy5zPB69jqlJV4"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "341073748622-87a4mghhussuu79p2tqcc3i6f9i7cdb9.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
