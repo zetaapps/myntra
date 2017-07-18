@@ -276,6 +276,7 @@ dependencies {
         exclude module: 'recyclerview-v7'
         exclude module: 'support-v4'
     }
+    implementation 'com.android.support:support-annotations:26.0.0-beta2'
 }
 
 configurations.all {

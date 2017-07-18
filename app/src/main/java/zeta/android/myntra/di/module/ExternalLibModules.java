@@ -1,4 +1,4 @@
-package zeta.android.myntra.di.modules;
+package zeta.android.myntra.di.module;
 
 import javax.inject.Singleton;
 

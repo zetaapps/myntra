@@ -77,6 +77,8 @@ android {
 }
 
 dependencies {
+    implementation libraries.supportAnnotations
+
     implementation libraries.dagger
     annotationProcessor libraries.daggerCompiler
 

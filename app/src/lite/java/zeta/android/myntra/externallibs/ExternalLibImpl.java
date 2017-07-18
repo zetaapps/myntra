@@ -9,6 +9,6 @@ public class ExternalLibImpl implements ExternalLibs {
 
     @Override
     public void initialize(Context applicationContext) {
-
+        //Do nothing
     }
 }
