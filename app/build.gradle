@@ -1,4 +1,5 @@
 apply plugin: 'com.android.application'
+//apply plugin: 'com.google.firebase.firebase-perf'
 apply plugin: 'com.fernandocejas.frodo'
 apply plugin: 'io.fabric'
 
@@ -164,6 +165,9 @@ dependencies {
     implementation libraries.supportDesign
     implementation libraries.supportAppCompat
     implementation libraries.supportRecyclerView
+
+    //Firebase
+    implementation libraries.firebasePerf
 
     //Chrome
     implementation libraries.chromeCustomTab
