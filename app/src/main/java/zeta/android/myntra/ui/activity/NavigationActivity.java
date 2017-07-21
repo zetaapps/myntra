@@ -141,6 +141,7 @@ public class NavigationActivity extends BaseNavigationActivity implements Naviga
         mNavigationFragmentManager.setFragmentManager(supportFragmentManager);
         mNavigationFragmentManager.setContainerId(R.id.container);
         mNavigationFragmentManager.setDrawerLayout(mViews.drawerLayout);
+        mNavigationFragmentManager.setRightDrawer(mViews.rightDrawerFragmentView);
 //        mNavigationFragmentManager.setDrawer(mViews.leftDrawerFragmentView,
 //                mViews.rightDrawerFragmentView);
 

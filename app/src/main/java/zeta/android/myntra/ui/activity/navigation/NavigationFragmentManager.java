@@ -2,6 +2,7 @@ package zeta.android.myntra.ui.activity.navigation;
 
 
 import android.support.annotation.IdRes;
+import android.support.annotation.IntDef;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -10,6 +11,9 @@ import android.support.v4.app.FragmentTransaction;
 import android.support.v4.widget.DrawerLayout;
 import android.transition.Transition;
 import android.view.View;
+
+import java.lang.annotation.Retention;
+import java.lang.annotation.RetentionPolicy;
 
 import javax.annotation.ParametersAreNonnullByDefault;
 
@@ -31,7 +35,24 @@ public class NavigationFragmentManager {
 
     private FragmentManager mFragmentManager;
 
-    public void setDrawer(@Nullable View leftDrawer, @Nullable View rightDrawer) {
+    @IntDef({AnimationType.SLIDE_RIGHT, AnimationType.SLIDE_BOTTOM})
+    @Retention(RetentionPolicy.SOURCE)
+    public @interface AnimationType {
+        int SLIDE_RIGHT = 1;
+        int SLIDE_BOTTOM = 2;
+    }
+
+
+    public void setRightDrawer(@Nullable View rightDrawer) {
+        mRightDrawer = rightDrawer;
+    }
+
+    public void setLeftDrawer(@Nullable View leftDrawer) {
+        mLeftDrawer = leftDrawer;
+    }
+
+    public void setLeftAndRightDrawer(@Nullable View leftDrawer,
+                                      @Nullable View rightDrawer) {
         mLeftDrawer = leftDrawer;
         mRightDrawer = rightDrawer;
     }
@@ -44,7 +65,7 @@ public class NavigationFragmentManager {
         mContainerId = containerId;
     }
 
-    public void setFragmentManager(@NonNull FragmentManager fragmentManager) {
+    public void setFragmentManager(FragmentManager fragmentManager) {
         mFragmentManager = fragmentManager;
     }
 
@@ -83,7 +104,7 @@ public class NavigationFragmentManager {
         addAsBaseFragment(fragment);
     }
 
-    public void addFragment(@NonNull Fragment fragment) {
+    public void addFragment(Fragment fragment) {
         FragmentTransaction transaction = mFragmentManager.beginTransaction();
         transaction.add(fragment, getDefaultTagForFragment(fragment));
         transaction.commit();
@@ -97,11 +118,11 @@ public class NavigationFragmentManager {
         addFragmentToBackStackWithoutReplace(fragment, getDefaultTagForFragment(fragment));
     }
 
-    public void addFragmentToBackStack(Fragment fragment, AnimationType animationType) {
+    public void addFragmentToBackStack(Fragment fragment, @AnimationType int animationType) {
         addFragmentToBackStack(fragment, animationType, getDefaultTagForFragment(fragment));
     }
 
-    public void addFragmentToBackStack(Fragment fragment, String tag) {
+    public void addFragmentToBackStack(Fragment fragment, @Nullable String tag) {
         //AnimationType.SLIDE_RIGHT -- is default one across the app
         addFragmentToBackStack(fragment, AnimationType.SLIDE_RIGHT, tag);
     }
@@ -111,7 +132,9 @@ public class NavigationFragmentManager {
         addFragmentToBackStackWithoutReplace(fragment, AnimationType.SLIDE_RIGHT, tag);
     }
 
-    public void addFragmentToBackStack(Fragment fragment, AnimationType animationType, String tag) {
+    public void addFragmentToBackStack(Fragment fragment,
+                                       @AnimationType int animationType,
+                                       @Nullable String tag) {
         FragmentTransaction transaction = mFragmentManager.beginTransaction();
         setCustomAnimation(transaction, animationType);
         transaction.replace(mContainerId, fragment, tag);
@@ -121,7 +144,9 @@ public class NavigationFragmentManager {
         closeDrawer();
     }
 
-    public void addFragmentToBackStackWithoutReplace(Fragment fragment, AnimationType animationType, String tag) {
+    public void addFragmentToBackStackWithoutReplace(Fragment fragment,
+                                                     @AnimationType int animationType,
+                                                     String tag) {
         FragmentTransaction transaction = mFragmentManager.beginTransaction();
         setCustomAnimation(transaction, animationType);
         transaction.add(mContainerId, fragment, tag);
@@ -195,11 +220,11 @@ public class NavigationFragmentManager {
         transaction.commit();
     }
 
-    public void swapCurrentFragment(@NonNull Fragment fragment) {
+    public void swapCurrentFragment(Fragment fragment) {
         swapCurrentFragment(fragment, getDefaultTagForFragment(fragment));
     }
 
-    public void swapCurrentFragment(@NonNull Fragment fragment, @Nullable String tag) {
+    public void swapCurrentFragment(Fragment fragment, String tag) {
         if (mFragmentManager.getBackStackEntryCount() == 0) {
             // The current fragment is the base fragment, so we'll just add the new fragment as the
             // base to clear it out.
@@ -212,25 +237,25 @@ public class NavigationFragmentManager {
         addFragmentToBackStack(fragment, tag);
     }
 
-    private void setCustomAnimation(final FragmentTransaction transaction, final AnimationType animationType) {
+    private void setCustomAnimation(final FragmentTransaction transaction,
+                                    @AnimationType int animationType) {
         int enterAnimation;
         int exitAnimation;
         switch (animationType) {
-            case SLIDE_BOTTOM:
+            case AnimationType.SLIDE_BOTTOM:
                 enterAnimation = R.anim.paper_slide_in_bottom;
                 exitAnimation = R.anim.paper_slide_out_bottom;
                 break;
-            case SLIDE_RIGHT:
+            case AnimationType.SLIDE_RIGHT:
             default:
                 enterAnimation = R.anim.paper_slide_in_right;
                 exitAnimation = R.anim.paper_slide_out_right;
                 break;
         }
-        transaction.setCustomAnimations(enterAnimation, R.anim.abc_fade_out, R.anim.abc_fade_in, exitAnimation);
+        transaction.setCustomAnimations(enterAnimation,
+                R.anim.abc_fade_out,
+                R.anim.abc_fade_in,
+                exitAnimation);
     }
 
-    public enum AnimationType {
-        SLIDE_RIGHT,
-        SLIDE_BOTTOM
-    }
 }
