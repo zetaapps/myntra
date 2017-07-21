@@ -7,6 +7,7 @@ import android.support.annotation.Nullable;
 import android.util.AttributeSet;
 import android.view.View;
 import android.widget.FrameLayout;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import javax.annotation.ParametersAreNonnullByDefault;
@@ -21,13 +22,17 @@ import zeta.android.utils.view.ViewUtils;
 public class LeftNavHeaderView extends FrameLayout {
 
     private Views mViews;
+
     @Nullable
     private LeftNavHeaderViewClickListener mListener;
 
     static class Views extends BaseViews {
 
-        @BindView(R.id.header_menu_title)
-        TextView menuTitle;
+        @BindView(R.id.navigation_header_profile_image)
+        ImageView profileImage;
+
+        @BindView(R.id.navigation_header_text)
+        TextView headerTitle;
 
         Views(View view) {
             super(view);
@@ -58,14 +63,14 @@ public class LeftNavHeaderView extends FrameLayout {
     }
 
     public void setData(LeftNavHeaderParams params) {
-        mViews.menuTitle.setText(params.getHeaderTitle());
-        ViewUtils.setToVisible(mViews.menuTitle);
+        mViews.headerTitle.setText(params.getHeaderTitle());
+        ViewUtils.setToVisible(mViews.headerTitle);
     }
 
     private void init() {
         inflate(getContext(), R.layout.view_left_nav_header, this);
         mViews = new Views(this);
-        mViews.menuTitle.setOnClickListener(v -> {
+        mViews.headerTitle.setOnClickListener(v -> {
             if (mListener == null) {
                 return;
             }

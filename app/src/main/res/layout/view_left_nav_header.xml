@@ -1,12 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:background="@color/zeta_md_indigo_700">
 
-    <TextView
-        android:id="@+id/header_menu_title"
+    <ImageView
+        android:id="@+id/navigation_header_profile_image"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        android:layout_marginLeft="@dimen/navigation_header_text_margin_left"
+        android:layout_marginRight="@dimen/no_padding_margin"
+        android:contentDescription="@null" />
 
-</LinearLayout>
+    <zeta.android.myntra.views.common.ZetaTextView
+        android:id="@+id/navigation_header_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="start"
+        android:layout_marginLeft="@dimen/navigation_header_text_margin_left"
+        android:layout_marginRight="@dimen/no_padding_margin"
+        android:ellipsize="end" />
+
+</FrameLayout>

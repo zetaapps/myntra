@@ -2,5 +2,8 @@
 <resources>
 
     <dimen name="right_navigation_guest_image">60dp</dimen>
+    <dimen name="right_navigation_header_height">200dp</dimen>
+
+    <dimen name="navigation_header_text_margin_left">@dimen/default_4x_padding_margin</dimen>
 
 </resources>

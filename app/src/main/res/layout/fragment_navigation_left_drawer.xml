@@ -21,7 +21,7 @@
             <zeta.android.myntra.ui.views.navigation.LeftNavHeaderView
                 android:id="@+id/left_nav_header_view"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+                android:layout_height="@dimen/right_navigation_header_height" />
 
             <zeta.android.myntra.ui.views.navigation.LeftNavFooterView
                 android:id="@+id/left_nav_footer_view"
