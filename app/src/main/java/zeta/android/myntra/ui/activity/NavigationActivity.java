@@ -10,7 +10,6 @@ import android.os.Bundle;
 import android.support.annotation.ColorInt;
 import android.support.annotation.Nullable;
 import android.support.design.widget.AppBarLayout;
-import android.support.design.widget.NavigationView;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.content.ContextCompat;
 import android.support.v4.graphics.drawable.DrawableCompat;
@@ -49,8 +48,8 @@ import zeta.android.myntra.ui.common.BaseViews;
 import zeta.android.myntra.ui.fragment.DebugFragment;
 import zeta.android.myntra.ui.fragment.accounts.AccountsFragment;
 import zeta.android.myntra.ui.fragment.home.HomeFragment;
-import zeta.android.myntra.ui.fragment.navigation.NavigationLeftDrawerFragment;
 import zeta.android.myntra.ui.fragment.myorders.MyOrderFragment;
+import zeta.android.myntra.ui.fragment.navigation.NavigationLeftDrawerFragment;
 import zeta.android.myntra.ui.fragment.navigation.NavigationRightGuestSessionDrawerFragment;
 import zeta.android.myntra.ui.fragment.settings.SettingsFragment;
 import zeta.android.myntra.util.deeplink.BranchDeepLinkUtil;
@@ -84,38 +83,23 @@ public class NavigationActivity extends BaseNavigationActivity implements Naviga
         @BindView(R.id.zeta_toolbar_edit_text)
         EditText toolbarEditText;
 
-        @BindView(R.id.zeta_nav_view)
-        NavigationView navigationView;
-
         @BindView(R.id.container)
         View fragmentContainer;
 
-        ImageView headerImageView;
-
-        TextView headerTitle;
-
-        TextView headerEmail;
-
-        //@BindView(R.id.navigation_left_drawer)
-        //View leftDrawerFragmentView;
+        @BindView(R.id.navigation_left_drawer)
+        View leftDrawerFragmentView;
 
         @BindView(R.id.navigation_right_drawer)
         View rightDrawerFragmentView;
 
-        //NavigationLeftDrawerFragment leftDrawerFragment;
-
+        NavigationLeftDrawerFragment leftDrawerFragment;
         NavigationRightGuestSessionDrawerFragment rightDrawerFragment;
 
         @SuppressWarnings("ConstantConditions")
         Views(AppCompatActivity root) {
             super(root.findViewById(R.id.zeta_drawer_layout));
-            final View headerView = navigationView.getHeaderView(0);
-            headerImageView = (ImageView) headerView.findViewById(R.id.header_image_view);
-            headerTitle = (TextView) headerView.findViewById(R.id.header_title);
-            headerEmail = (TextView) headerView.findViewById(R.id.header_email);
-
-//            leftDrawerFragment = (NavigationLeftDrawerFragment)
-//                    root.getSupportFragmentManager().findFragmentById(R.id.navigation_left_drawer);
+            leftDrawerFragment = (NavigationLeftDrawerFragment)
+                    root.getSupportFragmentManager().findFragmentById(R.id.navigation_left_drawer);
 
             rightDrawerFragment = (NavigationRightGuestSessionDrawerFragment)
                     root.getSupportFragmentManager().findFragmentById(R.id.navigation_right_drawer);
@@ -137,13 +121,15 @@ public class NavigationActivity extends BaseNavigationActivity implements Naviga
         mViews = new Views(this);
         setSupportActionBar(mViews.toolbar);
 
-        final FragmentManager supportFragmentManager = getSupportFragmentManager();
-        mNavigationFragmentManager.setFragmentManager(supportFragmentManager);
+        //Navigation manager initialization.
         mNavigationFragmentManager.setContainerId(R.id.container);
         mNavigationFragmentManager.setDrawerLayout(mViews.drawerLayout);
+
+        mNavigationFragmentManager.setLeftDrawer(mViews.leftDrawerFragmentView);
         mNavigationFragmentManager.setRightDrawer(mViews.rightDrawerFragmentView);
-//        mNavigationFragmentManager.setDrawer(mViews.leftDrawerFragmentView,
-//                mViews.rightDrawerFragmentView);
+
+        final FragmentManager supportFragmentManager = getSupportFragmentManager();
+        mNavigationFragmentManager.setFragmentManager(supportFragmentManager);
 
         mDrawerToggle = new ActionBarDrawerToggle(
                 this, mViews.drawerLayout, mViews.toolbar,
@@ -153,8 +139,6 @@ public class NavigationActivity extends BaseNavigationActivity implements Naviga
         mDrawerToggle.syncState();
 
         mPresenter.onCreate(this);
-
-        mViews.navigationView.setNavigationItemSelectedListener(this);
 
         if (savedInstanceState == null) {
             mNavigationFragmentManager.addAsBaseFragment(HomeFragment.newInstance());
@@ -212,37 +196,10 @@ public class NavigationActivity extends BaseNavigationActivity implements Naviga
         handleIncomingIntent(intent);
     }
 
-    @Override
-    public boolean onNavigationItemSelected(MenuItem item) {
-        switch (item.getItemId()) {
-            case R.id.nav_home:
-                mPresenter.onMenuItemHomeSelected();
-                break;
-            case R.id.nav_accounts:
-                mPresenter.onMenuItemAccountsSelected();
-                break;
-            case R.id.nav_refer_and_earn:
-                mPresenter.onMenuItemReferAndEarnSelected();
-                break;
-            case R.id.nav_my_orders:
-                mPresenter.onMenuItemMyOrdersSelected();
-                break;
-            case R.id.nav_settings:
-                mPresenter.onMenuItemSettingsSelected();
-                break;
-            case R.id.nav_debug:
-                mPresenter.onMenuItemDebugSelected();
-                break;
-        }
-        mViews.drawerLayout.closeDrawer(GravityCompat.START);
-        return true;
-    }
-
     //region NavigationPresentation
     @Override
     public void showDebugMenuItem(boolean show) {
-        final Menu menu = mViews.navigationView.getMenu();
-        menu.findItem(R.id.nav_debug).setVisible(show);
+        //TODO::need to implement this yet
     }
 
     @Override

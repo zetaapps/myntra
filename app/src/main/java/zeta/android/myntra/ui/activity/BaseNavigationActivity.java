@@ -1,7 +1,5 @@
 package zeta.android.myntra.ui.activity;
 
-import android.support.design.widget.NavigationView;
-
 import javax.annotation.ParametersAreNonnullByDefault;
 import javax.inject.Inject;
 
@@ -15,8 +13,7 @@ import zeta.android.myntra.ui.activity.navigation.interfaces.IToolBarManipulatio
 public abstract class BaseNavigationActivity extends DaggerAwareActivity implements
         INavigationFragmentManager,
         IToolBarManipulation,
-        DrawerToggleManager,
-        NavigationView.OnNavigationItemSelectedListener {
+        DrawerToggleManager {
 
     @Inject
     protected NavigationFragmentManager mNavigationFragmentManager;

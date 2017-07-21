@@ -1,6 +1,5 @@
 package zeta.android.myntra.ui.activity.navigation;
 
-
 import android.support.annotation.IdRes;
 import android.support.annotation.IntDef;
 import android.support.annotation.NonNull;
@@ -41,7 +40,6 @@ public class NavigationFragmentManager {
         int SLIDE_RIGHT = 1;
         int SLIDE_BOTTOM = 2;
     }
-
 
     public void setRightDrawer(@Nullable View rightDrawer) {
         mRightDrawer = rightDrawer;

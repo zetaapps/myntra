@@ -15,6 +15,7 @@
         android:layout_height="match_parent" />
 
 
+    <!--
     <android.support.design.widget.NavigationView
         android:id="@+id/zeta_nav_view"
         android:layout_width="wrap_content"
@@ -25,9 +26,9 @@
         app:itemIconTint="@color/zeta_md_black_1000"
         app:itemTextColor="@color/zeta_md_black_1000"
         app:menu="@menu/activity_navigation_drawer" />
+        -->
 
     <!-- left navigation -->
-    <!--
     <fragment
         android:id="@+id/navigation_left_drawer"
         android:name="zeta.android.myntra.ui.fragment.navigation.NavigationLeftDrawerFragment"
@@ -36,7 +37,6 @@
         android:layout_gravity="start"
         android:fitsSystemWindows="true" />
 
-    -->
     <!-- right navigation -->
     <fragment
         android:id="@+id/navigation_right_drawer"
