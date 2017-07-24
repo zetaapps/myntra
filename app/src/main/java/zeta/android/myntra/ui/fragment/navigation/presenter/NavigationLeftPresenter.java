@@ -29,8 +29,7 @@ public class NavigationLeftPresenter extends ZetaRxFragmentLifeCyclePresenter<Na
 
     @Override
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
-        mPresentation.inflateMenu(menu, inflater, R.menu.product_details_menu);
-        mPresentation.showActionBarText(StringUtils.EMPTY_STRING);
+        //TODO::
     }
 
     @Override
