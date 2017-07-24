@@ -3,6 +3,8 @@ package zeta.android.myntra.ui.fragment.navigation;
 import android.os.Bundle;
 import android.os.Parcelable;
 import android.support.annotation.Nullable;
+import android.support.annotation.StringRes;
+import android.support.design.widget.Snackbar;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -130,18 +132,8 @@ public class NavigationLeftDrawerFragment extends BaseNavigationFragment impleme
     }
 
     @Override
-    public void inflateMenu(Menu menu, MenuInflater inflater, int menuResId) {
-
-    }
-
-    @Override
-    public void showActionBarText(String actionBarTitle) {
-
-    }
-
-    @Override
-    public void showSnackBarMessage(int message) {
-
+    public void showSnackBarMessage(@StringRes int message) {
+        Snackbar.make(mViews.getRootView(), message, Snackbar.LENGTH_SHORT).show();
     }
 
     @Override
@@ -154,28 +146,28 @@ public class NavigationLeftDrawerFragment extends BaseNavigationFragment impleme
 
     @Override
     public void navigateToCategories() {
-        //TODO::Categories
         if (onSavedInstanceStateCalled()) {
             return;
         }
+        //TODO::Categories
         getNavigationFragmentManager().addAsBaseFragment(AccountsFragment.newInstance());
     }
 
     @Override
     public void navigateToGiftCards() {
-        //TODO::Gift cards
         if (onSavedInstanceStateCalled()) {
             return;
         }
+        //TODO::Gift cards
         getNavigationFragmentManager().addAsBaseFragment(MyOrderFragment.newInstance());
     }
 
     @Override
     public void navigateToReferAndEarn() {
-        //TODO::Refer and earn
         if (onSavedInstanceStateCalled()) {
             return;
         }
+        //TODO::Refer and earn
         getNavigationFragmentManager().addAsBaseFragment(MyOrderFragment.newInstance());
     }
 
@@ -189,10 +181,10 @@ public class NavigationLeftDrawerFragment extends BaseNavigationFragment impleme
 
     @Override
     public void navigateToAbout() {
-        //TODO::About
         if (onSavedInstanceStateCalled()) {
             return;
         }
+        //TODO::About
         getNavigationFragmentManager().addAsBaseFragment(SettingsFragment.newInstance());
     }
 

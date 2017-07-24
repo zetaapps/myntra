@@ -10,11 +10,6 @@ import com.github.metagalactic2.views.ExpandableImageViewPagerItem;
 import java.util.List;
 
 public interface NavigationLeftPresentation {
-
-    void inflateMenu(Menu menu, MenuInflater inflater, @MenuRes int menuResId);
-
-    void showActionBarText(String actionBarTitle);
-
     void showSnackBarMessage(@StringRes int message);
 
     void navigateToHome();
