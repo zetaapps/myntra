@@ -1,0 +1,16 @@
+<resources>
+
+    <style name="NavigationText">
+        <item name="android:textAllCaps">true</item>
+        <item name="android:textColor">@color/zeta_md_black_1000</item>
+    </style>
+
+    <style name="NavigationText.Menu">
+        <item name="android:textSize">@dimen/mediumTextSize</item>
+    </style>
+
+    <style name="NavigationText.SubMenu">
+        <item name="android:textSize">@dimen/smallTextSize</item>
+    </style>
+
+</resources>

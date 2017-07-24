@@ -3,57 +3,88 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <LinearLayout
-        android:layout_height="wrap_content"
         android:layout_width="match_parent"
-        android:orientation="vertical"
+        android:layout_height="wrap_content"
         android:background="@color/zeta_white"
-        android:paddingRight="@dimen/no_padding_margin"
-        android:paddingLeft="@dimen/navigation_padding_left"
+        android:orientation="vertical"
         android:paddingEnd="@dimen/no_padding_margin"
+        android:showDividers="middle"
+        android:divider="@color/divider_color"
+        android:paddingLeft="@dimen/navigation_padding_left"
+        android:paddingRight="@dimen/no_padding_margin"
         android:paddingStart="@dimen/navigation_padding_left">
 
         <zeta.android.myntra.views.common.ZetaTextView
+            android:id="@+id/nav_right_primary_home"
+            style="@style/NavigationText.Menu"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:gravity="center|left"
-            tools:text="test"
-            android:drawablePadding="@dimen/default_2x_padding_margin"
-            android:drawableLeft="@drawable/ic_home_black_48dp"
+            android:layout_marginEnd="@dimen/no_padding_margin"
             android:layout_marginLeft="@dimen/navigation_padding_left"
             android:layout_marginRight="@dimen/no_padding_margin"
             android:layout_marginStart="@dimen/navigation_padding_left"
-            android:layout_marginEnd="@dimen/no_padding_margin"
-            tools:ignore="RtlHardcoded" />
+            android:drawableLeft="@drawable/ic_home_black_24dp"
+            android:drawablePadding="@dimen/default_4x_padding_margin"
+            android:drawableTint="@color/colorPrimary"
+            android:gravity="center|left"
+            android:text="@string/myntra_navigation_left_primary_menu_home"
+            tools:ignore="RtlHardcoded"
+            tools:text="test" />
 
         <zeta.android.myntra.views.common.ZetaTextView
+            android:id="@+id/nav_right_primary_categories"
+            style="@style/NavigationText.Menu"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:gravity="center|left"
-            tools:text="test2"
-            android:drawablePadding="@dimen/default_2x_padding_margin"
-            android:drawableLeft="@drawable/ic_home_black_48dp"
+            android:layout_marginEnd="@dimen/no_padding_margin"
             android:layout_marginLeft="@dimen/navigation_padding_left"
             android:layout_marginRight="@dimen/no_padding_margin"
             android:layout_marginStart="@dimen/navigation_padding_left"
-            android:layout_marginEnd="@dimen/no_padding_margin"
-            tools:ignore="RtlHardcoded" />
-
+            android:drawableLeft="@drawable/ic_view_quilt_black_24dp"
+            android:drawablePadding="@dimen/default_4x_padding_margin"
+            android:drawableTint="@color/colorPrimary"
+            android:gravity="center|left"
+            android:text="@string/myntra_navigation_left_primary_menu_categories"
+            tools:ignore="RtlHardcoded"
+            tools:text="test" />
 
         <zeta.android.myntra.views.common.ZetaTextView
+            android:id="@+id/nav_right_primary_giftcards"
+            style="@style/NavigationText.Menu"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:gravity="center|left"
-            tools:text="test3"
-            android:drawablePadding="@dimen/default_2x_padding_margin"
-            android:drawableLeft="@drawable/ic_home_black_48dp"
+            android:layout_marginEnd="@dimen/no_padding_margin"
             android:layout_marginLeft="@dimen/navigation_padding_left"
             android:layout_marginRight="@dimen/no_padding_margin"
             android:layout_marginStart="@dimen/navigation_padding_left"
+            android:drawableLeft="@drawable/ic_card_giftcard_black_24dp"
+            android:drawablePadding="@dimen/default_4x_padding_margin"
+            android:drawableTint="@color/colorPrimary"
+            android:gravity="center|left"
+            android:text="@string/myntra_navigation_left_primary_menu_giftcard"
+            tools:ignore="RtlHardcoded"
+            tools:text="test2" />
+
+        <zeta.android.myntra.views.common.ZetaTextView
+            android:id="@+id/nav_right_primary_refer_and_earn"
+            style="@style/NavigationText.Menu"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
             android:layout_marginEnd="@dimen/no_padding_margin"
-            tools:ignore="RtlHardcoded" />
+            android:layout_marginLeft="@dimen/navigation_padding_left"
+            android:layout_marginRight="@dimen/no_padding_margin"
+            android:layout_marginStart="@dimen/navigation_padding_left"
+            android:drawableLeft="@drawable/ic_people_black_24dp"
+            android:drawablePadding="@dimen/default_4x_padding_margin"
+            android:drawableTint="@color/colorPrimary"
+            android:gravity="center|left"
+            android:text="@string/myntra_navigation_left_primary_menu_refer_and_earn"
+            tools:ignore="RtlHardcoded"
+            tools:text="test3" />
 
 
     </LinearLayout>

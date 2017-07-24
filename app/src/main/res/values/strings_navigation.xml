@@ -3,4 +3,13 @@
     <string name="zeta_navigation_right_guest_express_your_style">express your style!</string>
     <string name="zeta_navigation_right_guest_express_your_style_sub_title">Log In or Sign Up to like, collect and manage orders</string>
 
+
+    <string name="myntra_navigation_left_primary_menu_home">home</string>
+    <string name="myntra_navigation_left_primary_menu_categories">categories</string>
+    <string name="myntra_navigation_left_primary_menu_giftcard">giftcards</string>
+    <string name="myntra_navigation_left_primary_menu_refer_and_earn">refer &amp; and earn</string>
+
+    <string name="myntra_navigation_left_secondary_menu_settings">settings</string>
+    <string name="myntra_navigation_left_secondary_menu_about">about</string>
+
 </resources>
