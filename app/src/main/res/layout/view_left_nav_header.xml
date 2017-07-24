@@ -1,16 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     android:background="@color/zeta_md_indigo_700">
 
     <ImageView
         android:id="@+id/navigation_header_profile_image"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:visibility="gone"
+        android:layout_marginEnd="@dimen/no_padding_margin"
         android:layout_marginLeft="@dimen/navigation_header_text_margin_left"
         android:layout_marginRight="@dimen/no_padding_margin"
+        app:srcCompat="@drawable/ic_chat_black_48dp"
+        android:layout_marginStart="@dimen/navigation_header_text_margin_left"
         android:contentDescription="@null" />
 
     <zeta.android.myntra.views.common.ZetaTextView
@@ -18,8 +22,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="start"
+        android:layout_marginEnd="@dimen/no_padding_margin"
         android:layout_marginLeft="@dimen/navigation_header_text_margin_left"
         android:layout_marginRight="@dimen/no_padding_margin"
+        android:layout_marginStart="@dimen/navigation_header_text_margin_left"
         android:ellipsize="end" />
 
-</FrameLayout>
+</LinearLayout>

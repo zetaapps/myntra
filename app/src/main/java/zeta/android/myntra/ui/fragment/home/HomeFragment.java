@@ -160,11 +160,6 @@ public class HomeFragment extends BaseNavigationFragment implements HomePresenta
         getNavigationFragmentManager().addFragmentToBackStack(SearchInitiatorFragment.newInstance());
     }
 
-    @Override
-    public void openRightDrawerNavigation() {
-        //TODO::
-    }
-
     //region internal helper methods
     private void registerClickListener() {
         mViews.searchViewButton.setOnClickListener(v ->

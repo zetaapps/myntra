@@ -48,9 +48,6 @@ public class HomePresenter extends ZetaRxFragmentLifeCyclePresenter<HomePresenta
             case R.id.action_search:
                 mPresentation.navigateToSearchPage();
                 return true;
-            case R.id.action_profile:
-                mPresentation.openRightDrawerNavigation();
-                return true;
         }
         return false;
     }

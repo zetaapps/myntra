@@ -5,8 +5,8 @@
     <dimen name="nav_header_height">160dp</dimen>
     <dimen name="nav_header_image_height_width">60dp</dimen>
 
-    <dimen name="navigation_right_drawer_width">300dp</dimen>
-    <dimen name="navigation_left_drawer_width">300dp</dimen>
+    <dimen name="navigation_right_drawer_width">280dp</dimen>
+    <dimen name="navigation_left_drawer_width">280dp</dimen>
 
     <!-- Default screen margins, per the Android Design guidelines. -->
     <dimen name="activity_horizontal_margin">16dp</dimen>

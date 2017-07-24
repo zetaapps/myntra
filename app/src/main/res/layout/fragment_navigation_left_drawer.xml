@@ -8,27 +8,49 @@
     android:scrollbars="none"
     app:insetForegroundCompat="@color/colorPrimaryDark">
 
-    <ScrollView
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:fillViewport="true">
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
 
-        <LinearLayout
-            android:orientation="vertical"
+        <zeta.android.myntra.ui.views.navigation.LeftNavHeaderView
+            android:id="@+id/left_nav_header_view"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="@dimen/right_navigation_header_height" />
 
-            <zeta.android.myntra.ui.views.navigation.LeftNavHeaderView
-                android:id="@+id/left_nav_header_view"
+        <!-- Content -->
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fillViewport="true">
+
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/right_navigation_header_height" />
+                android:layout_height="wrap_content"
+                android:background="@color/zeta_aluminum_grey_over_white"
+                android:divider="@color/navigation_divider_light"
+                android:orientation="vertical"
+                android:showDividers="middle">
 
-            <zeta.android.myntra.ui.views.navigation.LeftNavFooterView
-                android:id="@+id/left_nav_footer_view"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
-        </LinearLayout>
+                <include
+                    layout="@layout/view_navigation_drawer_primary_content"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
 
-    </ScrollView>
+                <include
+                    layout="@layout/view_navigation_drawer_secondary_content"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" />
+
+            </LinearLayout>
+
+        </ScrollView>
+
+        <zeta.android.myntra.ui.views.navigation.LeftNavFooterView
+            android:id="@+id/left_nav_footer_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+    </LinearLayout>
 
 </zeta.android.myntra.ui.views.navigation.ScrimInsetsFrameLayout>

@@ -16,6 +16,4 @@ public interface HomePresentation extends BasePresentation {
 
     void navigateToSearchPage();
 
-    void openRightDrawerNavigation();
-
 }

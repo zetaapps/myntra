@@ -89,20 +89,13 @@ public class NavigationActivity extends BaseNavigationActivity implements Naviga
         @BindView(R.id.navigation_left_drawer)
         View leftDrawerFragmentView;
 
-        @BindView(R.id.navigation_right_drawer)
-        View rightDrawerFragmentView;
-
         NavigationLeftDrawerFragment leftDrawerFragment;
-        NavigationRightGuestSessionDrawerFragment rightDrawerFragment;
 
         @SuppressWarnings("ConstantConditions")
         Views(AppCompatActivity root) {
             super(root.findViewById(R.id.zeta_drawer_layout));
             leftDrawerFragment = (NavigationLeftDrawerFragment)
                     root.getSupportFragmentManager().findFragmentById(R.id.navigation_left_drawer);
-
-            rightDrawerFragment = (NavigationRightGuestSessionDrawerFragment)
-                    root.getSupportFragmentManager().findFragmentById(R.id.navigation_right_drawer);
         }
     }
 
@@ -126,7 +119,6 @@ public class NavigationActivity extends BaseNavigationActivity implements Naviga
         mNavigationFragmentManager.setDrawerLayout(mViews.drawerLayout);
 
         mNavigationFragmentManager.setLeftDrawer(mViews.leftDrawerFragmentView);
-        mNavigationFragmentManager.setRightDrawer(mViews.rightDrawerFragmentView);
 
         final FragmentManager supportFragmentManager = getSupportFragmentManager();
         mNavigationFragmentManager.setFragmentManager(supportFragmentManager);

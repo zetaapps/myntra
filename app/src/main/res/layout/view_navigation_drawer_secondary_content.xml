@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <LinearLayout
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:orientation="vertical"
+        android:paddingRight="@dimen/no_padding_margin"
+        android:paddingLeft="@dimen/navigation_padding_left"
+        android:paddingEnd="@dimen/no_padding_margin"
+        android:paddingStart="@dimen/navigation_padding_left">
+
+        <zeta.android.myntra.views.common.ZetaTextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="center|left"
+            tools:text="test"
+            android:drawablePadding="@dimen/default_2x_padding_margin"
+            android:drawableLeft="@drawable/ic_home_black_48dp"
+            android:layout_marginLeft="@dimen/navigation_padding_left"
+            android:layout_marginRight="@dimen/no_padding_margin"
+            android:layout_marginStart="@dimen/navigation_padding_left"
+            android:layout_marginEnd="@dimen/no_padding_margin"
+            tools:ignore="RtlHardcoded" />
+
+        <zeta.android.myntra.views.common.ZetaTextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="center|left"
+            tools:text="test2"
+            android:drawablePadding="@dimen/default_2x_padding_margin"
+            android:drawableLeft="@drawable/ic_home_black_48dp"
+            android:layout_marginLeft="@dimen/navigation_padding_left"
+            android:layout_marginRight="@dimen/no_padding_margin"
+            android:layout_marginStart="@dimen/navigation_padding_left"
+            android:layout_marginEnd="@dimen/no_padding_margin"
+            tools:ignore="RtlHardcoded" />
+
+
+        <zeta.android.myntra.views.common.ZetaTextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="center|left"
+            tools:text="test3"
+            android:drawablePadding="@dimen/default_2x_padding_margin"
+            android:drawableLeft="@drawable/ic_home_black_48dp"
+            android:layout_marginLeft="@dimen/navigation_padding_left"
+            android:layout_marginRight="@dimen/no_padding_margin"
+            android:layout_marginStart="@dimen/navigation_padding_left"
+            android:layout_marginEnd="@dimen/no_padding_margin"
+            tools:ignore="RtlHardcoded" />
+
+
+    </LinearLayout>
+
+</merge>

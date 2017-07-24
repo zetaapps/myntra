@@ -6,6 +6,9 @@
     <color name="colorPrimaryDark">@color/zeta_md_indigo_700</color>
     <color name="colorAccent">@color/zeta_md_deep_orange_A700</color>
 
+    <!-- Navigation -->
+    <color name="navigation_divider_light">#ddd</color>
+
     <!-- Zeta Colors -->
     <color name="zeta_white">#ffffff</color>
     <color name="zeta_stroke_grey">#D6D6D6</color>
