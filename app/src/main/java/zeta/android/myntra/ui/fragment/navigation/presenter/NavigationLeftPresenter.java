@@ -12,15 +12,14 @@ import javax.annotation.ParametersAreNonnullByDefault;
 import zeta.android.myntra.R;
 import zeta.android.myntra.rx.providers.RxSchedulerProvider;
 import zeta.android.myntra.ui.common.ZetaRxFragmentLifeCyclePresenter;
-import zeta.android.myntra.ui.fragment.navigation.presentation.NavigationRightLoggedInSessionPresentation;
+import zeta.android.myntra.ui.fragment.navigation.presentation.NavigationLeftPresentation;
 import zeta.android.utils.lang.StringUtils;
 
 @ParametersAreNonnullByDefault
-public class NavigationLeftPresenter extends ZetaRxFragmentLifeCyclePresenter<NavigationRightLoggedInSessionPresentation> {
+public class NavigationLeftPresenter extends ZetaRxFragmentLifeCyclePresenter<NavigationLeftPresentation> {
 
-    private NavigationRightLoggedInSessionPresentation mPresentation;
-
-    private NavigationRightLoggedInSessionPresenterParam mPresenterParam;
+    private NavigationLeftPresentation mPresentation;
+    private NavigationLeftPresenterParam mPresenterParam;
 
     //Saved data
 
@@ -41,18 +40,10 @@ public class NavigationLeftPresenter extends ZetaRxFragmentLifeCyclePresenter<Na
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()) {
-            case R.id.action_cart:
-                mPresentation.navigateToCartPage();
-                return true;
-            case R.id.action_search:
-                mPresentation.navigateToSearchPage();
-                return true;
-        }
         return false;
     }
 
-    public void onCreate(NavigationRightLoggedInSessionPresenterParam presenterParam) {
+    public void onCreate(NavigationLeftPresenterParam presenterParam) {
         mPresenterParam = presenterParam;
         final Parcelable savedState = mPresenterParam.getSavedState();
         if (savedState != null) {
@@ -61,8 +52,8 @@ public class NavigationLeftPresenter extends ZetaRxFragmentLifeCyclePresenter<Na
     }
 
     @Override
-    public void onCreateView(NavigationRightLoggedInSessionPresentation homePresentation) {
-        mPresentation = homePresentation;
+    public void onCreateView(NavigationLeftPresentation leftNavPresentation) {
+        mPresentation = leftNavPresentation;
     }
 
     @Override
@@ -80,6 +71,30 @@ public class NavigationLeftPresenter extends ZetaRxFragmentLifeCyclePresenter<Na
     public void onDestroy() {
         super.onDestroy();
         mPresenterParam = null;
+    }
+
+    public void onHomeClicked() {
+        mPresentation.navigateToHome();
+    }
+
+    public void onCategoriesClicked() {
+        mPresentation.navigateToCategories();
+    }
+
+    public void onGiftCardClicked() {
+        mPresentation.navigateToGiftCards();
+    }
+
+    public void onReferAndEarnClicked() {
+        mPresentation.navigateToReferAndEarn();
+    }
+
+    public void onSettingsClicked() {
+        mPresentation.navigateToSettings();
+    }
+
+    public void onAboutClicked() {
+        mPresentation.navigateToAbout();
     }
 
     //region saved data

@@ -45,7 +45,7 @@ public class NavigationRightLoggedInSessionDrawerFragment extends BaseNavigation
 
     @Override
     public void configureDependencies(ZetaAppComponent component) {
-        component.zetaZetaRightNavLoggedInSessionComponent(new SessionModule()).inject(this);
+        component.zetaRightNavLoggedInSessionComponent(new SessionModule()).inject(this);
     }
 
     @Override

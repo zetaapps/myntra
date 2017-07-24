@@ -4,12 +4,12 @@
     <string name="zeta_navigation_right_guest_express_your_style_sub_title">Log In or Sign Up to like, collect and manage orders</string>
 
 
-    <string name="myntra_navigation_left_primary_menu_home">home</string>
-    <string name="myntra_navigation_left_primary_menu_categories">categories</string>
-    <string name="myntra_navigation_left_primary_menu_giftcard">giftcards</string>
-    <string name="myntra_navigation_left_primary_menu_refer_and_earn">refer &amp; and earn</string>
+    <string name="myntra_navigation_left_primary_menu_home">Home</string>
+    <string name="myntra_navigation_left_primary_menu_categories">Categories</string>
+    <string name="myntra_navigation_left_primary_menu_giftcard">Gift Cards</string>
+    <string name="myntra_navigation_left_primary_menu_refer_and_earn">Refer &amp; Earn</string>
 
-    <string name="myntra_navigation_left_secondary_menu_settings">settings</string>
-    <string name="myntra_navigation_left_secondary_menu_about">about</string>
+    <string name="myntra_navigation_left_secondary_menu_settings">Settings</string>
+    <string name="myntra_navigation_left_secondary_menu_about">About</string>
 
 </resources>

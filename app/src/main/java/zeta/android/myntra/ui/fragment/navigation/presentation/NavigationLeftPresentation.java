@@ -15,22 +15,18 @@ public interface NavigationLeftPresentation {
 
     void showActionBarText(String actionBarTitle);
 
-    void showProgressBar(boolean show);
-
-    void hideProgressBarAndShowContentContainer();
-
-    void showProductImage(List<ExpandableImageViewPagerItem> items);
-
-    void showProductTitle(String title);
-
-    void showProductPrice(int price);
-
-    void showProductDescription(String description);
-
     void showSnackBarMessage(@StringRes int message);
 
-    void navigateToCartPage();
+    void navigateToHome();
 
-    void navigateToSearchPage();
+    void navigateToCategories();
+
+    void navigateToGiftCards();
+
+    void navigateToReferAndEarn();
+
+    void navigateToSettings();
+
+    void navigateToAbout();
 
 }

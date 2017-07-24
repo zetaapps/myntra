@@ -14,6 +14,7 @@
         android:paddingStart="@dimen/navigation_padding_left">
 
         <zeta.android.myntra.views.common.ZetaTextView
+            android:id="@+id/nav_right_secondary_settings"
             style="@style/NavigationText.SubMenu"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -31,6 +32,7 @@
             tools:text="test" />
 
         <zeta.android.myntra.views.common.ZetaTextView
+            android:id="@+id/nav_right_secondary_about"
             style="@style/NavigationText.SubMenu"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
