@@ -169,6 +169,7 @@
     public *;
 }
 -keepnames class zeta.android.apps.appconfig.GlideConfigModule
+-keep class com.bumptech.glide.integration.okhttp3.OkHttpGlideModule
 
 #Facebook
 -keep class com.facebook.applinks.** { *; }

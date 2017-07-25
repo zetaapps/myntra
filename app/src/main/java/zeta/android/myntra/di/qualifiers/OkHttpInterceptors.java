@@ -1,4 +1,4 @@
-package zeta.android.myntra.di.qualifier;
+package zeta.android.myntra.di.qualifiers;
 
 import java.lang.annotation.Documented;
 import java.lang.annotation.Retention;

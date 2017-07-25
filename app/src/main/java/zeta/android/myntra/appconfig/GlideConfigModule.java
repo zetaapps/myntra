@@ -19,6 +19,7 @@ public class GlideConfigModule implements GlideModule {
 
     @Override
     public void registerComponents(Context context, Glide glide) {
-        //Do nothing.
+        //TODO::
     }
+
 }

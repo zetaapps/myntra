@@ -10,8 +10,8 @@ import dagger.Provides;
 import okhttp3.Interceptor;
 import okhttp3.logging.HttpLoggingInterceptor;
 import timber.log.Timber;
-import zeta.android.myntra.di.qualifier.OkHttpInterceptors;
-import zeta.android.myntra.di.qualifier.OkHttpNetworkInterceptors;
+import zeta.android.myntra.di.qualifiers.OkHttpInterceptors;
+import zeta.android.myntra.di.qualifiers.OkHttpNetworkInterceptors;
 
 import static java.util.Collections.emptyList;
 import static java.util.Collections.singletonList;

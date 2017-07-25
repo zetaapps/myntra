@@ -243,6 +243,7 @@ public class ProductDetailsFragment extends BaseNavigationFragment implements Pr
         //If we don't clear the tag, Glide will crash as Glide do not want us to have tag on image view
         // Clear the current tag and load the new image, The new tag will be set on success.
         imageView.setTag(null);
+
         Glide.with(context)
                 .load(imageUrl)
                 .centerCrop()
