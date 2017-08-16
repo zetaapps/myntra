@@ -72,7 +72,7 @@ ext.versions = [
         powerMockitoVersion                   : '1.6.2',
 
         fabricPluginVersion                   : "1.22.1",
-        gradlePluginVersion                   : "3.0.0-alpha7",
+        gradlePluginVersion                   : "3.0.0-beta2",
         frodoPluginVersion                    : "0.8.3",
         gmsServicesPluginVersion              : "3.1.0",
         firebasePluginVersion                 : "1.1.0",
